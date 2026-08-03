@@ -1,0 +1,181 @@
+.scene {
+  position: relative;
+  min-height: clamp(480px, 47vw, 620px);
+  overflow: visible;
+}
+
+.sceneHeader {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: clamp(var(--space-5), 3vw, var(--space-8));
+}
+
+.sceneHeader > div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.sceneHeader strong {
+  color: var(--color-text-primary);
+  font-size: 18px;
+}
+
+.sceneEyebrow {
+  color: var(--color-text-tertiary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.connectionLayer,
+.nodeLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+}
+
+.nodeLayer {
+  z-index: 5;
+  pointer-events: none;
+}
+
+.connection,
+.connectionActive,
+.flowPath,
+.flowPathActive {
+  fill: none;
+  stroke: #aeb8c7;
+  stroke-width: 1.1;
+}
+
+.connectionActive {
+  stroke: var(--color-brand-primary);
+  stroke-width: 1.6;
+}
+
+.flowPath {
+  stroke: #bec6d2;
+  stroke-dasharray: 3 3;
+}
+
+.flowPathActive {
+  stroke: var(--color-brand-primary);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.nodeAnchor,
+.checkpoint {
+  position: absolute;
+  top: var(--node-y);
+  left: var(--node-x);
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+}
+
+.nodeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px 10px;
+  color: var(--color-text-secondary);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  border: 1px solid rgb(255 255 255 / 86%);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgb(29 38 53 / 8%);
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 240ms ease, border-color 240ms ease, background-color 240ms ease;
+  backdrop-filter: blur(10px);
+}
+
+.nodeButton:focus-visible,
+.checkpoint:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 3px;
+}
+
+.nodeDot {
+  width: 7px;
+  height: 7px;
+  background: #aeb6c2;
+  border-radius: 50%;
+  transition: background-color 240ms ease, box-shadow 240ms ease;
+}
+
+.nodeActive {
+  color: var(--color-text-primary);
+  background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+  border-color: #cfe0fb;
+}
+
+.nodeActive .nodeDot {
+  background: var(--color-brand-primary);
+  box-shadow: 0 0 0 4px rgb(23 105 224 / 12%);
+}
+
+.checkpoint {
+  display: grid;
+  justify-items: start;
+  gap: 2px;
+  min-width: 92px;
+  padding: 8px 11px;
+  color: var(--color-text-tertiary);
+  background: rgb(255 255 255 / 76%);
+  border: 1px solid rgb(255 255 255 / 88%);
+  border-radius: var(--radius-small);
+  box-shadow: 0 8px 22px rgb(29 38 53 / 6%);
+  cursor: pointer;
+  transition: color 240ms ease, background-color 240ms ease, border-color 240ms ease;
+  backdrop-filter: blur(8px);
+}
+
+.checkpoint span {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.checkpoint strong {
+  font-size: 12px;
+}
+
+.checkpointActive {
+  color: var(--color-brand-primary);
+  background: white;
+  border-color: #c9defe;
+}
+
+.conceptLabel {
+  position: absolute;
+  right: var(--space-5);
+  bottom: var(--space-4);
+  z-index: 6;
+  color: var(--color-text-tertiary);
+  font-size: 10px;
+}
+
+@media (max-width: 720px) {
+  .scene {
+    min-height: 460px;
+  }
+
+  .nodeButton {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .checkpoint {
+    min-width: auto;
+  }
+
+  .checkpoint strong {
+    display: none;
+  }
+}

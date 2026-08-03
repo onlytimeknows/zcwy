@@ -1,0 +1,27 @@
+.fallback {
+  display: grid;
+  min-height: calc(100svh - var(--header-height));
+  place-items: center;
+  background: var(--color-bg-page);
+}
+
+.fallback span {
+  width: 30px;
+  aspect-ratio: 1;
+  border: 2px solid var(--color-border-strong);
+  border-top-color: var(--color-brand-primary);
+  border-radius: 50%;
+  animation: loading 700ms linear infinite;
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fallback span {
+    animation: none;
+  }
+}

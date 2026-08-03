@@ -1,0 +1,175 @@
+.page {
+  display: grid;
+  gap: var(--space-8);
+  min-height: calc(100svh - var(--header-height));
+  padding: clamp(var(--space-8), 6vw, 88px) clamp(var(--space-5), 7vw, 112px);
+}
+
+.topline,
+.hero,
+.roadmapHeading,
+.step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.hero {
+  align-items: flex-end;
+  padding: clamp(var(--space-8), 6vw, 72px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-extra-large);
+  box-shadow: var(--shadow-soft);
+}
+
+.heroIcon {
+  display: inline-grid;
+  width: 64px;
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--color-brand-primary);
+  background: var(--color-brand-soft);
+  border-radius: var(--radius-large);
+}
+
+.heroCopy {
+  display: grid;
+  flex: 1;
+  gap: var(--space-4);
+  max-width: 760px;
+}
+
+.label {
+  color: var(--color-brand-primary);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(36px, 5vw, 62px);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+}
+
+.hero p {
+  max-width: 660px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.statCard {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+}
+
+.statCard strong {
+  color: var(--color-text-primary);
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+}
+
+.statCard span:last-child {
+  color: var(--color-text-tertiary);
+  font-size: 13px;
+}
+
+.roadmap {
+  display: grid;
+  gap: var(--space-6);
+  padding: clamp(var(--space-6), 4vw, var(--space-10));
+  color: white;
+  background: var(--color-ink);
+  border-radius: var(--radius-extra-large);
+}
+
+.roadmap h3 {
+  margin: var(--space-2) 0 0;
+  color: white;
+}
+
+.stepList {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.step {
+  justify-content: flex-start;
+  padding: var(--space-4);
+  background: rgb(255 255 255 / 7%);
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: var(--radius-medium);
+}
+
+.step strong {
+  flex: 1;
+  font-size: 14px;
+}
+
+.step svg {
+  color: #8cb8ff;
+}
+
+.stepNumber {
+  color: rgb(255 255 255 / 45%);
+  font-size: 12px;
+}
+
+.student .heroIcon {
+  color: var(--color-brand-primary);
+  background: #dfeeff;
+}
+
+.enterprise .heroIcon {
+  color: #9b761b;
+  background: var(--color-accent-yellow-soft);
+}
+
+.help .heroIcon {
+  color: var(--color-accent-purple);
+  background: var(--color-accent-purple-soft);
+}
+
+.demo .heroIcon {
+  color: white;
+  background: var(--color-ink);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .topline,
+  .roadmapHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page {
+    padding-top: var(--space-6);
+  }
+}

@@ -1,0 +1,63 @@
+.tooltip {
+  position: absolute;
+  z-index: 8;
+  display: grid;
+  width: min(220px, 58vw);
+  gap: var(--space-3);
+  padding: var(--space-4);
+  color: var(--color-text-primary);
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  border: 1px solid rgb(255 255 255 / 88%);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-soft);
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+}
+
+.left {
+  right: calc(100% + var(--space-3));
+  bottom: 50%;
+}
+
+.right {
+  bottom: 50%;
+  left: calc(100% + var(--space-3));
+}
+
+.tooltip > strong {
+  font-size: 14px;
+}
+
+.tooltip dl,
+.tooltip dl div {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.tooltip dl div {
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.tooltip dt,
+.tooltip dd {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.tooltip dt {
+  color: var(--color-text-tertiary);
+}
+
+.tooltip dd {
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 720px) {
+  .tooltip {
+    width: min(188px, 50vw);
+    padding: var(--space-3);
+  }
+}

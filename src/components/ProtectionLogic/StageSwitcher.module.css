@@ -1,0 +1,51 @@
+.switcher {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.switcher button {
+  display: grid;
+  justify-items: start;
+  gap: 3px;
+  padding: var(--space-3);
+  color: var(--color-text-tertiary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-medium);
+  cursor: pointer;
+  transition: color 240ms ease, background-color 240ms ease, border-color 240ms ease;
+}
+
+.switcher button:hover {
+  color: var(--color-text-primary);
+  background: rgb(255 255 255 / 50%);
+}
+
+.switcher button:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
+
+.switcher span {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.switcher strong {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.switcher .active {
+  color: var(--color-text-primary);
+  background: white;
+  border-color: rgb(255 255 255 / 86%);
+  box-shadow: 0 8px 22px rgb(32 42 57 / 6%);
+}
+
+@media (max-width: 480px) {
+  .switcher strong {
+    font-size: 12px;
+  }
+}
