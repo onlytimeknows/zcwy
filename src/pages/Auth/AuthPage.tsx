@@ -1,15 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import Button from '@douyinfe/semi-ui/lib/es/button';
 import ButtonGroup from '@douyinfe/semi-ui/lib/es/button/buttonGroup';
-import Tag from '@douyinfe/semi-ui/lib/es/tag';
+import Input from '@douyinfe/semi-ui/lib/es/input';
 import Typography from '@douyinfe/semi-ui/lib/es/typography';
 import IconApartment from '@douyinfe/semi-icons/lib/es/icons/IconApartment';
 import IconArrowLeft from '@douyinfe/semi-icons/lib/es/icons/IconArrowLeft';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
 import IconIdCard from '@douyinfe/semi-icons/lib/es/icons/IconIdCard';
 import IconLock from '@douyinfe/semi-icons/lib/es/icons/IconLock';
-import IconShield from '@douyinfe/semi-icons/lib/es/icons/IconShield';
-import IconTickCircle from '@douyinfe/semi-icons/lib/es/icons/IconTickCircle';
 import IconUser from '@douyinfe/semi-icons/lib/es/icons/IconUser';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -23,15 +21,15 @@ type DemoRole = 'student' | 'enterprise';
 const roleOptions = {
   student: {
     label: '学生身份',
-    description: '发现可信岗位，管理协议、工作记录与薪资进度',
-    account: 'student.demo@zcwy.local',
+    description: '求职、履约与薪资',
+    account: 'student@zcwy.cn',
     target: '/student',
     icon: <IconUser size="extra-large" />,
   },
   enterprise: {
     label: '企业身份',
-    description: '发布岗位，处理录用、成果验收与模拟结算',
-    account: 'enterprise.demo@zcwy.local',
+    description: '招聘、验收与结算',
+    account: 'enterprise@zcwy.cn',
     target: '/enterprise',
     icon: <IconApartment size="extra-large" />,
   },
@@ -44,9 +42,9 @@ const roleOptions = {
 }>;
 
 const trustPoints = [
-  '演示账号已经预置完整 Mock 数据',
-  '身份切换不会产生真实注册记录',
-  '所有链上、支付与认证状态均为模拟',
+  '认证企业与岗位信息',
+  '薪资托管与履约状态清晰可查',
+  '协议、工作与结算过程连续留痕',
 ];
 
 export function AuthPage() {
@@ -79,31 +77,21 @@ export function AuthPage() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.42, ease: 'easeOut' }}
       >
-        <Tag className={styles.eyebrow} color="blue" size="large">
-          概念演示入口
-        </Tag>
+        <Text className={styles.eyebrow}>大学生兼职权益保护平台</Text>
         <div className={styles.introCopy}>
-          <Title heading={1}>选择你的身份，进入可信兼职流程</Title>
+          <Title heading={1}>安心兼职，从可信开始</Title>
           <Paragraph>
-            从岗位发现到履约结算，以学生或企业视角体验“事前认证、事中存证、事后保障”。
+            连接学生与可信企业，让岗位、协议、履约和结算都拥有清晰可查的记录。
           </Paragraph>
         </div>
 
         <div className={styles.trustList}>
-          {trustPoints.map((point) => (
+          {trustPoints.map((point, index) => (
             <div key={point}>
-              <IconTickCircle />
+              <span className={styles.pointIndex}>0{index + 1}</span>
               <span>{point}</span>
             </div>
           ))}
-        </div>
-
-        <div className={styles.environmentNote}>
-          <span className={styles.environmentIcon}><IconShield /></span>
-          <div>
-            <strong>模拟链上环境</strong>
-            <span>无需真实账号，不连接支付与外部认证系统</span>
-          </div>
         </div>
       </motion.section>
 
@@ -122,7 +110,6 @@ export function AuthPage() {
           >
             返回首页
           </Button>
-          <Tag color="green">无需真实登录</Tag>
         </div>
 
         <div className={styles.cardHeading}>
@@ -130,7 +117,7 @@ export function AuthPage() {
           <div>
             <Text type="tertiary">欢迎进入职此无忧</Text>
             <Title id="auth-title" heading={2}>
-              {mode === 'login' ? '登录演示账号' : '创建演示身份'}
+              {mode === 'login' ? '登录平台' : '创建账号'}
             </Title>
           </div>
         </div>
@@ -142,7 +129,7 @@ export function AuthPage() {
             type={mode === 'login' ? 'primary' : 'tertiary'}
             onClick={() => setMode('login')}
           >
-            登录体验
+            登录
           </Button>
           <Button
             className={mode === 'register' ? styles.modeActive : undefined}
@@ -150,12 +137,12 @@ export function AuthPage() {
             type={mode === 'register' ? 'primary' : 'tertiary'}
             onClick={() => setMode('register')}
           >
-            注册体验
+            注册
           </Button>
         </ButtonGroup>
 
         <fieldset className={styles.roleFieldset}>
-          <legend>选择体验身份</legend>
+          <legend>选择身份</legend>
           <div className={styles.roleGrid}>
             {(Object.keys(roleOptions) as DemoRole[]).map((roleId) => {
               const option = roleOptions[roleId];
@@ -182,19 +169,33 @@ export function AuthPage() {
         </fieldset>
 
         <motion.div
-          className={styles.accountPreview}
+          className={styles.fields}
           key={`${mode}-${role}`}
           initial={reduceMotion ? false : { opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.22 }}
         >
-          <span className={styles.accountIcon}><IconIdCard /></span>
-          <div>
-            <Text type="tertiary" size="small">
-              {mode === 'login' ? '已为你填入演示账号' : '将为你创建本地演示身份'}
-            </Text>
-            <strong>{mode === 'login' ? selectedRole.account : `新的${selectedRole.label} · 仅本次演示`}</strong>
-          </div>
+          <label className={styles.field}>
+            <span>账号</span>
+            <Input
+              size="large"
+              prefix={<IconIdCard />}
+              defaultValue={mode === 'login' ? selectedRole.account : ''}
+              placeholder="请输入邮箱或手机号"
+              aria-label="账号"
+            />
+          </label>
+          <label className={styles.field}>
+            <span>密码</span>
+            <Input
+              size="large"
+              mode="password"
+              prefix={<IconLock />}
+              defaultValue={mode === 'login' ? 'zcwy2026' : ''}
+              placeholder={mode === 'login' ? '请输入密码' : '请设置密码'}
+              aria-label="密码"
+            />
+          </label>
         </motion.div>
 
         <Button
@@ -209,16 +210,16 @@ export function AuthPage() {
           onClick={enterPlatform}
         >
           {isEntering
-            ? '正在载入演示身份'
+            ? '正在进入平台'
             : mode === 'login'
-              ? '一键登录并体验'
-              : '创建并进入平台'}
+              ? '登录并进入平台'
+              : '注册并进入平台'}
         </Button>
-
-        <Text className={styles.disclaimer} type="tertiary" size="small">
-          此页面仅模拟登录与注册体验，不会保存个人信息或创建真实平台账号。
-        </Text>
       </motion.section>
+
+      <Text className={styles.disclaimer} type="tertiary" size="small">
+        概念演示页面：登录、注册及账号数据均由前端模拟，不会保存个人信息。
+      </Text>
     </main>
   );
 }
