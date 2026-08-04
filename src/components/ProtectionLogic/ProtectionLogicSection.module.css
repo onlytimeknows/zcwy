@@ -4,7 +4,8 @@
   display: grid;
   gap: clamp(var(--space-10), 6vw, 72px);
   min-height: 100svh;
-  padding: clamp(80px, 9vw, 132px) clamp(var(--space-5), 7vw, 112px);
+  padding: clamp(56px, 6vw, 88px) clamp(var(--space-5), 7vw, 112px)
+    clamp(48px, 5vw, 72px);
   background: transparent;
   scroll-margin-top: var(--header-height);
 }
@@ -61,7 +62,7 @@
 @media (max-width: 640px) {
   .section {
     min-height: auto;
-    padding-top: 72px;
-    padding-bottom: 72px;
+    padding-top: 56px;
+    padding-bottom: 56px;
   }
 }

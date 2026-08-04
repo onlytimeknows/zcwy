@@ -117,9 +117,9 @@ export function HomePage() {
               type="primary"
               icon={<IconArrowRight />}
               iconPosition="right"
-              onClick={() => navigate('/demo')}
+              onClick={() => navigate('/auth')}
             >
-              开始完整演示
+              进入平台
             </Button>
             <Button size="large" theme="light" onClick={scrollToJourney}>
               了解保障流程
@@ -184,9 +184,21 @@ export function HomePage() {
               <code>0x7A9F...31C8</code>
             </div>
           </div>
-          <Text className={styles.demoNotice} type="tertiary" size="small">
-            概念演示数据 · 未连接真实区块链
-          </Text>
+          <div className={styles.panelFooter}>
+            <Text className={styles.demoNotice} type="tertiary" size="small">
+              概念演示数据 · 未连接真实区块链
+            </Text>
+            <Button
+              className={styles.taskAction}
+              theme="light"
+              type="primary"
+              icon={<IconArrowRight />}
+              iconPosition="right"
+              onClick={() => navigate('/demo')}
+            >
+              继续当前任务
+            </Button>
+          </div>
           </motion.div>
         </section>
 

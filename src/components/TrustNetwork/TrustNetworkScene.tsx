@@ -40,7 +40,10 @@ export function TrustNetworkScene({
           <span className={styles.sceneEyebrow}>TRUSTED ALLIANCE NETWORK</span>
           <strong>可信联盟网络</strong>
         </div>
-        <Tag color="blue">4 个模拟联盟节点</Tag>
+        <Tag color="blue">
+          <span className={styles.nodeCountFull}>4 个模拟联盟节点</span>
+          <span className={styles.nodeCountCompact}>4 节点</span>
+        </Tag>
       </div>
 
       <svg className={styles.connectionLayer} viewBox="0 0 100 100" aria-hidden="true">

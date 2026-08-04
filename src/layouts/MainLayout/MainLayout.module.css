@@ -61,7 +61,12 @@
 
 @media (max-width: 640px) {
   .header {
-    gap: var(--space-3);
+    gap: var(--space-2);
+    padding-inline: var(--space-3);
+  }
+
+  .actions {
+    column-gap: var(--space-1) !important;
   }
 
   .footer {
@@ -69,6 +74,13 @@
   }
 
   .helpButton {
+    display: inline-flex;
+    width: 36px;
+    min-width: 36px;
+    padding-inline: 0;
+  }
+
+  .helpButton :global(.semi-button-content-right) {
     display: none;
   }
 }

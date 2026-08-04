@@ -50,6 +50,8 @@ export function MainLayout() {
             className={styles.helpButton}
             theme="borderless"
             icon={<IconHelpCircle />}
+            aria-label="帮助中心"
+            title="帮助中心"
             onClick={() => navigate('/help')}
           >
             帮助中心
@@ -59,9 +61,9 @@ export function MainLayout() {
             type="primary"
             icon={<IconArrowRight />}
             iconPosition="right"
-            onClick={() => navigate('/demo')}
+            onClick={() => navigate('/auth')}
           >
-            开始演示
+            进入平台
           </Button>
         </Space>
       </Header>

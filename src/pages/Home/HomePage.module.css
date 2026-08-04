@@ -87,7 +87,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  min-height: calc(100svh - var(--header-height));
+  min-height: calc(92svh - var(--header-height));
   grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
   align-items: center;
   gap: clamp(var(--space-10), 7vw, 96px);
@@ -307,8 +307,19 @@
   text-align: center;
 }
 
+.panelFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.taskAction {
+  flex: 0 0 auto;
+}
+
 .moduleSection {
-  padding: clamp(80px, 10vw, 144px) clamp(var(--space-5), 7vw, 112px);
+  padding: clamp(64px, 7vw, 96px) clamp(var(--space-5), 7vw, 112px);
   scroll-margin-top: var(--header-height);
 }
 
@@ -558,6 +569,15 @@
   .chainReceipt {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .panelFooter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .taskAction {
+    width: 100%;
   }
 
   .hashBlock {
