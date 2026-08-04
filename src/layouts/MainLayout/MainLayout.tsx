@@ -14,6 +14,7 @@ const { Header, Content, Footer } = Layout;
 export function MainLayout() {
   const navigate = useNavigate();
   const location = useLocation();
+  const isAuthPage = location.pathname === '/auth';
 
   const goToHomeSection = (sectionId: string) => {
     if (location.pathname === '/') {
@@ -72,10 +73,12 @@ export function MainLayout() {
         <Outlet />
       </Content>
 
-      <Footer className={styles.footer}>
-        <span>职此无忧 Web 概念 Demo</span>
-        <Tag color="blue" size="small">模拟链上环境</Tag>
-      </Footer>
+      {!isAuthPage && (
+        <Footer className={styles.footer}>
+          <span>职此无忧 Web 概念 Demo</span>
+          <Tag color="blue" size="small">模拟链上环境</Tag>
+        </Footer>
+      )}
       <ScrollRestoration />
     </Layout>
   );
