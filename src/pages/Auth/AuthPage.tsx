@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import Button from '@douyinfe/semi-ui/lib/es/button';
-import ButtonGroup from '@douyinfe/semi-ui/lib/es/button/buttonGroup';
 import Input from '@douyinfe/semi-ui/lib/es/input';
 import Typography from '@douyinfe/semi-ui/lib/es/typography';
 import IconApartment from '@douyinfe/semi-icons/lib/es/icons/IconApartment';
@@ -71,6 +70,15 @@ export function AuthPage() {
 
   return (
     <main className={styles.page}>
+      <Button
+        className={styles.backButton}
+        theme="borderless"
+        icon={<IconArrowLeft />}
+        onClick={() => navigate('/')}
+      >
+        返回首页
+      </Button>
+
       <motion.section
         className={styles.introduction}
         initial={reduceMotion ? false : { opacity: 0, x: -18 }}
@@ -97,49 +105,31 @@ export function AuthPage() {
 
       <motion.section
         className={styles.authCard}
-        aria-labelledby="auth-title"
+        aria-label={mode === 'login' ? '登录平台' : '注册账号'}
         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.44, delay: 0.06, ease: 'easeOut' }}
       >
-        <div className={styles.cardTopline}>
-          <Button
-            theme="borderless"
-            icon={<IconArrowLeft />}
-            onClick={() => navigate('/')}
-          >
-            返回首页
-          </Button>
-        </div>
-
-        <div className={styles.cardHeading}>
-          <span className={styles.lockIcon}><IconLock size="large" /></span>
-          <div>
-            <Text type="tertiary">欢迎进入职此无忧</Text>
-            <Title id="auth-title" heading={2}>
-              {mode === 'login' ? '登录平台' : '创建账号'}
-            </Title>
-          </div>
-        </div>
-
-        <ButtonGroup className={styles.modeSwitch} aria-label="登录或注册体验">
-          <Button
+        <div className={styles.modeTabs} role="tablist" aria-label="登录或注册">
+          <button
             className={mode === 'login' ? styles.modeActive : undefined}
-            theme={mode === 'login' ? 'light' : 'borderless'}
-            type={mode === 'login' ? 'primary' : 'tertiary'}
+            type="button"
+            role="tab"
+            aria-selected={mode === 'login'}
             onClick={() => setMode('login')}
           >
             登录
-          </Button>
-          <Button
+          </button>
+          <button
             className={mode === 'register' ? styles.modeActive : undefined}
-            theme={mode === 'register' ? 'light' : 'borderless'}
-            type={mode === 'register' ? 'primary' : 'tertiary'}
+            type="button"
+            role="tab"
+            aria-selected={mode === 'register'}
             onClick={() => setMode('register')}
           >
             注册
-          </Button>
-        </ButtonGroup>
+          </button>
+        </div>
 
         <fieldset className={styles.roleFieldset}>
           <legend>选择身份</legend>
