@@ -48,11 +48,15 @@ export function HomePage() {
     offset: ['start end', 'end start'],
   });
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 140, damping: 30 });
-  const hemisphereY = useTransform(storyScrollProgress, [0, 0.48, 1], [0, 480, 1000]);
+  const hemisphereY = useTransform(
+    storyScrollProgress,
+    [0, 0.42, 0.78, 1],
+    [0, 300, 620, 620],
+  );
   const hemisphereOpacity = useTransform(
     storyScrollProgress,
-    [0, 0.22, 0.58, 1],
-    [0.16, 0.24, 0.68, 0.82],
+    [0, 0.22, 0.64, 0.82, 1],
+    [0.16, 0.28, 0.82, 1, 1],
   );
   const storyGrayOpacity = useTransform(journeyScrollProgress, [0, 0.4, 0.6], [0, 0, 1]);
   const revealInitial = reduceMotion ? false : { opacity: 0, y: 28 };
@@ -88,7 +92,7 @@ export function HomePage() {
           src={trustNetworkImage}
           alt=""
           aria-hidden="true"
-          style={reduceMotion ? { opacity: 0.56, y: 860 } : { opacity: hemisphereOpacity, y: hemisphereY }}
+          style={reduceMotion ? { opacity: 0.86, y: 620 } : { opacity: hemisphereOpacity, y: hemisphereY }}
         />
         <div className={styles.hemisphereFade} aria-hidden="true" />
 
