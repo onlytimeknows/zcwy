@@ -16,18 +16,19 @@
   top: var(--space-3);
   z-index: 50;
   display: flex;
+  width: min(calc(100% - clamp(32px, 8vw, 128px)), 1760px);
   min-height: var(--header-card-height);
   height: auto;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-6);
-  margin: var(--space-3) clamp(var(--space-3), 2vw, var(--space-6));
+  margin: var(--space-3) auto;
   padding: var(--space-3) clamp(var(--space-4), 4vw, var(--space-12));
-  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-border) 88%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 91%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 68%, transparent);
   border-radius: 999px;
-  box-shadow: 0 12px 34px rgb(26 36 52 / 7%);
-  backdrop-filter: blur(18px);
+  box-shadow: 0 6px 20px rgb(26 36 52 / 4%);
+  backdrop-filter: blur(20px) saturate(108%);
 }
 
 .compactHeader {
@@ -86,8 +87,9 @@
 
   .header {
     top: var(--space-2);
+    width: calc(100% - var(--space-4));
     gap: var(--space-2);
-    margin: var(--space-2);
+    margin: var(--space-2) auto;
     padding-inline: var(--space-3);
   }
 
