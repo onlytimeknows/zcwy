@@ -15,6 +15,7 @@ export function MainLayout() {
   const navigate = useNavigate();
   const location = useLocation();
   const isAuthPage = location.pathname === '/auth';
+  const hasCompactHeader = location.pathname === '/' || isAuthPage;
 
   const goToHomeSection = (sectionId: string) => {
     if (location.pathname === '/') {
@@ -26,10 +27,10 @@ export function MainLayout() {
   };
 
   return (
-    <Layout className={`${styles.layout} ${isAuthPage ? styles.authLayout : ''}`}>
-      <Header className={`${styles.header} ${isAuthPage ? styles.authHeader : ''}`}>
+    <Layout className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''}`}>
+      <Header className={`${styles.header} ${hasCompactHeader ? styles.compactHeader : ''}`}>
         <button className={styles.logoButton} type="button" onClick={() => navigate('/')}>
-          <BrandLogo compact={isAuthPage} />
+          <BrandLogo compact={hasCompactHeader} />
         </button>
         <nav className={styles.nav} aria-label="主导航">
           <Button

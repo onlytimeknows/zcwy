@@ -3,7 +3,7 @@
   background: var(--color-bg-page);
 }
 
-.authLayout {
+.compactLayout {
   --header-height: 56px;
 }
 
@@ -23,7 +23,7 @@
   backdrop-filter: blur(16px);
 }
 
-.authHeader {
+.compactHeader {
   padding-top: var(--space-2);
   padding-bottom: var(--space-2);
 }
@@ -74,7 +74,7 @@
     padding-inline: var(--space-3);
   }
 
-  .authHeader {
+  .compactHeader {
     padding-top: var(--space-2);
     padding-bottom: var(--space-2);
   }
