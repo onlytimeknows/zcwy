@@ -24,11 +24,11 @@
   gap: var(--space-6);
   margin: var(--space-3) auto;
   padding: var(--space-3) clamp(var(--space-4), 4vw, var(--space-12));
-  background: color-mix(in srgb, var(--color-surface) 91%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-border) 68%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  border: 1px solid rgb(255 255 255 / 72%);
   border-radius: 999px;
-  box-shadow: 0 6px 20px rgb(26 36 52 / 4%);
-  backdrop-filter: blur(20px) saturate(108%);
+  box-shadow: none;
+  backdrop-filter: blur(22px) saturate(106%);
 }
 
 .compactHeader {
