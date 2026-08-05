@@ -14,8 +14,9 @@ const { Header, Content, Footer } = Layout;
 export function MainLayout() {
   const navigate = useNavigate();
   const location = useLocation();
+  const isHomePage = location.pathname === '/';
   const isAuthPage = location.pathname === '/auth';
-  const hasCompactHeader = location.pathname === '/' || isAuthPage;
+  const hasCompactHeader = isHomePage || isAuthPage;
 
   const goToHomeSection = (sectionId: string) => {
     if (location.pathname === '/') {
@@ -28,7 +29,7 @@ export function MainLayout() {
 
   return (
     <Layout
-      className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''} ${isAuthPage ? styles.authLayout : ''}`}
+      className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''} ${isHomePage ? styles.homeLayout : ''} ${isAuthPage ? styles.authLayout : ''}`}
     >
       <Header className={`${styles.header} ${hasCompactHeader ? styles.compactHeader : ''}`}>
         <button className={styles.logoButton} type="button" onClick={() => navigate('/')}>

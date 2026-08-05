@@ -11,6 +11,10 @@
   --header-card-height: 56px;
 }
 
+.homeLayout {
+  background: #f7f9fc;
+}
+
 .authLayout {
   background: var(--color-surface);
 }
@@ -28,10 +32,12 @@
   gap: var(--space-6);
   margin: var(--space-3) auto;
   padding: var(--space-3) clamp(var(--space-4), 4vw, var(--space-12));
-  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
-  border: 1px solid rgb(255 255 255 / 72%);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  border: 1px solid rgb(28 39 56 / 5%);
   border-radius: 999px;
-  box-shadow: none;
+  box-shadow:
+    0 8px 24px rgb(37 52 78 / 5%),
+    0 24px 64px rgb(45 64 96 / 4%);
   backdrop-filter: blur(22px) saturate(106%);
 }
 
