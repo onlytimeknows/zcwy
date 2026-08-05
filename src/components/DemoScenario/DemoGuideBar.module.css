@@ -1,0 +1,67 @@
+.guide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  background: color-mix(in srgb, var(--color-brand-soft) 54%, white);
+  border: 1px solid color-mix(in srgb, var(--color-brand-primary) 12%, var(--color-border));
+  border-radius: var(--radius-large);
+}
+
+.copy,
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.copy {
+  min-width: 0;
+  gap: var(--space-3);
+}
+
+.copy > div {
+  display: grid;
+  gap: 2px;
+}
+
+.copy strong {
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+
+.step {
+  color: var(--color-brand-primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  background: var(--color-brand-primary);
+  border: 3px solid rgb(70 110 226 / 15%);
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+
+.processing {
+  background: var(--color-accent-purple);
+}
+
+.actions {
+  flex: 0 0 auto;
+  gap: var(--space-2);
+}
+
+@media (max-width: 720px) {
+  .guide {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+}

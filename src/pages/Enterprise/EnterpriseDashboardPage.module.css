@@ -1,0 +1,462 @@
+.page {
+  display: grid;
+  width: min(calc(100% - clamp(32px, 7vw, 112px)), 1360px);
+  gap: var(--space-6);
+  margin: 0 auto;
+  padding: var(--space-10) 0 var(--space-16);
+}
+
+.pageHeader,
+.headerActions,
+.sectionHeading,
+.executionHeading,
+.receiptHeading,
+.receiptFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.pageHeader h1 {
+  margin: var(--space-1) 0 var(--space-2);
+  font-size: clamp(34px, 4vw, 52px);
+  letter-spacing: -0.04em;
+}
+
+.pageHeader p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.eyebrow,
+.sectionLabel {
+  color: var(--color-brand-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+}
+
+.metrics article {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: white;
+}
+
+.metrics span,
+.metrics small,
+.acceptanceAction span,
+.deliverableSummary span,
+.receiptCard dt,
+.trustPanel dt {
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+}
+
+.metrics strong {
+  font-size: 24px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.65fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.primaryColumn,
+.sideColumn {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-6);
+}
+
+.acceptancePanel,
+.executionPanel,
+.receiptCard,
+.trustPanel {
+  padding: clamp(var(--space-5), 3vw, var(--space-8));
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-extra-large);
+}
+
+.sectionHeading h3,
+.executionHeading h3,
+.receiptHeading h3,
+.trustPanel h4 {
+  margin: var(--space-1) 0 0;
+}
+
+.emptyState {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding: var(--space-6);
+  background: #f6f7f9;
+  border-radius: var(--radius-large);
+}
+
+.emptyIcon,
+.executionIcon,
+.trustIcon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  color: var(--color-brand-primary);
+  background: white;
+  border-radius: var(--radius-medium);
+}
+
+.emptyState p {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text-secondary);
+}
+
+.studentSummary {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  background: #f7f8fa;
+  border-radius: var(--radius-large);
+}
+
+.studentIdentity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.studentIdentity > span {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  color: white;
+  background: var(--color-ink);
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.studentIdentity > div {
+  display: grid;
+  gap: 3px;
+}
+
+.studentIdentity small {
+  color: var(--color-text-tertiary);
+}
+
+.studentSummary dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.studentSummary dl > div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.studentSummary dt {
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+}
+
+.studentSummary dd {
+  margin: 0;
+  font-size: 13px;
+}
+
+.deliverableSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-top: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+}
+
+.deliverableSummary > div {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.deliverableSummary svg {
+  flex: 0 0 auto;
+  color: var(--color-brand-primary);
+}
+
+.deliverableSummary > div > div {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.deliverableSummary code,
+.receiptCard code {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.acceptanceAction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.acceptanceAction > div {
+  display: grid;
+  gap: 3px;
+}
+
+.executionPanel {
+  color: white;
+  background: #181a1e;
+  border-color: #181a1e;
+}
+
+.executionPanel h3,
+.executionPanel .sectionLabel {
+  color: white;
+}
+
+.executionHeading > strong {
+  color: rgb(255 255 255 / 66%);
+}
+
+.executionProgress {
+  height: 6px;
+  margin: var(--space-6) 0;
+  overflow: hidden;
+  background: rgb(255 255 255 / 10%);
+  border-radius: 999px;
+}
+
+.executionProgress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #7da6ff;
+  transform-origin: left center;
+}
+
+.executionSteps {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.executionSteps li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgb(255 255 255 / 5%);
+  border-radius: var(--radius-medium);
+}
+
+.executionSteps li > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  color: rgb(255 255 255 / 58%);
+  background: rgb(255 255 255 / 7%);
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.executionSteps small,
+.executionNotice {
+  color: rgb(255 255 255 / 50%);
+}
+
+.stepActive {
+  background: rgb(74 116 226 / 20%) !important;
+}
+
+.stepActive > span,
+.stepComplete > span {
+  color: white !important;
+  background: var(--color-brand-primary) !important;
+}
+
+.executionNotice {
+  display: block;
+  margin-top: var(--space-5);
+  font-size: 12px;
+  text-align: center;
+}
+
+.receiptCard {
+  box-shadow: var(--shadow-soft);
+}
+
+.receiptHeading > span:first-child {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  color: var(--color-brand-primary);
+  background: var(--color-brand-soft);
+  border-radius: var(--radius-medium);
+}
+
+.receiptHeading > div {
+  flex: 1;
+}
+
+.receiptCard dl,
+.trustPanel dl {
+  display: grid;
+  gap: 0;
+  margin: var(--space-6) 0;
+}
+
+.receiptCard dl {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+}
+
+.receiptCard dl > div {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: #fafbfc;
+}
+
+.receiptCard dd,
+.trustPanel dd {
+  margin: 0;
+}
+
+.receiptCard code {
+  display: block;
+  padding: var(--space-4);
+  color: #bcd1ff;
+  background: #181a1e;
+  border-radius: var(--radius-medium);
+}
+
+.receiptFooter {
+  margin-top: var(--space-5);
+}
+
+.trustPanel {
+  background: #f8f9fb;
+}
+
+.trustPanel dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.trustPanel dd {
+  color: var(--color-text-secondary);
+  text-align: right;
+}
+
+@media (max-width: 1040px) {
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .sideColumn {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: calc(100% - var(--space-6));
+    padding-top: var(--space-6);
+  }
+
+  .pageHeader,
+  .sectionHeading,
+  .acceptanceAction,
+  .executionHeading,
+  .receiptHeading,
+  .receiptFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .emptyState {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .emptyState button {
+    width: 100%;
+  }
+
+  .headerActions {
+    flex-wrap: wrap;
+  }
+
+  .metrics,
+  .sideColumn,
+  .studentSummary,
+  .studentSummary dl,
+  .receiptCard dl {
+    grid-template-columns: 1fr;
+  }
+
+  .deliverableSummary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .deliverableSummary code {
+    max-width: 100%;
+  }
+
+  .executionSteps li {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+
+  .executionSteps small {
+    display: none;
+  }
+}

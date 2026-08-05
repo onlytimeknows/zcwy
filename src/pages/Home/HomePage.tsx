@@ -12,6 +12,7 @@ import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'fr
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import trustNetworkImage from '../../assets/trust-network-hemisphere.png';
 import { ProtectionLogicSection } from '../../components/ProtectionLogic/ProtectionLogicSection';
+import { useDemoScenario } from '../../demo/DemoScenarioContext';
 import { homeModules } from '../../mock/platformCapabilities';
 import type { ModuleIcon } from '../../types/platform';
 import styles from './HomePage.module.css';
@@ -25,19 +26,13 @@ const moduleIcons: Record<ModuleIcon, React.ReactNode> = {
   help: <IconHelpCircle size="extra-large" />,
 };
 
-const journeyStatuses = [
-  { label: '企业与岗位', value: '已认证', active: true },
-  { label: '薪资保证金', value: '已托管', active: true },
-  { label: '工作成果', value: '待验收', active: false },
-  { label: '智能合约', value: '待执行', active: false },
-];
-
 export function HomePage() {
   const storyRef = useRef<HTMLDivElement>(null);
   const journeyRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
   const reduceMotion = useReducedMotion();
+  const { state, view } = useDemoScenario();
   const { scrollYProgress } = useScroll();
   const { scrollYProgress: storyScrollProgress } = useScroll({
     target: storyRef,
@@ -60,6 +55,12 @@ export function HomePage() {
   );
   const storyGrayOpacity = useTransform(journeyScrollProgress, [0, 0.4, 0.6], [0, 0, 1]);
   const revealInitial = reduceMotion ? false : { opacity: 0, y: 28 };
+  const journeyStatuses = [
+    { label: '企业与岗位', value: '已认证', active: true },
+    { label: '薪资保证金', value: state.escrow.status === 'held' ? '已托管' : '已结算', active: true },
+    { label: '工作成果', value: view.home.workResultStatus, active: state.stage !== 'working' },
+    { label: '智能合约', value: view.home.contractStatus, active: state.stage === 'settling' || state.stage === 'settled' },
+  ];
 
   useEffect(() => {
     if (!location.hash) {
@@ -146,21 +147,23 @@ export function HomePage() {
           <div className={styles.panelHeader}>
             <div>
               <Text type="tertiary" size="small">当前演示任务</Text>
-              <Title heading={4}>校园品牌活动协助</Title>
+              <Title heading={4}>{state.task.title}</Title>
             </div>
-            <Tag color="green">履约中</Tag>
+            <Tag color={state.stage === 'settled' ? 'green' : state.stage === 'settling' ? 'purple' : 'blue'}>
+              {view.home.taskStatus}
+            </Tag>
           </div>
 
           <div className={styles.progressBlock}>
             <div className={styles.progressMeta}>
               <span>流程进度</span>
-              <strong>6 / 10</strong>
+              <strong>{view.progress} / 10</strong>
             </div>
-            <div className={styles.progressTrack} aria-label="流程进度 60%">
+            <div className={styles.progressTrack} aria-label={`流程进度 ${view.progress} / 10`}>
               <motion.span
                 initial={reduceMotion ? false : { scaleX: 0 }}
-                animate={{ scaleX: 0.6 }}
-                transition={{ duration: 0.7, delay: 0.35 }}
+                animate={{ scaleX: view.progress / 10 }}
+                transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : 0.15 }}
               />
             </div>
           </div>
@@ -181,11 +184,11 @@ export function HomePage() {
           <div className={styles.chainReceipt}>
             <div>
               <span>最近一次存证</span>
-              <strong>工作记录 #06</strong>
+              <strong>{state.latestEvidence.id}</strong>
             </div>
             <div className={styles.hashBlock}>
               <span>交易哈希</span>
-              <code>0x7A9F...31C8</code>
+              <code title={state.latestEvidence.hash}>{state.latestEvidence.hash}</code>
             </div>
           </div>
           <div className={styles.panelFooter}>
@@ -198,7 +201,7 @@ export function HomePage() {
               type="primary"
               icon={<IconArrowRight />}
               iconPosition="right"
-              onClick={() => navigate('/demo')}
+              onClick={() => navigate(view.home.nextRoute)}
             >
               继续当前任务
             </Button>
@@ -224,7 +227,7 @@ export function HomePage() {
             <Text className={styles.sectionLabel}>选择一个入口</Text>
             <Title heading={2}>从你最关心的视角开始</Title>
           </div>
-          <Paragraph>四个模块已经建立独立页面，完整业务交互将在下一阶段继续接入。</Paragraph>
+          <Paragraph>学生端与企业端已接入同一份演示状态，其他模块将在后续阶段继续完善。</Paragraph>
         </div>
 
         <div className={styles.moduleGrid}>

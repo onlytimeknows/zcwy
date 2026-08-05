@@ -160,14 +160,6 @@ export function DemoPreviewPage() {
   return <ModulePreviewPage previewId="demo" />;
 }
 
-export function StudentPreviewPage() {
-  return <ModulePreviewPage previewId="student" />;
-}
-
-export function EnterprisePreviewPage() {
-  return <ModulePreviewPage previewId="enterprise" />;
-}
-
 export function HelpPreviewPage() {
   return <ModulePreviewPage previewId="help" />;
 }

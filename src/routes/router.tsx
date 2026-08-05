@@ -35,17 +35,17 @@ export const router = createBrowserRouter([
       {
         path: 'student',
         lazy: async () => {
-          const { StudentPreviewPage } = await import('../pages/ModulePreview/ModulePreviewPage');
+          const { StudentDashboardPage } = await import('../pages/Student/StudentDashboardPage');
 
-          return { Component: StudentPreviewPage };
+          return { Component: StudentDashboardPage };
         },
       },
       {
         path: 'enterprise',
         lazy: async () => {
-          const { EnterprisePreviewPage } = await import('../pages/ModulePreview/ModulePreviewPage');
+          const { EnterpriseDashboardPage } = await import('../pages/Enterprise/EnterpriseDashboardPage');
 
-          return { Component: EnterprisePreviewPage };
+          return { Component: EnterpriseDashboardPage };
         },
       },
       {
