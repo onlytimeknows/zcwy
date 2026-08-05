@@ -1,9 +1,13 @@
 import IconShield from '@douyinfe/semi-icons/lib/es/icons/IconShield';
 import styles from './BrandLogo.module.css';
 
-export function BrandLogo() {
+interface BrandLogoProps {
+  compact?: boolean;
+}
+
+export function BrandLogo({ compact = false }: BrandLogoProps) {
   return (
-    <div className={styles.brand} aria-label="职此无忧">
+    <div className={`${styles.brand} ${compact ? styles.compact : ''}`} aria-label="职此无忧">
       <span className={styles.mark} aria-hidden="true">
         <IconShield size="large" />
       </span>

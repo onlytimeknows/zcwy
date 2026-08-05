@@ -26,10 +26,10 @@ export function MainLayout() {
   };
 
   return (
-    <Layout className={styles.layout}>
-      <Header className={styles.header}>
+    <Layout className={`${styles.layout} ${isAuthPage ? styles.authLayout : ''}`}>
+      <Header className={`${styles.header} ${isAuthPage ? styles.authHeader : ''}`}>
         <button className={styles.logoButton} type="button" onClick={() => navigate('/')}>
-          <BrandLogo />
+          <BrandLogo compact={isAuthPage} />
         </button>
         <nav className={styles.nav} aria-label="主导航">
           <Button
