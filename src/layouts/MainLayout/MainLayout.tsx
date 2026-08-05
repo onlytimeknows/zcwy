@@ -27,7 +27,9 @@ export function MainLayout() {
   };
 
   return (
-    <Layout className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''}`}>
+    <Layout
+      className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''} ${isAuthPage ? styles.authLayout : ''}`}
+    >
       <Header className={`${styles.header} ${hasCompactHeader ? styles.compactHeader : ''}`}>
         <button className={styles.logoButton} type="button" onClick={() => navigate('/')}>
           <BrandLogo compact={hasCompactHeader} />

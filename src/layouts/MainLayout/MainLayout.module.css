@@ -11,6 +11,10 @@
   --header-card-height: 56px;
 }
 
+.authLayout {
+  background: var(--color-surface);
+}
+
 .header {
   position: sticky;
   top: var(--space-3);
