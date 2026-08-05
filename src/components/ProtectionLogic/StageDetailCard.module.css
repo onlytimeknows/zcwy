@@ -9,18 +9,18 @@
 }
 
 .blue {
-  background: #eaf4ff;
-  border-color: #d6e8ff;
+  background: color-mix(in srgb, var(--color-brand-soft) 78%, white);
+  border-color: color-mix(in srgb, var(--color-brand-primary) 18%, white);
 }
 
 .purple {
   background: var(--color-accent-purple-soft);
-  border-color: #ddd7ff;
+  border-color: var(--color-record-border);
 }
 
 .yellow {
   background: var(--color-accent-yellow-soft);
-  border-color: #efe0a1;
+  border-color: var(--color-value-border);
 }
 
 .card {
@@ -93,7 +93,19 @@
 }
 
 .evidenceList svg {
+  color: var(--color-icon-default);
+}
+
+.blue .evidenceList svg {
   color: var(--color-brand-primary);
+}
+
+.purple .evidenceList svg {
+  color: var(--color-record);
+}
+
+.yellow .evidenceList svg {
+  color: var(--color-value);
 }
 
 .stateNote {

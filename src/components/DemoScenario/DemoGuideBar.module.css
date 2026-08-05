@@ -1,11 +1,16 @@
 .guide {
+  --guide-color: var(--color-brand-primary);
+  --guide-text: var(--color-brand-active);
+  --guide-soft: var(--color-brand-soft);
+  --guide-border: color-mix(in srgb, var(--color-brand-primary) 20%, var(--color-border));
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-5);
   padding: var(--space-4) var(--space-5);
-  background: color-mix(in srgb, var(--color-brand-soft) 54%, white);
-  border: 1px solid color-mix(in srgb, var(--color-brand-primary) 12%, var(--color-border));
+  background: color-mix(in srgb, var(--guide-soft) 58%, white);
+  border: 1px solid var(--guide-border);
   border-radius: var(--radius-large);
 }
 
@@ -31,7 +36,7 @@
 }
 
 .step {
-  color: var(--color-brand-primary);
+  color: var(--guide-text);
   font-size: 12px;
   font-weight: 700;
 }
@@ -40,14 +45,33 @@
   width: 10px;
   height: 10px;
   flex: 0 0 auto;
-  background: var(--color-brand-primary);
-  border: 3px solid rgb(70 110 226 / 15%);
+  background: var(--guide-color);
+  border: 3px solid color-mix(in srgb, var(--guide-color) 16%, transparent);
   border-radius: 50%;
   box-sizing: content-box;
 }
 
 .processing {
-  background: var(--color-accent-purple);
+  background: var(--color-record);
+}
+
+.working {
+  --guide-color: var(--color-brand-primary);
+}
+
+.submitted,
+.settling {
+  --guide-color: var(--color-record);
+  --guide-text: var(--color-record-text);
+  --guide-soft: var(--color-record-soft);
+  --guide-border: var(--color-record-border);
+}
+
+.settled {
+  --guide-color: var(--color-success);
+  --guide-text: var(--color-success-text);
+  --guide-soft: var(--color-success-soft);
+  --guide-border: var(--color-success-border);
 }
 
 .actions {

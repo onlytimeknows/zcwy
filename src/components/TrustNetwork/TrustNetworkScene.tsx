@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from 'react';
-import Tag from '@douyinfe/semi-ui/lib/es/tag';
 import { AnimatePresence, motion } from 'framer-motion';
+import { SemanticStatusTag } from '../SemanticStatus/SemanticStatusTag';
 import { journeyPhases, trustNetworkConnections, trustNetworkNodes } from '../../mock/platformCapabilities';
 import type { JourneyPhase, TrustNodeId } from '../../types/platform';
 import { NetworkNodeTooltip } from './NetworkNodeTooltip';
@@ -40,10 +40,10 @@ export function TrustNetworkScene({
           <span className={styles.sceneEyebrow}>TRUSTED ALLIANCE NETWORK</span>
           <strong>可信联盟网络</strong>
         </div>
-        <Tag color="blue">
+        <SemanticStatusTag tone="record">
           <span className={styles.nodeCountFull}>4 个模拟联盟节点</span>
           <span className={styles.nodeCountCompact}>4 节点</span>
-        </Tag>
+        </SemanticStatusTag>
       </div>
 
       <svg className={styles.connectionLayer} viewBox="0 0 100 100" aria-hidden="true">

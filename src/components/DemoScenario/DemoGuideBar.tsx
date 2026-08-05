@@ -23,7 +23,7 @@ export function DemoGuideBar() {
   };
 
   return (
-    <section className={styles.guide} aria-label="演示导览" aria-live="polite">
+    <section className={`${styles.guide} ${styles[state.stage]}`} aria-label="演示导览" aria-live="polite">
       <div className={styles.copy}>
         <span className={`${styles.statusDot} ${state.stage === 'settling' ? styles.processing : ''}`} />
         <div>

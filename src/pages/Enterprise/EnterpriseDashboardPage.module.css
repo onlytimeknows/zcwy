@@ -68,6 +68,14 @@
   font-size: 24px;
 }
 
+.metricValue strong {
+  color: var(--color-value-text);
+}
+
+.metricSuccess strong {
+  color: var(--color-success-text);
+}
+
 .workspace {
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.65fr);
@@ -117,7 +125,7 @@
   width: 52px;
   height: 52px;
   place-items: center;
-  color: var(--color-brand-primary);
+  color: var(--color-icon-default);
   background: white;
   border-radius: var(--radius-medium);
 }
@@ -205,7 +213,7 @@
 
 .deliverableSummary svg {
   flex: 0 0 auto;
-  color: var(--color-brand-primary);
+  color: var(--color-record);
 }
 
 .deliverableSummary > div > div {
@@ -262,7 +270,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  background: #7da6ff;
+  background: var(--color-brand-primary);
   transform-origin: left center;
 }
 
@@ -300,14 +308,18 @@
   color: rgb(255 255 255 / 50%);
 }
 
-.stepActive {
-  background: rgb(74 116 226 / 20%) !important;
+.executionSteps .stepActive {
+  background: color-mix(in srgb, var(--color-brand-primary) 20%, transparent);
 }
 
-.stepActive > span,
-.stepComplete > span {
-  color: white !important;
-  background: var(--color-brand-primary) !important;
+.executionSteps .stepActive > span {
+  color: white;
+  background: var(--color-brand-primary);
+}
+
+.executionSteps .stepComplete > span {
+  color: white;
+  background: var(--color-success);
 }
 
 .executionNotice {
@@ -326,8 +338,8 @@
   width: 52px;
   height: 52px;
   place-items: center;
-  color: var(--color-brand-primary);
-  background: var(--color-brand-soft);
+  color: var(--color-success);
+  background: var(--color-success-soft);
   border-radius: var(--radius-medium);
 }
 
@@ -358,6 +370,11 @@
   background: #fafbfc;
 }
 
+.receiptCard dl > div:first-child dd {
+  color: var(--color-value-text);
+  font-weight: 700;
+}
+
 .receiptCard dd,
 .trustPanel dd {
   margin: 0;
@@ -366,7 +383,7 @@
 .receiptCard code {
   display: block;
   padding: var(--space-4);
-  color: #bcd1ff;
+  color: var(--color-record-on-dark);
   background: #181a1e;
   border-radius: var(--radius-medium);
 }
@@ -377,6 +394,10 @@
 
 .trustPanel {
   background: #f8f9fb;
+}
+
+.trustIcon {
+  color: var(--color-success);
 }
 
 .trustPanel dl > div {

@@ -1,5 +1,4 @@
 import Button from '@douyinfe/semi-ui/lib/es/button';
-import Tag from '@douyinfe/semi-ui/lib/es/tag';
 import Typography from '@douyinfe/semi-ui/lib/es/typography';
 import IconApartment from '@douyinfe/semi-icons/lib/es/icons/IconApartment';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
@@ -10,6 +9,7 @@ import IconTickCircle from '@douyinfe/semi-icons/lib/es/icons/IconTickCircle';
 import IconUser from '@douyinfe/semi-icons/lib/es/icons/IconUser';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
 import styles from './ModulePreviewPage.module.css';
 
 const { Title, Paragraph, Text } = Typography;
@@ -22,7 +22,6 @@ interface PreviewConfig {
   description: string;
   tone: PreviewId;
   icon: React.ReactNode;
-  tagColor: 'blue' | 'purple' | 'yellow' | 'green';
   stats: Array<{ label: string; value: string; hint: string }>;
   steps: string[];
 }
@@ -34,7 +33,6 @@ const previews: Record<PreviewId, PreviewConfig> = {
     description: '演示引导和跨角色状态将在下一阶段接入。当前页面用于确认整体结构与视觉方向。',
     tone: 'demo',
     icon: <IconPlayCircle size="extra-large" />,
-    tagColor: 'green',
     stats: [
       { label: '演示步骤', value: '10', hint: '从岗位到证书' },
       { label: '参与视角', value: '2', hint: '学生与企业' },
@@ -48,7 +46,6 @@ const previews: Record<PreviewId, PreviewConfig> = {
     description: '学生端将集中管理岗位、申请、协议、工作记录、薪资状态和实践信用。',
     tone: 'student',
     icon: <IconUser size="extra-large" />,
-    tagColor: 'blue',
     stats: [
       { label: '已投递', value: '3', hint: '1 个等待确认' },
       { label: '进行中', value: '1', hint: '今日已完成打卡' },
@@ -62,7 +59,6 @@ const previews: Record<PreviewId, PreviewConfig> = {
     description: '企业端将覆盖岗位发布、学生筛选、保证金托管、成果验收和模拟合约结算。',
     tone: 'enterprise',
     icon: <IconApartment size="extra-large" />,
-    tagColor: 'yellow',
     stats: [
       { label: '开放岗位', value: '4', hint: '本周新增 2 个' },
       { label: '待处理申请', value: '12', hint: '3 位高信用学生' },
@@ -76,7 +72,6 @@ const previews: Record<PreviewId, PreviewConfig> = {
     description: '帮助中心将整合风险提示、纠纷申诉、证据时间线、证据包生成和处理进度。',
     tone: 'help',
     icon: <IconHelpCircle size="extra-large" />,
-    tagColor: 'purple',
     stats: [
       { label: '存证节点', value: '8', hint: '关键行为连续记录' },
       { label: '证据完整度', value: '96%', hint: '概念演示评分' },
@@ -102,7 +97,7 @@ function ModulePreviewPage({ previewId }: { previewId: PreviewId }) {
         <Button theme="borderless" icon={<IconHome />} onClick={() => navigate('/#modules')}>
           返回模块入口
         </Button>
-        <Tag color={preview.tagColor}>第一阶段预览</Tag>
+        <SemanticStatusTag>第一阶段预览</SemanticStatusTag>
       </div>
 
       <section className={styles.hero}>

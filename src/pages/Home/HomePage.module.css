@@ -152,7 +152,7 @@
 }
 
 .trustNotes svg {
-  color: var(--color-brand-primary);
+  color: var(--color-icon-default);
 }
 
 .statusPanel {
@@ -255,18 +255,61 @@
   font-size: 14px;
 }
 
-.statusDot,
-.statusDotActive {
+.statusDot {
   width: 9px;
   height: 9px;
   flex: 0 0 auto;
-  background: #cbd1da;
+  background: var(--color-neutral-border);
   border-radius: 50%;
 }
 
-.statusDotActive {
+.statusSuccess .statusDot {
+  background: var(--color-success);
+  box-shadow: 0 0 0 4px var(--color-success-soft);
+}
+
+.statusSuccess strong {
+  color: var(--color-success-text);
+}
+
+.statusValue .statusDot {
+  background: var(--color-value);
+  box-shadow: 0 0 0 4px var(--color-value-soft);
+}
+
+.statusValue strong {
+  color: var(--color-value-text);
+}
+
+.statusBrand .statusDot {
   background: var(--color-brand-primary);
   box-shadow: 0 0 0 4px var(--color-brand-soft);
+}
+
+.statusBrand strong {
+  color: var(--color-brand-active);
+}
+
+.statusRecord .statusDot {
+  background: var(--color-record);
+  box-shadow: 0 0 0 4px var(--color-record-soft);
+}
+
+.statusRecord strong {
+  color: var(--color-record-text);
+}
+
+.statusAttention .statusDot {
+  background: var(--color-attention);
+  box-shadow: 0 0 0 4px var(--color-attention-soft);
+}
+
+.statusAttention strong {
+  color: var(--color-attention-text);
+}
+
+.statusNeutral {
+  color: inherit;
 }
 
 .statusIndex {
@@ -300,7 +343,7 @@
 }
 
 .hashBlock code {
-  color: #b8cfff;
+  color: var(--color-record-on-dark);
   font-size: 13px;
 }
 
@@ -413,15 +456,30 @@
 }
 
 .moduleblue {
-  background: #dfeeff;
+  background: var(--color-surface);
 }
 
 .moduleyellow {
-  background: var(--color-accent-yellow-soft);
+  background: var(--color-surface);
 }
 
 .modulepurple {
-  background: var(--color-accent-purple-soft);
+  background: var(--color-surface);
+}
+
+.moduleblue .moduleIcon {
+  color: var(--color-brand-primary);
+  background: var(--color-brand-soft);
+}
+
+.moduleyellow .moduleIcon {
+  color: var(--color-value-text);
+  background: var(--color-value-soft);
+}
+
+.modulepurple .moduleIcon {
+  color: var(--color-attention-text);
+  background: var(--color-attention-soft);
 }
 
 .moduleLink {

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import Button from '@douyinfe/semi-ui/lib/es/button';
-import Tag from '@douyinfe/semi-ui/lib/es/tag';
 import Typography from '@douyinfe/semi-ui/lib/es/typography';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
 import IconCheckCircleStroked from '@douyinfe/semi-icons/lib/es/icons/IconCheckCircleStroked';
@@ -13,6 +12,8 @@ import { useNavigate } from 'react-router-dom';
 import { CurrentTaskCard } from '../../components/DemoScenario/CurrentTaskCard';
 import { DemoGuideBar } from '../../components/DemoScenario/DemoGuideBar';
 import { TaskProgressTimeline } from '../../components/DemoScenario/TaskProgressTimeline';
+import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
+import { deliverableTone } from '../../components/SemanticStatus/statusToneMap';
 import { useDemoScenario } from '../../demo/DemoScenarioContext';
 import {
   certificateDetails,
@@ -72,7 +73,7 @@ export function StudentDashboardPage() {
           <Paragraph>晚上好，{state.student.name}。当前有 1 项兼职任务正在进行。</Paragraph>
         </div>
         <div className={styles.headerActions}>
-          <Tag color="blue" size="large" prefixIcon={<IconUser />}>学生演示身份</Tag>
+          <SemanticStatusTag tone="brand" size="large" prefixIcon={<IconUser />}>学生演示身份</SemanticStatusTag>
           <Button theme="borderless" onClick={() => navigate('/auth')}>切换演示身份</Button>
         </div>
       </header>
@@ -91,9 +92,9 @@ export function StudentDashboardPage() {
                   {state.deliverable.status === 'not-submitted' ? '提交本次工作成果' : '成果提交凭证'}
                 </Title>
               </div>
-              <Tag color={state.deliverable.status === 'not-submitted' ? 'grey' : 'green'}>
+              <SemanticStatusTag tone={deliverableTone(state)}>
                 {state.deliverable.status === 'not-submitted' ? '待提交' : state.deliverable.status === 'accepted' ? '已验收' : '已存证'}
-              </Tag>
+              </SemanticStatusTag>
             </div>
 
             <div className={styles.fileList}>
@@ -172,7 +173,7 @@ export function StudentDashboardPage() {
                   <Text className={styles.sectionLabel}>ON-CHAIN PRACTICE RECORD</Text>
                   <Title heading={3} id="certificate-title">大学生兼职实践证书</Title>
                 </div>
-                <Tag color="blue">概念演示凭证</Tag>
+                <SemanticStatusTag>概念演示凭证</SemanticStatusTag>
               </div>
               <Button theme="borderless" onClick={() => setCertificateOpen((open) => !open)}>
                 {certificateOpen ? '收起证书详情' : '展开证书详情'}
@@ -205,7 +206,7 @@ export function StudentDashboardPage() {
 
         <aside className={styles.sideColumn}>
           <TaskProgressTimeline />
-          <section className={styles.escrowCard} aria-labelledby="escrow-title">
+          <section className={`${styles.escrowCard} ${state.settlement.status === 'paid' ? styles.escrowPaid : ''}`} aria-labelledby="escrow-title">
             <span className={styles.escrowIcon}><IconCreditCardStroked size="extra-large" /></span>
             <Text className={styles.sectionLabel}>薪资保障</Text>
             <Title heading={4} id="escrow-title">

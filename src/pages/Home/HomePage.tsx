@@ -12,6 +12,8 @@ import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'fr
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import trustNetworkImage from '../../assets/trust-network-hemisphere.png';
 import { ProtectionLogicSection } from '../../components/ProtectionLogic/ProtectionLogicSection';
+import { SemanticStatusTag, type SemanticTone } from '../../components/SemanticStatus/SemanticStatusTag';
+import { scenarioStageTone } from '../../components/SemanticStatus/statusToneMap';
 import { useDemoScenario } from '../../demo/DemoScenarioContext';
 import { homeModules } from '../../mock/platformCapabilities';
 import type { ModuleIcon } from '../../types/platform';
@@ -24,6 +26,15 @@ const moduleIcons: Record<ModuleIcon, React.ReactNode> = {
   student: <IconUser size="extra-large" />,
   enterprise: <IconApartment size="extra-large" />,
   help: <IconHelpCircle size="extra-large" />,
+};
+
+const statusToneClass: Record<SemanticTone, string> = {
+  neutral: styles.statusNeutral,
+  brand: styles.statusBrand,
+  success: styles.statusSuccess,
+  value: styles.statusValue,
+  record: styles.statusRecord,
+  attention: styles.statusAttention,
 };
 
 export function HomePage() {
@@ -56,10 +67,10 @@ export function HomePage() {
   const storyGrayOpacity = useTransform(journeyScrollProgress, [0, 0.4, 0.6], [0, 0, 1]);
   const revealInitial = reduceMotion ? false : { opacity: 0, y: 28 };
   const journeyStatuses = [
-    { label: '企业与岗位', value: '已认证', active: true },
-    { label: '薪资保证金', value: state.escrow.status === 'held' ? '已托管' : '已结算', active: true },
-    { label: '工作成果', value: view.home.workResultStatus, active: state.stage !== 'working' },
-    { label: '智能合约', value: view.home.contractStatus, active: state.stage === 'settling' || state.stage === 'settled' },
+    { label: '企业与岗位', value: '已认证', tone: 'success' as const },
+    { label: '薪资保证金', value: state.escrow.status === 'held' ? '已托管' : '已结算', tone: state.escrow.status === 'held' ? 'value' as const : 'success' as const },
+    { label: '工作成果', value: view.home.workResultStatus, tone: state.stage === 'working' ? 'neutral' as const : state.stage === 'submitted' ? 'value' as const : 'success' as const },
+    { label: '智能合约', value: view.home.contractStatus, tone: state.stage === 'settling' ? 'brand' as const : state.stage === 'settled' ? 'success' as const : 'neutral' as const },
   ];
 
   useEffect(() => {
@@ -149,9 +160,9 @@ export function HomePage() {
               <Text type="tertiary" size="small">当前演示任务</Text>
               <Title heading={4}>{state.task.title}</Title>
             </div>
-            <Tag color={state.stage === 'settled' ? 'green' : state.stage === 'settling' ? 'purple' : 'blue'}>
+            <SemanticStatusTag tone={scenarioStageTone[state.stage]}>
               {view.home.taskStatus}
-            </Tag>
+            </SemanticStatusTag>
           </div>
 
           <div className={styles.progressBlock}>
@@ -170,8 +181,8 @@ export function HomePage() {
 
           <div className={styles.statusList}>
             {journeyStatuses.map((status, index) => (
-              <div className={styles.statusItem} key={status.label}>
-                <span className={status.active ? styles.statusDotActive : styles.statusDot} />
+              <div className={`${styles.statusItem} ${statusToneClass[status.tone]}`} key={status.label}>
+                <span className={styles.statusDot} />
                 <div>
                   <span>{status.label}</span>
                   <strong>{status.value}</strong>

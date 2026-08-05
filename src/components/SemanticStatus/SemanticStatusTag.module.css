@@ -1,0 +1,35 @@
+.tag.tag {
+  color: var(--color-text-secondary);
+  background: var(--color-neutral-soft);
+  border: 1px solid var(--color-neutral-border);
+}
+
+.brand.brand {
+  color: var(--color-brand-active);
+  background: var(--color-brand-soft);
+  border-color: color-mix(in srgb, var(--color-brand-primary) 24%, white);
+}
+
+.success.success {
+  color: var(--color-success-text);
+  background: var(--color-success-soft);
+  border-color: var(--color-success-border);
+}
+
+.value.value {
+  color: var(--color-value-text);
+  background: var(--color-value-soft);
+  border-color: var(--color-value-border);
+}
+
+.record.record {
+  color: var(--color-record-text);
+  background: var(--color-record-soft);
+  border-color: var(--color-record-border);
+}
+
+.attention.attention {
+  color: var(--color-attention-text);
+  background: var(--color-attention-soft);
+  border-color: var(--color-attention-border);
+}

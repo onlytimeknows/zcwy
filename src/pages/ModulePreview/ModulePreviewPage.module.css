@@ -123,7 +123,7 @@
 }
 
 .step svg {
-  color: #8cb8ff;
+  color: var(--color-icon-default);
 }
 
 .stepNumber {
@@ -133,17 +133,26 @@
 
 .student .heroIcon {
   color: var(--color-brand-primary);
-  background: #dfeeff;
+  background: var(--color-brand-soft);
 }
 
 .enterprise .heroIcon {
-  color: #9b761b;
+  color: var(--color-value-text);
   background: var(--color-accent-yellow-soft);
 }
 
 .help .heroIcon {
-  color: var(--color-accent-purple);
-  background: var(--color-accent-purple-soft);
+  color: var(--color-attention-text);
+  background: var(--color-attention-soft);
+}
+
+.help .statCard:nth-child(1) strong,
+.help .statCard:nth-child(2) strong {
+  color: var(--color-record-text);
+}
+
+.help .statCard:nth-child(3) strong {
+  color: var(--color-value-text);
 }
 
 .demo .heroIcon {

@@ -8,7 +8,7 @@
 }
 
 .student {
-  background: color-mix(in srgb, var(--color-brand-soft) 38%, white);
+  background: color-mix(in srgb, var(--color-brand-soft) 20%, white);
 }
 
 .enterprise {
@@ -47,7 +47,7 @@
 .progressTrack {
   height: 8px;
   overflow: hidden;
-  background: #e7eaf0;
+  background: var(--color-neutral-border);
   border-radius: 999px;
 }
 
@@ -80,7 +80,17 @@
 .facts svg {
   grid-row: 1 / 3;
   align-self: center;
-  color: var(--color-brand-primary);
+  color: var(--color-icon-default);
+}
+
+.facts .verifiedFact svg,
+.facts .verifiedFact strong {
+  color: var(--color-success-text);
+}
+
+.facts .valueFact svg,
+.facts .valueFact strong {
+  color: var(--color-value-text);
 }
 
 .facts span {
@@ -115,9 +125,13 @@
 .evidence code {
   max-width: 48%;
   overflow-x: auto;
-  color: var(--color-text-secondary);
+  color: var(--color-record-text);
   font-size: 12px;
   white-space: nowrap;
+}
+
+.evidence strong {
+  color: var(--color-record-text);
 }
 
 .notice {

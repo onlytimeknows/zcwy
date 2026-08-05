@@ -16,7 +16,7 @@
 }
 
 .eyebrow {
-  color: var(--color-brand-primary);
+  color: var(--color-record-text);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -57,21 +57,21 @@
   height: 20px;
   place-items: center;
   color: white;
-  background: #d7dce5;
+  background: var(--color-neutral-border);
   border: 4px solid white;
   border-radius: 50%;
-  box-shadow: 0 0 0 1px #d7dce5;
+  box-shadow: 0 0 0 1px var(--color-neutral-border);
   font-size: 10px;
 }
 
-.complete .marker,
-.active .marker {
-  background: var(--color-brand-primary);
-  box-shadow: 0 0 0 1px rgb(70 110 226 / 30%);
+.complete .marker {
+  background: var(--color-success);
+  box-shadow: 0 0 0 1px var(--color-success-border);
 }
 
 .active .marker {
-  box-shadow: 0 0 0 4px rgb(70 110 226 / 12%);
+  background: var(--color-brand-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-brand-primary) 14%, transparent);
 }
 
 .item > div {
@@ -97,6 +97,14 @@
 .active .statusText {
   color: var(--color-brand-primary);
   font-weight: 700;
+}
+
+.record > div > span {
+  color: var(--color-record-text);
+}
+
+.value > div > span {
+  color: var(--color-value-text);
 }
 
 @media (max-width: 520px) {

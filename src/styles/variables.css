@@ -3,10 +3,32 @@
   --color-brand-hover: #0f5bc7;
   --color-brand-active: #0b4eae;
   --color-brand-soft: #eaf3ff;
-  --color-accent-purple: #7c68ee;
-  --color-accent-purple-soft: #eeebff;
-  --color-accent-yellow: #e6b93f;
-  --color-accent-yellow-soft: #fff3bf;
+
+  --color-success: #3f9b82;
+  --color-success-soft: #e8f5f0;
+  --color-success-border: #bdded2;
+  --color-success-text: #286f5d;
+
+  --color-value: #c18a35;
+  --color-value-soft: #fff3d8;
+  --color-value-border: #ead3a4;
+  --color-value-text: #7d571f;
+
+  --color-record: #7566c8;
+  --color-record-soft: #efecfb;
+  --color-record-border: #d8d1f0;
+  --color-record-text: #584aa3;
+  --color-record-on-dark: #c8c0f5;
+
+  --color-attention: #d97968;
+  --color-attention-soft: #fcece8;
+  --color-attention-border: #efc5bc;
+  --color-attention-text: #a44f41;
+
+  --color-accent-purple: var(--color-record);
+  --color-accent-purple-soft: var(--color-record-soft);
+  --color-accent-yellow: var(--color-value);
+  --color-accent-yellow-soft: var(--color-value-soft);
   --color-ink: #191a1d;
 
   --color-bg-page: #f4f5f7;
@@ -16,6 +38,9 @@
   --color-text-primary: #161a22;
   --color-text-secondary: #525b6b;
   --color-text-tertiary: #7d8796;
+  --color-icon-default: #697384;
+  --color-neutral-soft: #f2f4f7;
+  --color-neutral-border: #dce1e8;
 
   --radius-small: 8px;
   --radius-medium: 12px;

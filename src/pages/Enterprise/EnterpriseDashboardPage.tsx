@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import Button from '@douyinfe/semi-ui/lib/es/button';
-import Tag from '@douyinfe/semi-ui/lib/es/tag';
 import Typography from '@douyinfe/semi-ui/lib/es/typography';
 import IconApartment from '@douyinfe/semi-icons/lib/es/icons/IconApartment';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
@@ -15,6 +14,8 @@ import { useNavigate } from 'react-router-dom';
 import { CurrentTaskCard } from '../../components/DemoScenario/CurrentTaskCard';
 import { DemoGuideBar } from '../../components/DemoScenario/DemoGuideBar';
 import { TaskProgressTimeline } from '../../components/DemoScenario/TaskProgressTimeline';
+import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
+import { acceptanceTone } from '../../components/SemanticStatus/statusToneMap';
 import { useDemoScenario } from '../../demo/DemoScenarioContext';
 import {
   deliverableDescription,
@@ -82,7 +83,7 @@ export function EnterpriseDashboardPage() {
           <Paragraph>{state.enterprise.name}</Paragraph>
         </div>
         <div className={styles.headerActions}>
-          <Tag color="green" size="large" prefixIcon={<IconShieldStroked />}>企业认证已通过</Tag>
+          <SemanticStatusTag tone="success" size="large" prefixIcon={<IconShieldStroked />}>企业认证已通过</SemanticStatusTag>
           <Button theme="borderless" onClick={() => navigate('/auth')}>切换演示身份</Button>
         </div>
       </header>
@@ -91,8 +92,8 @@ export function EnterpriseDashboardPage() {
 
       <section className={styles.metrics} aria-label="企业履约概览">
         <article><span>进行中任务</span><strong>1</strong><small>同一演示任务</small></article>
-        <article><span>待验收成果</span><strong>{pendingCount}</strong><small>{pendingCount ? '请及时处理' : '当前无待办'}</small></article>
-        <article><span>托管金额</span><strong>{formatCurrency(state.task.amount)}</strong><small>{state.escrow.status === 'held' ? '资金保障中' : '已完成结算'}</small></article>
+        <article className={pendingCount ? styles.metricValue : undefined}><span>待验收成果</span><strong>{pendingCount}</strong><small>{pendingCount ? '请及时处理' : '当前无待办'}</small></article>
+        <article className={state.escrow.status === 'held' ? styles.metricValue : styles.metricSuccess}><span>托管金额</span><strong>{formatCurrency(state.task.amount)}</strong><small>{state.escrow.status === 'held' ? '资金保障中' : '已完成结算'}</small></article>
         <article><span>本月履约率</span><strong>{state.enterprise.monthlyFulfillmentRate}%</strong><small>概念演示数据</small></article>
       </section>
 
@@ -108,9 +109,9 @@ export function EnterpriseDashboardPage() {
                   {state.stage === 'working' ? '等待学生提交成果' : state.stage === 'submitted' ? '待验收成果 #01' : '成果验收记录'}
                 </Title>
               </div>
-              <Tag color={state.stage === 'working' ? 'grey' : state.stage === 'submitted' ? 'orange' : 'green'}>
+              <SemanticStatusTag tone={acceptanceTone(state)}>
                 {state.stage === 'working' ? '尚未收到' : state.stage === 'submitted' ? '待处理' : '已验收'}
-              </Tag>
+              </SemanticStatusTag>
             </div>
 
             {state.stage === 'working' ? (
@@ -232,7 +233,7 @@ export function EnterpriseDashboardPage() {
                     <Text className={styles.sectionLabel}>SETTLEMENT RECEIPT</Text>
                     <Title heading={3} id="receipt-title">智能合约执行成功</Title>
                   </div>
-                  <Tag color="green">4 / 4 节点确认</Tag>
+                  <SemanticStatusTag tone="success">4 / 4 节点确认</SemanticStatusTag>
                 </div>
                 <dl>
                   <div><dt>结算金额</dt><dd>{formatCurrency(state.task.amount)}</dd></div>

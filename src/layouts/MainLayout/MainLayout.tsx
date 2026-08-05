@@ -1,12 +1,12 @@
 import Button from '@douyinfe/semi-ui/lib/es/button';
 import Layout from '@douyinfe/semi-ui/lib/es/layout';
 import Space from '@douyinfe/semi-ui/lib/es/space';
-import Tag from '@douyinfe/semi-ui/lib/es/tag';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
 import IconHelpCircle from '@douyinfe/semi-icons/lib/es/icons/IconHelpCircle';
 import IconHome from '@douyinfe/semi-icons/lib/es/icons/IconHome';
 import { Outlet, ScrollRestoration, useLocation, useNavigate } from 'react-router-dom';
 import { BrandLogo } from '../../components/BrandLogo/BrandLogo';
+import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
 import styles from './MainLayout.module.css';
 
 const { Header, Content, Footer } = Layout;
@@ -82,7 +82,7 @@ export function MainLayout() {
       {!isAuthPage && (
         <Footer className={styles.footer}>
           <span>职此无忧 Web 概念 Demo</span>
-          <Tag color="blue" size="small">模拟链上环境</Tag>
+          <SemanticStatusTag size="small">模拟链上环境</SemanticStatusTag>
         </Footer>
       )}
       <ScrollRestoration />
