@@ -10,12 +10,12 @@ import IconLock from '@douyinfe/semi-icons/lib/es/icons/IconLock';
 import IconUser from '@douyinfe/semi-icons/lib/es/icons/IconUser';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useDemoAuth, type DemoRole } from '../../auth/DemoAuthContext';
 import styles from './AuthPage.module.css';
 
 const { Title, Paragraph, Text } = Typography;
 
 type AuthMode = 'login' | 'register';
-type DemoRole = 'student' | 'enterprise';
 
 const roleOptions = {
   student: {
@@ -48,6 +48,7 @@ const trustPoints = [
 
 export function AuthPage() {
   const navigate = useNavigate();
+  const { login } = useDemoAuth();
   const reduceMotion = useReducedMotion();
   const timerRef = useRef<number | null>(null);
   const [mode, setMode] = useState<AuthMode>('login');
@@ -64,6 +65,7 @@ export function AuthPage() {
   const enterPlatform = () => {
     setIsEntering(true);
     timerRef.current = window.setTimeout(() => {
+      login(role);
       navigate(selectedRole.target);
     }, reduceMotion ? 0 : 650);
   };

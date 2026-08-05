@@ -5,8 +5,10 @@ import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
 import IconHelpCircle from '@douyinfe/semi-icons/lib/es/icons/IconHelpCircle';
 import IconHome from '@douyinfe/semi-icons/lib/es/icons/IconHome';
 import { Outlet, ScrollRestoration, useLocation, useNavigate } from 'react-router-dom';
+import { useDemoAuth } from '../../auth/DemoAuthContext';
 import { BrandLogo } from '../../components/BrandLogo/BrandLogo';
 import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
+import { UserMenu } from '../../components/UserMenu/UserMenu';
 import styles from './MainLayout.module.css';
 
 const { Header, Content, Footer } = Layout;
@@ -14,6 +16,7 @@ const { Header, Content, Footer } = Layout;
 export function MainLayout() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { role } = useDemoAuth();
   const isHomePage = location.pathname === '/';
   const isAuthPage = location.pathname === '/auth';
   const hasCompactHeader = isHomePage || isAuthPage;
@@ -63,15 +66,19 @@ export function MainLayout() {
           >
             帮助中心
           </Button>
-          <Button
-            theme="solid"
-            type="primary"
-            icon={<IconArrowRight />}
-            iconPosition="right"
-            onClick={() => navigate('/auth')}
-          >
-            进入平台
-          </Button>
+          {role ? (
+            <UserMenu />
+          ) : (
+            <Button
+              theme="solid"
+              type="primary"
+              icon={<IconArrowRight />}
+              iconPosition="right"
+              onClick={() => navigate('/auth')}
+            >
+              进入平台
+            </Button>
+          )}
         </Space>
       </Header>
 

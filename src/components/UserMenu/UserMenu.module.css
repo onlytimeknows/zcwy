@@ -1,0 +1,117 @@
+.avatarButton {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  padding: 3px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  place-items: center;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.avatarButton:hover,
+.avatarButton:focus-visible {
+  border-color: color-mix(in srgb, var(--color-brand-primary) 18%, transparent);
+  background: var(--color-brand-soft);
+}
+
+.avatarButton:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-brand-primary) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.avatar {
+  color: var(--color-brand-primary);
+  background: var(--color-brand-soft);
+}
+
+.dropdown {
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-card);
+}
+
+.menuPanel {
+  width: min(290px, calc(100vw - 32px));
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  background: var(--color-surface);
+}
+
+.identity {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.identityIcon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  color: var(--color-brand-primary);
+  border-radius: var(--radius-medium);
+  background: var(--color-brand-soft);
+  place-items: center;
+}
+
+.identityCopy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.identityCopy strong,
+.identityCopy span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.identityCopy strong {
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.identityCopy span {
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+}
+
+.settingIcon {
+  color: var(--color-text-tertiary);
+}
+
+.menuPanel :global(.semi-dropdown-menu) {
+  min-width: 0;
+  padding: var(--space-2);
+  border: 0;
+  box-shadow: none;
+}
+
+.menuPanel :global(.semi-dropdown-item) {
+  border-radius: var(--radius-small);
+}
+
+@media (max-width: 640px) {
+  .avatarButton {
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatarButton {
+    transition: none;
+  }
+}
