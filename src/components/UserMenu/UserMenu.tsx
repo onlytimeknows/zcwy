@@ -81,9 +81,11 @@ export function UserMenu() {
         aria-label={`${currentRole.label}，打开账号设置`}
         title={`${currentRole.label} · 账号设置`}
       >
-        <Avatar className={styles.avatar} size="36px" color="light-blue" shape="circle">
-          {currentRole.icon}
-        </Avatar>
+        <span className={styles.avatarFrame} aria-hidden="true">
+          <Avatar className={styles.avatar} size="36px" color="light-blue" shape="circle">
+            {currentRole.icon}
+          </Avatar>
+        </span>
       </button>
     </Dropdown>
   );
