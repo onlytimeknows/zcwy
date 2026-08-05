@@ -229,7 +229,7 @@ export function EnterpriseDashboardPage() {
               >
                 <div className={styles.receiptHeading}>
                   <span><IconCheckCircleStroked size="extra-large" /></span>
-                  <div>
+                  <div className={styles.receiptTitle}>
                     <Text className={styles.sectionLabel}>SETTLEMENT RECEIPT</Text>
                     <Title heading={3} id="receipt-title">智能合约执行成功</Title>
                   </div>

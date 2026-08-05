@@ -1,17 +1,14 @@
 .guide {
   --guide-color: var(--color-brand-primary);
   --guide-text: var(--color-brand-active);
-  --guide-soft: var(--color-brand-soft);
-  --guide-border: color-mix(in srgb, var(--color-brand-primary) 20%, var(--color-border));
 
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-5);
-  padding: var(--space-4) var(--space-5);
-  background: color-mix(in srgb, var(--guide-soft) 58%, white);
-  border: 1px solid var(--guide-border);
-  border-radius: var(--radius-large);
+  padding: var(--space-3) 0;
+  background: transparent;
+  border-block: 1px solid var(--color-border);
 }
 
 .copy,
@@ -63,15 +60,11 @@
 .settling {
   --guide-color: var(--color-record);
   --guide-text: var(--color-record-text);
-  --guide-soft: var(--color-record-soft);
-  --guide-border: var(--color-record-border);
 }
 
 .settled {
   --guide-color: var(--color-success);
   --guide-text: var(--color-success-text);
-  --guide-soft: var(--color-success-soft);
-  --guide-border: var(--color-success-border);
 }
 
 .actions {
@@ -83,6 +76,7 @@
   .guide {
     align-items: stretch;
     flex-direction: column;
+    gap: var(--space-3);
   }
 
   .actions {

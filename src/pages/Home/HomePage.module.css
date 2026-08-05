@@ -159,7 +159,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-5);
   width: 100%;
   padding: clamp(var(--space-6), 4vw, var(--space-10));
   background: color-mix(in srgb, var(--color-surface) 96%, transparent);
@@ -191,6 +191,11 @@
 
 .panelHeader h4 {
   margin-top: var(--space-1);
+}
+
+.taskStatusTag.taskStatusTag {
+  font-weight: 600;
+  opacity: 0.84;
 }
 
 .progressBlock {
@@ -226,15 +231,18 @@
 
 .statusList {
   display: grid;
-  gap: var(--space-2);
+  gap: 0;
+  border-block: 1px solid var(--color-border);
 }
 
 .statusItem {
   justify-content: flex-start;
-  padding: var(--space-3);
-  background: #f7f8fa;
-  border: 1px solid transparent;
-  border-radius: var(--radius-medium);
+  padding: var(--space-3) 0;
+  background: transparent;
+}
+
+.statusItem + .statusItem {
+  border-top: 1px solid var(--color-border);
 }
 
 .statusItem div {
@@ -265,7 +273,7 @@
 
 .statusSuccess .statusDot {
   background: var(--color-success);
-  box-shadow: 0 0 0 4px var(--color-success-soft);
+  box-shadow: 0 0 0 2px var(--color-success-soft);
 }
 
 .statusSuccess strong {
@@ -274,7 +282,7 @@
 
 .statusValue .statusDot {
   background: var(--color-value);
-  box-shadow: 0 0 0 4px var(--color-value-soft);
+  box-shadow: 0 0 0 2px var(--color-value-soft);
 }
 
 .statusValue strong {
@@ -283,7 +291,7 @@
 
 .statusBrand .statusDot {
   background: var(--color-brand-primary);
-  box-shadow: 0 0 0 4px var(--color-brand-soft);
+  box-shadow: 0 0 0 2px var(--color-brand-soft);
 }
 
 .statusBrand strong {
@@ -292,7 +300,7 @@
 
 .statusRecord .statusDot {
   background: var(--color-record);
-  box-shadow: 0 0 0 4px var(--color-record-soft);
+  box-shadow: 0 0 0 2px var(--color-record-soft);
 }
 
 .statusRecord strong {
@@ -301,7 +309,7 @@
 
 .statusAttention .statusDot {
   background: var(--color-attention);
-  box-shadow: 0 0 0 4px var(--color-attention-soft);
+  box-shadow: 0 0 0 2px var(--color-attention-soft);
 }
 
 .statusAttention strong {
@@ -310,6 +318,10 @@
 
 .statusNeutral {
   color: inherit;
+}
+
+.statusQuiet strong {
+  color: var(--color-text-primary);
 }
 
 .statusIndex {

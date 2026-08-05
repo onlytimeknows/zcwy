@@ -68,8 +68,9 @@
 
 .fileList {
   display: grid;
-  gap: var(--space-3);
-  margin: var(--space-6) 0;
+  gap: 0;
+  margin: var(--space-5) 0 0;
+  border-block: 1px solid var(--color-border);
 }
 
 .fileList > div {
@@ -77,9 +78,11 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-4);
-  background: #f7f8fa;
-  border-radius: var(--radius-medium);
+  padding: var(--space-3) 0;
+}
+
+.fileList > div + div {
+  border-top: 1px solid var(--color-border);
 }
 
 .fileList svg {
@@ -87,8 +90,8 @@
 }
 
 .workNote {
-  padding: var(--space-4) 0;
-  border-block: 1px solid var(--color-border);
+  padding: var(--space-4) 0 var(--space-5);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .workNote span,
@@ -129,24 +132,26 @@
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: var(--space-4) var(--space-5);
-  background: color-mix(in srgb, var(--color-success-soft) 62%, white);
-  border-color: var(--color-success-border);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  border-left: 3px solid var(--color-success-border);
 }
 
 .successIcon,
 .certificateIcon,
 .escrowIcon {
   display: grid;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   color: var(--color-icon-default);
-  background: white;
+  background: var(--color-neutral-soft);
   border-radius: var(--radius-medium);
 }
 
 .successIcon {
   color: var(--color-success);
+  background: var(--color-success-soft);
 }
 
 .successPanel .sectionLabel,
@@ -162,15 +167,22 @@
   display: grid;
   grid-column: 1 / -1;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-3);
+  gap: 0;
+  border-top: 1px solid var(--color-border);
 }
 
 .successFacts > div {
   display: grid;
   gap: var(--space-1);
-  padding: var(--space-4);
-  background: rgb(255 255 255 / 70%);
-  border-radius: var(--radius-medium);
+  padding: var(--space-4) var(--space-5) 0;
+}
+
+.successFacts > div:first-child {
+  padding-left: 0;
+}
+
+.successFacts > div + div {
+  border-left: 1px solid var(--color-border);
 }
 
 .successFacts strong {
@@ -184,8 +196,9 @@
 
 .certificateCard {
   color: var(--color-text-primary);
-  background: color-mix(in srgb, var(--color-value-soft) 42%, white);
-  border-color: var(--color-value-border);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  border-top: 2px solid var(--color-value-border);
 }
 
 .certificateCard h3,
@@ -196,6 +209,10 @@
 .certificateCard .sectionLabel,
 .certificateIcon {
   color: var(--color-value-text);
+}
+
+.certificateIcon {
+  background: var(--color-value-soft);
 }
 
 .certificateCard > button {
@@ -215,15 +232,24 @@
 
 .certificateBody dl {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
+  gap: 0;
   background: transparent;
+  border-block: 1px solid var(--color-border);
 }
 
 .certificateBody dl > div {
   display: grid;
   gap: var(--space-1);
   padding: var(--space-4);
-  background: color-mix(in srgb, var(--color-surface) 84%, var(--color-value-soft));
+  background: transparent;
+}
+
+.certificateBody dl > div:nth-child(n + 3) {
+  border-top: 1px solid var(--color-border);
+}
+
+.certificateBody dl > div:nth-child(even) {
+  border-left: 1px solid var(--color-border);
 }
 
 .certificateBody dd,
@@ -237,7 +263,7 @@
   overflow-x: auto;
   padding: var(--space-3);
   color: var(--color-record-text);
-  background: color-mix(in srgb, var(--color-record-soft) 70%, white);
+  background: color-mix(in srgb, var(--color-record-soft) 38%, white);
   border-radius: var(--radius-small);
   white-space: nowrap;
 }
@@ -254,7 +280,7 @@
 }
 
 .escrowCard {
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
 .escrowCard > strong {
@@ -267,6 +293,10 @@
 .escrowCard .sectionLabel,
 .escrowIcon {
   color: var(--color-value-text);
+}
+
+.escrowIcon {
+  background: var(--color-value-soft);
 }
 
 .escrowPaid .sectionLabel,
@@ -320,6 +350,25 @@
   .successFacts,
   .certificateBody dl {
     grid-template-columns: 1fr;
+  }
+
+  .successFacts > div,
+  .successFacts > div:first-child {
+    padding: var(--space-3) 0;
+  }
+
+  .successFacts > div + div {
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+  }
+
+  .certificateBody dl > div:nth-child(n) {
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+  }
+
+  .certificateBody dl > div:first-child {
+    border-top: 0;
   }
 
   .fileList > div {

@@ -5,13 +5,6 @@ import styles from './TaskProgressTimeline.module.css';
 
 const { Title, Text } = Typography;
 
-const timelineToneById: Record<string, 'record' | 'value'> = {
-  escrow: 'value',
-  records: 'record',
-  deliverable: 'record',
-  certificate: 'value',
-};
-
 export function TaskProgressTimeline() {
   const { view } = useDemoScenario();
 
@@ -24,7 +17,7 @@ export function TaskProgressTimeline() {
       <ol className={styles.timeline}>
         {view.timeline.map((item) => (
           <li
-            className={`${styles.item} ${styles[item.status]} ${timelineToneById[item.id] ? styles[timelineToneById[item.id]] : ''}`}
+            className={`${styles.item} ${styles[item.status]}`}
             key={item.id}
           >
             <span className={styles.marker} aria-hidden="true">

@@ -160,7 +160,7 @@ export function HomePage() {
               <Text type="tertiary" size="small">当前演示任务</Text>
               <Title heading={4}>{state.task.title}</Title>
             </div>
-            <SemanticStatusTag tone={scenarioStageTone[state.stage]}>
+            <SemanticStatusTag className={styles.taskStatusTag} tone={scenarioStageTone[state.stage]}>
               {view.home.taskStatus}
             </SemanticStatusTag>
           </div>
@@ -181,7 +181,10 @@ export function HomePage() {
 
           <div className={styles.statusList}>
             {journeyStatuses.map((status, index) => (
-              <div className={`${styles.statusItem} ${statusToneClass[status.tone]}`} key={status.label}>
+              <div
+                className={`${styles.statusItem} ${statusToneClass[status.tone]} ${status.label === '工作成果' ? styles.statusQuiet : ''}`}
+                key={status.label}
+              >
                 <span className={styles.statusDot} />
                 <div>
                   <span>{status.label}</span>
