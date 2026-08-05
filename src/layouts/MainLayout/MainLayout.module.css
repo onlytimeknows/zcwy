@@ -46,6 +46,12 @@
   padding-bottom: var(--space-2);
 }
 
+.homeHeader {
+  position: fixed;
+  right: 0;
+  left: 0;
+}
+
 .content {
   min-height: calc(100vh - var(--header-height));
 }

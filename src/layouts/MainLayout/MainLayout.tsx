@@ -31,7 +31,9 @@ export function MainLayout() {
     <Layout
       className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''} ${isHomePage ? styles.homeLayout : ''} ${isAuthPage ? styles.authLayout : ''}`}
     >
-      <Header className={`${styles.header} ${hasCompactHeader ? styles.compactHeader : ''}`}>
+      <Header
+        className={`${styles.header} ${hasCompactHeader ? styles.compactHeader : ''} ${isHomePage ? styles.homeHeader : ''}`}
+      >
         <button className={styles.logoButton} type="button" onClick={() => navigate('/')}>
           <BrandLogo compact={hasCompactHeader} />
         </button>

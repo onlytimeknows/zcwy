@@ -17,6 +17,7 @@
 .storyFlow {
   position: relative;
   overflow: clip;
+  padding-top: var(--header-height);
   background:
     radial-gradient(circle at 86% 9%, rgb(125 105 238 / 9%), transparent 27%),
     radial-gradient(circle at 7% 37%, rgb(70 126 229 / 8%), transparent 31%),
