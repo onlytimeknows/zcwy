@@ -1,26 +1,33 @@
 .layout {
+  --header-height: 96px;
+  --header-card-height: 72px;
+
   min-height: 100vh;
   background: var(--color-bg-page);
 }
 
 .compactLayout {
-  --header-height: 56px;
+  --header-height: 80px;
+  --header-card-height: 56px;
 }
 
 .header {
   position: sticky;
-  top: 0;
+  top: var(--space-3);
   z-index: 50;
   display: flex;
-  min-height: var(--header-height);
+  min-height: var(--header-card-height);
   height: auto;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-6);
+  margin: var(--space-3) clamp(var(--space-3), 2vw, var(--space-6));
   padding: var(--space-3) clamp(var(--space-4), 4vw, var(--space-12));
-  background: color-mix(in srgb, var(--color-surface) 90%, transparent);
-  border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(16px);
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 88%, transparent);
+  border-radius: 999px;
+  box-shadow: 0 12px 34px rgb(26 36 52 / 7%);
+  backdrop-filter: blur(18px);
 }
 
 .compactHeader {
@@ -69,8 +76,18 @@
 }
 
 @media (max-width: 640px) {
+  .layout {
+    --header-height: 88px;
+  }
+
+  .compactLayout {
+    --header-height: 72px;
+  }
+
   .header {
+    top: var(--space-2);
     gap: var(--space-2);
+    margin: var(--space-2);
     padding-inline: var(--space-3);
   }
 
