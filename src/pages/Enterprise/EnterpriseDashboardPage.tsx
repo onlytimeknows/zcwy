@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Button from '@douyinfe/semi-ui/lib/es/button';
 import Typography from '@douyinfe/semi-ui/lib/es/typography';
-import IconApartment from '@douyinfe/semi-icons/lib/es/icons/IconApartment';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
 import IconChainStroked from '@douyinfe/semi-icons/lib/es/icons/IconChainStroked';
 import IconCheckCircleStroked from '@douyinfe/semi-icons/lib/es/icons/IconCheckCircleStroked';
@@ -14,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { CurrentTaskCard } from '../../components/DemoScenario/CurrentTaskCard';
 import { DemoGuideBar } from '../../components/DemoScenario/DemoGuideBar';
 import { TaskProgressTimeline } from '../../components/DemoScenario/TaskProgressTimeline';
+import { EscrowFlowChart } from '../../components/DashboardVisualization/EscrowFlowChart';
 import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
 import { acceptanceTone } from '../../components/SemanticStatus/statusToneMap';
 import { useDemoScenario } from '../../demo/DemoScenarioContext';
@@ -263,17 +263,7 @@ export function EnterpriseDashboardPage() {
 
         <aside className={styles.sideColumn}>
           <TaskProgressTimeline />
-          <section className={styles.trustPanel} aria-labelledby="trust-panel-title">
-            <span className={styles.trustIcon}><IconApartment size="extra-large" /></span>
-            <Text className={styles.sectionLabel}>企业履约能力</Text>
-            <Title heading={4} id="trust-panel-title">认证与托管状态正常</Title>
-            <dl>
-              <div><dt>企业认证</dt><dd>已通过</dd></div>
-              <div><dt>协议编号</dt><dd>{state.task.agreementId}</dd></div>
-              <div><dt>薪资托管</dt><dd>{formatCurrency(state.task.amount)}</dd></div>
-              <div><dt>成果状态</dt><dd>{state.deliverable.status === 'not-submitted' ? '待提交' : state.deliverable.status === 'submitted' ? '待验收' : '已验收'}</dd></div>
-            </dl>
-          </section>
+          <EscrowFlowChart perspective="enterprise" />
         </aside>
       </div>
     </motion.main>

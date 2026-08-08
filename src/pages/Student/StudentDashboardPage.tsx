@@ -3,7 +3,6 @@ import Button from '@douyinfe/semi-ui/lib/es/button';
 import Typography from '@douyinfe/semi-ui/lib/es/typography';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
 import IconCheckCircleStroked from '@douyinfe/semi-icons/lib/es/icons/IconCheckCircleStroked';
-import IconCreditCardStroked from '@douyinfe/semi-icons/lib/es/icons/IconCreditCardStroked';
 import IconFile from '@douyinfe/semi-icons/lib/es/icons/IconFile';
 import IconIdCard from '@douyinfe/semi-icons/lib/es/icons/IconIdCard';
 import IconUser from '@douyinfe/semi-icons/lib/es/icons/IconUser';
@@ -12,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { CurrentTaskCard } from '../../components/DemoScenario/CurrentTaskCard';
 import { DemoGuideBar } from '../../components/DemoScenario/DemoGuideBar';
 import { TaskProgressTimeline } from '../../components/DemoScenario/TaskProgressTimeline';
+import { EscrowFlowChart } from '../../components/DashboardVisualization/EscrowFlowChart';
 import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
 import { deliverableTone } from '../../components/SemanticStatus/statusToneMap';
 import { useDemoScenario } from '../../demo/DemoScenarioContext';
@@ -30,7 +30,7 @@ export function StudentDashboardPage() {
   const navigate = useNavigate();
   const reduceMotion = useReducedMotion();
   const submitTimer = useRef<number | null>(null);
-  const { state, view, submitDeliverable } = useDemoScenario();
+  const { state, submitDeliverable } = useDemoScenario();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [certificateOpen, setCertificateOpen] = useState(false);
 
@@ -206,19 +206,7 @@ export function StudentDashboardPage() {
 
         <aside className={styles.sideColumn}>
           <TaskProgressTimeline />
-          <section className={`${styles.escrowCard} ${state.settlement.status === 'paid' ? styles.escrowPaid : ''}`} aria-labelledby="escrow-title">
-            <span className={styles.escrowIcon}><IconCreditCardStroked size="extra-large" /></span>
-            <Text className={styles.sectionLabel}>薪资保障</Text>
-            <Title heading={4} id="escrow-title">
-              {state.settlement.status === 'paid' ? '薪资已到账' : '薪资保证金已托管'}
-            </Title>
-            <strong>{formatCurrency(state.escrow.amount)}</strong>
-            <dl>
-              <div><dt>托管凭证</dt><dd>{state.task.escrowReceiptId}</dd></div>
-              <div><dt>智能合约</dt><dd>{view.home.contractStatus}</dd></div>
-              <div><dt>结算状态</dt><dd>{state.settlement.status === 'paid' ? '已到账' : '等待验收触发'}</dd></div>
-            </dl>
-          </section>
+          <EscrowFlowChart />
         </aside>
       </div>
     </motion.main>

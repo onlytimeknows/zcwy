@@ -51,8 +51,7 @@
 
 .deliverablePanel,
 .successPanel,
-.certificateCard,
-.escrowCard {
+.certificateCard {
   padding: clamp(var(--space-5), 3vw, var(--space-8));
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -61,8 +60,7 @@
 
 .sectionHeading h3,
 .successPanel h3,
-.certificateHeading h3,
-.escrowCard h4 {
+.certificateHeading h3 {
   margin: var(--space-1) 0 0;
 }
 
@@ -98,7 +96,6 @@
 .submitArea span,
 .credential span,
 .successFacts span,
-.escrowCard dt,
 .certificateBody dt {
   color: var(--color-text-tertiary);
   font-size: 12px;
@@ -138,8 +135,7 @@
 }
 
 .successIcon,
-.certificateIcon,
-.escrowIcon {
+.certificateIcon {
   display: grid;
   width: 44px;
   height: 44px;
@@ -223,8 +219,7 @@
   overflow: hidden;
 }
 
-.certificateBody dl,
-.escrowCard dl {
+.certificateBody dl {
   display: grid;
   gap: 0;
   margin: var(--space-5) 0;
@@ -252,8 +247,7 @@
   border-left: 1px solid var(--color-border);
 }
 
-.certificateBody dd,
-.escrowCard dd {
+.certificateBody dd {
   margin: 0;
 }
 
@@ -277,45 +271,6 @@
 .certificateBody dl > div:nth-last-child(-n + 2) dd {
   color: var(--color-value-text);
   font-weight: 700;
-}
-
-.escrowCard {
-  box-shadow: none;
-}
-
-.escrowCard > strong {
-  display: block;
-  margin-top: var(--space-4);
-  font-size: clamp(30px, 4vw, 42px);
-  color: var(--color-value-text);
-}
-
-.escrowCard .sectionLabel,
-.escrowIcon {
-  color: var(--color-value-text);
-}
-
-.escrowIcon {
-  background: var(--color-value-soft);
-}
-
-.escrowPaid .sectionLabel,
-.escrowPaid .escrowIcon,
-.escrowPaid h4 {
-  color: var(--color-success-text);
-}
-
-.escrowCard dl > div {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-4);
-  padding: var(--space-3) 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.escrowCard dd {
-  color: var(--color-text-secondary);
-  text-align: right;
 }
 
 @media (max-width: 980px) {
