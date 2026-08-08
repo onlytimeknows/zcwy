@@ -1,13 +1,16 @@
 import Avatar from '@douyinfe/semi-ui/lib/es/avatar';
 import Dropdown from '@douyinfe/semi-ui/lib/es/dropdown';
+import Modal from '@douyinfe/semi-ui/lib/es/modal';
 import IconApartment from '@douyinfe/semi-icons/lib/es/icons/IconApartment';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
 import IconExit from '@douyinfe/semi-icons/lib/es/icons/IconExit';
 import IconRefresh from '@douyinfe/semi-icons/lib/es/icons/IconRefresh';
 import IconSetting from '@douyinfe/semi-icons/lib/es/icons/IconSetting';
 import IconUser from '@douyinfe/semi-icons/lib/es/icons/IconUser';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDemoAuth } from '../../auth/DemoAuthContext';
+import { useDemoAuth, type DemoRole } from '../../auth/DemoAuthContext';
+import { useDemoScenario } from '../../demo/DemoScenarioContext';
 import styles from './UserMenu.module.css';
 
 const roleDetails = {
@@ -25,15 +28,23 @@ const roleDetails = {
   },
 } as const;
 
-export function UserMenu() {
+export function UserMenu({
+  showScenarioControls = false,
+  displayRole,
+}: {
+  showScenarioControls?: boolean;
+  displayRole?: DemoRole;
+}) {
   const navigate = useNavigate();
   const { role, logout } = useDemoAuth();
+  const { resetScenario } = useDemoScenario();
+  const [resetConfirmVisible, setResetConfirmVisible] = useState(false);
 
   if (!role) {
     return null;
   }
 
-  const currentRole = roleDetails[role];
+  const currentRole = roleDetails[displayRole ?? role];
 
   const handleLogout = () => {
     logout();
@@ -41,7 +52,8 @@ export function UserMenu() {
   };
 
   return (
-    <Dropdown
+    <>
+      <Dropdown
       trigger="hover"
       position="bottomRight"
       mouseEnterDelay={80}
@@ -67,6 +79,11 @@ export function UserMenu() {
             <Dropdown.Item icon={<IconRefresh />} onClick={() => navigate('/auth')}>
               切换演示身份
             </Dropdown.Item>
+            {showScenarioControls && (
+              <Dropdown.Item icon={<IconRefresh />} onClick={() => setResetConfirmVisible(true)}>
+                重置完整演示
+              </Dropdown.Item>
+            )}
             <Dropdown.Divider />
             <Dropdown.Item type="danger" icon={<IconExit />} onClick={handleLogout}>
               退出演示登录
@@ -87,6 +104,21 @@ export function UserMenu() {
           </Avatar>
         </span>
       </button>
-    </Dropdown>
+      </Dropdown>
+      <Modal
+        title="重置完整演示？"
+        visible={resetConfirmVisible}
+        okText="确认重置"
+        cancelText="取消"
+        onOk={() => {
+          resetScenario();
+          setResetConfirmVisible(false);
+        }}
+        onCancel={() => setResetConfirmVisible(false)}
+        closeOnEsc
+      >
+        任务将恢复到成果未提交、进度 6 / 10 的初始状态。
+      </Modal>
+    </>
   );
 }

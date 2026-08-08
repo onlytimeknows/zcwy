@@ -12,9 +12,10 @@ export function EvidenceCompletenessChart() {
   const { state } = useDemoScenario();
   const segments = getEvidenceSegments(state);
   const completed = segments.filter((segment) => segment.status === 'complete').length;
-  const active = segments.find((segment) => segment.status === 'active');
   const incomplete = segments.length - completed;
-  const waiting = incomplete - (active ? 1 : 0);
+  const active = segments.find((segment) => segment.status === 'active');
+  const completedLabels = segments.filter((segment) => segment.status === 'complete').map((segment) => segment.label);
+  const remainingLabels = segments.filter((segment) => segment.status !== 'complete').map((segment) => segment.label);
 
   return (
     <div className={styles.overview}>
@@ -39,9 +40,8 @@ export function EvidenceCompletenessChart() {
         ))}
       </div>
       <div className={styles.meta}>
-        <span><i className={styles.completeDot} />已完成 {completed}</span>
-        {active && <span><i className={styles.activeDot} />当前 1</span>}
-        <span><i className={styles.pendingDot} />待完成 {waiting}</span>
+        <p><strong>已形成</strong><span>{completedLabels.join(' · ')}</span></p>
+        <p><strong>待完成</strong><span>{remainingLabels.length ? remainingLabels.join(' · ') : '全部证据已闭环'}</span></p>
       </div>
     </div>
   );

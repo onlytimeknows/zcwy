@@ -6,7 +6,8 @@ import type {
 
 export interface TaskTrendPoint {
   date: string;
-  value: number;
+  plan: number;
+  actual: number;
 }
 
 export interface EvidenceSegment {
@@ -24,17 +25,20 @@ export interface EscrowFlowNode {
 
 const trendDates = ['8/1', '8/2', '8/3', '8/4', '8/5'];
 
-const trendValues: Record<DemoScenarioStage, number[]> = {
-  working: [2, 3, 4, 5, 6],
-  submitted: [2, 3, 5, 6, 8],
-  settling: [2, 3, 5, 8, 9],
-  settled: [2, 3, 5, 8, 10],
+const plannedTrend = [2, 4, 6, 8, 10];
+
+const actualTrend: Record<DemoScenarioStage, number[]> = {
+  working: [1, 3, 5, 6, 6],
+  submitted: [1, 3, 5, 7, 8],
+  settling: [1, 3, 5, 8, 9],
+  settled: [1, 3, 5, 8, 10],
 };
 
 export function getTaskTrend(stage: DemoScenarioStage): TaskTrendPoint[] {
   return trendDates.map((date, index) => ({
     date,
-    value: trendValues[stage][index],
+    plan: plannedTrend[index],
+    actual: actualTrend[stage][index],
   }));
 }
 

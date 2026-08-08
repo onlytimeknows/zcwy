@@ -5,11 +5,9 @@ import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
 import IconCheckCircleStroked from '@douyinfe/semi-icons/lib/es/icons/IconCheckCircleStroked';
 import IconFile from '@douyinfe/semi-icons/lib/es/icons/IconFile';
 import IconIdCard from '@douyinfe/semi-icons/lib/es/icons/IconIdCard';
-import IconUser from '@douyinfe/semi-icons/lib/es/icons/IconUser';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { CurrentTaskCard } from '../../components/DemoScenario/CurrentTaskCard';
-import { DemoGuideBar } from '../../components/DemoScenario/DemoGuideBar';
 import { TaskProgressTimeline } from '../../components/DemoScenario/TaskProgressTimeline';
 import { EscrowFlowChart } from '../../components/DashboardVisualization/EscrowFlowChart';
 import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
@@ -66,25 +64,27 @@ export function StudentDashboardPage() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.32 }}
     >
-      <header className={styles.pageHeader}>
+      <header className={styles.pageHeader} id="workspace-overview">
         <div>
-          <Text className={styles.eyebrow}>STUDENT WORKSPACE</Text>
           <Title heading={1}>学生工作台</Title>
-          <Paragraph>晚上好，{state.student.name}。当前有 1 项兼职任务正在进行。</Paragraph>
+          <Paragraph>{state.student.name} · 学生演示身份</Paragraph>
+          <Text className={styles.contextNote}>1 项进行中的兼职任务</Text>
         </div>
         <div className={styles.headerActions}>
-          <SemanticStatusTag tone="brand" size="large" prefixIcon={<IconUser />}>学生演示身份</SemanticStatusTag>
           <Button theme="borderless" onClick={() => navigate('/auth')}>切换演示身份</Button>
         </div>
       </header>
 
-      <DemoGuideBar />
+      <div className={styles.topGrid}>
+        <CurrentTaskCard />
+        <TaskProgressTimeline />
+      </div>
 
-      <div className={styles.workspace}>
-        <div className={styles.primaryColumn}>
-          <CurrentTaskCard />
+      <EscrowFlowChart />
 
-          <section className={styles.deliverablePanel} aria-labelledby="deliverable-title" aria-live="polite">
+      <div className={styles.detailColumn}>
+
+          <section className={styles.deliverablePanel} id="deliverable-section" aria-labelledby="deliverable-title" aria-live="polite">
             <div className={styles.sectionHeading}>
               <div>
                 <Text className={styles.sectionLabel}>工作成果</Text>
@@ -202,12 +202,6 @@ export function StudentDashboardPage() {
               </AnimatePresence>
             </section>
           )}
-        </div>
-
-        <aside className={styles.sideColumn}>
-          <TaskProgressTimeline />
-          <EscrowFlowChart />
-        </aside>
       </div>
     </motion.main>
   );

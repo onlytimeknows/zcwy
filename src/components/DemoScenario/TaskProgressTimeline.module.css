@@ -1,14 +1,19 @@
 .panel {
-  padding: var(--space-5);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-extra-large);
+  padding: var(--space-5) 0;
+  border-block: 1px solid var(--color-border);
 }
 
 .heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.heading > div {
   display: grid;
   gap: var(--space-1);
-  margin-bottom: var(--space-5);
 }
 
 .heading h4 {
@@ -25,8 +30,9 @@
 .timeline {
   display: grid;
   gap: 0;
-  margin: 0;
-  padding: 0;
+  margin: var(--space-5) 0 0;
+  padding: var(--space-5) 0 0;
+  border-top: 1px solid var(--color-border);
   list-style: none;
 }
 
@@ -95,4 +101,20 @@
   color: var(--color-brand-primary);
   font-size: 10px;
   font-weight: 700;
+}
+
+.disclosureButton {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 560px) {
+  .heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .disclosureButton {
+    justify-content: flex-start;
+    padding-left: 0;
+  }
 }

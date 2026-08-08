@@ -1,0 +1,126 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(18px) saturate(105%);
+}
+
+.inner {
+  display: grid;
+  width: min(calc(100% - clamp(32px, 6vw, 96px)), 1480px);
+  min-height: 64px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(var(--space-4), 3vw, var(--space-8));
+  margin: 0 auto;
+}
+
+.logoButton {
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.nav a {
+  position: relative;
+  padding: 21px var(--space-3) 19px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav a::after {
+  position: absolute;
+  right: var(--space-3);
+  bottom: -1px;
+  left: var(--space-3);
+  height: 2px;
+  background: transparent;
+  content: '';
+}
+
+.nav a:hover,
+.nav a:focus-visible,
+.nav a.active {
+  color: var(--color-brand-primary);
+}
+
+.nav a.active::after {
+  background: var(--color-brand-primary);
+}
+
+.nav a:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-brand-primary) 30%, transparent);
+  outline-offset: -4px;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.account > span {
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+@media (max-width: 920px) {
+  .inner {
+    gap: var(--space-3);
+  }
+
+  .nav a {
+    padding-inline: var(--space-2);
+  }
+
+  .account > span {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .inner {
+    width: calc(100% - var(--space-6));
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding-top: var(--space-2);
+  }
+
+  .nav {
+    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-start;
+    overflow-x: auto;
+    border-top: 1px solid var(--color-border);
+    scrollbar-width: none;
+  }
+
+  .account {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav a {
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+  }
+}

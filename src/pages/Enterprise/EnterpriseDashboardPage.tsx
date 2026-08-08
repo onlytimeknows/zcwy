@@ -11,7 +11,6 @@ import IconTick from '@douyinfe/semi-icons/lib/es/icons/IconTick';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { CurrentTaskCard } from '../../components/DemoScenario/CurrentTaskCard';
-import { DemoGuideBar } from '../../components/DemoScenario/DemoGuideBar';
 import { TaskProgressTimeline } from '../../components/DemoScenario/TaskProgressTimeline';
 import { EscrowFlowChart } from '../../components/DashboardVisualization/EscrowFlowChart';
 import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
@@ -76,11 +75,11 @@ export function EnterpriseDashboardPage() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.32 }}
     >
-      <header className={styles.pageHeader}>
+      <header className={styles.pageHeader} id="workspace-overview">
         <div>
-          <Text className={styles.eyebrow}>ENTERPRISE WORKSPACE</Text>
           <Title heading={1}>企业工作台</Title>
-          <Paragraph>{state.enterprise.name}</Paragraph>
+          <Paragraph>{state.enterprise.name} · 企业演示身份</Paragraph>
+          <Text className={styles.contextNote}>1 项进行中的任务 · {pendingCount ? '1 项成果待验收' : '当前无待验收成果'}</Text>
         </div>
         <div className={styles.headerActions}>
           <SemanticStatusTag tone="success" size="large" prefixIcon={<IconShieldStroked />}>企业认证已通过</SemanticStatusTag>
@@ -88,7 +87,10 @@ export function EnterpriseDashboardPage() {
         </div>
       </header>
 
-      <DemoGuideBar />
+      <div className={styles.topGrid}>
+        <CurrentTaskCard tone="enterprise" />
+        <TaskProgressTimeline />
+      </div>
 
       <section className={styles.metrics} aria-label="企业履约概览">
         <article><span>进行中任务</span><strong>1</strong><small>同一演示任务</small></article>
@@ -97,11 +99,10 @@ export function EnterpriseDashboardPage() {
         <article><span>本月履约率</span><strong>{state.enterprise.monthlyFulfillmentRate}%</strong><small>概念演示数据</small></article>
       </section>
 
-      <div className={styles.workspace}>
-        <div className={styles.primaryColumn}>
-          <CurrentTaskCard tone="enterprise" />
+      <EscrowFlowChart perspective="enterprise" />
 
-          <section className={styles.acceptancePanel} aria-labelledby="acceptance-title" aria-live="polite">
+      <div className={styles.detailColumn}>
+          <section className={styles.acceptancePanel} id="acceptance-section" aria-labelledby="acceptance-title" aria-live="polite">
             <div className={styles.sectionHeading}>
               <div>
                 <Text className={styles.sectionLabel}>成果验收</Text>
@@ -259,12 +260,6 @@ export function EnterpriseDashboardPage() {
               </motion.section>
             )}
           </AnimatePresence>
-        </div>
-
-        <aside className={styles.sideColumn}>
-          <TaskProgressTimeline />
-          <EscrowFlowChart perspective="enterprise" />
-        </aside>
       </div>
     </motion.main>
   );
