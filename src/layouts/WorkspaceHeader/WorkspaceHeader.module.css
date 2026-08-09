@@ -8,6 +8,7 @@
   padding: 18px 14px 16px;
   background: #fff;
   border-right: 1px solid #e4e4e7;
+  transition: width 180ms ease, padding 180ms ease;
 }
 
 .railLogo,
@@ -18,11 +19,46 @@
   cursor: pointer;
 }
 
-.railLogo {
+.railTop {
   display: flex;
   height: 42px;
   align-items: center;
-  margin: 0 8px 26px;
+  gap: 8px;
+  margin: 0 4px 26px;
+}
+
+.railToggle {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  padding: 0;
+  place-items: center;
+  color: #71717a;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.railToggle:hover,
+.railToggle:focus-visible {
+  color: #18181b;
+  background: #f4f4f5;
+}
+
+.railToggle:focus-visible,
+.logoutButton:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-brand-primary) 30%, transparent);
+  outline-offset: 2px;
+}
+
+.railLogo {
+  display: flex;
+  min-width: 0;
+  height: 40px;
+  align-items: center;
   overflow: hidden;
 }
 
@@ -102,12 +138,31 @@
 
 .railIdentity {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 10px;
   margin-top: auto;
   padding: 14px 10px 2px;
   border-top: 1px solid #e4e4e7;
+}
+
+.logoutButton {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  place-items: center;
+  color: #a1a1aa;
+  background: transparent;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.logoutButton:hover {
+  color: #52525b;
+  background: #f4f4f5;
 }
 
 .identityDot {
@@ -148,6 +203,55 @@
   background: rgb(255 255 255 / 96%);
   border-bottom: 1px solid #e4e4e7;
   backdrop-filter: blur(14px);
+  transition: left 180ms ease;
+}
+
+.railCollapsed {
+  width: 72px;
+  align-items: center;
+  padding-inline: 10px;
+}
+
+.railCollapsed .railTop {
+  justify-content: center;
+  margin-inline: 0;
+}
+
+.railCollapsed .railLogo,
+.railCollapsed .railSectionLabel,
+.railCollapsed .railLabel,
+.railCollapsed .railIdentity > .identityDot,
+.railCollapsed .railIdentity > span:not(.identityDot) {
+  display: none;
+}
+
+.railCollapsed .railSection {
+  width: 100%;
+}
+
+.railCollapsed .railSection nav {
+  justify-items: center;
+}
+
+.railCollapsed .railSection a {
+  width: 40px;
+  justify-content: center;
+  padding-inline: 0;
+}
+
+.railCollapsed .railSection a.railActive::before {
+  left: -10px;
+}
+
+.railCollapsed .railIdentity {
+  display: flex;
+  width: 40px;
+  justify-content: center;
+  padding-inline: 0;
+}
+
+.utilityBarCollapsed {
+  left: 72px;
 }
 
 .searchField {
@@ -275,54 +379,6 @@
   font-weight: 600;
 }
 
-@media (max-width: 1080px) {
-  .studentRail {
-    width: 72px;
-    align-items: center;
-    padding-inline: 10px;
-  }
-
-  .railLogo {
-    width: 32px;
-    margin-inline: 0;
-  }
-
-  .railSection {
-    width: 100%;
-  }
-
-  .railSectionLabel,
-  .railLabel,
-  .railIdentity > span:last-child {
-    display: none;
-  }
-
-  .railSection nav {
-    justify-items: center;
-  }
-
-  .railSection a {
-    width: 40px;
-    justify-content: center;
-    padding-inline: 0;
-  }
-
-  .railSection a.railActive::before {
-    left: -10px;
-  }
-
-  .railIdentity {
-    display: flex;
-    width: 40px;
-    justify-content: center;
-    padding-inline: 0;
-  }
-
-  .studentUtilityBar {
-    left: 72px;
-  }
-}
-
 @media (max-width: 720px) {
   .studentRail {
     top: auto;
@@ -336,20 +392,20 @@
     border-right: 0;
   }
 
-  .railLogo,
-  .studentRail .railSection:nth-of-type(2),
+  .railTop,
+  .studentRail .utilitySection,
   .railSectionLabel,
   .railIdentity {
     display: none;
   }
 
-  .studentRail .railSection:first-of-type {
+  .studentRail .workspaceSection {
     display: block;
     width: 100%;
     margin: 0;
   }
 
-  .studentRail .railSection:first-of-type nav {
+  .studentRail .workspaceSection nav {
     display: grid;
     height: 100%;
     grid-template-columns: repeat(4, 1fr);
@@ -384,11 +440,19 @@
     font-size: 9px;
   }
 
+  .railCollapsed .railLabel {
+    display: block;
+  }
+
   .studentUtilityBar {
     left: 0;
     height: 54px;
     gap: 8px;
     padding-inline: 12px;
+  }
+
+  .utilityBarCollapsed {
+    left: 0;
   }
 
   .searchField {
@@ -405,7 +469,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .railSection a {
+  .studentRail,
+  .studentUtilityBar,
+  .railSection a,
+  .railToggle,
+  .logoutButton {
     transition: none;
   }
 }
