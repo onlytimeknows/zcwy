@@ -3,6 +3,7 @@ import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
 import IconCommentStroked from '@douyinfe/semi-icons/lib/es/icons/IconCommentStroked';
 import IconEditStroked from '@douyinfe/semi-icons/lib/es/icons/IconEditStroked';
 import IconSearchStroked from '@douyinfe/semi-icons/lib/es/icons/IconSearchStroked';
+import IconShieldStroked from '@douyinfe/semi-icons/lib/es/icons/IconShieldStroked';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -53,4 +54,8 @@ export function StudentResumePage() {
 
 export function StudentMessagesPage() {
   return <StudentUtilityPage config={{ eyebrow: '收件箱', title: '消息', description: '1 条待处理', icon: <IconCommentStroked />, primaryTitle: '青禾数字传媒通过简历初筛', primaryCopy: '今天 10:24 · 预计 1 个工作日内联系', action: '打开沟通', actionDone: '沟通已打开', rows: [{ title: '青禾数字传媒有限公司', detail: '简历初筛通过 · 今天 10:24', status: '待沟通' }, { title: '青创校园文化有限公司', detail: '成果验收进度已同步', status: '任务消息' }] }} />;
+}
+
+export function StudentRightsPage() {
+  return <StudentUtilityPage config={{ eyebrow: '权益', title: '权益保障', description: '当前状态正常', icon: <IconShieldStroked />, primaryTitle: '兼职薪资已进入托管', primaryCopy: '当前托管金额 ¥1,260', action: '查看当前任务', actionDone: '任务状态已同步', rows: [{ title: '企业认证', detail: '青创校园文化有限公司', status: '已认证' }, { title: '薪资托管', detail: '托管凭证 ESCROW-1260', status: '已托管' }, { title: '可信记录', detail: '工作记录 #06', status: '已存证' }] }} />;
 }

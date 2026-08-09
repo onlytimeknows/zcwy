@@ -1,4 +1,212 @@
-.header {
+.studentRail {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 60;
+  display: flex;
+  width: 208px;
+  flex-direction: column;
+  padding: 18px 14px 16px;
+  background: #fff;
+  border-right: 1px solid #e4e4e7;
+}
+
+.railLogo,
+.logoButton {
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.railLogo {
+  display: flex;
+  height: 42px;
+  align-items: center;
+  margin: 0 8px 26px;
+  overflow: hidden;
+}
+
+.railSection {
+  margin-bottom: 24px;
+}
+
+.railSectionLabel {
+  display: block;
+  margin: 0 10px 7px;
+  color: #a1a1aa;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+.railSection nav {
+  display: grid;
+  gap: 2px;
+}
+
+.railSection a {
+  position: relative;
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 11px;
+  padding: 8px 10px;
+  color: #52525b;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 520;
+  text-decoration: none;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.railSection a:hover,
+.railSection a:focus-visible {
+  color: #18181b;
+  background: #f4f4f5;
+}
+
+.railSection a:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-brand-primary) 28%, transparent);
+  outline-offset: 1px;
+}
+
+.railSection a.railActive {
+  color: #18181b;
+  background: #f4f4f5;
+  font-weight: 650;
+}
+
+.railSection a.railActive::before {
+  position: absolute;
+  top: 9px;
+  bottom: 9px;
+  left: -4px;
+  width: 2px;
+  background: var(--color-brand-primary);
+  border-radius: 999px;
+  content: '';
+}
+
+.railIcon {
+  display: grid;
+  width: 18px;
+  flex: 0 0 18px;
+  place-items: center;
+  color: #71717a;
+  font-size: 16px;
+}
+
+.railActive .railIcon {
+  color: var(--color-brand-primary);
+}
+
+.railIdentity {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 14px 10px 2px;
+  border-top: 1px solid #e4e4e7;
+}
+
+.identityDot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-success);
+  border-radius: 50%;
+}
+
+.railIdentity strong,
+.railIdentity small {
+  display: block;
+}
+
+.railIdentity strong {
+  color: #27272a;
+  font-size: 12px;
+}
+
+.railIdentity small {
+  margin-top: 2px;
+  color: #a1a1aa;
+  font-size: 10px;
+}
+
+.studentUtilityBar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 208px;
+  z-index: 50;
+  display: flex;
+  height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 clamp(24px, 3vw, 44px);
+  background: rgb(255 255 255 / 96%);
+  border-bottom: 1px solid #e4e4e7;
+  backdrop-filter: blur(14px);
+}
+
+.searchField {
+  display: flex;
+  width: min(360px, 42vw);
+  height: 34px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 11px;
+  color: #a1a1aa;
+  background: #fafafa;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+}
+
+.searchField:focus-within {
+  border-color: color-mix(in srgb, var(--color-brand-primary) 55%, #e4e4e7);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-brand-primary) 12%, transparent);
+}
+
+.searchField input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  color: #18181b;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 12px;
+}
+
+.searchField input::placeholder {
+  color: #a1a1aa;
+}
+
+.utilityActions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.utilityActions :global(.semi-button) {
+  color: #71717a;
+}
+
+.unread {
+  position: absolute;
+  top: 7px;
+  left: 27px;
+  width: 6px;
+  height: 6px;
+  background: var(--color-brand-primary);
+  border: 1px solid #fff;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.enterpriseHeader {
   position: sticky;
   top: 0;
   z-index: 50;
@@ -7,7 +215,7 @@
   backdrop-filter: blur(18px) saturate(105%);
 }
 
-.inner {
+.enterpriseInner {
   display: grid;
   width: min(calc(100% - clamp(32px, 6vw, 96px)), 1480px);
   min-height: 64px;
@@ -17,14 +225,7 @@
   margin: 0 auto;
 }
 
-.logoButton {
-  padding: 0;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-
-.nav {
+.enterpriseNav {
   display: flex;
   min-width: 0;
   align-items: center;
@@ -32,7 +233,7 @@
   gap: var(--space-1);
 }
 
-.nav a {
+.enterpriseNav a {
   position: relative;
   padding: 21px var(--space-3) 19px;
   color: var(--color-text-secondary);
@@ -42,7 +243,7 @@
   white-space: nowrap;
 }
 
-.nav a::after {
+.enterpriseNav a::after {
   position: absolute;
   right: var(--space-3);
   bottom: -1px;
@@ -52,97 +253,159 @@
   content: '';
 }
 
-.nav a:hover,
-.nav a:focus-visible,
-.nav a.active {
+.enterpriseNav a:hover,
+.enterpriseNav a:focus-visible,
+.enterpriseNav a.enterpriseActive {
   color: var(--color-brand-primary);
 }
 
-.nav a.active::after {
+.enterpriseNav a.enterpriseActive::after {
   background: var(--color-brand-primary);
 }
 
-.nav a:focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--color-brand-primary) 30%, transparent);
-  outline-offset: -4px;
-}
-
-.account {
+.enterpriseAccount {
   display: flex;
   align-items: center;
   gap: var(--space-2);
 }
 
-.utilities {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0;
-}
-
-.utilities :global(.semi-button) {
-  color: var(--color-icon-default);
-}
-
-.unread {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 6px;
-  height: 6px;
-  background: var(--color-brand-primary);
-  border: 1px solid var(--color-surface);
-  border-radius: 50%;
-}
-
-.account > span {
+.enterpriseAccount > span {
   color: var(--color-text-tertiary);
   font-size: 11px;
   font-weight: 600;
 }
 
-@media (max-width: 920px) {
-  .inner {
-    gap: var(--space-3);
+@media (max-width: 1080px) {
+  .studentRail {
+    width: 72px;
+    align-items: center;
+    padding-inline: 10px;
   }
 
-  .nav a {
-    padding-inline: var(--space-2);
+  .railLogo {
+    width: 32px;
+    margin-inline: 0;
   }
 
-  .account > span {
+  .railSection {
+    width: 100%;
+  }
+
+  .railSectionLabel,
+  .railLabel,
+  .railIdentity > span:last-child {
     display: none;
+  }
+
+  .railSection nav {
+    justify-items: center;
+  }
+
+  .railSection a {
+    width: 40px;
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  .railSection a.railActive::before {
+    left: -10px;
+  }
+
+  .railIdentity {
+    display: flex;
+    width: 40px;
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  .studentUtilityBar {
+    left: 72px;
   }
 }
 
 @media (max-width: 720px) {
-  .inner {
-    width: calc(100% - var(--space-6));
-    grid-template-columns: minmax(0, 1fr) auto;
-    padding-top: var(--space-2);
+  .studentRail {
+    top: auto;
+    right: 0;
+    z-index: 70;
+    width: auto;
+    height: 60px;
+    align-items: stretch;
+    padding: 0 max(8px, env(safe-area-inset-right)) env(safe-area-inset-bottom) max(8px, env(safe-area-inset-left));
+    border-top: 1px solid #e4e4e7;
+    border-right: 0;
   }
 
-  .nav {
-    width: 100%;
-    grid-column: 1 / -1;
-    grid-row: 2;
-    justify-content: flex-start;
-    overflow-x: auto;
-    border-top: 1px solid var(--color-border);
-    scrollbar-width: none;
-  }
-
-  .account {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .nav::-webkit-scrollbar {
+  .railLogo,
+  .studentRail .railSection:nth-of-type(2),
+  .railSectionLabel,
+  .railIdentity {
     display: none;
   }
 
-  .nav a {
-    padding-top: var(--space-3);
-    padding-bottom: var(--space-3);
+  .studentRail .railSection:first-of-type {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
+  .studentRail .railSection:first-of-type nav {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+  }
+
+  .railSection a {
+    display: grid;
+    width: 100%;
+    min-height: 52px;
+    justify-items: center;
+    align-content: center;
+    gap: 2px;
+    padding: 5px 2px;
+    border-radius: 0;
+  }
+
+  .railSection a:hover,
+  .railSection a:focus-visible,
+  .railSection a.railActive {
+    background: transparent;
+  }
+
+  .railSection a.railActive::before {
+    inset: 0 28% auto;
+    width: auto;
+    height: 2px;
+  }
+
+  .railLabel {
+    display: block;
+    font-size: 9px;
+  }
+
+  .studentUtilityBar {
+    left: 0;
+    height: 54px;
+    gap: 8px;
+    padding-inline: 12px;
+  }
+
+  .searchField {
+    width: min(100%, 250px);
+  }
+
+  .utilityActions :global(.semi-button):nth-of-type(2) {
+    display: none;
+  }
+
+  .unread {
+    left: 27px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .railSection a {
+    transition: none;
   }
 }

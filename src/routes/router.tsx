@@ -97,6 +97,14 @@ export const router = createBrowserRouter([
         },
       },
       {
+        path: 'student/rights',
+        lazy: async () => {
+          const { StudentRightsPage } = await import('../pages/Student/StudentUtilityPages');
+
+          return { Component: StudentRightsPage };
+        },
+      },
+      {
         path: 'enterprise',
         lazy: async () => {
           const { EnterpriseWorkspacePage } = await import('../pages/Enterprise/EnterpriseWorkspacePage');

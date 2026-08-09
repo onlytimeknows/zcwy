@@ -1,5 +1,10 @@
 import Button from '@douyinfe/semi-ui/lib/es/button';
+import IconBellStroked from '@douyinfe/semi-icons/lib/es/icons/IconBellStroked';
+import IconBriefcaseStroked from '@douyinfe/semi-icons/lib/es/icons/IconBriefcaseStroked';
+import IconHomeStroked from '@douyinfe/semi-icons/lib/es/icons/IconHomeStroked';
 import IconMailStroked from '@douyinfe/semi-icons/lib/es/icons/IconMailStroked';
+import IconSearchStroked from '@douyinfe/semi-icons/lib/es/icons/IconSearchStroked';
+import IconShieldStroked from '@douyinfe/semi-icons/lib/es/icons/IconShieldStroked';
 import IconUserCardPhone from '@douyinfe/semi-icons/lib/es/icons/IconUserCardPhone';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useDemoAuth, type DemoRole } from '../../auth/DemoAuthContext';
@@ -10,64 +15,132 @@ import styles from './WorkspaceHeader.module.css';
 interface WorkspaceNavItem {
   label: string;
   to: string;
+  icon?: React.ReactNode;
+  end?: boolean;
 }
 
-const workspaceNav: Record<DemoRole, WorkspaceNavItem[]> = {
-  student: [
-    { label: '工作台', to: '/student' },
-    { label: '找兼职', to: '/student/opportunities' },
-    { label: '我的投递', to: '/student/applications' },
-    { label: '履约', to: '/student/tasks/JOB-2026-0801' },
-  ],
-  enterprise: [
-    { label: '工作台', to: '/enterprise' },
-    { label: '当前任务', to: '/enterprise/task' },
-    { label: '成果验收', to: '/enterprise/acceptance' },
-    { label: '结算管理', to: '/enterprise/settlement' },
-  ],
-};
+const studentWorkspaceNav: WorkspaceNavItem[] = [
+  { label: '工作台', to: '/student', icon: <IconHomeStroked />, end: true },
+  { label: '找兼职', to: '/student/opportunities', icon: <IconSearchStroked /> },
+  { label: '我的投递', to: '/student/applications', icon: <IconMailStroked /> },
+  { label: '履约', to: '/student/tasks/JOB-2026-0801', icon: <IconBriefcaseStroked /> },
+];
 
-export function WorkspaceHeader() {
-  const location = useLocation();
+const studentUtilityNav: WorkspaceNavItem[] = [
+  { label: '简历', to: '/student/resume', icon: <IconUserCardPhone /> },
+  { label: '权益保障', to: '/student/rights', icon: <IconShieldStroked /> },
+];
+
+const enterpriseWorkspaceNav: WorkspaceNavItem[] = [
+  { label: '工作台', to: '/enterprise', end: true },
+  { label: '当前任务', to: '/enterprise/task' },
+  { label: '成果验收', to: '/enterprise/acceptance' },
+  { label: '结算管理', to: '/enterprise/settlement' },
+];
+
+function StudentRail() {
   const navigate = useNavigate();
-  const { role } = useDemoAuth();
-  const routeRole: DemoRole = location.pathname.startsWith('/enterprise') ? 'enterprise' : 'student';
-  const currentRole = routeRole;
+
+  const renderItem = (item: WorkspaceNavItem) => (
+    <NavLink
+      className={({ isActive }) => (isActive ? styles.railActive : undefined)}
+      end={item.end}
+      key={`${item.label}-${item.to}`}
+      to={item.to}
+    >
+      <span className={styles.railIcon} aria-hidden="true">{item.icon}</span>
+      <span className={styles.railLabel}>{item.label}</span>
+    </NavLink>
+  );
 
   return (
-    <header className={styles.header}>
-      <div className={styles.inner}>
+    <aside className={styles.studentRail} aria-label="学生工作区导航">
+      <button className={styles.railLogo} type="button" onClick={() => navigate('/')}>
+        <BrandLogo compact />
+      </button>
+
+      <div className={styles.railSection}>
+        <span className={styles.railSectionLabel}>工作区</span>
+        <nav>{studentWorkspaceNav.map(renderItem)}</nav>
+      </div>
+
+      <div className={styles.railSection}>
+        <span className={styles.railSectionLabel}>工具</span>
+        <nav>{studentUtilityNav.map(renderItem)}</nav>
+      </div>
+
+      <div className={styles.railIdentity}>
+        <span className={styles.identityDot} aria-hidden="true" />
+        <span><strong>林知夏</strong><small>学生演示身份</small></span>
+      </div>
+    </aside>
+  );
+}
+
+function StudentUtilityBar() {
+  const navigate = useNavigate();
+  const { role } = useDemoAuth();
+
+  return (
+    <header className={styles.studentUtilityBar}>
+      <label className={styles.searchField}>
+        <IconSearchStroked aria-hidden="true" />
+        <input aria-label="搜索岗位或企业" placeholder="搜索岗位或企业" type="search" />
+      </label>
+      <div className={styles.utilityActions}>
+        <Button
+          theme="borderless"
+          icon={<IconMailStroked />}
+          aria-label="消息，1 条待处理"
+          title="消息 · 1 条待处理"
+          onClick={() => navigate('/student/messages')}
+        />
+        <span className={styles.unread} aria-hidden="true" />
+        <Button theme="borderless" icon={<IconBellStroked />} aria-label="通知" title="通知" />
+        {role ? <UserMenu showScenarioControls displayRole="student" /> : <Button theme="light" type="primary" onClick={() => navigate('/auth')}>选择身份</Button>}
+      </div>
+    </header>
+  );
+}
+
+function EnterpriseHeader() {
+  const navigate = useNavigate();
+  const { role } = useDemoAuth();
+
+  return (
+    <header className={styles.enterpriseHeader}>
+      <div className={styles.enterpriseInner}>
         <button className={styles.logoButton} type="button" onClick={() => navigate('/')}>
           <BrandLogo compact />
         </button>
-        <nav className={styles.nav} aria-label={`${currentRole === 'student' ? '学生' : '企业'}工作区导航`}>
-          {workspaceNav[currentRole].map((item, index) => (
-            <NavLink
-              className={({ isActive }) => isActive ? styles.active : undefined}
-              end={index === 0}
-              key={`${item.label}-${item.to}`}
-              to={item.to}
-            >
+        <nav className={styles.enterpriseNav} aria-label="企业工作区导航">
+          {enterpriseWorkspaceNav.map((item) => (
+            <NavLink className={({ isActive }) => (isActive ? styles.enterpriseActive : undefined)} end={item.end} key={item.to} to={item.to}>
               {item.label}
             </NavLink>
           ))}
         </nav>
-        <div className={styles.account}>
-          <span>{currentRole === 'student' ? '学生端' : '企业端'}</span>
-          {currentRole === 'student' && (
-            <div className={styles.utilities} aria-label="学生工具">
-              <Button theme="borderless" icon={<IconUserCardPhone />} aria-label="我的简历" title="我的简历" onClick={() => navigate('/student/resume')} />
-              <Button theme="borderless" icon={<IconMailStroked />} aria-label="消息，1 条待处理" title="消息 · 1 条待处理" onClick={() => navigate('/student/messages')} />
-              <span className={styles.unread} aria-hidden="true" />
-            </div>
-          )}
-          {role ? (
-            <UserMenu showScenarioControls displayRole={currentRole} />
-          ) : (
-            <Button theme="light" type="primary" onClick={() => navigate('/auth')}>选择身份</Button>
-          )}
+        <div className={styles.enterpriseAccount}>
+          <span>企业端</span>
+          {role ? <UserMenu showScenarioControls displayRole="enterprise" /> : <Button theme="light" type="primary" onClick={() => navigate('/auth')}>选择身份</Button>}
         </div>
       </div>
     </header>
+  );
+}
+
+export function WorkspaceHeader() {
+  const location = useLocation();
+  const routeRole: DemoRole = location.pathname.startsWith('/enterprise') ? 'enterprise' : 'student';
+
+  if (routeRole === 'enterprise') {
+    return <EnterpriseHeader />;
+  }
+
+  return (
+    <>
+      <StudentRail />
+      <StudentUtilityBar />
+    </>
   );
 }

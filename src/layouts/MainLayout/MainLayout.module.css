@@ -36,6 +36,16 @@
   overflow-y: hidden;
 }
 
+.studentWorkspaceLayout {
+  background: #fff;
+}
+
+.studentWorkspaceLayout .content {
+  margin-left: 208px;
+  padding-top: 58px;
+  background: #fff;
+}
+
 .header {
   position: sticky;
   top: var(--space-3);
@@ -110,6 +120,20 @@
 
   .nav {
     display: none;
+  }
+}
+
+@media (max-width: 1080px) {
+  .studentWorkspaceLayout .content {
+    margin-left: 72px;
+  }
+}
+
+@media (max-width: 720px) {
+  .studentWorkspaceLayout .content {
+    margin-left: 0;
+    padding-top: 54px;
+    padding-bottom: 60px;
   }
 }
 

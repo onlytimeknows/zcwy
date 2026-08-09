@@ -1,11 +1,9 @@
 import Button from '@douyinfe/semi-ui/lib/es/button';
 import Progress from '@douyinfe/semi-ui/lib/es/progress';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
-import IconBriefcaseStroked from '@douyinfe/semi-icons/lib/es/icons/IconBriefcaseStroked';
 import IconCommentStroked from '@douyinfe/semi-icons/lib/es/icons/IconCommentStroked';
 import IconEditStroked from '@douyinfe/semi-icons/lib/es/icons/IconEditStroked';
 import IconSearchStroked from '@douyinfe/semi-icons/lib/es/icons/IconSearchStroked';
-import IconShieldStroked from '@douyinfe/semi-icons/lib/es/icons/IconShieldStroked';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
@@ -42,82 +40,140 @@ export function StudentWorkspacePage() {
   ];
 
   return (
-    <motion.main className={styles.page} initial={reduceMotion ? false : { opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
+    <motion.main
+      className={styles.page}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.16 }}
+    >
       <header className={styles.contextHeader}>
         <h1>下午好，{state.student.name}</h1>
-        <p>你有 1 个待跟进的投递，1 项兼职任务正在进行。</p>
+        <p><strong>1 个新进展</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
       </header>
 
-      <div className={styles.workspaceGrid}>
-        <div className={styles.primaryColumn}>
-          <section className={styles.applicationPanel} aria-labelledby="application-title">
-            <div className={styles.panelTopline}>
-              <span>最近投递</span>
-              <SemanticStatusTag tone="success">初筛通过</SemanticStatusTag>
+      <div className={styles.homeGrid}>
+        <div className={styles.primaryStack}>
+          <section className={styles.applicationSection} aria-labelledby="application-title">
+            <div className={styles.sectionHeading}>
+              <h2>最近投递</h2>
+              <span>1 个新进展</span>
             </div>
-            <div className={styles.applicationMain}>
-              <div>
-                <h2 id="application-title">校园短视频运营助理</h2>
-                <p>青禾数字传媒有限公司 · 今天 10:24 更新</p>
+
+            <div className={styles.applicationBody}>
+              <div className={styles.applicationIdentity}>
+                <div className={styles.jobTitleRow}>
+                  <h3 id="application-title">校园短视频运营助理</h3>
+                  <SemanticStatusTag tone="success" size="small">初筛通过</SemanticStatusTag>
+                </div>
+                <p>青禾数字传媒有限公司 <span aria-hidden="true">·</span> 今天 10:24</p>
               </div>
-              <div className={styles.applicationResult}>
-                <span>最新结果</span>
+
+              <div className={styles.applicationUpdate}>
                 <strong>企业已通过简历初筛</strong>
-                <small>预计 1 个工作日内联系</small>
+                <span>预计 1 个工作日内联系</span>
               </div>
             </div>
-            <div className={styles.panelFooter}>
-              <span>下一步 · 准备课程安排与作品链接</span>
-              <Button theme="light" type="primary" icon={<IconArrowRight />} iconPosition="right" onClick={() => navigate(`/student/applications/${applicationId}`)}>查看投递</Button>
+
+            <div className={styles.applicationNext}>
+              <span><small>下一步</small>准备课程安排与作品链接</span>
+              <Button
+                theme="borderless"
+                type="primary"
+                icon={<IconArrowRight />}
+                iconPosition="right"
+                onClick={() => navigate(`/student/applications/${applicationId}`)}
+              >
+                查看详情
+              </Button>
             </div>
           </section>
 
-          <section className={styles.currentTask} aria-labelledby="current-task-title">
-            <div className={styles.taskIdentity}>
-              <span className={styles.taskIcon}><IconBriefcaseStroked /></span>
-              <div><span>继续处理 · {state.task.id}</span><h2 id="current-task-title">{state.task.title}</h2><p>{state.task.enterpriseName}</p></div>
+          <section className={styles.taskSection} aria-labelledby="current-task-title">
+            <div className={styles.sectionHeading}>
+              <h2>继续处理</h2>
+              <span>{state.task.id}</span>
             </div>
-            <div className={styles.taskProgress}>
-              <div><span>{taskState.status}</span><strong>{state.progress} / 10</strong></div>
-              <Progress percent={state.progress * 10} showInfo={false} stroke="var(--color-brand-primary)" />
-              <small>{taskState.next}</small>
-            </div>
-            <div className={styles.taskAction}>
-              <span>{formatCurrency(state.task.amount)} <small>{state.escrow.status === 'held' ? '已托管' : '已到账'}</small></span>
-              <Button theme="solid" type="primary" icon={<IconArrowRight />} iconPosition="right" onClick={() => navigate(taskRoute)}>{taskState.action}</Button>
-            </div>
-          </section>
 
-          <section className={styles.activity} aria-labelledby="activity-title">
-            <div className={styles.sectionHeading}><h2 id="activity-title">最近动态</h2><button type="button">查看全部</button></div>
-            <div className={styles.activityList}>
-              {activities.map(([time, event]) => <div key={`${time}-${event}`}><time>{time}</time><span>{event}</span></div>)}
+            <div className={styles.taskStrip}>
+              <div className={styles.taskIdentity}>
+                <div className={styles.taskTitleRow}>
+                  <h3 id="current-task-title">{state.task.title}</h3>
+                  <SemanticStatusTag tone={state.stage === 'settled' ? 'success' : 'value'} size="small">{taskState.status}</SemanticStatusTag>
+                </div>
+                <p>{state.task.enterpriseName}</p>
+              </div>
+
+              <div className={styles.taskProgress}>
+                <div><span>{state.progress} / 10</span><small>{taskState.next}</small></div>
+                <Progress percent={state.progress * 10} showInfo={false} stroke="var(--color-brand-primary)" />
+              </div>
+
+              <div className={styles.taskValue}>
+                <strong>{formatCurrency(state.task.amount)}</strong>
+                <span>{state.escrow.status === 'held' ? '已托管' : '已到账'}</span>
+              </div>
+
+              <Button
+                theme="light"
+                type="primary"
+                icon={<IconArrowRight />}
+                iconPosition="right"
+                onClick={() => navigate(taskRoute)}
+              >
+                {taskState.action}
+              </Button>
             </div>
           </section>
         </div>
 
-        <aside className={styles.sideRail} aria-label="今日概览">
+        <aside className={styles.contextRail} aria-label="今日工作">
           <section className={styles.quickActions}>
             <h2>快速操作</h2>
-            {quickEntries.map((entry) => <button key={entry.label} type="button" onClick={() => navigate(entry.route)}><span>{entry.icon}</span><span><strong>{entry.label}</strong><small>{entry.hint}</small></span><IconArrowRight /></button>)}
+            <div>
+              {quickEntries.map((entry) => (
+                <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
+                  <span className={styles.actionIcon}>{entry.icon}</span>
+                  <span><strong>{entry.label}</strong><small>{entry.hint}</small></span>
+                  <IconArrowRight aria-hidden="true" />
+                </button>
+              ))}
+            </div>
           </section>
 
-          <section className={styles.agenda}>
-            <div className={styles.sectionHeading}><h2>今日待办</h2><span>2 项</span></div>
-            <button type="button" onClick={() => navigate(taskRoute)}><i /><span><strong>{taskState.action}</strong><small>{taskState.next}</small></span></button>
-            <button type="button" onClick={() => navigate('/student/messages')}><i className={styles.successDot} /><span><strong>跟进最新投递</strong><small>初筛通过，等待企业沟通</small></span></button>
-          </section>
-
-          <section className={styles.protectionSummary}>
-            <div className={styles.sectionHeading}><h2>保障状态</h2><IconShieldStroked /></div>
-            <dl>
-              <div><dt>薪资保障</dt><dd>{formatCurrency(state.task.amount)} {state.escrow.status === 'held' ? '已托管' : '已到账'}</dd></div>
-              <div><dt>可信记录</dt><dd>{state.latestEvidence.id}</dd></div>
-              <div><dt>实践信用</dt><dd>{state.student.creditLevel}</dd></div>
-            </dl>
-            <button type="button" onClick={() => navigate(taskRoute)}>查看履约与证书 <IconArrowRight /></button>
+          <section className={styles.todaySection}>
+            <div className={styles.sectionHeading}>
+              <h2>今天</h2>
+              <span>2 项</span>
+            </div>
+            <div className={styles.todoList}>
+              <button type="button" onClick={() => navigate(`/student/applications/${applicationId}`)}>
+                <i className={styles.successDot} aria-hidden="true" />
+                <span><strong>跟进最新投递</strong><small>初筛通过，等待企业沟通</small></span>
+                <IconArrowRight aria-hidden="true" />
+              </button>
+              <button type="button" onClick={() => navigate(taskRoute)}>
+                <i aria-hidden="true" />
+                <span><strong>{taskState.action}</strong><small>{taskState.next}</small></span>
+                <IconArrowRight aria-hidden="true" />
+              </button>
+            </div>
           </section>
         </aside>
+
+        <section className={styles.activitySection} aria-labelledby="activity-title">
+          <div className={styles.sectionHeading}>
+            <h2 id="activity-title">最近动态</h2>
+            <button type="button">查看全部</button>
+          </div>
+          <div className={styles.activityFeed}>
+            {activities.map(([time, event]) => (
+              <div key={`${time}-${event}`}>
+                <time>{time}</time>
+                <span>{event}</span>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </motion.main>
   );

@@ -21,6 +21,7 @@ export function MainLayout() {
   const isHomePage = location.pathname === '/';
   const isAuthPage = location.pathname === '/auth';
   const isWorkspacePage = location.pathname.startsWith('/student') || location.pathname.startsWith('/enterprise');
+  const isStudentWorkspace = location.pathname.startsWith('/student');
   const isWorkspaceHomePage = location.pathname === '/student' || location.pathname === '/enterprise';
   const hasCompactHeader = isHomePage || isAuthPage;
 
@@ -35,7 +36,7 @@ export function MainLayout() {
 
   return (
     <Layout
-      className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''} ${isHomePage ? styles.homeLayout : ''} ${isAuthPage ? styles.authLayout : ''} ${isWorkspacePage ? styles.workspaceLayout : ''} ${isWorkspaceHomePage ? styles.workspaceHomeLayout : ''}`}
+      className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''} ${isHomePage ? styles.homeLayout : ''} ${isAuthPage ? styles.authLayout : ''} ${isWorkspacePage ? styles.workspaceLayout : ''} ${isStudentWorkspace ? styles.studentWorkspaceLayout : ''} ${isWorkspaceHomePage ? styles.workspaceHomeLayout : ''}`}
     >
       {isWorkspacePage ? (
         <WorkspaceHeader />
