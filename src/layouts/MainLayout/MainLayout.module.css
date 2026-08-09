@@ -23,12 +23,17 @@
   height: 100dvh;
   min-height: 0;
   overflow: hidden;
+  background: #f7f7f8;
 }
 
 .workspaceLayout .content {
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+
+.workspaceHomeLayout .content {
+  overflow-y: hidden;
 }
 
 .header {
@@ -99,6 +104,10 @@
 }
 
 @media (max-width: 900px) {
+  .workspaceHomeLayout .content {
+    overflow-y: auto;
+  }
+
   .nav {
     display: none;
   }

@@ -16,7 +16,11 @@ export function CurrentTaskCard({ tone = 'student' }: { tone?: 'student' | 'ente
   const { state, view } = useDemoScenario();
   const location = useLocation();
   const navigate = useNavigate();
-  const actionRoute = view.guide.actionRoute ? `${view.guide.actionRoute}/task` : undefined;
+  const actionRoute = view.guide.actionRoute === '/student'
+    ? `/student/tasks/${state.task.id}`
+    : view.guide.actionRoute === '/enterprise'
+      ? '/enterprise/task'
+      : undefined;
   const showCrossRoleAction = view.guide.actionRoute && !location.pathname.startsWith(view.guide.actionRoute);
 
   return (

@@ -127,7 +127,7 @@ export function EnterpriseDashboardPage() {
                   type="primary"
                   icon={<IconArrowRight />}
                   iconPosition="right"
-                  onClick={() => navigate('/student/task')}
+                  onClick={() => navigate(`/student/tasks/${state.task.id}`)}
                 >
                   切换到学生端
                 </Button>
@@ -252,7 +252,7 @@ export function EnterpriseDashboardPage() {
                     type="primary"
                     icon={<IconArrowRight />}
                     iconPosition="right"
-                    onClick={() => navigate('/student/task')}
+                    onClick={() => navigate(`/student/tasks/${state.task.id}`)}
                   >
                     切换到学生端查看到账与证书
                   </Button>

@@ -49,11 +49,27 @@ export const router = createBrowserRouter([
         },
       },
       {
+        path: 'student/tasks/:taskId',
+        lazy: async () => {
+          const { StudentDashboardPage } = await import('../pages/Student/StudentDashboardPage');
+
+          return { Component: StudentDashboardPage };
+        },
+      },
+      {
         path: 'student/applications',
         lazy: async () => {
           const { StudentApplicationsPage } = await import('../pages/Student/StudentApplicationsPage');
 
           return { Component: StudentApplicationsPage };
+        },
+      },
+      {
+        path: 'student/applications/:applicationId',
+        lazy: async () => {
+          const { StudentApplicationDetailPage } = await import('../pages/Student/StudentApplicationsPage');
+
+          return { Component: StudentApplicationDetailPage };
         },
       },
       {
