@@ -20,7 +20,7 @@ export function MainLayout() {
   const { role } = useDemoAuth();
   const isHomePage = location.pathname === '/';
   const isAuthPage = location.pathname === '/auth';
-  const isWorkspacePage = location.pathname === '/student' || location.pathname === '/enterprise';
+  const isWorkspacePage = location.pathname.startsWith('/student') || location.pathname.startsWith('/enterprise');
   const hasCompactHeader = isHomePage || isAuthPage;
 
   const goToHomeSection = (sectionId: string) => {
@@ -34,7 +34,7 @@ export function MainLayout() {
 
   return (
     <Layout
-      className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''} ${isHomePage ? styles.homeLayout : ''} ${isAuthPage ? styles.authLayout : ''}`}
+      className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''} ${isHomePage ? styles.homeLayout : ''} ${isAuthPage ? styles.authLayout : ''} ${isWorkspacePage ? styles.workspaceLayout : ''}`}
     >
       {isWorkspacePage ? (
         <WorkspaceHeader />

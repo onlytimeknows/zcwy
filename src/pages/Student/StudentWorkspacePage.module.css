@@ -1,0 +1,308 @@
+.page {
+  box-sizing: border-box;
+  width: min(calc(100% - clamp(32px, 6vw, 96px)), 1480px);
+  height: calc(100dvh - 65px);
+  min-height: 620px;
+  margin: 0 auto;
+  padding: clamp(22px, 3vh, 34px) 0;
+  overflow: hidden;
+  color: var(--color-text-primary);
+}
+
+.contextHeader {
+  display: flex;
+  min-height: 74px;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-bottom: clamp(18px, 2.2vh, 28px);
+}
+
+.eyebrow,
+.sectionLabel {
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.contextHeader h1 {
+  margin: 4px 0 2px;
+  font-size: clamp(26px, 2.5vw, 34px);
+  letter-spacing: -.04em;
+}
+
+.contextHeader p,
+.panelTopline p,
+.taskIdentity p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.quickEntries {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.quickEntries button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 132px;
+  padding: 9px 12px;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-medium);
+  color: var(--color-text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+
+.quickEntries button:hover,
+.quickEntries button:focus-visible {
+  background: var(--color-neutral-soft);
+}
+
+.quickEntries button > span:first-child {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  color: var(--color-icon-default);
+}
+
+.quickEntries strong,
+.quickEntries small {
+  display: block;
+}
+
+.quickEntries strong { font-size: 13px; }
+.quickEntries small { margin-top: 2px; color: var(--color-text-tertiary); font-size: 10px; }
+
+.workspaceGrid {
+  display: grid;
+  height: calc(100% - clamp(92px, 12vh, 118px));
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, .72fr);
+  gap: clamp(18px, 2vw, 28px);
+}
+
+.primaryColumn,
+.sideRail {
+  display: grid;
+  min-height: 0;
+  gap: clamp(16px, 2vh, 22px);
+}
+
+.primaryColumn { grid-template-rows: minmax(280px, 1.35fr) minmax(170px, .72fr); }
+.sideRail { grid-template-rows: 1fr .9fr; }
+
+.applicationPanel,
+.currentTask {
+  min-height: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.applicationPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(22px, 2.4vw, 34px);
+  border-radius: var(--radius-large);
+  box-shadow: 0 16px 42px rgb(25 35 50 / 5%);
+}
+
+.panelTopline,
+.applicationFooter,
+.currentTask,
+.railHeading,
+.taskIdentity,
+.taskProgress > div,
+.taskAction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.panelTopline { align-items: flex-start; }
+.panelTopline h2,
+.taskIdentity h2,
+.railHeading h2 { margin: 4px 0; letter-spacing: -.025em; }
+.panelTopline h2 { font-size: clamp(23px, 2.1vw, 30px); }
+.panelTopline p { font-size: 13px; }
+
+.applicationTrack {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: clamp(18px, 3vh, 34px) 0;
+}
+
+.applicationTrack::before {
+  position: absolute;
+  top: 14px;
+  right: 12.5%;
+  left: 12.5%;
+  height: 1px;
+  background: var(--color-border-strong);
+  content: '';
+}
+
+.applicationTrack > div {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  font-size: 12px;
+}
+
+.applicationTrack > div > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+  color: var(--color-text-tertiary);
+}
+
+.applicationTrack .stepComplete > span {
+  background: var(--color-success-soft);
+  border-color: var(--color-success-border);
+  color: var(--color-success-text);
+}
+
+.stepPending strong { color: var(--color-text-tertiary); }
+
+.applicationFooter {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.applicationFooter span,
+.applicationFooter strong { display: block; }
+.applicationFooter span { margin-bottom: 4px; color: var(--color-text-tertiary); font-size: 11px; }
+.applicationFooter strong { font-size: 13px; }
+
+.currentTask {
+  padding: 20px 24px;
+  border-radius: var(--radius-medium);
+}
+
+.taskIdentity { justify-content: flex-start; min-width: 240px; }
+.taskIdentity h2 { font-size: 18px; }
+.taskIdentity p { font-size: 11px; }
+.taskIcon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  background: var(--color-brand-soft);
+  border-radius: 12px;
+  color: var(--color-brand-primary);
+}
+
+.taskProgress { width: min(34%, 310px); }
+.taskProgress > div span { font-size: 12px; font-weight: 600; }
+.taskProgress > div strong { font-size: 16px; }
+.taskProgress small { display: block; margin-top: 6px; color: var(--color-text-tertiary); font-size: 10px; }
+.taskAction { flex-direction: column; align-items: flex-end; }
+.taskAction > span { color: var(--color-value-text); font-size: 17px; font-weight: 700; }
+.taskAction small { color: var(--color-text-tertiary); font-size: 10px; font-weight: 500; }
+
+.agenda,
+.protectionSummary {
+  min-height: 0;
+  padding: clamp(18px, 2vw, 26px) 4px;
+  border-top: 1px solid var(--color-border);
+}
+
+.railHeading { align-items: flex-start; padding: 0 var(--space-2) var(--space-3); }
+.railHeading h2 { font-size: 18px; }
+.railHeading > span,
+.railHeading > svg { color: var(--color-text-tertiary); font-size: 11px; }
+
+.agenda > button {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 8px;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.agenda > button:hover strong,
+.agenda > button:focus-visible strong { color: var(--color-brand-primary); }
+.agenda > button > svg { color: var(--color-text-tertiary); }
+.agenda strong, .agenda small { display: block; }
+.agenda strong { font-size: 13px; }
+.agenda small { margin-top: 3px; color: var(--color-text-tertiary); font-size: 10px; }
+.agendaMarker { width: 8px; height: 8px; background: var(--color-brand-primary); border-radius: 50%; }
+.neutralMarker { background: var(--color-success); }
+
+.protectionSummary dl { margin: 0; }
+.protectionSummary dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 12px 8px;
+  border-top: 1px solid var(--color-border);
+  font-size: 12px;
+}
+.protectionSummary dt { color: var(--color-text-tertiary); }
+.protectionSummary dd { margin: 0; font-weight: 600; text-align: right; }
+.protectionSummary > button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 12px 8px 0 auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--color-brand-primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .quickEntries button { min-width: auto; }
+  .quickEntries small { display: none; }
+  .currentTask { display: grid; grid-template-columns: 1fr 1fr; }
+  .taskProgress { width: 100%; }
+  .taskAction { grid-column: 1 / -1; flex-direction: row; align-items: center; }
+}
+
+@media (max-width: 820px) {
+  .page { height: auto; min-height: calc(100dvh - 112px); overflow: visible; }
+  .contextHeader { align-items: flex-start; flex-direction: column; }
+  .quickEntries { width: 100%; overflow-x: auto; }
+  .workspaceGrid { height: auto; grid-template-columns: 1fr; }
+  .primaryColumn, .sideRail { grid-template-rows: auto; }
+  .applicationPanel { min-height: 330px; }
+}
+
+@media (max-width: 560px) {
+  .page { width: calc(100% - var(--space-6)); padding-top: var(--space-5); }
+  .contextHeader h1 { font-size: 26px; }
+  .quickEntries button { min-width: 112px; padding-inline: 6px; }
+  .applicationPanel { padding: var(--space-5); }
+  .panelTopline, .applicationFooter { align-items: flex-start; flex-direction: column; }
+  .applicationTrack strong { font-size: 10px; }
+  .currentTask { display: flex; align-items: stretch; flex-direction: column; }
+  .taskAction { flex-direction: row; align-items: center; }
+}

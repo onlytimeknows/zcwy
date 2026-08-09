@@ -19,6 +19,18 @@
   background: var(--color-surface);
 }
 
+.workspaceLayout {
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.workspaceLayout .content {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
 .header {
   position: sticky;
   top: var(--space-3);

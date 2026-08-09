@@ -77,9 +77,9 @@ export function EnterpriseDashboardPage() {
     >
       <header className={styles.pageHeader} id="workspace-overview">
         <div>
-          <Title heading={1}>企业工作台</Title>
-          <Paragraph>{state.enterprise.name} · 企业演示身份</Paragraph>
-          <Text className={styles.contextNote}>1 项进行中的任务 · {pendingCount ? '1 项成果待验收' : '当前无待验收成果'}</Text>
+          <Title heading={1}>任务验收与结算</Title>
+          <Paragraph>{state.task.title} · 企业履约详情</Paragraph>
+          <Text className={styles.contextNote}>{pendingCount ? '1 项成果等待处理' : '查看任务、存证与结算进度'}</Text>
         </div>
         <div className={styles.headerActions}>
           <SemanticStatusTag tone="success" size="large" prefixIcon={<IconShieldStroked />}>企业认证已通过</SemanticStatusTag>
@@ -127,7 +127,7 @@ export function EnterpriseDashboardPage() {
                   type="primary"
                   icon={<IconArrowRight />}
                   iconPosition="right"
-                  onClick={() => navigate('/student')}
+                  onClick={() => navigate('/student/task')}
                 >
                   切换到学生端
                 </Button>
@@ -252,7 +252,7 @@ export function EnterpriseDashboardPage() {
                     type="primary"
                     icon={<IconArrowRight />}
                     iconPosition="right"
-                    onClick={() => navigate('/student')}
+                    onClick={() => navigate('/student/task')}
                   >
                     切换到学生端查看到账与证书
                   </Button>

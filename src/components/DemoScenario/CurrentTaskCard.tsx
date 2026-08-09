@@ -16,7 +16,8 @@ export function CurrentTaskCard({ tone = 'student' }: { tone?: 'student' | 'ente
   const { state, view } = useDemoScenario();
   const location = useLocation();
   const navigate = useNavigate();
-  const showCrossRoleAction = view.guide.actionRoute && view.guide.actionRoute !== location.pathname;
+  const actionRoute = view.guide.actionRoute ? `${view.guide.actionRoute}/task` : undefined;
+  const showCrossRoleAction = view.guide.actionRoute && !location.pathname.startsWith(view.guide.actionRoute);
 
   return (
     <section className={`${styles.card} ${styles[tone]}`} id="current-task" aria-labelledby="current-task-title">
@@ -50,7 +51,7 @@ export function CurrentTaskCard({ tone = 'student' }: { tone?: 'student' | 'ente
             type="primary"
             icon={<IconArrowRight />}
             iconPosition="right"
-            onClick={() => navigate(view.guide.actionRoute!)}
+            onClick={() => navigate(actionRoute!)}
           >
             {view.guide.actionLabel}
           </Button>

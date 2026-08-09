@@ -66,9 +66,9 @@ export function StudentDashboardPage() {
     >
       <header className={styles.pageHeader} id="workspace-overview">
         <div>
-          <Title heading={1}>学生工作台</Title>
-          <Paragraph>{state.student.name} · 学生演示身份</Paragraph>
-          <Text className={styles.contextNote}>1 项进行中的兼职任务</Text>
+          <Title heading={1}>当前任务</Title>
+          <Paragraph>{state.task.title} · 学生履约详情</Paragraph>
+          <Text className={styles.contextNote}>在这里提交成果、查看存证与结算进度</Text>
         </div>
         <div className={styles.headerActions}>
           <Button theme="borderless" onClick={() => navigate('/auth')}>切换演示身份</Button>
@@ -133,7 +133,7 @@ export function StudentDashboardPage() {
                   type="primary"
                   icon={<IconArrowRight />}
                   iconPosition="right"
-                  onClick={() => navigate('/enterprise')}
+                  onClick={() => navigate('/enterprise/task')}
                   disabled={state.stage === 'settling'}
                 >
                   {state.stage === 'settled' ? '前往企业端查看结算' : '切换到企业端验收'}

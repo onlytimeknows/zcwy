@@ -1,0 +1,17 @@
+.page { box-sizing: border-box; width: min(calc(100% - clamp(32px, 6vw, 96px)), 1180px); height: calc(100dvh - 65px); min-height: 600px; margin: 0 auto; padding: clamp(24px, 4vh, 42px) 0; overflow: hidden; }
+.page > header { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-6); margin-bottom: clamp(24px, 4vh, 40px); }
+.page > header span, .primary > div > span { color: var(--color-text-tertiary); font-size: 11px; font-weight: 700; letter-spacing: .07em; }
+.page h1 { margin: 5px 0 2px; font-size: clamp(27px, 3vw, 36px); letter-spacing: -.04em; }
+.page header p, .primary p { margin: 0; color: var(--color-text-secondary); }
+.content { padding: clamp(28px, 4vw, 48px); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-large); }
+.primary { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-6); padding-bottom: clamp(26px, 4vh, 42px); border-bottom: 1px solid var(--color-border); }
+.icon { display: grid; width: 52px; height: 52px; place-items: center; background: var(--color-brand-soft); border-radius: 14px; color: var(--color-brand-primary); font-size: 22px; }
+.primary h2 { margin: 5px 0; font-size: clamp(21px, 2.4vw, 28px); letter-spacing: -.025em; }
+.primary p { max-width: 620px; font-size: 12px; }
+.rows > div { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); padding: 18px 4px; border-bottom: 1px solid var(--color-border); }
+.rows strong, .rows span { display: block; }
+.rows strong { font-size: 14px; }
+.rows span { margin-top: 4px; color: var(--color-text-tertiary); font-size: 11px; }
+.notice { margin: var(--space-5) 0 0; color: var(--color-text-tertiary); font-size: 10px; text-align: center; }
+@media (max-width: 720px) { .page { height: auto; min-height: calc(100dvh - 112px); overflow: visible; } .primary { grid-template-columns: auto 1fr; } .primary > button { grid-column: 1 / -1; justify-self: stretch; } }
+@media (max-width: 520px) { .page { width: calc(100% - var(--space-6)); } .page > header { align-items: flex-start; flex-direction: column; } .content { padding: var(--space-5); } .primary { align-items: flex-start; } }
