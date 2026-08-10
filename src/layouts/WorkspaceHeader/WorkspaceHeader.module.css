@@ -29,26 +29,31 @@
 .railToggle {
   position: absolute;
   top: 28px;
-  right: -16px;
+  right: 0;
   z-index: 2;
   display: grid;
-  width: 32px;
-  height: 32px;
-  flex: 0 0 32px;
+  width: 22px;
+  height: 40px;
+  flex: 0 0 22px;
   padding: 0;
   place-items: center;
   color: #71717a;
   background: #fff;
   border: 1px solid #e4e4e7;
-  border-radius: 50%;
+  border-right: 0;
+  border-radius: 20px 0 0 20px;
   box-shadow: 0 3px 12px rgb(24 24 27 / 8%);
   cursor: pointer;
+  transform: translateY(0);
   transition:
+    top var(--motion-rail-slide),
+    right var(--motion-ui),
+    border-radius var(--motion-ui),
     color var(--motion-ui-fast),
     background-color var(--motion-ui-fast),
     border-color var(--motion-ui-fast),
     box-shadow var(--motion-ui-fast),
-    transform var(--motion-ui-fast);
+    transform var(--motion-rail-slide);
 }
 
 .railToggle:hover,
@@ -57,7 +62,22 @@
   background: #fafafa;
   border-color: #d4d4d8;
   box-shadow: 0 5px 16px rgb(24 24 27 / 11%);
-  transform: translateX(1px);
+  transform: translate(1px, 0);
+}
+
+.railToggle svg {
+  transform: translateX(-1px);
+  transition: transform var(--motion-ui);
+}
+
+.railToggleAtMid {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.railToggleAtMid:hover,
+.railToggleAtMid:focus-visible {
+  transform: translate(1px, -50%);
 }
 
 .railToggle:focus-visible,
@@ -271,6 +291,17 @@
   width: 72px;
   align-items: center;
   padding-inline: 10px;
+}
+
+.railCollapsed .railToggle {
+  right: -22px;
+  border-right: 1px solid #e4e4e7;
+  border-left: 0;
+  border-radius: 0 20px 20px 0;
+}
+
+.railCollapsed .railToggle svg {
+  transform: translateX(1px);
 }
 
 .railCollapsed .railTop {

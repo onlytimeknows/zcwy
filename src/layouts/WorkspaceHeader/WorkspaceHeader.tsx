@@ -9,6 +9,7 @@ import IconMailStroked from '@douyinfe/semi-icons/lib/es/icons/IconMailStroked';
 import IconSearchStroked from '@douyinfe/semi-icons/lib/es/icons/IconSearchStroked';
 import IconShieldStroked from '@douyinfe/semi-icons/lib/es/icons/IconShieldStroked';
 import IconUserCardPhone from '@douyinfe/semi-icons/lib/es/icons/IconUserCardPhone';
+import { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useDemoAuth, type DemoRole } from '../../auth/DemoAuthContext';
 import { BrandLogo } from '../../components/BrandLogo/BrandLogo';
@@ -44,10 +45,68 @@ const enterpriseWorkspaceNav: WorkspaceNavItem[] = [
 function StudentRail({ collapsed, onToggleCollapsed }: { collapsed: boolean; onToggleCollapsed: () => void }) {
   const navigate = useNavigate();
   const { role, logout } = useDemoAuth();
+  const [isToggleAtMid, setToggleAtMid] = useState(collapsed);
+  const [isToggleReturning, setToggleReturning] = useState(false);
+  const toggleFrameRef = useRef<number | null>(null);
+  const toggleTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (toggleFrameRef.current !== null) {
+      window.cancelAnimationFrame(toggleFrameRef.current);
+    }
+
+    if (collapsed) {
+      setToggleAtMid(false);
+      toggleFrameRef.current = window.requestAnimationFrame(() => {
+        setToggleAtMid(true);
+        toggleFrameRef.current = null;
+      });
+    } else {
+      setToggleAtMid(false);
+      setToggleReturning(false);
+    }
+
+    return () => {
+      if (toggleFrameRef.current !== null) {
+        window.cancelAnimationFrame(toggleFrameRef.current);
+        toggleFrameRef.current = null;
+      }
+    };
+  }, [collapsed]);
+
+  useEffect(() => () => {
+    if (toggleTimerRef.current !== null) {
+      window.clearTimeout(toggleTimerRef.current);
+    }
+  }, []);
 
   const handleLogout = () => {
     logout();
     navigate('/');
+  };
+
+  const handleToggle = () => {
+    if (!collapsed) {
+      onToggleCollapsed();
+      return;
+    }
+
+    if (isToggleReturning) {
+      return;
+    }
+
+    setToggleReturning(true);
+    setToggleAtMid(false);
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      onToggleCollapsed();
+      return;
+    }
+
+    toggleTimerRef.current = window.setTimeout(() => {
+      toggleTimerRef.current = null;
+      onToggleCollapsed();
+    }, 360);
   };
 
   const renderItem = (item: WorkspaceNavItem) => (
@@ -66,12 +125,12 @@ function StudentRail({ collapsed, onToggleCollapsed }: { collapsed: boolean; onT
   return (
     <aside className={`${styles.studentRail} ${collapsed ? styles.railCollapsed : ''}`} aria-label="学生工作区导航">
       <button
-        className={styles.railToggle}
+        className={`${styles.railToggle} ${isToggleAtMid ? styles.railToggleAtMid : ''}`}
         type="button"
         aria-expanded={!collapsed}
         aria-label={collapsed ? '展开工具栏' : '折叠工具栏'}
         title={collapsed ? '展开工具栏' : '折叠工具栏'}
-        onClick={onToggleCollapsed}
+        onClick={handleToggle}
       >
         {collapsed ? <IconChevronRight /> : <IconChevronLeft />}
       </button>
