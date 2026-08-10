@@ -72,24 +72,7 @@
 }
 
 .brandCopy {
-  position: relative;
   width: min(100%, 430px);
-  padding: 4px 0 5px 22px;
-  border-left: 1px solid rgb(255 255 255 / 48%);
-}
-
-.brandCopy::before {
-  position: absolute;
-  z-index: -1;
-  inset: -44px -84px -44px -38px;
-  background: radial-gradient(
-    ellipse at 34% 50%,
-    rgb(64 91 153 / 20%) 0%,
-    rgb(76 105 166 / 10%) 46%,
-    transparent 76%
-  );
-  content: '';
-  pointer-events: none;
 }
 
 .eyebrow {
@@ -99,6 +82,7 @@
   font-size: 11px;
   font-weight: 650;
   letter-spacing: .055em;
+  text-shadow: 0 1px 10px rgb(48 70 124 / 24%);
 }
 
 .brandPanel h1 {
@@ -108,6 +92,7 @@
   font-weight: 700;
   line-height: 1.18;
   letter-spacing: -.042em;
+  text-shadow: 0 2px 16px rgb(42 64 119 / 26%);
 }
 
 .brandPanel p {
@@ -116,6 +101,7 @@
   color: rgb(255 255 255 / 86%);
   font-size: 14px;
   line-height: 1.7;
+  text-shadow: 0 1px 10px rgb(48 70 124 / 22%);
 }
 
 .authPanel {
@@ -314,10 +300,6 @@
     inset: 0;
     background-position: left 42%, left 42%;
     background-size: 100% 100%, cover;
-  }
-
-  .brandCopy {
-    padding-left: 18px;
   }
 
   .brandPanel h1 {
