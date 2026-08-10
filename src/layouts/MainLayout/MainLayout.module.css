@@ -23,31 +23,24 @@
   height: 100dvh;
   min-height: 0;
   overflow: hidden;
-  background: #f7f7f8;
+  background: var(--color-app-canvas);
 }
 
 .workspaceLayout .content {
   min-height: 0;
+  margin-left: 208px;
+  padding-top: 58px;
   overflow-y: auto;
+  background: var(--color-app-canvas);
   overscroll-behavior: contain;
+  transition: margin-left var(--motion-ui);
 }
 
 .workspaceHomeLayout .content {
   overflow-y: hidden;
 }
 
-.studentWorkspaceLayout {
-  background: var(--color-app-canvas);
-}
-
-.studentWorkspaceLayout .content {
-  margin-left: 208px;
-  padding-top: 58px;
-  background: var(--color-app-canvas);
-  transition: margin-left var(--motion-ui);
-}
-
-.studentRailCollapsed .content {
+.workspaceRailCollapsed .content {
   margin-left: 72px;
 }
 
@@ -129,7 +122,7 @@
 }
 
 @media (max-width: 720px) {
-  .studentWorkspaceLayout .content {
+  .workspaceLayout .content {
     margin-left: 0;
     padding-top: 54px;
     padding-bottom: 60px;
@@ -137,7 +130,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .studentWorkspaceLayout .content {
+  .workspaceLayout .content {
     transition: none;
   }
 }

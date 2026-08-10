@@ -1,9 +1,9 @@
 import Button from '@douyinfe/semi-ui/lib/es/button';
 import Progress from '@douyinfe/semi-ui/lib/es/progress';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
+import IconChainStroked from '@douyinfe/semi-icons/lib/es/icons/IconChainStroked';
 import IconFile from '@douyinfe/semi-icons/lib/es/icons/IconFile';
-import IconShieldStroked from '@douyinfe/semi-icons/lib/es/icons/IconShieldStroked';
-import IconTickCircle from '@douyinfe/semi-icons/lib/es/icons/IconTickCircle';
+import IconUser from '@douyinfe/semi-icons/lib/es/icons/IconUser';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
@@ -12,10 +12,38 @@ import { deliverableFiles, formatCurrency, formatScenarioTime } from '../../demo
 import styles from './EnterpriseWorkspacePage.module.css';
 
 const stageCopy = {
-  working: { label: '等待学生提交', note: '尚未收到本次任务成果', action: '查看任务详情' },
-  submitted: { label: '成果待验收', note: '林知夏已提交成果，请完成验收', action: '开始验收' },
-  settling: { label: '结算执行中', note: '智能合约正在核验并划转薪资', action: '查看结算' },
-  settled: { label: '履约已完成', note: '薪资已结算，实践证书已生成', action: '查看凭证' },
+  working: {
+    status: '等待学生提交',
+    eventTitle: '尚未收到本次任务成果',
+    eventNote: '成果提交后会自动进入企业验收队列',
+    action: '查看任务',
+    actionRoute: '/enterprise/task',
+    taskNote: '学生正在履约',
+  },
+  submitted: {
+    status: '成果待验收',
+    eventTitle: '林知夏已提交工作成果',
+    eventNote: '活动总结与 6 张现场照片等待确认',
+    action: '开始验收',
+    actionRoute: '/enterprise/acceptance',
+    taskNote: '成果已提交，等待企业确认',
+  },
+  settling: {
+    status: '结算执行中',
+    eventTitle: '验收已通过，结算正在执行',
+    eventNote: '智能合约正在核验记录并划转薪资',
+    action: '查看结算',
+    actionRoute: '/enterprise/settlement',
+    taskNote: '正在执行模拟智能合约',
+  },
+  settled: {
+    status: '履约已完成',
+    eventTitle: '薪资结算与实践证书已完成',
+    eventNote: '联盟节点 4 / 4 确认，学生端已同步到账',
+    action: '查看凭证',
+    actionRoute: '/enterprise/settlement',
+    taskNote: '薪资已到账，证书已生成',
+  },
 } as const;
 
 export function EnterpriseWorkspacePage() {
@@ -24,88 +52,156 @@ export function EnterpriseWorkspacePage() {
   const { state } = useDemoScenario();
   const stage = stageCopy[state.stage];
   const pendingCount = state.stage === 'submitted' ? 1 : 0;
+  const stageTone = state.stage === 'submitted' ? 'value' : state.stage === 'settled' ? 'success' : 'brand';
+  const activities = [
+    ['今天', state.deliverable.status === 'not-submitted' ? '林知夏正在完成本次任务' : '林知夏提交的工作成果已同步'],
+    ['昨天', '托管账户状态校验完成'],
+    ['8/5', '学生打卡记录 5 / 5 已完成'],
+    ['8/1', '兼职协议与薪资保证金已确认'],
+  ];
+  const quickEntries = [
+    { label: '成果验收', hint: pendingCount ? '1 项等待处理' : '查看验收记录', icon: <IconFile />, route: '/enterprise/acceptance' },
+    { label: '结算管理', hint: state.stage === 'settled' ? '查看结算凭证' : '查看托管与合约', icon: <IconChainStroked />, route: '/enterprise/settlement' },
+    { label: '学生视角', hint: '查看状态同步', icon: <IconUser />, route: `/student/tasks/${state.task.id}` },
+  ];
 
   return (
     <motion.main
       className={styles.page}
-      initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.24 }}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.16 }}
     >
       <header className={styles.contextHeader}>
-        <div>
-          <span className={styles.eyebrow}>企业工作台</span>
-          <h1>{state.enterprise.name}</h1>
-          <p>{pendingCount ? '你有 1 项成果等待验收。' : '当前 1 项兼职任务正在履约。'}</p>
-        </div>
-        <SemanticStatusTag tone="success" size="large" prefixIcon={<IconShieldStroked />}>企业认证已通过</SemanticStatusTag>
+        <h1>下午好，青创校园文化</h1>
+        <p><strong>{pendingCount ? '1 项待验收' : '履约状态正常'}</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
       </header>
 
-      <div className={styles.workspaceGrid}>
-        <section className={styles.primaryPanel} aria-labelledby="enterprise-task-title">
-          <div className={styles.panelTopline}>
-            <div>
-              <span className={styles.eyebrow}>当前任务 · {state.task.id}</span>
-              <h2 id="enterprise-task-title">{state.task.title}</h2>
-              <p>{state.task.workType} · {state.task.period}</p>
+      <div className={styles.homeGrid}>
+        <div className={styles.primaryStack}>
+          <section className={styles.focusSection} aria-labelledby="enterprise-focus-title">
+            <div className={styles.sectionHeading}>
+              <h2>{pendingCount ? '待验收成果' : '当前进展'}</h2>
+              <span>{pendingCount ? '1 项待处理' : '状态已同步'}</span>
             </div>
-            <SemanticStatusTag tone={state.stage === 'submitted' ? 'value' : state.stage === 'settled' ? 'success' : 'brand'}>{stage.label}</SemanticStatusTag>
-          </div>
 
-          <div className={styles.focusArea}>
-            <div className={styles.studentBlock}>
-              <span>林</span>
-              <div><strong>{state.student.name}</strong><small>实践信用 · {state.student.creditLevel}</small></div>
+            <div className={styles.focusBody}>
+              <div className={styles.focusIdentity}>
+                <div className={styles.titleRow}>
+                  <h3 id="enterprise-focus-title">{state.task.title}</h3>
+                  <SemanticStatusTag tone={stageTone} size="small">{stage.status}</SemanticStatusTag>
+                </div>
+                <p>{state.student.name} <span aria-hidden="true">·</span> {state.student.creditLevel}信用</p>
+              </div>
+
+              <div className={styles.focusUpdate}>
+                <strong>{stage.eventTitle}</strong>
+                <span>{stage.eventNote}</span>
+              </div>
             </div>
-            <div className={styles.focusCopy}>
-              <span>当前需要处理</span>
-              <strong>{stage.note}</strong>
-              <small>{state.deliverable.status === 'not-submitted' ? '成果提交后会自动同步到企业端' : `${deliverableFiles.length} 类成果 · 提交于 ${formatScenarioTime(state.deliverable.submittedAt)}`}</small>
+
+            <div className={styles.focusNext}>
+              <span>
+                <small>{state.deliverable.status === 'not-submitted' ? '成果状态' : '提交时间'}</small>
+                {state.deliverable.status === 'not-submitted'
+                  ? '尚未提交'
+                  : `${formatScenarioTime(state.deliverable.submittedAt)} · ${deliverableFiles.length} 类成果`}
+              </span>
+              <Button
+                theme="borderless"
+                type="primary"
+                icon={<IconArrowRight />}
+                iconPosition="right"
+                onClick={() => navigate(stage.actionRoute)}
+              >
+                {stage.action}
+              </Button>
             </div>
-            <Button size="large" theme="solid" type="primary" icon={<IconArrowRight />} iconPosition="right" onClick={() => navigate('/enterprise/task')}>
-              {stage.action}
-            </Button>
-          </div>
-
-          <div className={styles.progressArea}>
-            <div><span>任务履约进度</span><strong>{state.progress} / 10</strong></div>
-            <Progress percent={state.progress * 10} showInfo={false} stroke="var(--color-brand-primary)" />
-          </div>
-
-          <dl className={styles.taskFacts}>
-            <div><dt>托管薪资</dt><dd>{formatCurrency(state.task.amount)}</dd></div>
-            <div><dt>打卡记录</dt><dd>5 / 5</dd></div>
-            <div><dt>工作记录</dt><dd>6 条</dd></div>
-            <div><dt>本月履约率</dt><dd>{state.enterprise.monthlyFulfillmentRate}%</dd></div>
-          </dl>
-        </section>
-
-        <aside className={styles.sideRail}>
-          <section className={styles.queue}>
-            <div className={styles.railHeading}>
-              <div><span className={styles.eyebrow}>处理队列</span><h2>需要关注</h2></div>
-              <span>{pendingCount ? '1 项待办' : '暂无积压'}</span>
-            </div>
-            <button type="button" onClick={() => navigate('/enterprise/task')}>
-              <span className={styles.fileIcon}><IconFile /></span>
-              <span><strong>{state.deliverable.status === 'not-submitted' ? '等待成果提交' : '成果提交 #01'}</strong><small>{state.deliverable.status === 'not-submitted' ? '学生尚未提交' : deliverableFiles.join(' · ')}</small></span>
-              <IconArrowRight />
-            </button>
           </section>
 
-          <section className={styles.assurance}>
-            <div className={styles.railHeading}>
-              <div><span className={styles.eyebrow}>资金与履约</span><h2>保障概览</h2></div>
-              <IconTickCircle />
+          <section className={styles.taskSection} aria-labelledby="enterprise-task-title">
+            <div className={styles.sectionHeading}>
+              <h2>继续处理</h2>
+              <span>{state.task.id}</span>
             </div>
-            <dl>
-              <div><dt>保证金</dt><dd>{formatCurrency(state.escrow.amount)} {state.escrow.status === 'held' ? '托管中' : '已结算'}</dd></div>
-              <div><dt>企业验收</dt><dd>{state.acceptance.status === 'accepted' ? '已通过' : '待完成'}</dd></div>
-              <div><dt>智能合约</dt><dd>{state.contract.status === 'success' ? '执行成功' : state.contract.status === 'executing' ? '执行中' : '待触发'}</dd></div>
-            </dl>
-            <button type="button" onClick={() => navigate('/enterprise/task')}>进入结算管理 <IconArrowRight /></button>
+
+            <div className={styles.taskStrip}>
+              <div className={styles.taskIdentity}>
+                <div className={styles.taskTitleRow}>
+                  <h3 id="enterprise-task-title">{state.task.title}</h3>
+                  <SemanticStatusTag tone={stageTone} size="small">{stage.status}</SemanticStatusTag>
+                </div>
+                <p>{state.task.workType} · {state.task.period}</p>
+              </div>
+
+              <div className={styles.taskProgress}>
+                <div><span>{state.progress} / 10</span><small>{stage.taskNote}</small></div>
+                <Progress percent={state.progress * 10} showInfo={false} stroke="var(--color-brand-primary)" />
+              </div>
+
+              <div className={styles.taskValue}>
+                <strong>{formatCurrency(state.task.amount)}</strong>
+                <span>{state.escrow.status === 'held' ? '已托管' : '已结算'}</span>
+              </div>
+
+              <Button
+                theme="light"
+                type="primary"
+                icon={<IconArrowRight />}
+                iconPosition="right"
+                onClick={() => navigate('/enterprise/task')}
+              >
+                查看任务
+              </Button>
+            </div>
+          </section>
+        </div>
+
+        <aside className={styles.contextRail} aria-label="企业今日工作">
+          <section className={styles.quickActions}>
+            <h2>快速操作</h2>
+            <div>
+              {quickEntries.map((entry) => (
+                <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
+                  <span className={styles.actionIcon}>{entry.icon}</span>
+                  <span><strong>{entry.label}</strong><small>{entry.hint}</small></span>
+                  <IconArrowRight aria-hidden="true" />
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section className={styles.todaySection}>
+            <div className={styles.sectionHeading}>
+              <h2>今天</h2>
+              <span>2 项</span>
+            </div>
+            <div className={styles.todoList}>
+              <button type="button" onClick={() => navigate(stage.actionRoute)}>
+                <i className={pendingCount ? styles.attentionDot : styles.successDot} aria-hidden="true" />
+                <span><strong>{stage.action}</strong><small>{stage.eventTitle}</small></span>
+                <IconArrowRight aria-hidden="true" />
+              </button>
+              <button type="button" onClick={() => navigate('/enterprise/settlement')}>
+                <i aria-hidden="true" />
+                <span><strong>核对资金状态</strong><small>{formatCurrency(state.task.amount)} {state.escrow.status === 'held' ? '托管正常' : '结算完成'}</small></span>
+                <IconArrowRight aria-hidden="true" />
+              </button>
+            </div>
           </section>
         </aside>
+
+        <section className={styles.activitySection} aria-labelledby="enterprise-activity-title">
+          <div className={styles.sectionHeading}>
+            <h2 id="enterprise-activity-title">最近动态</h2>
+            <button type="button" onClick={() => navigate('/enterprise/task')}>查看任务记录</button>
+          </div>
+          <div className={styles.activityFeed}>
+            {activities.map(([time, label]) => (
+              <div key={`${time}-${label}`}><time>{time}</time><span>{label}</span></div>
+            ))}
+          </div>
+        </section>
       </div>
     </motion.main>
   );

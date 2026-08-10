@@ -1,9 +1,11 @@
 import Button from '@douyinfe/semi-ui/lib/es/button';
 import IconBellStroked from '@douyinfe/semi-icons/lib/es/icons/IconBellStroked';
 import IconBriefcaseStroked from '@douyinfe/semi-icons/lib/es/icons/IconBriefcaseStroked';
+import IconChainStroked from '@douyinfe/semi-icons/lib/es/icons/IconChainStroked';
 import IconChevronLeft from '@douyinfe/semi-icons/lib/es/icons/IconChevronLeft';
 import IconChevronRight from '@douyinfe/semi-icons/lib/es/icons/IconChevronRight';
 import IconExit from '@douyinfe/semi-icons/lib/es/icons/IconExit';
+import IconFile from '@douyinfe/semi-icons/lib/es/icons/IconFile';
 import IconHomeStroked from '@douyinfe/semi-icons/lib/es/icons/IconHomeStroked';
 import IconMailStroked from '@douyinfe/semi-icons/lib/es/icons/IconMailStroked';
 import IconSearchStroked from '@douyinfe/semi-icons/lib/es/icons/IconSearchStroked';
@@ -36,15 +38,19 @@ const studentUtilityNav: WorkspaceNavItem[] = [
 ];
 
 const enterpriseWorkspaceNav: WorkspaceNavItem[] = [
-  { label: '工作台', to: '/enterprise', end: true },
-  { label: '当前任务', to: '/enterprise/task' },
-  { label: '成果验收', to: '/enterprise/acceptance' },
-  { label: '结算管理', to: '/enterprise/settlement' },
+  { label: '工作台', to: '/enterprise', icon: <IconHomeStroked />, end: true },
+  { label: '当前任务', to: '/enterprise/task', icon: <IconBriefcaseStroked /> },
+  { label: '成果验收', to: '/enterprise/acceptance', icon: <IconFile /> },
+  { label: '结算管理', to: '/enterprise/settlement', icon: <IconChainStroked /> },
 ];
 
-function StudentRail({ collapsed, onToggleCollapsed }: { collapsed: boolean; onToggleCollapsed: () => void }) {
+const enterpriseUtilityNav: WorkspaceNavItem[] = [
+  { label: '权益保障', to: '/help', icon: <IconShieldStroked /> },
+];
+
+function WorkspaceRail({ role, collapsed, onToggleCollapsed }: { role: DemoRole; collapsed: boolean; onToggleCollapsed: () => void }) {
   const navigate = useNavigate();
-  const { role, logout } = useDemoAuth();
+  const { role: authenticatedRole, logout } = useDemoAuth();
   const [isToggleAtMid, setToggleAtMid] = useState(collapsed);
   const [isToggleReturning, setToggleReturning] = useState(false);
   const toggleFrameRef = useRef<number | null>(null);
@@ -122,8 +128,14 @@ function StudentRail({ collapsed, onToggleCollapsed }: { collapsed: boolean; onT
     </NavLink>
   );
 
+  const workspaceNav = role === 'enterprise' ? enterpriseWorkspaceNav : studentWorkspaceNav;
+  const utilityNav = role === 'enterprise' ? enterpriseUtilityNav : studentUtilityNav;
+  const identity = role === 'enterprise'
+    ? { name: '青创校园文化', description: '企业演示身份' }
+    : { name: '林知夏', description: '学生演示身份' };
+
   return (
-    <aside className={`${styles.studentRail} ${collapsed ? styles.railCollapsed : ''}`} aria-label="学生工作区导航">
+    <aside className={`${styles.studentRail} ${collapsed ? styles.railCollapsed : ''}`} aria-label={`${role === 'enterprise' ? '企业' : '学生'}工作区导航`}>
       <button
         className={`${styles.railToggle} ${isToggleAtMid ? styles.railToggleAtMid : ''}`}
         type="button"
@@ -143,18 +155,18 @@ function StudentRail({ collapsed, onToggleCollapsed }: { collapsed: boolean; onT
 
       <div className={`${styles.railSection} ${styles.workspaceSection}`}>
         <span className={styles.railSectionLabel}>工作区</span>
-        <nav>{studentWorkspaceNav.map(renderItem)}</nav>
+        <nav>{workspaceNav.map(renderItem)}</nav>
       </div>
 
       <div className={`${styles.railSection} ${styles.utilitySection}`}>
         <span className={styles.railSectionLabel}>工具</span>
-        <nav>{studentUtilityNav.map(renderItem)}</nav>
+        <nav>{utilityNav.map(renderItem)}</nav>
       </div>
 
       <div className={styles.railIdentity}>
         <span className={styles.identityDot} aria-hidden="true" />
-        <span><strong>林知夏</strong><small>学生演示身份</small></span>
-        {role && (
+        <span><strong>{identity.name}</strong><small>{identity.description}</small></span>
+        {authenticatedRole && (
           <button className={styles.logoutButton} type="button" aria-label="退出演示登录" title="退出登录" onClick={handleLogout}>
             <IconExit />
           </button>
@@ -164,53 +176,34 @@ function StudentRail({ collapsed, onToggleCollapsed }: { collapsed: boolean; onT
   );
 }
 
-function StudentUtilityBar({ collapsed }: { collapsed: boolean }) {
+function WorkspaceUtilityBar({ role, collapsed }: { role: DemoRole; collapsed: boolean }) {
   const navigate = useNavigate();
-  const { role } = useDemoAuth();
+  const { role: authenticatedRole } = useDemoAuth();
+
+  const isEnterprise = role === 'enterprise';
 
   return (
     <header className={`${styles.studentUtilityBar} ${collapsed ? styles.utilityBarCollapsed : ''}`}>
       <label className={styles.searchField}>
         <IconSearchStroked aria-hidden="true" />
-        <input aria-label="搜索岗位或企业" autoComplete="off" placeholder="搜索岗位或企业" type="search" />
+        <input
+          aria-label={isEnterprise ? '搜索任务或学生' : '搜索岗位或企业'}
+          autoComplete="off"
+          placeholder={isEnterprise ? '搜索任务或学生' : '搜索岗位或企业'}
+          type="search"
+        />
       </label>
       <div className={styles.utilityActions}>
         <Button
           theme="borderless"
           icon={<IconMailStroked />}
-          aria-label="消息，1 条待处理"
-          title="消息 · 1 条待处理"
-          onClick={() => navigate('/student/messages')}
+          aria-label={isEnterprise ? '成果队列' : '消息，1 条待处理'}
+          title={isEnterprise ? '成果队列' : '消息 · 1 条待处理'}
+          onClick={() => navigate(isEnterprise ? '/enterprise/acceptance' : '/student/messages')}
         />
         <span className={styles.unread} aria-hidden="true" />
         <Button theme="borderless" icon={<IconBellStroked />} aria-label="通知" title="通知" />
-        {role ? <UserMenu showScenarioControls displayRole="student" /> : <Button theme="light" type="primary" onClick={() => navigate('/auth')}>选择身份</Button>}
-      </div>
-    </header>
-  );
-}
-
-function EnterpriseHeader() {
-  const navigate = useNavigate();
-  const { role } = useDemoAuth();
-
-  return (
-    <header className={styles.enterpriseHeader}>
-      <div className={styles.enterpriseInner}>
-        <button className={styles.logoButton} type="button" onClick={() => navigate('/')}>
-          <BrandLogo compact />
-        </button>
-        <nav className={styles.enterpriseNav} aria-label="企业工作区导航">
-          {enterpriseWorkspaceNav.map((item) => (
-            <NavLink className={({ isActive }) => (isActive ? styles.enterpriseActive : undefined)} end={item.end} key={item.to} to={item.to}>
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
-        <div className={styles.enterpriseAccount}>
-          <span>企业端</span>
-          {role ? <UserMenu showScenarioControls displayRole="enterprise" /> : <Button theme="light" type="primary" onClick={() => navigate('/auth')}>选择身份</Button>}
-        </div>
+        {authenticatedRole ? <UserMenu showScenarioControls displayRole={isEnterprise ? 'enterprise' : 'student'} /> : <Button theme="light" type="primary" onClick={() => navigate('/auth')}>选择身份</Button>}
       </div>
     </header>
   );
@@ -220,14 +213,10 @@ export function WorkspaceHeader({ collapsed = false, onToggleCollapsed = () => u
   const location = useLocation();
   const routeRole: DemoRole = location.pathname.startsWith('/enterprise') ? 'enterprise' : 'student';
 
-  if (routeRole === 'enterprise') {
-    return <EnterpriseHeader />;
-  }
-
   return (
     <>
-      <StudentRail collapsed={collapsed} onToggleCollapsed={onToggleCollapsed} />
-      <StudentUtilityBar collapsed={collapsed} />
+      <WorkspaceRail role={routeRole} collapsed={collapsed} onToggleCollapsed={onToggleCollapsed} />
+      <WorkspaceUtilityBar role={routeRole} collapsed={collapsed} />
     </>
   );
 }

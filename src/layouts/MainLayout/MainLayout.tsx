@@ -14,15 +14,22 @@ import { WorkspaceHeader } from '../WorkspaceHeader/WorkspaceHeader';
 import styles from './MainLayout.module.css';
 
 const { Header, Content, Footer } = Layout;
-const STUDENT_RAIL_STORAGE_KEY = 'zcwy-student-rail-collapsed-v1';
+const WORKSPACE_RAIL_STORAGE_KEY = 'zcwy-workspace-rail-collapsed-v1';
+const LEGACY_STUDENT_RAIL_STORAGE_KEY = 'zcwy-student-rail-collapsed-v1';
 
-function readStudentRailPreference() {
+function readWorkspaceRailPreference() {
   if (typeof window === 'undefined') {
     return false;
   }
 
   try {
-    return window.localStorage.getItem(STUDENT_RAIL_STORAGE_KEY) === 'true';
+    const currentPreference = window.localStorage.getItem(WORKSPACE_RAIL_STORAGE_KEY);
+
+    if (currentPreference !== null) {
+      return currentPreference === 'true';
+    }
+
+    return window.localStorage.getItem(LEGACY_STUDENT_RAIL_STORAGE_KEY) === 'true';
   } catch {
     return false;
   }
@@ -32,20 +39,19 @@ export function MainLayout() {
   const navigate = useNavigate();
   const location = useLocation();
   const { role } = useDemoAuth();
-  const [isStudentRailCollapsed, setStudentRailCollapsed] = useState(readStudentRailPreference);
+  const [isWorkspaceRailCollapsed, setWorkspaceRailCollapsed] = useState(readWorkspaceRailPreference);
   const isHomePage = location.pathname === '/';
   const isAuthPage = location.pathname === '/auth';
   const isWorkspacePage = location.pathname.startsWith('/student') || location.pathname.startsWith('/enterprise');
-  const isStudentWorkspace = location.pathname.startsWith('/student');
   const isWorkspaceHomePage = location.pathname === '/student' || location.pathname === '/enterprise';
   const hasCompactHeader = isHomePage || isAuthPage;
 
-  const toggleStudentRail = () => {
-    setStudentRailCollapsed((current) => {
+  const toggleWorkspaceRail = () => {
+    setWorkspaceRailCollapsed((current) => {
       const next = !current;
 
       try {
-        window.localStorage.setItem(STUDENT_RAIL_STORAGE_KEY, String(next));
+        window.localStorage.setItem(WORKSPACE_RAIL_STORAGE_KEY, String(next));
       } catch {
         // 浏览器禁用本地存储时，仅在当前会话保留折叠状态。
       }
@@ -65,10 +71,10 @@ export function MainLayout() {
 
   return (
     <Layout
-      className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''} ${isHomePage ? styles.homeLayout : ''} ${isAuthPage ? styles.authLayout : ''} ${isWorkspacePage ? styles.workspaceLayout : ''} ${isStudentWorkspace ? styles.studentWorkspaceLayout : ''} ${isStudentWorkspace && isStudentRailCollapsed ? styles.studentRailCollapsed : ''} ${isWorkspaceHomePage ? styles.workspaceHomeLayout : ''}`}
+      className={`${styles.layout} ${hasCompactHeader ? styles.compactLayout : ''} ${isHomePage ? styles.homeLayout : ''} ${isAuthPage ? styles.authLayout : ''} ${isWorkspacePage ? styles.workspaceLayout : ''} ${isWorkspacePage && isWorkspaceRailCollapsed ? styles.workspaceRailCollapsed : ''} ${isWorkspaceHomePage ? styles.workspaceHomeLayout : ''}`}
     >
       {isWorkspacePage ? (
-        <WorkspaceHeader collapsed={isStudentRailCollapsed} onToggleCollapsed={toggleStudentRail} />
+        <WorkspaceHeader collapsed={isWorkspaceRailCollapsed} onToggleCollapsed={toggleWorkspaceRail} />
       ) : !isAuthPage ? (
         <Header
           className={`${styles.header} ${hasCompactHeader ? styles.compactHeader : ''} ${isHomePage ? styles.homeHeader : ''}`}

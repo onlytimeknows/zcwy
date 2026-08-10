@@ -11,8 +11,7 @@
   transition: width var(--motion-ui), padding var(--motion-ui);
 }
 
-.railLogo,
-.logoButton {
+.railLogo {
   padding: 0;
   background: none;
   border: 0;
@@ -443,75 +442,6 @@
   border: 1px solid #fff;
   border-radius: 50%;
   pointer-events: none;
-}
-
-.enterpriseHeader {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
-  border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(18px) saturate(105%);
-}
-
-.enterpriseInner {
-  display: grid;
-  width: min(calc(100% - clamp(32px, 6vw, 96px)), 1480px);
-  min-height: 64px;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: clamp(var(--space-4), 3vw, var(--space-8));
-  margin: 0 auto;
-}
-
-.enterpriseNav {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-1);
-}
-
-.enterpriseNav a {
-  position: relative;
-  padding: 21px var(--space-3) 19px;
-  color: var(--color-text-secondary);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.enterpriseNav a::after {
-  position: absolute;
-  right: var(--space-3);
-  bottom: -1px;
-  left: var(--space-3);
-  height: 2px;
-  background: transparent;
-  content: '';
-}
-
-.enterpriseNav a:hover,
-.enterpriseNav a:focus-visible,
-.enterpriseNav a.enterpriseActive {
-  color: var(--color-brand-primary);
-}
-
-.enterpriseNav a.enterpriseActive::after {
-  background: var(--color-brand-primary);
-}
-
-.enterpriseAccount {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.enterpriseAccount > span {
-  color: var(--color-text-tertiary);
-  font-size: 11px;
-  font-weight: 600;
 }
 
 @media (max-width: 720px) {
