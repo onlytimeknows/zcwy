@@ -203,7 +203,7 @@ function WorkspaceUtilityBar({ role, collapsed }: { role: DemoRole; collapsed: b
         />
         <span className={styles.unread} aria-hidden="true" />
         <Button theme="borderless" icon={<IconBellStroked />} aria-label="通知" title="通知" />
-        {authenticatedRole ? <UserMenu showScenarioControls displayRole={isEnterprise ? 'enterprise' : 'student'} /> : <Button theme="light" type="primary" onClick={() => navigate('/auth')}>选择身份</Button>}
+        {authenticatedRole ? <UserMenu displayRole={isEnterprise ? 'enterprise' : 'student'} /> : <Button theme="light" type="primary" onClick={() => navigate('/auth')}>选择身份</Button>}
       </div>
     </header>
   );

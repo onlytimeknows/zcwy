@@ -1,44 +1,39 @@
 import Avatar from '@douyinfe/semi-ui/lib/es/avatar';
 import Dropdown from '@douyinfe/semi-ui/lib/es/dropdown';
-import Modal from '@douyinfe/semi-ui/lib/es/modal';
 import IconApartment from '@douyinfe/semi-icons/lib/es/icons/IconApartment';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
+import IconBellStroked from '@douyinfe/semi-icons/lib/es/icons/IconBellStroked';
 import IconExit from '@douyinfe/semi-icons/lib/es/icons/IconExit';
-import IconRefresh from '@douyinfe/semi-icons/lib/es/icons/IconRefresh';
+import IconHelpCircle from '@douyinfe/semi-icons/lib/es/icons/IconHelpCircle';
+import IconLock from '@douyinfe/semi-icons/lib/es/icons/IconLock';
 import IconSetting from '@douyinfe/semi-icons/lib/es/icons/IconSetting';
 import IconUser from '@douyinfe/semi-icons/lib/es/icons/IconUser';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDemoAuth, type DemoRole } from '../../auth/DemoAuthContext';
-import { useDemoScenario } from '../../demo/DemoScenarioContext';
 import styles from './UserMenu.module.css';
 
 const roleDetails = {
   student: {
     name: '林知夏',
-    label: '学生演示身份',
+    label: '学生账户',
     workspace: '/student',
     icon: <IconUser size="large" />,
   },
   enterprise: {
     name: '青创校园文化有限公司',
-    label: '企业演示身份',
+    label: '企业账户',
     workspace: '/enterprise',
     icon: <IconApartment size="large" />,
   },
 } as const;
 
 export function UserMenu({
-  showScenarioControls = false,
   displayRole,
 }: {
-  showScenarioControls?: boolean;
   displayRole?: DemoRole;
 }) {
   const navigate = useNavigate();
   const { role, logout } = useDemoAuth();
-  const { resetScenario } = useDemoScenario();
-  const [resetConfirmVisible, setResetConfirmVisible] = useState(false);
 
   if (!role) {
     return null;
@@ -52,8 +47,7 @@ export function UserMenu({
   };
 
   return (
-    <>
-      <Dropdown
+    <Dropdown
       trigger="hover"
       position="bottomRight"
       mouseEnterDelay={80}
@@ -74,19 +68,23 @@ export function UserMenu({
               icon={<IconArrowRight />}
               onClick={() => navigate(currentRole.workspace)}
             >
-              进入当前工作台
+              进入工作台
             </Dropdown.Item>
-            <Dropdown.Item icon={<IconRefresh />} onClick={() => navigate('/auth')}>
-              切换演示身份
+            <Dropdown.Item icon={<IconUser />}>
+              个人资料
             </Dropdown.Item>
-            {showScenarioControls && (
-              <Dropdown.Item icon={<IconRefresh />} onClick={() => setResetConfirmVisible(true)}>
-                重置完整演示
-              </Dropdown.Item>
-            )}
+            <Dropdown.Item icon={<IconLock />}>
+              账号与安全
+            </Dropdown.Item>
+            <Dropdown.Item icon={<IconBellStroked />}>
+              通知设置
+            </Dropdown.Item>
             <Dropdown.Divider />
+            <Dropdown.Item icon={<IconHelpCircle />} onClick={() => navigate('/help')}>
+              帮助与反馈
+            </Dropdown.Item>
             <Dropdown.Item type="danger" icon={<IconExit />} onClick={handleLogout}>
-              退出演示登录
+              退出登录
             </Dropdown.Item>
           </Dropdown.Menu>
         </div>
@@ -104,21 +102,6 @@ export function UserMenu({
           </Avatar>
         </span>
       </button>
-      </Dropdown>
-      <Modal
-        title="重置完整演示？"
-        visible={resetConfirmVisible}
-        okText="确认重置"
-        cancelText="取消"
-        onOk={() => {
-          resetScenario();
-          setResetConfirmVisible(false);
-        }}
-        onCancel={() => setResetConfirmVisible(false)}
-        closeOnEsc
-      >
-        任务将恢复到成果未提交、进度 6 / 10 的初始状态。
-      </Modal>
-    </>
+    </Dropdown>
   );
 }
