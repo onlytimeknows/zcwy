@@ -27,23 +27,31 @@
 
 .authBody {
   display: grid;
-  width: min(calc(100% - clamp(40px, 8vw, 128px)), 1240px);
+  width: 100%;
   min-height: calc(100svh - 68px);
-  grid-template-columns: minmax(280px, .82fr) minmax(420px, 1.18fr);
+  grid-template-columns: minmax(360px, 1fr) minmax(500px, 1fr);
   align-items: center;
-  gap: clamp(72px, 9vw, 144px);
-  margin: 0 auto;
-  padding: clamp(40px, 7vh, 72px) 0;
 }
 
 .brandPanel {
-  max-width: 430px;
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(56px, 8vw, 144px);
+  background-color: #34427f;
+  background-image:
+    linear-gradient(135deg, rgb(32 42 91 / 38%), rgb(55 43 107 / 48%)),
+    url('../../assets/auth-background.png');
+  background-position: center, left center;
+  background-repeat: no-repeat;
+  background-size: cover, auto 100%;
 }
 
 .eyebrow {
   display: block;
   margin-bottom: 22px;
-  color: #71717a;
+  color: rgb(255 255 255 / 82%);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: .06em;
@@ -52,7 +60,7 @@
 .brandPanel h1 {
   max-width: 410px;
   margin: 0;
-  color: #18181b;
+  color: #fff;
   font-size: clamp(36px, 4vw, 50px);
   font-weight: 680;
   line-height: 1.16;
@@ -62,14 +70,14 @@
 .brandPanel p {
   max-width: 390px;
   margin: 24px 0 0;
-  color: #71717a;
+  color: rgb(255 255 255 / 82%);
   font-size: 15px;
   line-height: 1.8;
 }
 
 .authPanel {
   display: grid;
-  width: min(100%, 440px);
+  width: min(calc(100% - clamp(64px, 10vw, 160px)), 440px);
   justify-self: center;
   gap: 22px;
 }
@@ -263,14 +271,14 @@
 
 @media (max-width: 900px) {
   .authBody {
-    width: min(calc(100% - 40px), 460px);
     grid-template-columns: 1fr;
-    gap: 36px;
-    padding: 44px 0 56px;
   }
 
   .brandPanel {
-    max-width: 440px;
+    min-height: 260px;
+    padding: 48px max(28px, 8vw);
+    background-position: center, left 42%;
+    background-size: cover, cover;
   }
 
   .brandPanel h1 {
@@ -279,6 +287,11 @@
 
   .brandPanel p {
     margin-top: 16px;
+  }
+
+  .authPanel {
+    width: min(calc(100% - 40px), 440px);
+    margin: 48px auto 56px;
   }
 }
 
@@ -289,10 +302,7 @@
   }
 
   .authBody {
-    width: calc(100% - 32px);
     min-height: calc(100svh - 60px);
-    gap: 30px;
-    padding: 34px 0 44px;
   }
 
   .brandPanel {
@@ -300,7 +310,9 @@
   }
 
   .authPanel {
+    width: calc(100% - 32px);
     gap: 20px;
+    margin: 34px auto 44px;
   }
 
   .authHeading h2 {
