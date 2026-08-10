@@ -42,7 +42,7 @@
   border: 1px solid #e4e4e7;
   border-right: 0;
   border-radius: 20px 0 0 20px;
-  box-shadow: -3px 0 10px rgb(24 24 27 / 6%);
+  box-shadow: none;
   cursor: pointer;
   transform: translateY(0);
   transition:
@@ -60,7 +60,7 @@
   color: #18181b;
   background: inherit;
   border-color: #e4e4e7;
-  box-shadow: -6px 0 16px rgb(24 24 27 / 13%);
+  box-shadow: -4px 0 12px rgb(24 24 27 / 8%);
 }
 
 .railToggle svg {
@@ -291,12 +291,12 @@
   border-right: 1px solid #e4e4e7;
   border-left: 0;
   border-radius: 0 20px 20px 0;
-  box-shadow: 4px 0 11px rgb(24 24 27 / 6%);
+  box-shadow: none;
 }
 
 .railCollapsed .railToggle:hover,
 .railCollapsed .railToggle:focus-visible {
-  box-shadow: 7px 0 18px rgb(24 24 27 / 14%);
+  box-shadow: 4px 0 12px rgb(24 24 27 / 8%);
 }
 
 .railCollapsed .railToggle svg {
