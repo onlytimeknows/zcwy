@@ -48,6 +48,11 @@
   --radius-extra-large: 28px;
   --shadow-soft: 0 14px 40px rgb(31 45 61 / 7%);
   --shadow-card: 0 24px 70px rgb(25 30 40 / 10%);
+  --shadow-input: 0 1px 2px rgb(24 24 27 / 6%);
+  --shadow-input-hover: 0 4px 12px rgb(24 24 27 / 7%);
+
+  --motion-ui-fast: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-ui: 260ms cubic-bezier(0.4, 0, 0.2, 1);
 
   --space-1: 4px;
   --space-2: 8px;

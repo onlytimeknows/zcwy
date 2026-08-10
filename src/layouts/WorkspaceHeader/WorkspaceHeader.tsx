@@ -1,10 +1,11 @@
 import Button from '@douyinfe/semi-ui/lib/es/button';
 import IconBellStroked from '@douyinfe/semi-icons/lib/es/icons/IconBellStroked';
 import IconBriefcaseStroked from '@douyinfe/semi-icons/lib/es/icons/IconBriefcaseStroked';
+import IconChevronLeft from '@douyinfe/semi-icons/lib/es/icons/IconChevronLeft';
+import IconChevronRight from '@douyinfe/semi-icons/lib/es/icons/IconChevronRight';
 import IconExit from '@douyinfe/semi-icons/lib/es/icons/IconExit';
 import IconHomeStroked from '@douyinfe/semi-icons/lib/es/icons/IconHomeStroked';
 import IconMailStroked from '@douyinfe/semi-icons/lib/es/icons/IconMailStroked';
-import IconMenu from '@douyinfe/semi-icons/lib/es/icons/IconMenu';
 import IconSearchStroked from '@douyinfe/semi-icons/lib/es/icons/IconSearchStroked';
 import IconShieldStroked from '@douyinfe/semi-icons/lib/es/icons/IconShieldStroked';
 import IconUserCardPhone from '@douyinfe/semi-icons/lib/es/icons/IconUserCardPhone';
@@ -64,17 +65,18 @@ function StudentRail({ collapsed, onToggleCollapsed }: { collapsed: boolean; onT
 
   return (
     <aside className={`${styles.studentRail} ${collapsed ? styles.railCollapsed : ''}`} aria-label="学生工作区导航">
+      <button
+        className={styles.railToggle}
+        type="button"
+        aria-expanded={!collapsed}
+        aria-label={collapsed ? '展开工具栏' : '折叠工具栏'}
+        title={collapsed ? '展开工具栏' : '折叠工具栏'}
+        onClick={onToggleCollapsed}
+      >
+        {collapsed ? <IconChevronRight /> : <IconChevronLeft />}
+      </button>
+
       <div className={styles.railTop}>
-        <button
-          className={styles.railToggle}
-          type="button"
-          aria-expanded={!collapsed}
-          aria-label={collapsed ? '展开工具栏' : '折叠工具栏'}
-          title={collapsed ? '展开工具栏' : '折叠工具栏'}
-          onClick={onToggleCollapsed}
-        >
-          <IconMenu />
-        </button>
         <button className={styles.railLogo} type="button" onClick={() => navigate('/')}>
           <BrandLogo compact />
         </button>
@@ -111,7 +113,7 @@ function StudentUtilityBar({ collapsed }: { collapsed: boolean }) {
     <header className={`${styles.studentUtilityBar} ${collapsed ? styles.utilityBarCollapsed : ''}`}>
       <label className={styles.searchField}>
         <IconSearchStroked aria-hidden="true" />
-        <input aria-label="搜索岗位或企业" placeholder="搜索岗位或企业" type="search" />
+        <input aria-label="搜索岗位或企业" autoComplete="off" placeholder="搜索岗位或企业" type="search" />
       </label>
       <div className={styles.utilityActions}>
         <Button

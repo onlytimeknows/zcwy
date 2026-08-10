@@ -244,6 +244,26 @@
   min-height: 46px;
   background: white;
   border-color: var(--color-border-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow-input);
+  transition:
+    border-color var(--motion-ui-fast),
+    box-shadow var(--motion-ui-fast),
+    transform var(--motion-ui-fast);
+}
+
+.field :global(.semi-input-wrapper:hover) {
+  border-color: #c8cdd5;
+  box-shadow: var(--shadow-input-hover);
+}
+
+.field :global(.semi-input-wrapper-focus),
+.field :global(.semi-input-wrapper-focus:hover) {
+  border-color: color-mix(in srgb, var(--color-brand-primary) 58%, var(--color-border-strong));
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--color-brand-primary) 11%, transparent),
+    var(--shadow-input-hover);
+  transform: translateY(-1px);
 }
 
 .field :global(.semi-input-prefix) {
