@@ -37,13 +37,13 @@
 }
 
 .studentWorkspaceLayout {
-  background: #fff;
+  background: var(--color-app-canvas);
 }
 
 .studentWorkspaceLayout .content {
   margin-left: 208px;
   padding-top: 58px;
-  background: #fff;
+  background: var(--color-app-canvas);
   transition: margin-left var(--motion-ui);
 }
 

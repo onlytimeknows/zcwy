@@ -41,6 +41,9 @@
   --color-icon-default: #697384;
   --color-neutral-soft: #f2f4f7;
   --color-neutral-border: #dce1e8;
+  --color-app-canvas: #ffffff;
+  --color-app-rail: #f7f7f8;
+  --color-app-rail-hover: #eeeeef;
 
   --radius-small: 8px;
   --radius-medium: 12px;
