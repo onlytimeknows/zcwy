@@ -131,8 +131,8 @@ function WorkspaceRail({ role, collapsed, onToggleCollapsed }: { role: DemoRole;
   const workspaceNav = role === 'enterprise' ? enterpriseWorkspaceNav : studentWorkspaceNav;
   const utilityNav = role === 'enterprise' ? enterpriseUtilityNav : studentUtilityNav;
   const identity = role === 'enterprise'
-    ? { name: '青创校园文化', description: '企业演示身份' }
-    : { name: '林知夏', description: '学生演示身份' };
+    ? { name: '青创校园文化', description: '企业账户' }
+    : { name: '林知夏', description: '学生账户' };
 
   return (
     <aside className={`${styles.studentRail} ${collapsed ? styles.railCollapsed : ''}`} aria-label={`${role === 'enterprise' ? '企业' : '学生'}工作区导航`}>
@@ -167,7 +167,7 @@ function WorkspaceRail({ role, collapsed, onToggleCollapsed }: { role: DemoRole;
         <span className={styles.identityDot} aria-hidden="true" />
         <span><strong>{identity.name}</strong><small>{identity.description}</small></span>
         {authenticatedRole && (
-          <button className={styles.logoutButton} type="button" aria-label="退出演示登录" title="退出登录" onClick={handleLogout}>
+          <button className={styles.logoutButton} type="button" aria-label="退出登录" title="退出登录" onClick={handleLogout}>
             <IconExit />
           </button>
         )}

@@ -59,38 +59,43 @@ export function StudentWorkspacePage() {
               <span>1 个新进展</span>
             </div>
 
-            <div className={styles.applicationBody}>
-              <div className={styles.applicationIdentity}>
-                <div className={styles.jobTitleRow}>
-                  <h3 id="application-title">校园短视频运营助理</h3>
-                  <SemanticStatusTag tone="success" size="small">初筛通过</SemanticStatusTag>
+            <div className={styles.applicationResult}>
+              <div className={styles.applicationLead}>
+                <div className={styles.applicationIdentity}>
+                  <div className={styles.jobTitleRow}>
+                    <h3 id="application-title">校园短视频运营助理</h3>
+                  </div>
+                  <p>青禾数字传媒有限公司 <span aria-hidden="true">·</span> 今天 10:24 更新</p>
                 </div>
-                <p>青禾数字传媒有限公司 <span aria-hidden="true">·</span> 今天 10:24</p>
+
+                <div className={styles.applicationUpdate}>
+                  <i className={styles.successDot} aria-hidden="true" />
+                  <div>
+                    <strong>企业已通过简历初筛</strong>
+                    <span>预计 1 个工作日内联系</span>
+                  </div>
+                </div>
               </div>
 
-              <div className={styles.applicationUpdate}>
-                <strong>企业已通过简历初筛</strong>
-                <span>预计 1 个工作日内联系</span>
+              <div className={styles.applicationNext}>
+                <span><small>建议下一步</small><strong>准备课程安排与作品链接</strong></span>
+                <Button
+                  className={styles.applicationCta}
+                  theme="solid"
+                  type="primary"
+                  icon={<IconArrowRight />}
+                  iconPosition="right"
+                  onClick={() => navigate(`/student/applications/${applicationId}`)}
+                >
+                  查看投递详情
+                </Button>
               </div>
-            </div>
-
-            <div className={styles.applicationNext}>
-              <span><small>下一步</small>准备课程安排与作品链接</span>
-              <Button
-                theme="borderless"
-                type="primary"
-                icon={<IconArrowRight />}
-                iconPosition="right"
-                onClick={() => navigate(`/student/applications/${applicationId}`)}
-              >
-                查看详情
-              </Button>
             </div>
           </section>
 
           <section className={styles.taskSection} aria-labelledby="current-task-title">
             <div className={styles.sectionHeading}>
-              <h2>继续处理</h2>
+              <h2>当前任务</h2>
               <span>{state.task.id}</span>
             </div>
 
@@ -103,18 +108,23 @@ export function StudentWorkspacePage() {
                 <p>{state.task.enterpriseName}</p>
               </div>
 
+              <div className={styles.taskStatusCopy}>
+                <span>当前进展</span>
+                <strong>{taskState.next}</strong>
+              </div>
+
               <div className={styles.taskProgress}>
-                <div><span>{state.progress} / 10</span><small>{taskState.next}</small></div>
+                <div><span>{state.progress} / 10</span><small>履约进度</small></div>
                 <Progress percent={state.progress * 10} showInfo={false} stroke="var(--color-brand-primary)" />
               </div>
 
               <div className={styles.taskValue}>
                 <strong>{formatCurrency(state.task.amount)}</strong>
-                <span>{state.escrow.status === 'held' ? '已托管' : '已到账'}</span>
+                <span>{state.escrow.status === 'held' ? '薪资已托管' : '薪资已到账'}</span>
               </div>
 
               <Button
-                theme="light"
+                theme="borderless"
                 type="primary"
                 icon={<IconArrowRight />}
                 iconPosition="right"
@@ -127,35 +137,34 @@ export function StudentWorkspacePage() {
         </div>
 
         <aside className={styles.contextRail} aria-label="今日工作">
-          <section className={styles.quickActions}>
-            <h2>快速操作</h2>
-            <div>
-              {quickEntries.map((entry) => (
-                <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
-                  <span className={styles.actionIcon}>{entry.icon}</span>
-                  <span><strong>{entry.label}</strong><small>{entry.hint}</small></span>
-                  <IconArrowRight aria-hidden="true" />
-                </button>
-              ))}
-            </div>
-          </section>
-
           <section className={styles.todaySection}>
             <div className={styles.sectionHeading}>
               <h2>今天</h2>
               <span>2 项</span>
             </div>
             <div className={styles.todoList}>
-              <button type="button" onClick={() => navigate(`/student/applications/${applicationId}`)}>
-                <i className={styles.successDot} aria-hidden="true" />
-                <span><strong>跟进最新投递</strong><small>初筛通过，等待企业沟通</small></span>
+              <button className={styles.primaryTodo} type="button" onClick={() => navigate(`/student/applications/${applicationId}`)}>
+                <span className={styles.todoPriority}>优先处理</span>
+                <span><strong>准备后续沟通</strong><small>初筛已通过，建议先整理课程安排与作品链接</small></span>
                 <IconArrowRight aria-hidden="true" />
               </button>
               <button type="button" onClick={() => navigate(taskRoute)}>
-                <i aria-hidden="true" />
+                <i className={styles.taskDot} aria-hidden="true" />
                 <span><strong>{taskState.action}</strong><small>{taskState.next}</small></span>
                 <IconArrowRight aria-hidden="true" />
               </button>
+            </div>
+          </section>
+
+          <section className={styles.quickActions}>
+            <h2>常用工具</h2>
+            <div>
+              {quickEntries.map((entry) => (
+                <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
+                  <span className={styles.actionIcon}>{entry.icon}</span>
+                  <span><strong>{entry.label}</strong><small>{entry.hint}</small></span>
+                </button>
+              ))}
             </div>
           </section>
         </aside>
