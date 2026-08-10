@@ -59,10 +59,9 @@
 .railToggle:hover,
 .railToggle:focus-visible {
   color: #18181b;
-  background: #fafafa;
-  border-color: #d4d4d8;
-  box-shadow: 0 5px 16px rgb(24 24 27 / 11%);
-  transform: translate(1px, 0);
+  background: #f4f4f5;
+  border-color: #cfd0d4;
+  box-shadow: 0 5px 16px rgb(24 24 27 / 13%);
 }
 
 .railToggle svg {
@@ -73,11 +72,6 @@
 .railToggleAtMid {
   top: 50%;
   transform: translateY(-50%);
-}
-
-.railToggleAtMid:hover,
-.railToggleAtMid:focus-visible {
-  transform: translate(1px, -50%);
 }
 
 .railToggle:focus-visible,
