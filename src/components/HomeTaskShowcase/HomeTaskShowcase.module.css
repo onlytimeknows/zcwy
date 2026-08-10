@@ -1,0 +1,434 @@
+.showcase {
+  display: grid;
+  width: min(100%, 650px);
+  justify-self: end;
+  gap: var(--space-3);
+}
+
+.stackStage {
+  display: grid;
+  padding-bottom: 42px;
+  isolation: isolate;
+}
+
+.sceneCard {
+  position: relative;
+  grid-area: 1 / 1;
+  min-width: 0;
+  height: 100%;
+  padding: clamp(var(--space-6), 3.3vw, var(--space-9));
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  border: 1px solid rgb(255 255 255 / 84%);
+  border-radius: var(--radius-extra-large);
+  box-shadow: var(--shadow-card);
+  transform-origin: 92% 96%;
+  transition: border-color 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.cardContent {
+  display: grid;
+  align-content: start;
+  gap: var(--space-5);
+  height: 100%;
+  transition: opacity 160ms ease;
+}
+
+.sceneCard[data-position='1'] .cardContent,
+.sceneCard[data-position='2'] .cardContent {
+  opacity: 0;
+}
+
+.cardSwitchTarget {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.cardSwitchTarget:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 3px;
+}
+
+.sceneCard[data-position='1'],
+.sceneCard[data-position='2'] {
+  cursor: pointer;
+  filter: saturate(0.82);
+  box-shadow: 0 16px 36px rgb(27 39 68 / 9%);
+}
+
+.sceneCard[data-position='1']:hover,
+.sceneCard[data-position='1']:focus-visible,
+.sceneCard[data-position='2']:hover,
+.sceneCard[data-position='2']:focus-visible {
+  border-color: var(--color-brand-border);
+  box-shadow: 0 18px 40px rgb(54 88 163 / 14%);
+  outline: none;
+}
+
+.panelHeader,
+.progressMeta,
+.statusItem,
+.chainReceipt,
+.panelFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.panelHeader {
+  align-items: flex-start;
+}
+
+.panelHeader > div {
+  min-width: 0;
+}
+
+.panelHeader h4 {
+  margin: var(--space-1) 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.taskStatusTag.taskStatusTag {
+  flex: 0 0 auto;
+  font-weight: 600;
+  opacity: 0.86;
+}
+
+.progressBlock {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.progressMeta {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.progressMeta strong {
+  color: var(--color-text-primary);
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.progressTrack {
+  height: 8px;
+  overflow: hidden;
+  background: #e9edf3;
+  border-radius: 999px;
+}
+
+.progressTrack span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--color-brand-primary);
+  border-radius: inherit;
+  transform-origin: left center;
+}
+
+.statusList {
+  display: grid;
+  border-block: 1px solid var(--color-border);
+}
+
+.statusItem {
+  justify-content: flex-start;
+  padding: var(--space-3) 0;
+}
+
+.statusItem + .statusItem {
+  border-top: 1px solid var(--color-border);
+}
+
+.statusItem div {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+}
+
+.statusItem span,
+.chainReceipt span {
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+}
+
+.statusItem strong,
+.chainReceipt strong {
+  overflow: hidden;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.statusDot {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  background: var(--color-neutral-border);
+  border-radius: 50%;
+}
+
+.toneSuccess .statusDot {
+  background: var(--color-success);
+  box-shadow: 0 0 0 2px var(--color-success-soft);
+}
+
+.toneSuccess strong {
+  color: var(--color-success-text);
+}
+
+.toneValue .statusDot {
+  background: var(--color-value);
+  box-shadow: 0 0 0 2px var(--color-value-soft);
+}
+
+.toneValue strong {
+  color: var(--color-value-text);
+}
+
+.toneBrand .statusDot {
+  background: var(--color-brand-primary);
+  box-shadow: 0 0 0 2px var(--color-brand-soft);
+}
+
+.toneBrand strong {
+  color: var(--color-brand-active);
+}
+
+.toneRecord .statusDot {
+  background: var(--color-record);
+  box-shadow: 0 0 0 2px var(--color-record-soft);
+}
+
+.toneRecord strong {
+  color: var(--color-record-text);
+}
+
+.toneAttention .statusDot {
+  background: var(--color-attention);
+  box-shadow: 0 0 0 2px var(--color-attention-soft);
+}
+
+.toneAttention strong {
+  color: var(--color-attention-text);
+}
+
+.toneNeutral {
+  color: inherit;
+}
+
+.statusQuiet strong {
+  color: var(--color-text-primary);
+}
+
+.statusIndex {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.chainReceipt {
+  align-items: flex-end;
+  padding: var(--space-5);
+  color: white;
+  background: var(--color-ink);
+  border-radius: var(--radius-large);
+}
+
+.chainReceipt > div {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.chainReceipt span,
+.chainReceipt strong {
+  color: inherit;
+}
+
+.chainReceipt span {
+  opacity: 0.6;
+}
+
+.hashBlock {
+  justify-items: end;
+  text-align: right;
+}
+
+.hashBlock code {
+  overflow: hidden;
+  max-width: 220px;
+  color: var(--color-record-on-dark);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.panelFooter {
+  margin-top: auto;
+}
+
+.demoNotice {
+  min-width: 0;
+}
+
+.taskAction {
+  flex: 0 0 auto;
+}
+
+.switcher {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.switchButton.switchButton {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  color: var(--color-text-secondary);
+  border-radius: 50%;
+}
+
+.sceneTabs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 3px;
+  background: rgb(255 255 255 / 58%);
+  border: 1px solid rgb(255 255 255 / 72%);
+  border-radius: 999px;
+}
+
+.sceneTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 11px;
+  color: var(--color-text-tertiary);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.sceneTab span {
+  font-size: 10px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.sceneTab:hover {
+  color: var(--color-text-primary);
+}
+
+.sceneTab:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
+
+.sceneTabActive {
+  color: var(--color-brand-active);
+  background: var(--color-surface);
+  box-shadow: 0 3px 10px rgb(43 66 112 / 8%);
+}
+
+@media (min-width: 1081px) and (max-height: 760px) {
+  .sceneCard {
+    padding: var(--space-6);
+  }
+
+  .cardContent {
+    gap: var(--space-4);
+  }
+
+  .statusItem {
+    padding: var(--space-2) 0;
+  }
+
+  .chainReceipt {
+    padding: var(--space-4);
+  }
+
+  .stackStage {
+    padding-bottom: 38px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .showcase {
+    width: min(100%, 760px);
+    justify-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .showcase {
+    width: 100%;
+  }
+
+  .stackStage {
+    padding-bottom: 34px;
+  }
+
+  .sceneCard {
+    padding: var(--space-5);
+    border-radius: var(--radius-large);
+  }
+
+  .cardContent {
+    gap: var(--space-4);
+  }
+
+  .panelHeader,
+  .chainReceipt,
+  .panelFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .panelHeader h4 {
+    white-space: normal;
+  }
+
+  .hashBlock {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .taskAction {
+    width: 100%;
+  }
+
+  .sceneTabs {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .sceneTab {
+    min-width: 0;
+    justify-content: center;
+    padding-inline: 8px;
+  }
+
+  .sceneTab span {
+    display: none;
+  }
+}

@@ -10,10 +10,8 @@ import IconUser from '@douyinfe/semi-icons/lib/es/icons/IconUser';
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import trustNetworkImage from '../../assets/trust-network-hemisphere.png';
+import { HomeTaskShowcase } from '../../components/HomeTaskShowcase/HomeTaskShowcase';
 import { ProtectionLogicSection } from '../../components/ProtectionLogic/ProtectionLogicSection';
-import { SemanticStatusTag, type SemanticTone } from '../../components/SemanticStatus/SemanticStatusTag';
-import { scenarioStageTone } from '../../components/SemanticStatus/statusToneMap';
-import { useDemoScenario } from '../../demo/DemoScenarioContext';
 import { homeModules } from '../../mock/platformCapabilities';
 import type { ModuleIcon } from '../../types/platform';
 import styles from './HomePage.module.css';
@@ -27,22 +25,12 @@ const moduleIcons: Record<ModuleIcon, React.ReactNode> = {
   help: <IconHelpCircle size="extra-large" />,
 };
 
-const statusToneClass: Record<SemanticTone, string> = {
-  neutral: styles.statusNeutral,
-  brand: styles.statusBrand,
-  success: styles.statusSuccess,
-  value: styles.statusValue,
-  record: styles.statusRecord,
-  attention: styles.statusAttention,
-};
-
 export function HomePage() {
   const storyRef = useRef<HTMLDivElement>(null);
   const journeyRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
   const reduceMotion = useReducedMotion();
-  const { state, view } = useDemoScenario();
   const { scrollYProgress } = useScroll();
   const { scrollYProgress: storyScrollProgress } = useScroll({
     target: storyRef,
@@ -65,12 +53,6 @@ export function HomePage() {
   );
   const storyGrayOpacity = useTransform(journeyScrollProgress, [0, 0.4, 0.6], [0, 0, 1]);
   const revealInitial = reduceMotion ? false : { opacity: 0, y: 28 };
-  const journeyStatuses = [
-    { label: '企业与岗位', value: '已认证', tone: 'success' as const },
-    { label: '薪资保证金', value: state.escrow.status === 'held' ? '已托管' : '已结算', tone: state.escrow.status === 'held' ? 'value' as const : 'success' as const },
-    { label: '工作成果', value: view.home.workResultStatus, tone: state.stage === 'working' ? 'neutral' as const : state.stage === 'submitted' ? 'value' as const : 'success' as const },
-    { label: '智能合约', value: view.home.contractStatus, tone: state.stage === 'settling' ? 'brand' as const : state.stage === 'settled' ? 'success' as const : 'neutral' as const },
-  ];
 
   useEffect(() => {
     if (!location.hash) {
@@ -145,78 +127,7 @@ export function HomePage() {
           </div>
           </motion.div>
 
-          <motion.div
-            className={styles.statusPanel}
-            initial={reduceMotion ? false : { opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55, delay: 0.08, ease: 'easeOut' }}
-          >
-          <div className={styles.panelHeader}>
-            <div>
-              <Text type="tertiary" size="small">当前演示任务</Text>
-              <Title heading={4}>{state.task.title}</Title>
-            </div>
-            <SemanticStatusTag className={styles.taskStatusTag} tone={scenarioStageTone[state.stage]}>
-              {view.home.taskStatus}
-            </SemanticStatusTag>
-          </div>
-
-          <div className={styles.progressBlock}>
-            <div className={styles.progressMeta}>
-              <span>流程进度</span>
-              <strong>{view.progress} / 10</strong>
-            </div>
-            <div className={styles.progressTrack} aria-label={`流程进度 ${view.progress} / 10`}>
-              <motion.span
-                initial={reduceMotion ? false : { scaleX: 0 }}
-                animate={{ scaleX: view.progress / 10 }}
-                transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : 0.15 }}
-              />
-            </div>
-          </div>
-
-          <div className={styles.statusList}>
-            {journeyStatuses.map((status, index) => (
-              <div
-                className={`${styles.statusItem} ${statusToneClass[status.tone]} ${status.label === '工作成果' ? styles.statusQuiet : ''}`}
-                key={status.label}
-              >
-                <span className={styles.statusDot} />
-                <div>
-                  <span>{status.label}</span>
-                  <strong>{status.value}</strong>
-                </div>
-                <span className={styles.statusIndex}>0{index + 1}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className={styles.chainReceipt}>
-            <div>
-              <span>最近一次存证</span>
-              <strong>{state.latestEvidence.id}</strong>
-            </div>
-            <div className={styles.hashBlock}>
-              <span>交易哈希</span>
-              <code title={state.latestEvidence.hash}>{state.latestEvidence.hash}</code>
-            </div>
-          </div>
-          <div className={styles.panelFooter}>
-            <Text className={styles.demoNotice} type="tertiary" size="small">
-              概念演示数据 · 未连接真实区块链
-            </Text>
-            <Button
-              className={styles.taskAction}
-              theme="light"
-              type="primary"
-              icon={<IconArrowRight />}
-              iconPosition="right"
-              onClick={() => navigate(view.home.nextRoute)}
-            >
-              继续当前任务
-            </Button>
-          </div>
-          </motion.div>
+          <HomeTaskShowcase />
         </section>
 
         <div className={styles.journeyTransition} ref={journeyRef}>
