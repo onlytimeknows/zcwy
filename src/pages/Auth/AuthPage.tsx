@@ -11,40 +11,32 @@ import IconUser from '@douyinfe/semi-icons/lib/es/icons/IconUser';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useDemoAuth, type DemoRole } from '../../auth/DemoAuthContext';
+import { BrandLogo } from '../../components/BrandLogo/BrandLogo';
 import styles from './AuthPage.module.css';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Text } = Typography;
 
 type AuthMode = 'login' | 'register';
 
 const roleOptions = {
   student: {
     label: '学生身份',
-    description: '求职、履约与薪资',
     account: 'student@zcwy.cn',
     target: '/student',
-    icon: <IconUser size="extra-large" />,
+    icon: <IconUser />,
   },
   enterprise: {
     label: '企业身份',
-    description: '招聘、验收与结算',
     account: 'enterprise@zcwy.cn',
     target: '/enterprise',
-    icon: <IconApartment size="extra-large" />,
+    icon: <IconApartment />,
   },
 } satisfies Record<DemoRole, {
   label: string;
-  description: string;
   account: string;
   target: string;
   icon: React.ReactNode;
 }>;
-
-const trustPoints = [
-  '认证企业与岗位信息',
-  '薪资托管与履约状态清晰可查',
-  '协议、工作与结算过程连续留痕',
-];
 
 export function AuthPage() {
   const navigate = useNavigate();
@@ -67,151 +59,145 @@ export function AuthPage() {
     timerRef.current = window.setTimeout(() => {
       login(role);
       navigate(selectedRole.target);
-    }, reduceMotion ? 0 : 650);
+    }, reduceMotion ? 0 : 450);
   };
 
   return (
     <main className={styles.page}>
-      <Button
-        className={styles.backButton}
-        theme="borderless"
-        icon={<IconArrowLeft />}
-        onClick={() => navigate('/')}
-      >
-        返回首页
-      </Button>
-
-      <motion.section
-        className={styles.introduction}
-        initial={reduceMotion ? false : { opacity: 0, x: -18 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.42, ease: 'easeOut' }}
-      >
-        <Text className={styles.eyebrow}>大学生兼职权益保护平台</Text>
-        <div className={styles.introCopy}>
-          <Title heading={1}>安心兼职，从可信开始</Title>
-          <Paragraph>
-            连接学生与可信企业，让岗位、协议、履约和结算都拥有清晰可查的记录。
-          </Paragraph>
-        </div>
-
-        <div className={styles.trustList}>
-          {trustPoints.map((point, index) => (
-            <div key={point}>
-              <span className={styles.pointIndex}>0{index + 1}</span>
-              <span>{point}</span>
-            </div>
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        className={styles.authCard}
-        aria-label={mode === 'login' ? '登录平台' : '注册账号'}
-        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.44, delay: 0.06, ease: 'easeOut' }}
-      >
-        <div className={styles.modeTabs} role="tablist" aria-label="登录或注册">
-          <button
-            className={mode === 'login' ? styles.modeActive : undefined}
-            type="button"
-            role="tab"
-            aria-selected={mode === 'login'}
-            onClick={() => setMode('login')}
-          >
-            登录
-          </button>
-          <button
-            className={mode === 'register' ? styles.modeActive : undefined}
-            type="button"
-            role="tab"
-            aria-selected={mode === 'register'}
-            onClick={() => setMode('register')}
-          >
-            注册
-          </button>
-        </div>
-
-        <fieldset className={styles.roleFieldset}>
-          <legend>选择身份</legend>
-          <div className={styles.roleGrid}>
-            {(Object.keys(roleOptions) as DemoRole[]).map((roleId) => {
-              const option = roleOptions[roleId];
-              const isSelected = role === roleId;
-
-              return (
-                <button
-                  className={`${styles.roleCard} ${isSelected ? styles.roleSelected : ''}`}
-                  type="button"
-                  key={roleId}
-                  aria-pressed={isSelected}
-                  onClick={() => setRole(roleId)}
-                >
-                  <span className={styles.roleIcon}>{option.icon}</span>
-                  <span className={styles.roleCopy}>
-                    <strong>{option.label}</strong>
-                    <span>{option.description}</span>
-                  </span>
-                  <span className={styles.selectionDot} aria-hidden="true" />
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
-
-        <motion.div
-          className={styles.fields}
-          key={`${mode}-${role}`}
-          initial={reduceMotion ? false : { opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.22 }}
-        >
-          <label className={styles.field}>
-            <span>账号</span>
-            <Input
-              size="large"
-              prefix={<IconIdCard />}
-              defaultValue={mode === 'login' ? selectedRole.account : ''}
-              placeholder="请输入邮箱或手机号"
-              aria-label="账号"
-            />
-          </label>
-          <label className={styles.field}>
-            <span>密码</span>
-            <Input
-              size="large"
-              mode="password"
-              prefix={<IconLock />}
-              defaultValue={mode === 'login' ? 'zcwy2026' : ''}
-              placeholder={mode === 'login' ? '请输入密码' : '请设置密码'}
-              aria-label="密码"
-            />
-          </label>
-        </motion.div>
-
+      <header className={styles.authHeader}>
+        <button className={styles.logoButton} type="button" onClick={() => navigate('/')}>
+          <BrandLogo compact />
+        </button>
         <Button
-          className={styles.enterButton}
-          size="large"
-          theme="solid"
-          type="primary"
-          icon={<IconArrowRight />}
-          iconPosition="right"
-          loading={isEntering}
-          disabled={isEntering}
-          onClick={enterPlatform}
+          className={styles.backButton}
+          theme="borderless"
+          icon={<IconArrowLeft />}
+          onClick={() => navigate('/')}
         >
-          {isEntering
-            ? '正在进入平台'
-            : mode === 'login'
-              ? '登录并进入平台'
-              : '注册并进入平台'}
+          返回首页
         </Button>
-      </motion.section>
+      </header>
 
-      <Text className={styles.disclaimer} type="tertiary" size="small">
-        概念演示页面：登录、注册及账号数据均由前端模拟，不会保存个人信息。
-      </Text>
+      <div className={styles.authBody}>
+        <motion.section
+          className={styles.brandPanel}
+          initial={reduceMotion ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.26, ease: 'easeOut' }}
+        >
+          <Text className={styles.eyebrow}>大学生兼职权益保护平台</Text>
+          <Title heading={1}>安心兼职，从可信开始</Title>
+          <p>岗位、履约与薪资状态，都有清晰可查的记录。</p>
+        </motion.section>
+
+        <motion.section
+          className={styles.authPanel}
+          aria-label={mode === 'login' ? '登录平台' : '注册账号'}
+          initial={reduceMotion ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.26, delay: 0.04, ease: 'easeOut' }}
+        >
+          <div className={styles.authHeading}>
+            <Title heading={2}>{mode === 'login' ? '登录进入平台' : '创建账号'}</Title>
+            <Text type="tertiary">选择演示身份后继续</Text>
+          </div>
+
+          <div className={styles.modeTabs} role="tablist" aria-label="登录或注册">
+            <button
+              className={mode === 'login' ? styles.modeActive : undefined}
+              type="button"
+              role="tab"
+              aria-selected={mode === 'login'}
+              onClick={() => setMode('login')}
+            >
+              登录
+            </button>
+            <button
+              className={mode === 'register' ? styles.modeActive : undefined}
+              type="button"
+              role="tab"
+              aria-selected={mode === 'register'}
+              onClick={() => setMode('register')}
+            >
+              注册
+            </button>
+          </div>
+
+          <fieldset className={styles.roleFieldset}>
+            <legend>登录身份</legend>
+            <div className={styles.roleSegment}>
+              {(Object.keys(roleOptions) as DemoRole[]).map((roleId) => {
+                const option = roleOptions[roleId];
+                const isSelected = role === roleId;
+
+                return (
+                  <button
+                    className={`${styles.roleOption} ${isSelected ? styles.roleSelected : ''}`}
+                    type="button"
+                    key={roleId}
+                    aria-pressed={isSelected}
+                    onClick={() => setRole(roleId)}
+                  >
+                    <span aria-hidden="true">{option.icon}</span>
+                    {option.label}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          <motion.div
+            className={styles.fields}
+            key={`${mode}-${role}`}
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.16 }}
+          >
+            <label className={styles.field}>
+              <span>账号</span>
+              <Input
+                size="large"
+                prefix={<IconIdCard />}
+                defaultValue={mode === 'login' ? selectedRole.account : ''}
+                placeholder="请输入邮箱或手机号"
+                aria-label="账号"
+              />
+            </label>
+            <label className={styles.field}>
+              <span>密码</span>
+              <Input
+                size="large"
+                mode="password"
+                prefix={<IconLock />}
+                defaultValue={mode === 'login' ? 'zcwy2026' : ''}
+                placeholder={mode === 'login' ? '请输入密码' : '请设置密码'}
+                aria-label="密码"
+              />
+            </label>
+          </motion.div>
+
+          <Button
+            className={styles.enterButton}
+            size="large"
+            theme="solid"
+            icon={<IconArrowRight />}
+            iconPosition="right"
+            loading={isEntering}
+            disabled={isEntering}
+            onClick={enterPlatform}
+          >
+            {isEntering
+              ? '正在进入平台'
+              : mode === 'login'
+                ? '登录进入平台'
+                : '创建账号并进入平台'}
+          </Button>
+
+          <Text className={styles.disclaimer} type="tertiary" size="small">
+            概念演示 · 账号数据仅前端模拟，不保存个人信息
+          </Text>
+        </motion.section>
+      </div>
     </main>
   );
 }

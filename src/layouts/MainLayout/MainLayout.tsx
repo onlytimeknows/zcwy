@@ -69,7 +69,7 @@ export function MainLayout() {
     >
       {isWorkspacePage ? (
         <WorkspaceHeader collapsed={isStudentRailCollapsed} onToggleCollapsed={toggleStudentRail} />
-      ) : (
+      ) : !isAuthPage ? (
         <Header
           className={`${styles.header} ${hasCompactHeader ? styles.compactHeader : ''} ${isHomePage ? styles.homeHeader : ''}`}
         >
@@ -117,7 +117,7 @@ export function MainLayout() {
             )}
           </Space>
         </Header>
-      )}
+      ) : null}
 
       <Content className={styles.content}>
         <Outlet />
