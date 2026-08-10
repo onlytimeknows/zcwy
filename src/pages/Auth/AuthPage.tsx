@@ -97,10 +97,6 @@ export function AuthPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.26, delay: 0.04, ease: 'easeOut' }}
         >
-          <div className={styles.authHeading}>
-            <Text type="tertiary">选择演示身份后继续</Text>
-          </div>
-
           <div className={styles.modeTabs} role="tablist" aria-label="登录或注册">
             <button
               className={mode === 'login' ? styles.modeActive : undefined}

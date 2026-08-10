@@ -89,15 +89,6 @@
   gap: 22px;
 }
 
-.authHeading {
-  display: grid;
-}
-
-.authHeading > span {
-  color: #71717a;
-  font-size: 13px;
-}
-
 .modeTabs {
   display: flex;
   gap: 28px;
