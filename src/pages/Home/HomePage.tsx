@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import Button from '@douyinfe/semi-ui/lib/es/button';
-import Tag from '@douyinfe/semi-ui/lib/es/tag';
 import Typography from '@douyinfe/semi-ui/lib/es/typography';
 import IconApartment from '@douyinfe/semi-icons/lib/es/icons/IconApartment';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
@@ -115,9 +114,6 @@ export function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-          <Tag color="blue" size="large" className={styles.eyebrow}>
-            大学生兼职权益保护 · Web 概念演示
-          </Tag>
           <Title heading={1} className={styles.title}>
             让每一份兼职，
             <span>都有可信的权益凭证</span>

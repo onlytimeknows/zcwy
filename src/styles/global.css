@@ -26,6 +26,20 @@ select {
   font: inherit;
 }
 
+/* 实心品牌按钮使用白色文字；独立图标延续原有深色视觉。 */
+.semi-button-primary:not(.semi-button-light):not(.semi-button-borderless):not(.semi-button-outline):not(.semi-button-primary-disabled) {
+  color: var(--color-on-brand);
+}
+
+.semi-button-primary:not(.semi-button-light):not(.semi-button-borderless):not(.semi-button-outline):not(.semi-button-primary-disabled) .semi-button-content-left,
+.semi-button-primary:not(.semi-button-light):not(.semi-button-borderless):not(.semi-button-outline):not(.semi-button-primary-disabled) .semi-button-content-right {
+  color: var(--color-on-brand);
+}
+
+.semi-button-primary:not(.semi-button-light):not(.semi-button-borderless):not(.semi-button-outline):not(.semi-button-primary-disabled) .semi-button-content > .semi-icon {
+  color: var(--color-text-primary);
+}
+
 #root {
   min-height: 100vh;
 }
