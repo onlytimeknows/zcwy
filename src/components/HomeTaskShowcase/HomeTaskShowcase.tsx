@@ -190,7 +190,7 @@ export function HomeTaskShowcase() {
               aria-current={isActive ? 'true' : undefined}
               animate={{
                 x: `${position * -5}%`,
-                y: position * 14,
+                y: position * 8,
                 rotate: position * -1.8,
                 scale: 1 - position * 0.02,
                 opacity: 1 - position * 0.08,
