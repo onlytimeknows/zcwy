@@ -85,9 +85,11 @@ export function AuthPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.26, ease: 'easeOut' }}
         >
-          <Text className={styles.eyebrow}>大学生兼职权益保护平台</Text>
-          <Title heading={1}>安心兼职，从可信开始</Title>
-          <p>岗位、履约与薪资状态，都有清晰可查的记录。</p>
+          <div className={styles.brandCopy}>
+            <Text className={styles.eyebrow}>大学生兼职权益保护平台</Text>
+            <Title heading={1}>安心兼职，从可信开始</Title>
+            <p>岗位、履约与薪资状态，都有清晰可查的记录。</p>
+          </div>
         </motion.section>
 
         <motion.section

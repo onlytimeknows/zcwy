@@ -11,14 +11,14 @@
   right: 0;
   left: 0;
   display: flex;
-  min-height: 68px;
+  min-height: 64px;
   align-items: center;
   justify-content: space-between;
-  padding: 14px clamp(20px, 3.5vw, 56px);
-  background: rgb(255 255 255 / 68%);
-  border-bottom: 1px solid rgb(228 228 231 / 68%);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  padding: 12px clamp(20px, 3.5vw, 56px);
+  background: rgb(255 255 255 / 64%);
+  border-bottom: 1px solid rgb(228 228 231 / 54%);
+  -webkit-backdrop-filter: blur(18px) saturate(104%);
+  backdrop-filter: blur(18px) saturate(104%);
 }
 
 .logoButton {
@@ -29,80 +29,117 @@
 }
 
 .backButton {
-  color: #52525b;
+  color: #71717a;
   font-weight: 500;
 }
 
+.backButton:hover {
+  color: #27272a;
+}
+
 .authBody {
+  position: relative;
   display: grid;
   width: 100%;
   min-height: 100svh;
-  grid-template-columns: minmax(360px, 1fr) minmax(500px, 1fr);
+  grid-template-columns: minmax(390px, .94fr) minmax(520px, 1.06fr);
   align-items: center;
+  overflow: hidden;
 }
 
 .brandPanel {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-self: stretch;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(56px, 8vw, 144px);
+  padding: 96px clamp(64px, 8vw, 144px) 72px;
+}
+
+.brandPanel::before {
+  position: absolute;
+  z-index: -2;
+  inset: 0 -22vw 0 0;
   background-image:
-    url('../../assets/auth-background.png'),
-    linear-gradient(90deg, rgb(101 145 213 / 78%) 0%, rgb(152 186 230 / 52%) 58%, transparent 100%);
+    linear-gradient(90deg, rgb(72 107 169 / 23%) 0%, rgb(111 150 205 / 13%) 43%, transparent 72%),
+    url('../../assets/auth-background.png');
   background-position: left center, left center;
   background-repeat: no-repeat;
-  background-size: auto 100%, 100% 100%;
+  background-size: 74% 100%, auto 100%;
+  content: '';
+  pointer-events: none;
+}
+
+.brandCopy {
+  position: relative;
+  width: min(100%, 430px);
+  padding: 4px 0 5px 22px;
+  border-left: 1px solid rgb(255 255 255 / 48%);
+}
+
+.brandCopy::before {
+  position: absolute;
+  z-index: -1;
+  inset: -44px -84px -44px -38px;
+  background: radial-gradient(
+    ellipse at 34% 50%,
+    rgb(64 91 153 / 20%) 0%,
+    rgb(76 105 166 / 10%) 46%,
+    transparent 76%
+  );
+  content: '';
+  pointer-events: none;
 }
 
 .eyebrow {
   display: block;
-  margin-bottom: 22px;
-  color: rgb(255 255 255 / 82%);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .06em;
+  margin-bottom: 16px;
+  color: rgb(255 255 255 / 90%);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: .055em;
 }
 
 .brandPanel h1 {
-  max-width: 410px;
   margin: 0;
   color: #fff;
-  font-size: clamp(36px, 4vw, 50px);
-  font-weight: 680;
-  line-height: 1.16;
-  letter-spacing: -.045em;
+  font-size: clamp(34px, 3.5vw, 46px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -.042em;
 }
 
 .brandPanel p {
-  max-width: 390px;
-  margin: 24px 0 0;
-  color: rgb(255 255 255 / 82%);
-  font-size: 15px;
-  line-height: 1.8;
+  max-width: 360px;
+  margin: 18px 0 0;
+  color: rgb(255 255 255 / 86%);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .authPanel {
   display: grid;
-  width: min(calc(100% - clamp(64px, 10vw, 160px)), 440px);
+  width: min(calc(100% - clamp(64px, 10vw, 168px)), 420px);
   justify-self: center;
-  gap: 22px;
+  gap: 19px;
+  margin-top: 30px;
 }
 
 .modeTabs {
   display: flex;
-  gap: 28px;
+  gap: 26px;
   border-bottom: 1px solid #e4e4e7;
 }
 
 .modeTabs button {
   position: relative;
-  padding: 0 1px 11px;
+  padding: 0 1px 12px;
   color: #a1a1aa;
   background: transparent;
   border: 0;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 620;
   cursor: pointer;
   transition: color var(--motion-ui-fast);
 }
@@ -142,9 +179,9 @@
 
 .roleFieldset legend,
 .field > span {
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   color: #52525b;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
 }
 
@@ -153,13 +190,14 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4px;
   padding: 4px;
-  background: #f4f4f5;
-  border-radius: 10px;
+  background: #f5f5f6;
+  border: 1px solid #f1f1f2;
+  border-radius: 9px;
 }
 
 .roleOption {
   display: flex;
-  min-height: 38px;
+  min-height: 40px;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -167,9 +205,9 @@
   color: #71717a;
   background: transparent;
   border: 0;
-  border-radius: 7px;
+  border-radius: 6px;
   font-size: 13px;
-  font-weight: 550;
+  font-weight: 560;
   cursor: pointer;
   transition:
     color var(--motion-ui-fast),
@@ -186,7 +224,7 @@
 .roleSelected {
   color: #18181b;
   background: #fff;
-  box-shadow: 0 1px 3px rgb(24 24 27 / 8%);
+  box-shadow: 0 1px 2px rgb(24 24 27 / 7%);
 }
 
 .roleSelected > span {
@@ -195,7 +233,7 @@
 
 .fields {
   display: grid;
-  gap: 16px;
+  gap: 15px;
 }
 
 .field {
@@ -203,10 +241,10 @@
 }
 
 .field :global(.semi-input-wrapper) {
-  min-height: 48px;
+  min-height: 50px;
   background: #fff;
   border-color: #d4d4d8;
-  border-radius: 10px;
+  border-radius: 9px;
   box-shadow: none;
   transition:
     border-color var(--motion-ui-fast),
@@ -214,28 +252,32 @@
 }
 
 .field :global(.semi-input-wrapper:hover) {
-  border-color: #a1a1aa;
+  border-color: #b7b7bd;
 }
 
 .field :global(.semi-input-wrapper-focus),
 .field :global(.semi-input-wrapper-focus:hover) {
-  border-color: color-mix(in srgb, var(--color-brand-primary) 60%, #d4d4d8);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-primary) 10%, transparent);
+  border-color: color-mix(in srgb, var(--color-brand-primary) 48%, #d4d4d8);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-primary) 8%, transparent);
 }
 
 .field :global(.semi-input-prefix) {
   color: #a1a1aa;
 }
 
+.field :global(.semi-input-suffix) {
+  color: #a1a1aa;
+}
+
 .enterButton {
   width: 100%;
-  min-height: 48px;
-  margin-top: 2px;
+  min-height: 50px;
+  margin-top: 3px;
   color: #fff;
   background: #18181b;
   border-color: #18181b;
-  border-radius: 10px;
-  font-weight: 600;
+  border-radius: 9px;
+  font-weight: 620;
 }
 
 .enterButton:hover {
@@ -252,8 +294,8 @@
 
 .disclaimer {
   justify-self: center;
-  color: #a1a1aa;
-  font-size: 11px;
+  color: #b0b0b6;
+  font-size: 10px;
   line-height: 1.6;
   text-align: center;
 }
@@ -266,8 +308,16 @@
   .brandPanel {
     min-height: 260px;
     padding: 48px max(28px, 8vw);
-    background-position: left 42%, left center;
-    background-size: cover, 100% 100%;
+  }
+
+  .brandPanel::before {
+    inset: 0;
+    background-position: left 42%, left 42%;
+    background-size: 100% 100%, cover;
+  }
+
+  .brandCopy {
+    padding-left: 18px;
   }
 
   .brandPanel h1 {
@@ -280,7 +330,7 @@
 
   .authPanel {
     width: min(calc(100% - 40px), 440px);
-    margin: 48px auto 56px;
+    margin: 44px auto 56px;
   }
 }
 
