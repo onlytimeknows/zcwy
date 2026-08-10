@@ -39,13 +39,10 @@
   flex-direction: column;
   justify-content: center;
   padding: clamp(56px, 8vw, 144px);
-  background-color: #34427f;
-  background-image:
-    linear-gradient(135deg, rgb(32 42 91 / 38%), rgb(55 43 107 / 48%)),
-    url('../../assets/auth-background.png');
-  background-position: center, left center;
+  background-image: url('../../assets/auth-background.png');
+  background-position: left center;
   background-repeat: no-repeat;
-  background-size: cover, auto 100%;
+  background-size: auto 100%;
 }
 
 .eyebrow {
@@ -277,8 +274,8 @@
   .brandPanel {
     min-height: 260px;
     padding: 48px max(28px, 8vw);
-    background-position: center, left 42%;
-    background-size: cover, cover;
+    background-position: left 42%;
+    background-size: cover;
   }
 
   .brandPanel h1 {
