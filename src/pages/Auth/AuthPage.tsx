@@ -98,7 +98,6 @@ export function AuthPage() {
           transition={{ duration: 0.26, delay: 0.04, ease: 'easeOut' }}
         >
           <div className={styles.authHeading}>
-            <Title heading={2}>{mode === 'login' ? '登录进入平台' : '创建账号'}</Title>
             <Text type="tertiary">选择演示身份后继续</Text>
           </div>
 
