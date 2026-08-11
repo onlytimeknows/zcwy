@@ -115,14 +115,6 @@ export function AuthPage() {
               onClick={() => setMode('login')}
             >
               登录
-              {mode === 'login' && (
-                <motion.span
-                  className={styles.modeIndicator}
-                  layoutId="auth-mode-indicator"
-                  aria-hidden="true"
-                  transition={{ duration: reduceMotion ? 0 : 0.24, ease: 'easeOut' }}
-                />
-              )}
             </button>
             <button
               className={mode === 'register' ? styles.modeActive : undefined}
@@ -132,20 +124,26 @@ export function AuthPage() {
               onClick={() => setMode('register')}
             >
               注册
-              {mode === 'register' && (
-                <motion.span
-                  className={styles.modeIndicator}
-                  layoutId="auth-mode-indicator"
-                  aria-hidden="true"
-                  transition={{ duration: reduceMotion ? 0 : 0.24, ease: 'easeOut' }}
-                />
-              )}
             </button>
+            <motion.span
+              className={styles.modeIndicator}
+              aria-hidden="true"
+              initial={false}
+              animate={{ x: mode === 'login' ? '0%' : 'calc(100% + 26px)' }}
+              transition={{ duration: reduceMotion ? 0 : 0.24, ease: 'easeOut' }}
+            />
           </div>
 
           <fieldset className={styles.roleFieldset}>
             <legend>登录身份</legend>
             <div className={styles.roleSegment}>
+              <motion.span
+                className={styles.roleSlider}
+                aria-hidden="true"
+                initial={false}
+                animate={{ x: role === 'student' ? '0%' : 'calc(100% + 4px)' }}
+                transition={{ duration: reduceMotion ? 0 : 0.24, ease: 'easeOut' }}
+              />
               {(Object.keys(roleOptions) as DemoRole[]).map((roleId) => {
                 const option = roleOptions[roleId];
                 const isSelected = role === roleId;
@@ -158,14 +156,6 @@ export function AuthPage() {
                     aria-pressed={isSelected}
                     onClick={() => setRole(roleId)}
                   >
-                    {isSelected && (
-                      <motion.span
-                        className={styles.roleSlider}
-                        layoutId="auth-role-slider"
-                        aria-hidden="true"
-                        transition={{ duration: reduceMotion ? 0 : 0.24, ease: 'easeOut' }}
-                      />
-                    )}
                     <span className={styles.roleIcon} aria-hidden="true">{option.icon}</span>
                     <span className={styles.roleLabel}>{option.label}</span>
                   </button>
