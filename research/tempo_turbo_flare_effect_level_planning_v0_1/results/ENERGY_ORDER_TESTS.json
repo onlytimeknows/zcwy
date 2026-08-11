@@ -1,0 +1,3524 @@
+{
+  "tests": [
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            4,
+            6
+          ],
+          "final_mechanical_signature": "c6c7ee687cb68a13944e8f8d56393024ae59eccc02fe02f5aba5ca78ec0a8b69"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            6,
+            4
+          ],
+          "final_mechanical_signature": "c6c7ee687cb68a13944e8f8d56393024ae59eccc02fe02f5aba5ca78ec0a8b69"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87850771_s0_k26",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            4,
+            6,
+            3
+          ],
+          "final_mechanical_signature": "14b4b1df2c0ace0899201986a930327c83d474545a77a59043eb01bca03582b5"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            4,
+            3,
+            6
+          ],
+          "final_mechanical_signature": "14b4b1df2c0ace0899201986a930327c83d474545a77a59043eb01bca03582b5"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            6,
+            4,
+            3
+          ],
+          "final_mechanical_signature": "14b4b1df2c0ace0899201986a930327c83d474545a77a59043eb01bca03582b5"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            6,
+            3,
+            4
+          ],
+          "final_mechanical_signature": "14b4b1df2c0ace0899201986a930327c83d474545a77a59043eb01bca03582b5"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            3,
+            4,
+            6
+          ],
+          "final_mechanical_signature": "14b4b1df2c0ace0899201986a930327c83d474545a77a59043eb01bca03582b5"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            3,
+            6,
+            4
+          ],
+          "final_mechanical_signature": "14b4b1df2c0ace0899201986a930327c83d474545a77a59043eb01bca03582b5"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87850771_s0_k26",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            4,
+            6
+          ],
+          "final_mechanical_signature": "81ca0bafa8770070db0d0c4d65d4e1931fc9a475e705469df8471136140066d9"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            6,
+            4
+          ],
+          "final_mechanical_signature": "81ca0bafa8770070db0d0c4d65d4e1931fc9a475e705469df8471136140066d9"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87850771_s0_k26",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            4,
+            6,
+            3
+          ],
+          "final_mechanical_signature": "edf014a10117bae9e295e43f95435d35a5c2686c00abd5969114a98e7141653c"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            4,
+            3,
+            6
+          ],
+          "final_mechanical_signature": "edf014a10117bae9e295e43f95435d35a5c2686c00abd5969114a98e7141653c"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            6,
+            4,
+            3
+          ],
+          "final_mechanical_signature": "edf014a10117bae9e295e43f95435d35a5c2686c00abd5969114a98e7141653c"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            6,
+            3,
+            4
+          ],
+          "final_mechanical_signature": "edf014a10117bae9e295e43f95435d35a5c2686c00abd5969114a98e7141653c"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            3,
+            4,
+            6
+          ],
+          "final_mechanical_signature": "edf014a10117bae9e295e43f95435d35a5c2686c00abd5969114a98e7141653c"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            3,
+            6,
+            4
+          ],
+          "final_mechanical_signature": "edf014a10117bae9e295e43f95435d35a5c2686c00abd5969114a98e7141653c"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87850771_s0_k26",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            5,
+            10
+          ],
+          "final_mechanical_signature": "11ec0c77924bf07c3fb9dde30547b7132120c91d9c096f1df29b0d9ffa8dcbc3"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            10,
+            5
+          ],
+          "final_mechanical_signature": "11ec0c77924bf07c3fb9dde30547b7132120c91d9c096f1df29b0d9ffa8dcbc3"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87850771_s0_k42",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            5,
+            10,
+            11
+          ],
+          "final_mechanical_signature": "7ca6479593fab88611779c31e4ab5d66da3bad04c8c15bbbdabef4b5aa2ccc2f"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            5,
+            11,
+            10
+          ],
+          "final_mechanical_signature": "7ca6479593fab88611779c31e4ab5d66da3bad04c8c15bbbdabef4b5aa2ccc2f"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            10,
+            5,
+            11
+          ],
+          "final_mechanical_signature": "7ca6479593fab88611779c31e4ab5d66da3bad04c8c15bbbdabef4b5aa2ccc2f"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            10,
+            11,
+            5
+          ],
+          "final_mechanical_signature": "7ca6479593fab88611779c31e4ab5d66da3bad04c8c15bbbdabef4b5aa2ccc2f"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            11,
+            5,
+            10
+          ],
+          "final_mechanical_signature": "7ca6479593fab88611779c31e4ab5d66da3bad04c8c15bbbdabef4b5aa2ccc2f"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            11,
+            10,
+            5
+          ],
+          "final_mechanical_signature": "7ca6479593fab88611779c31e4ab5d66da3bad04c8c15bbbdabef4b5aa2ccc2f"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87850771_s0_k42",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            5,
+            10
+          ],
+          "final_mechanical_signature": "4c90fd631f31eefb6a261e69357df901f18fe9f2960ef7588423b32cfa790c29"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            10,
+            5
+          ],
+          "final_mechanical_signature": "4c90fd631f31eefb6a261e69357df901f18fe9f2960ef7588423b32cfa790c29"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87850771_s0_k42",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            5,
+            10,
+            11
+          ],
+          "final_mechanical_signature": "5f0509cd30fa9741a22a8d91330c4c2828ad0f5ddd39f9594a8b6a5b054bfba6"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            5,
+            11,
+            10
+          ],
+          "final_mechanical_signature": "5f0509cd30fa9741a22a8d91330c4c2828ad0f5ddd39f9594a8b6a5b054bfba6"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            10,
+            5,
+            11
+          ],
+          "final_mechanical_signature": "5f0509cd30fa9741a22a8d91330c4c2828ad0f5ddd39f9594a8b6a5b054bfba6"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            10,
+            11,
+            5
+          ],
+          "final_mechanical_signature": "5f0509cd30fa9741a22a8d91330c4c2828ad0f5ddd39f9594a8b6a5b054bfba6"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            11,
+            5,
+            10
+          ],
+          "final_mechanical_signature": "5f0509cd30fa9741a22a8d91330c4c2828ad0f5ddd39f9594a8b6a5b054bfba6"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            11,
+            10,
+            5
+          ],
+          "final_mechanical_signature": "5f0509cd30fa9741a22a8d91330c4c2828ad0f5ddd39f9594a8b6a5b054bfba6"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87850771_s0_k42",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            4,
+            3
+          ],
+          "final_mechanical_signature": "1a45fe919ceb9ed6b8eb8baf8934943a7c80c23c5d37ba299ea2d5b251c49278"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            3,
+            4
+          ],
+          "final_mechanical_signature": "1a45fe919ceb9ed6b8eb8baf8934943a7c80c23c5d37ba299ea2d5b251c49278"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87974997_s0_k40",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            4,
+            3,
+            11
+          ],
+          "final_mechanical_signature": "03745d0a5c615c067a6d8411ba61d7d922d5baa4b3b27bf186e782a991864b74"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            4,
+            11,
+            3
+          ],
+          "final_mechanical_signature": "03745d0a5c615c067a6d8411ba61d7d922d5baa4b3b27bf186e782a991864b74"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            3,
+            4,
+            11
+          ],
+          "final_mechanical_signature": "03745d0a5c615c067a6d8411ba61d7d922d5baa4b3b27bf186e782a991864b74"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            3,
+            11,
+            4
+          ],
+          "final_mechanical_signature": "03745d0a5c615c067a6d8411ba61d7d922d5baa4b3b27bf186e782a991864b74"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            11,
+            4,
+            3
+          ],
+          "final_mechanical_signature": "03745d0a5c615c067a6d8411ba61d7d922d5baa4b3b27bf186e782a991864b74"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            11,
+            3,
+            4
+          ],
+          "final_mechanical_signature": "03745d0a5c615c067a6d8411ba61d7d922d5baa4b3b27bf186e782a991864b74"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87974997_s0_k40",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            4,
+            3
+          ],
+          "final_mechanical_signature": "8d51cf7dc2e421b8e24e1e2130430902f6b444f0d451825ddbcdd39b5ff602ef"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            3,
+            4
+          ],
+          "final_mechanical_signature": "8d51cf7dc2e421b8e24e1e2130430902f6b444f0d451825ddbcdd39b5ff602ef"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87974997_s0_k40",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            4,
+            3,
+            11
+          ],
+          "final_mechanical_signature": "9306eeda34d581602397808c158f754b07e9df6a299360b2a0aef162fd182c9e"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            4,
+            11,
+            3
+          ],
+          "final_mechanical_signature": "9306eeda34d581602397808c158f754b07e9df6a299360b2a0aef162fd182c9e"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            3,
+            4,
+            11
+          ],
+          "final_mechanical_signature": "9306eeda34d581602397808c158f754b07e9df6a299360b2a0aef162fd182c9e"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            3,
+            11,
+            4
+          ],
+          "final_mechanical_signature": "9306eeda34d581602397808c158f754b07e9df6a299360b2a0aef162fd182c9e"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            11,
+            4,
+            3
+          ],
+          "final_mechanical_signature": "9306eeda34d581602397808c158f754b07e9df6a299360b2a0aef162fd182c9e"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            11,
+            3,
+            4
+          ],
+          "final_mechanical_signature": "9306eeda34d581602397808c158f754b07e9df6a299360b2a0aef162fd182c9e"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87974997_s0_k40",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            10,
+            6
+          ],
+          "final_mechanical_signature": "9549df5295a1f34512d7bf0f1603497915805af27fb1c4bf46bbb1c55e9de79d"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            6,
+            10
+          ],
+          "final_mechanical_signature": "9549df5295a1f34512d7bf0f1603497915805af27fb1c4bf46bbb1c55e9de79d"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87986170_s0_k43",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            10,
+            6,
+            7
+          ],
+          "final_mechanical_signature": "55d78f31c6688e3fabafd256c8cff2e62cdfe1062d1c1c7d17e232f571ff97a5"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            10,
+            7,
+            6
+          ],
+          "final_mechanical_signature": "55d78f31c6688e3fabafd256c8cff2e62cdfe1062d1c1c7d17e232f571ff97a5"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            6,
+            10,
+            7
+          ],
+          "final_mechanical_signature": "55d78f31c6688e3fabafd256c8cff2e62cdfe1062d1c1c7d17e232f571ff97a5"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            6,
+            7,
+            10
+          ],
+          "final_mechanical_signature": "55d78f31c6688e3fabafd256c8cff2e62cdfe1062d1c1c7d17e232f571ff97a5"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            7,
+            10,
+            6
+          ],
+          "final_mechanical_signature": "55d78f31c6688e3fabafd256c8cff2e62cdfe1062d1c1c7d17e232f571ff97a5"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            7,
+            6,
+            10
+          ],
+          "final_mechanical_signature": "55d78f31c6688e3fabafd256c8cff2e62cdfe1062d1c1c7d17e232f571ff97a5"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87986170_s0_k43",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            10,
+            6
+          ],
+          "final_mechanical_signature": "e0f440c09653e220ebdb50cab9550cfd4af75b5231f5a15056a7baf02ab37425"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            6,
+            10
+          ],
+          "final_mechanical_signature": "e0f440c09653e220ebdb50cab9550cfd4af75b5231f5a15056a7baf02ab37425"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87986170_s0_k43",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            10,
+            6,
+            7
+          ],
+          "final_mechanical_signature": "f0be0c80767bae05d6ebb25e8c901932cb2c1f6312a0ce2c436bfa6885e6471a"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            10,
+            7,
+            6
+          ],
+          "final_mechanical_signature": "f0be0c80767bae05d6ebb25e8c901932cb2c1f6312a0ce2c436bfa6885e6471a"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            6,
+            10,
+            7
+          ],
+          "final_mechanical_signature": "f0be0c80767bae05d6ebb25e8c901932cb2c1f6312a0ce2c436bfa6885e6471a"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            6,
+            7,
+            10
+          ],
+          "final_mechanical_signature": "f0be0c80767bae05d6ebb25e8c901932cb2c1f6312a0ce2c436bfa6885e6471a"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            7,
+            10,
+            6
+          ],
+          "final_mechanical_signature": "f0be0c80767bae05d6ebb25e8c901932cb2c1f6312a0ce2c436bfa6885e6471a"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            7,
+            6,
+            10
+          ],
+          "final_mechanical_signature": "f0be0c80767bae05d6ebb25e8c901932cb2c1f6312a0ce2c436bfa6885e6471a"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87986170_s0_k43",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            5,
+            9
+          ],
+          "final_mechanical_signature": "5f3edc0dfe458177662be2309af0aaad8330e4b15a95b14afda9a49e2fe35e32"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            9,
+            5
+          ],
+          "final_mechanical_signature": "5f3edc0dfe458177662be2309af0aaad8330e4b15a95b14afda9a49e2fe35e32"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87988889_s0_k93",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            5,
+            9,
+            7
+          ],
+          "final_mechanical_signature": "626b4ae1f10f6082b0bdc786a8df4f1ade2096e97ecf20ba5c94d346a3d95ff4"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            5,
+            7,
+            9
+          ],
+          "final_mechanical_signature": "626b4ae1f10f6082b0bdc786a8df4f1ade2096e97ecf20ba5c94d346a3d95ff4"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            9,
+            5,
+            7
+          ],
+          "final_mechanical_signature": "626b4ae1f10f6082b0bdc786a8df4f1ade2096e97ecf20ba5c94d346a3d95ff4"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            9,
+            7,
+            5
+          ],
+          "final_mechanical_signature": "626b4ae1f10f6082b0bdc786a8df4f1ade2096e97ecf20ba5c94d346a3d95ff4"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            7,
+            5,
+            9
+          ],
+          "final_mechanical_signature": "626b4ae1f10f6082b0bdc786a8df4f1ade2096e97ecf20ba5c94d346a3d95ff4"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            7,
+            9,
+            5
+          ],
+          "final_mechanical_signature": "626b4ae1f10f6082b0bdc786a8df4f1ade2096e97ecf20ba5c94d346a3d95ff4"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87988889_s0_k93",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            5,
+            9
+          ],
+          "final_mechanical_signature": "94dfcbe96cf44da1df30f5706830ae77ba801b259a79d1ee92ee8b029f3d0e9f"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            9,
+            5
+          ],
+          "final_mechanical_signature": "94dfcbe96cf44da1df30f5706830ae77ba801b259a79d1ee92ee8b029f3d0e9f"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87988889_s0_k93",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            5,
+            9,
+            7
+          ],
+          "final_mechanical_signature": "a24b5521fa132469ee188458a3587d03de99fa2bb0959b54577db21ca17741ad"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            5,
+            7,
+            9
+          ],
+          "final_mechanical_signature": "a24b5521fa132469ee188458a3587d03de99fa2bb0959b54577db21ca17741ad"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            9,
+            5,
+            7
+          ],
+          "final_mechanical_signature": "a24b5521fa132469ee188458a3587d03de99fa2bb0959b54577db21ca17741ad"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            9,
+            7,
+            5
+          ],
+          "final_mechanical_signature": "a24b5521fa132469ee188458a3587d03de99fa2bb0959b54577db21ca17741ad"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            7,
+            5,
+            9
+          ],
+          "final_mechanical_signature": "a24b5521fa132469ee188458a3587d03de99fa2bb0959b54577db21ca17741ad"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            7,
+            9,
+            5
+          ],
+          "final_mechanical_signature": "a24b5521fa132469ee188458a3587d03de99fa2bb0959b54577db21ca17741ad"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_87988889_s0_k93",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            9,
+            5
+          ],
+          "final_mechanical_signature": "3cf95d5f74c17bf125e067cac6eb2a798e62804c69ef943ac770b9df901d052a"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            5,
+            9
+          ],
+          "final_mechanical_signature": "3cf95d5f74c17bf125e067cac6eb2a798e62804c69ef943ac770b9df901d052a"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88133579_s0_k23",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            9,
+            5,
+            10
+          ],
+          "final_mechanical_signature": "1f248bb00a687d98abe644d65b8efa1a90698f1840a0911859bfbfa70757117b"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            9,
+            10,
+            5
+          ],
+          "final_mechanical_signature": "1f248bb00a687d98abe644d65b8efa1a90698f1840a0911859bfbfa70757117b"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            5,
+            9,
+            10
+          ],
+          "final_mechanical_signature": "1f248bb00a687d98abe644d65b8efa1a90698f1840a0911859bfbfa70757117b"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            5,
+            10,
+            9
+          ],
+          "final_mechanical_signature": "1f248bb00a687d98abe644d65b8efa1a90698f1840a0911859bfbfa70757117b"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            10,
+            9,
+            5
+          ],
+          "final_mechanical_signature": "1f248bb00a687d98abe644d65b8efa1a90698f1840a0911859bfbfa70757117b"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            10,
+            5,
+            9
+          ],
+          "final_mechanical_signature": "1f248bb00a687d98abe644d65b8efa1a90698f1840a0911859bfbfa70757117b"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88133579_s0_k23",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            9,
+            5
+          ],
+          "final_mechanical_signature": "39fc2cce64fcba58fda7ce08a216898746a90fdf13f4577c8f970b55aac3eda6"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            5,
+            9
+          ],
+          "final_mechanical_signature": "39fc2cce64fcba58fda7ce08a216898746a90fdf13f4577c8f970b55aac3eda6"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88133579_s0_k23",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            9,
+            5,
+            10
+          ],
+          "final_mechanical_signature": "7b65c216c7b3de3548c0c2ff9fb7d1b43e3d2f506ede3d002fd5ee4366e8aa56"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            9,
+            10,
+            5
+          ],
+          "final_mechanical_signature": "7b65c216c7b3de3548c0c2ff9fb7d1b43e3d2f506ede3d002fd5ee4366e8aa56"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            5,
+            9,
+            10
+          ],
+          "final_mechanical_signature": "7b65c216c7b3de3548c0c2ff9fb7d1b43e3d2f506ede3d002fd5ee4366e8aa56"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            5,
+            10,
+            9
+          ],
+          "final_mechanical_signature": "7b65c216c7b3de3548c0c2ff9fb7d1b43e3d2f506ede3d002fd5ee4366e8aa56"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            10,
+            9,
+            5
+          ],
+          "final_mechanical_signature": "7b65c216c7b3de3548c0c2ff9fb7d1b43e3d2f506ede3d002fd5ee4366e8aa56"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            10,
+            5,
+            9
+          ],
+          "final_mechanical_signature": "7b65c216c7b3de3548c0c2ff9fb7d1b43e3d2f506ede3d002fd5ee4366e8aa56"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88133579_s0_k23",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            68,
+            70
+          ],
+          "final_mechanical_signature": "30cd35f4003918e65ce773a136a9e8bee1054b5fcb2b3a09ab0fd61328228a2e"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            70,
+            68
+          ],
+          "final_mechanical_signature": "30cd35f4003918e65ce773a136a9e8bee1054b5fcb2b3a09ab0fd61328228a2e"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88133579_s1_k39",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            68,
+            70,
+            64
+          ],
+          "final_mechanical_signature": "f918f036e662f2f42e339d6d55a682fe58c1d50ca4b68cee58850ed02405cee0"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            68,
+            64,
+            70
+          ],
+          "final_mechanical_signature": "f918f036e662f2f42e339d6d55a682fe58c1d50ca4b68cee58850ed02405cee0"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            70,
+            68,
+            64
+          ],
+          "final_mechanical_signature": "f918f036e662f2f42e339d6d55a682fe58c1d50ca4b68cee58850ed02405cee0"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            70,
+            64,
+            68
+          ],
+          "final_mechanical_signature": "f918f036e662f2f42e339d6d55a682fe58c1d50ca4b68cee58850ed02405cee0"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            64,
+            68,
+            70
+          ],
+          "final_mechanical_signature": "f918f036e662f2f42e339d6d55a682fe58c1d50ca4b68cee58850ed02405cee0"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            64,
+            70,
+            68
+          ],
+          "final_mechanical_signature": "f918f036e662f2f42e339d6d55a682fe58c1d50ca4b68cee58850ed02405cee0"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88133579_s1_k39",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            68,
+            70
+          ],
+          "final_mechanical_signature": "f76261a93113e2466c1027ab31f62975ff94dcb67483be433adeadea7bb56ff3"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            70,
+            68
+          ],
+          "final_mechanical_signature": "f76261a93113e2466c1027ab31f62975ff94dcb67483be433adeadea7bb56ff3"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88133579_s1_k39",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            68,
+            70,
+            64
+          ],
+          "final_mechanical_signature": "b166086b3cf1e21fac21bb5e2e4af5f5b03856197a6e63b3ec1a935c4c94c033"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            68,
+            64,
+            70
+          ],
+          "final_mechanical_signature": "b166086b3cf1e21fac21bb5e2e4af5f5b03856197a6e63b3ec1a935c4c94c033"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            70,
+            68,
+            64
+          ],
+          "final_mechanical_signature": "b166086b3cf1e21fac21bb5e2e4af5f5b03856197a6e63b3ec1a935c4c94c033"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            70,
+            64,
+            68
+          ],
+          "final_mechanical_signature": "b166086b3cf1e21fac21bb5e2e4af5f5b03856197a6e63b3ec1a935c4c94c033"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            64,
+            68,
+            70
+          ],
+          "final_mechanical_signature": "b166086b3cf1e21fac21bb5e2e4af5f5b03856197a6e63b3ec1a935c4c94c033"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            64,
+            70,
+            68
+          ],
+          "final_mechanical_signature": "b166086b3cf1e21fac21bb5e2e4af5f5b03856197a6e63b3ec1a935c4c94c033"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88133579_s1_k39",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            6,
+            11
+          ],
+          "final_mechanical_signature": "09d60a9ccccf88cbb8a9197cb71bcd237eed6c33e569a7e2cb2741de1fb17d0d"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            11,
+            6
+          ],
+          "final_mechanical_signature": "09d60a9ccccf88cbb8a9197cb71bcd237eed6c33e569a7e2cb2741de1fb17d0d"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88145342_s0_k107",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            6,
+            11,
+            7
+          ],
+          "final_mechanical_signature": "b59a3da327ed4781314ef1993b1c499a8d9e049905a70bc7a1e586ea513b00e8"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            6,
+            7,
+            11
+          ],
+          "final_mechanical_signature": "b59a3da327ed4781314ef1993b1c499a8d9e049905a70bc7a1e586ea513b00e8"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            11,
+            6,
+            7
+          ],
+          "final_mechanical_signature": "b59a3da327ed4781314ef1993b1c499a8d9e049905a70bc7a1e586ea513b00e8"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            11,
+            7,
+            6
+          ],
+          "final_mechanical_signature": "b59a3da327ed4781314ef1993b1c499a8d9e049905a70bc7a1e586ea513b00e8"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            7,
+            6,
+            11
+          ],
+          "final_mechanical_signature": "b59a3da327ed4781314ef1993b1c499a8d9e049905a70bc7a1e586ea513b00e8"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            7,
+            11,
+            6
+          ],
+          "final_mechanical_signature": "b59a3da327ed4781314ef1993b1c499a8d9e049905a70bc7a1e586ea513b00e8"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88145342_s0_k107",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            6,
+            11
+          ],
+          "final_mechanical_signature": "2e3faf60d880f6cba50342d0b855871623d4d6a907188fed526be45d6663e072"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            11,
+            6
+          ],
+          "final_mechanical_signature": "2e3faf60d880f6cba50342d0b855871623d4d6a907188fed526be45d6663e072"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88145342_s0_k107",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            6,
+            11,
+            7
+          ],
+          "final_mechanical_signature": "516fe595294b19f8323ddcd28aeb14e4cc97fd2f2fed00e02b22c4b1430473c9"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            6,
+            7,
+            11
+          ],
+          "final_mechanical_signature": "516fe595294b19f8323ddcd28aeb14e4cc97fd2f2fed00e02b22c4b1430473c9"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            11,
+            6,
+            7
+          ],
+          "final_mechanical_signature": "516fe595294b19f8323ddcd28aeb14e4cc97fd2f2fed00e02b22c4b1430473c9"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            11,
+            7,
+            6
+          ],
+          "final_mechanical_signature": "516fe595294b19f8323ddcd28aeb14e4cc97fd2f2fed00e02b22c4b1430473c9"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            7,
+            6,
+            11
+          ],
+          "final_mechanical_signature": "516fe595294b19f8323ddcd28aeb14e4cc97fd2f2fed00e02b22c4b1430473c9"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            7,
+            11,
+            6
+          ],
+          "final_mechanical_signature": "516fe595294b19f8323ddcd28aeb14e4cc97fd2f2fed00e02b22c4b1430473c9"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88145342_s0_k107",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            64,
+            68
+          ],
+          "final_mechanical_signature": "aae8f1bc8277ab4e986fb33ad830e4e919294813b758a22dedf7a11eeb772315"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            68,
+            64
+          ],
+          "final_mechanical_signature": "aae8f1bc8277ab4e986fb33ad830e4e919294813b758a22dedf7a11eeb772315"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88162728_s1_k26",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            64,
+            68,
+            65
+          ],
+          "final_mechanical_signature": "9e03aaa5722e4f9e5234a106f2f2cbb62d12c904eeed3e4633327b58b26f5767"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            64,
+            65,
+            68
+          ],
+          "final_mechanical_signature": "9e03aaa5722e4f9e5234a106f2f2cbb62d12c904eeed3e4633327b58b26f5767"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            68,
+            64,
+            65
+          ],
+          "final_mechanical_signature": "9e03aaa5722e4f9e5234a106f2f2cbb62d12c904eeed3e4633327b58b26f5767"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            68,
+            65,
+            64
+          ],
+          "final_mechanical_signature": "9e03aaa5722e4f9e5234a106f2f2cbb62d12c904eeed3e4633327b58b26f5767"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            65,
+            64,
+            68
+          ],
+          "final_mechanical_signature": "9e03aaa5722e4f9e5234a106f2f2cbb62d12c904eeed3e4633327b58b26f5767"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            65,
+            68,
+            64
+          ],
+          "final_mechanical_signature": "9e03aaa5722e4f9e5234a106f2f2cbb62d12c904eeed3e4633327b58b26f5767"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88162728_s1_k26",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            64,
+            68
+          ],
+          "final_mechanical_signature": "d00acf736d109e5c8ea0db81565e96bfa87c98573c5042589a290d1b0e601503"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            68,
+            64
+          ],
+          "final_mechanical_signature": "d00acf736d109e5c8ea0db81565e96bfa87c98573c5042589a290d1b0e601503"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88162728_s1_k26",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            64,
+            68,
+            65
+          ],
+          "final_mechanical_signature": "8ea6d92fad5c597b4182c47890395517c938af9b6e7517835258b89a2019a7d2"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            64,
+            65,
+            68
+          ],
+          "final_mechanical_signature": "8ea6d92fad5c597b4182c47890395517c938af9b6e7517835258b89a2019a7d2"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            68,
+            64,
+            65
+          ],
+          "final_mechanical_signature": "8ea6d92fad5c597b4182c47890395517c938af9b6e7517835258b89a2019a7d2"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            68,
+            65,
+            64
+          ],
+          "final_mechanical_signature": "8ea6d92fad5c597b4182c47890395517c938af9b6e7517835258b89a2019a7d2"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            65,
+            64,
+            68
+          ],
+          "final_mechanical_signature": "8ea6d92fad5c597b4182c47890395517c938af9b6e7517835258b89a2019a7d2"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            65,
+            68,
+            64
+          ],
+          "final_mechanical_signature": "8ea6d92fad5c597b4182c47890395517c938af9b6e7517835258b89a2019a7d2"
+        }
+      },
+      "root_id": "turbo_submission_54898083_emergency_88162728_s1_k26",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            65,
+            63
+          ],
+          "final_mechanical_signature": "9541aa3ab71a0fe47b0d241fe5ea40239c47bf64a8f756578c1cc8deba704fc3"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            63,
+            65
+          ],
+          "final_mechanical_signature": "9541aa3ab71a0fe47b0d241fe5ea40239c47bf64a8f756578c1cc8deba704fc3"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89942077_s1_k73",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            65,
+            63,
+            66
+          ],
+          "final_mechanical_signature": "e5ef20dc79bb7a1e1c41e5559275f0f461c37d79d1dd192e4b52734ced3e54e2"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            65,
+            66,
+            63
+          ],
+          "final_mechanical_signature": "e5ef20dc79bb7a1e1c41e5559275f0f461c37d79d1dd192e4b52734ced3e54e2"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            63,
+            65,
+            66
+          ],
+          "final_mechanical_signature": "e5ef20dc79bb7a1e1c41e5559275f0f461c37d79d1dd192e4b52734ced3e54e2"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            63,
+            66,
+            65
+          ],
+          "final_mechanical_signature": "e5ef20dc79bb7a1e1c41e5559275f0f461c37d79d1dd192e4b52734ced3e54e2"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            66,
+            65,
+            63
+          ],
+          "final_mechanical_signature": "e5ef20dc79bb7a1e1c41e5559275f0f461c37d79d1dd192e4b52734ced3e54e2"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            66,
+            63,
+            65
+          ],
+          "final_mechanical_signature": "e5ef20dc79bb7a1e1c41e5559275f0f461c37d79d1dd192e4b52734ced3e54e2"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89942077_s1_k73",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            65,
+            63
+          ],
+          "final_mechanical_signature": "93e8032a6b33d6b43aeed13fc3b8efd9328292964e9425c3d6c3e4b0b88d4807"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            63,
+            65
+          ],
+          "final_mechanical_signature": "93e8032a6b33d6b43aeed13fc3b8efd9328292964e9425c3d6c3e4b0b88d4807"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89942077_s1_k73",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            65,
+            63,
+            66
+          ],
+          "final_mechanical_signature": "ebc7d8a65fc89e2ac1055724a09de05d2e3d41a1c06f5ae81ac86d8758cd0a73"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            65,
+            66,
+            63
+          ],
+          "final_mechanical_signature": "ebc7d8a65fc89e2ac1055724a09de05d2e3d41a1c06f5ae81ac86d8758cd0a73"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            63,
+            65,
+            66
+          ],
+          "final_mechanical_signature": "ebc7d8a65fc89e2ac1055724a09de05d2e3d41a1c06f5ae81ac86d8758cd0a73"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            63,
+            66,
+            65
+          ],
+          "final_mechanical_signature": "ebc7d8a65fc89e2ac1055724a09de05d2e3d41a1c06f5ae81ac86d8758cd0a73"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            66,
+            65,
+            63
+          ],
+          "final_mechanical_signature": "ebc7d8a65fc89e2ac1055724a09de05d2e3d41a1c06f5ae81ac86d8758cd0a73"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            66,
+            63,
+            65
+          ],
+          "final_mechanical_signature": "ebc7d8a65fc89e2ac1055724a09de05d2e3d41a1c06f5ae81ac86d8758cd0a73"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89942077_s1_k73",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            10,
+            9
+          ],
+          "final_mechanical_signature": "da9361e87d513f8294a0f1ce08e64396a949f3937a6761110eb2c43ea7321fcc"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            9,
+            10
+          ],
+          "final_mechanical_signature": "da9361e87d513f8294a0f1ce08e64396a949f3937a6761110eb2c43ea7321fcc"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89952544_s0_k25",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            10,
+            9,
+            4
+          ],
+          "final_mechanical_signature": "424ccef290b0ffe75802da7947e6b5d1f2e7457dce9f676dd511eac7e039421e"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            10,
+            4,
+            9
+          ],
+          "final_mechanical_signature": "424ccef290b0ffe75802da7947e6b5d1f2e7457dce9f676dd511eac7e039421e"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            9,
+            10,
+            4
+          ],
+          "final_mechanical_signature": "424ccef290b0ffe75802da7947e6b5d1f2e7457dce9f676dd511eac7e039421e"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            9,
+            4,
+            10
+          ],
+          "final_mechanical_signature": "424ccef290b0ffe75802da7947e6b5d1f2e7457dce9f676dd511eac7e039421e"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            4,
+            10,
+            9
+          ],
+          "final_mechanical_signature": "424ccef290b0ffe75802da7947e6b5d1f2e7457dce9f676dd511eac7e039421e"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            4,
+            9,
+            10
+          ],
+          "final_mechanical_signature": "424ccef290b0ffe75802da7947e6b5d1f2e7457dce9f676dd511eac7e039421e"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89952544_s0_k25",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            10,
+            9
+          ],
+          "final_mechanical_signature": "76f6e2915a655f6310e43e172fd165b8e45d6b86a55202f7700d6793fae5946a"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            9,
+            10
+          ],
+          "final_mechanical_signature": "76f6e2915a655f6310e43e172fd165b8e45d6b86a55202f7700d6793fae5946a"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89952544_s0_k25",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            10,
+            9,
+            4
+          ],
+          "final_mechanical_signature": "d7554f6122ffb81d97e626e2625a4a9624d742c0953402ef5e3c82cdfe5c38bd"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            10,
+            4,
+            9
+          ],
+          "final_mechanical_signature": "d7554f6122ffb81d97e626e2625a4a9624d742c0953402ef5e3c82cdfe5c38bd"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            9,
+            10,
+            4
+          ],
+          "final_mechanical_signature": "d7554f6122ffb81d97e626e2625a4a9624d742c0953402ef5e3c82cdfe5c38bd"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            9,
+            4,
+            10
+          ],
+          "final_mechanical_signature": "d7554f6122ffb81d97e626e2625a4a9624d742c0953402ef5e3c82cdfe5c38bd"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            4,
+            10,
+            9
+          ],
+          "final_mechanical_signature": "d7554f6122ffb81d97e626e2625a4a9624d742c0953402ef5e3c82cdfe5c38bd"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            4,
+            9,
+            10
+          ],
+          "final_mechanical_signature": "d7554f6122ffb81d97e626e2625a4a9624d742c0953402ef5e3c82cdfe5c38bd"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89952544_s0_k25",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            3,
+            6
+          ],
+          "final_mechanical_signature": "8bea0d3ed3314e4ed2e68a704f42f928ff487ae2713f6c581d14ae74654259c2"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            6,
+            3
+          ],
+          "final_mechanical_signature": "8bea0d3ed3314e4ed2e68a704f42f928ff487ae2713f6c581d14ae74654259c2"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89952544_s0_k79",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            3,
+            6,
+            7
+          ],
+          "final_mechanical_signature": "6c601ed0ccd4d5d92843bd40f508fca26e32d94c490be406b8830b9995d5cbc3"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            3,
+            7,
+            6
+          ],
+          "final_mechanical_signature": "6c601ed0ccd4d5d92843bd40f508fca26e32d94c490be406b8830b9995d5cbc3"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            6,
+            3,
+            7
+          ],
+          "final_mechanical_signature": "6c601ed0ccd4d5d92843bd40f508fca26e32d94c490be406b8830b9995d5cbc3"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            6,
+            7,
+            3
+          ],
+          "final_mechanical_signature": "6c601ed0ccd4d5d92843bd40f508fca26e32d94c490be406b8830b9995d5cbc3"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            7,
+            3,
+            6
+          ],
+          "final_mechanical_signature": "6c601ed0ccd4d5d92843bd40f508fca26e32d94c490be406b8830b9995d5cbc3"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            7,
+            6,
+            3
+          ],
+          "final_mechanical_signature": "6c601ed0ccd4d5d92843bd40f508fca26e32d94c490be406b8830b9995d5cbc3"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89952544_s0_k79",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            3,
+            6
+          ],
+          "final_mechanical_signature": "16428aac8d659569098b596dcc625e5c4df9f0afc33dbda63e43cbe8e0d5b2bf"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            6,
+            3
+          ],
+          "final_mechanical_signature": "16428aac8d659569098b596dcc625e5c4df9f0afc33dbda63e43cbe8e0d5b2bf"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89952544_s0_k79",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            3,
+            6,
+            7
+          ],
+          "final_mechanical_signature": "2f47c1660d667f68c6b353317516f14f66794ec5725c85cc9df8a621c88d3cbf"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            3,
+            7,
+            6
+          ],
+          "final_mechanical_signature": "2f47c1660d667f68c6b353317516f14f66794ec5725c85cc9df8a621c88d3cbf"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            6,
+            3,
+            7
+          ],
+          "final_mechanical_signature": "2f47c1660d667f68c6b353317516f14f66794ec5725c85cc9df8a621c88d3cbf"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            6,
+            7,
+            3
+          ],
+          "final_mechanical_signature": "2f47c1660d667f68c6b353317516f14f66794ec5725c85cc9df8a621c88d3cbf"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            7,
+            3,
+            6
+          ],
+          "final_mechanical_signature": "2f47c1660d667f68c6b353317516f14f66794ec5725c85cc9df8a621c88d3cbf"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            7,
+            6,
+            3
+          ],
+          "final_mechanical_signature": "2f47c1660d667f68c6b353317516f14f66794ec5725c85cc9df8a621c88d3cbf"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89952544_s0_k79",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            10,
+            4
+          ],
+          "final_mechanical_signature": "2ee53247662e19f46315f5b5681681ac82ff78180912f50488aa406fcf92930a"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            4,
+            10
+          ],
+          "final_mechanical_signature": "2ee53247662e19f46315f5b5681681ac82ff78180912f50488aa406fcf92930a"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89954342_s0_k40",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            10,
+            4,
+            7
+          ],
+          "final_mechanical_signature": "b4fb0c023a36c062ef46ca51fcf0d0295817a6c292235c082513487f5260e671"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            10,
+            7,
+            4
+          ],
+          "final_mechanical_signature": "b4fb0c023a36c062ef46ca51fcf0d0295817a6c292235c082513487f5260e671"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            4,
+            10,
+            7
+          ],
+          "final_mechanical_signature": "b4fb0c023a36c062ef46ca51fcf0d0295817a6c292235c082513487f5260e671"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            4,
+            7,
+            10
+          ],
+          "final_mechanical_signature": "b4fb0c023a36c062ef46ca51fcf0d0295817a6c292235c082513487f5260e671"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            7,
+            10,
+            4
+          ],
+          "final_mechanical_signature": "b4fb0c023a36c062ef46ca51fcf0d0295817a6c292235c082513487f5260e671"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            7,
+            4,
+            10
+          ],
+          "final_mechanical_signature": "b4fb0c023a36c062ef46ca51fcf0d0295817a6c292235c082513487f5260e671"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89954342_s0_k40",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            10,
+            4
+          ],
+          "final_mechanical_signature": "68992adfae40465e77f9cefb865ba125e628e46155d69ec8cb2e9e0a148e9ef1"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            4,
+            10
+          ],
+          "final_mechanical_signature": "68992adfae40465e77f9cefb865ba125e628e46155d69ec8cb2e9e0a148e9ef1"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89954342_s0_k40",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            10,
+            4,
+            7
+          ],
+          "final_mechanical_signature": "4633891545b985a8e58923f3ce00c6058dbf9edeea54fc350c1a002a70473286"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            10,
+            7,
+            4
+          ],
+          "final_mechanical_signature": "4633891545b985a8e58923f3ce00c6058dbf9edeea54fc350c1a002a70473286"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            4,
+            10,
+            7
+          ],
+          "final_mechanical_signature": "4633891545b985a8e58923f3ce00c6058dbf9edeea54fc350c1a002a70473286"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            4,
+            7,
+            10
+          ],
+          "final_mechanical_signature": "4633891545b985a8e58923f3ce00c6058dbf9edeea54fc350c1a002a70473286"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            7,
+            10,
+            4
+          ],
+          "final_mechanical_signature": "4633891545b985a8e58923f3ce00c6058dbf9edeea54fc350c1a002a70473286"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            7,
+            4,
+            10
+          ],
+          "final_mechanical_signature": "4633891545b985a8e58923f3ce00c6058dbf9edeea54fc350c1a002a70473286"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89954342_s0_k40",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            66,
+            71
+          ],
+          "final_mechanical_signature": "c08be05d2ad7f0a70672c4d4ab47b5e3bc575789a86ded66cdeadb1522bd4143"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            71,
+            66
+          ],
+          "final_mechanical_signature": "c08be05d2ad7f0a70672c4d4ab47b5e3bc575789a86ded66cdeadb1522bd4143"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89956275_s1_k20",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            66,
+            71,
+            68
+          ],
+          "final_mechanical_signature": "20fd9bfd7bcbfb969991ef5e3b894ffa3658f8edaf338543e4b2bac87777e79a"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            66,
+            68,
+            71
+          ],
+          "final_mechanical_signature": "20fd9bfd7bcbfb969991ef5e3b894ffa3658f8edaf338543e4b2bac87777e79a"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            71,
+            66,
+            68
+          ],
+          "final_mechanical_signature": "20fd9bfd7bcbfb969991ef5e3b894ffa3658f8edaf338543e4b2bac87777e79a"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            71,
+            68,
+            66
+          ],
+          "final_mechanical_signature": "20fd9bfd7bcbfb969991ef5e3b894ffa3658f8edaf338543e4b2bac87777e79a"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            68,
+            66,
+            71
+          ],
+          "final_mechanical_signature": "20fd9bfd7bcbfb969991ef5e3b894ffa3658f8edaf338543e4b2bac87777e79a"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            68,
+            71,
+            66
+          ],
+          "final_mechanical_signature": "20fd9bfd7bcbfb969991ef5e3b894ffa3658f8edaf338543e4b2bac87777e79a"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89956275_s1_k20",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            66,
+            71
+          ],
+          "final_mechanical_signature": "cff997d9e894f8784451432d8ab2aaddeea6df13c75c3cd496365eea8817854b"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            71,
+            66
+          ],
+          "final_mechanical_signature": "cff997d9e894f8784451432d8ab2aaddeea6df13c75c3cd496365eea8817854b"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89956275_s1_k20",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            66,
+            71,
+            68
+          ],
+          "final_mechanical_signature": "f0d76052897bf89e8dfba8cd88df15676bf8766cc1099ea9b43bd4d400a75e27"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            66,
+            68,
+            71
+          ],
+          "final_mechanical_signature": "f0d76052897bf89e8dfba8cd88df15676bf8766cc1099ea9b43bd4d400a75e27"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            71,
+            66,
+            68
+          ],
+          "final_mechanical_signature": "f0d76052897bf89e8dfba8cd88df15676bf8766cc1099ea9b43bd4d400a75e27"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            71,
+            68,
+            66
+          ],
+          "final_mechanical_signature": "f0d76052897bf89e8dfba8cd88df15676bf8766cc1099ea9b43bd4d400a75e27"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            68,
+            66,
+            71
+          ],
+          "final_mechanical_signature": "f0d76052897bf89e8dfba8cd88df15676bf8766cc1099ea9b43bd4d400a75e27"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            68,
+            71,
+            66
+          ],
+          "final_mechanical_signature": "f0d76052897bf89e8dfba8cd88df15676bf8766cc1099ea9b43bd4d400a75e27"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89956275_s1_k20",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            8,
+            3
+          ],
+          "final_mechanical_signature": "d26fd7058f907b870cb7b7c89d7109d7130b3bed5b03c9e962de649404259826"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            3,
+            8
+          ],
+          "final_mechanical_signature": "d26fd7058f907b870cb7b7c89d7109d7130b3bed5b03c9e962de649404259826"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89957644_s0_k86",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            8,
+            3,
+            4
+          ],
+          "final_mechanical_signature": "60d44b83745191fc06ef564235e9969383545aa2e1d60efa3a2f08b97dab7216"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            8,
+            4,
+            3
+          ],
+          "final_mechanical_signature": "60d44b83745191fc06ef564235e9969383545aa2e1d60efa3a2f08b97dab7216"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            3,
+            8,
+            4
+          ],
+          "final_mechanical_signature": "60d44b83745191fc06ef564235e9969383545aa2e1d60efa3a2f08b97dab7216"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            3,
+            4,
+            8
+          ],
+          "final_mechanical_signature": "60d44b83745191fc06ef564235e9969383545aa2e1d60efa3a2f08b97dab7216"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            4,
+            8,
+            3
+          ],
+          "final_mechanical_signature": "60d44b83745191fc06ef564235e9969383545aa2e1d60efa3a2f08b97dab7216"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            4,
+            3,
+            8
+          ],
+          "final_mechanical_signature": "60d44b83745191fc06ef564235e9969383545aa2e1d60efa3a2f08b97dab7216"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89957644_s0_k86",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            8,
+            3
+          ],
+          "final_mechanical_signature": "f197df41ed36040658d47a44b92aecea73cfd88e4ae864aab9368d1930890cdd"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            3,
+            8
+          ],
+          "final_mechanical_signature": "f197df41ed36040658d47a44b92aecea73cfd88e4ae864aab9368d1930890cdd"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89957644_s0_k86",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            8,
+            3,
+            4
+          ],
+          "final_mechanical_signature": "8da81f2291fcea9494d579708c41a291390a6ba632d769a8e4a53f626f66922a"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            8,
+            4,
+            3
+          ],
+          "final_mechanical_signature": "8da81f2291fcea9494d579708c41a291390a6ba632d769a8e4a53f626f66922a"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            3,
+            8,
+            4
+          ],
+          "final_mechanical_signature": "8da81f2291fcea9494d579708c41a291390a6ba632d769a8e4a53f626f66922a"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            3,
+            4,
+            8
+          ],
+          "final_mechanical_signature": "8da81f2291fcea9494d579708c41a291390a6ba632d769a8e4a53f626f66922a"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            4,
+            8,
+            3
+          ],
+          "final_mechanical_signature": "8da81f2291fcea9494d579708c41a291390a6ba632d769a8e4a53f626f66922a"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            4,
+            3,
+            8
+          ],
+          "final_mechanical_signature": "8da81f2291fcea9494d579708c41a291390a6ba632d769a8e4a53f626f66922a"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89957644_s0_k86",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            10,
+            11
+          ],
+          "final_mechanical_signature": "0bc8dc2354ac6bc4bb6a37b31122b7987a972dfa1aa22306ce019ffa0742278e"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            11,
+            10
+          ],
+          "final_mechanical_signature": "0bc8dc2354ac6bc4bb6a37b31122b7987a972dfa1aa22306ce019ffa0742278e"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89963632_s0_k81",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            10,
+            11,
+            9
+          ],
+          "final_mechanical_signature": "8d7340b8e63a266411b9637621890da2c6c6d12111e6766e27fa60d22d15636b"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            10,
+            9,
+            11
+          ],
+          "final_mechanical_signature": "8d7340b8e63a266411b9637621890da2c6c6d12111e6766e27fa60d22d15636b"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            11,
+            10,
+            9
+          ],
+          "final_mechanical_signature": "8d7340b8e63a266411b9637621890da2c6c6d12111e6766e27fa60d22d15636b"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            11,
+            9,
+            10
+          ],
+          "final_mechanical_signature": "8d7340b8e63a266411b9637621890da2c6c6d12111e6766e27fa60d22d15636b"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            9,
+            10,
+            11
+          ],
+          "final_mechanical_signature": "8d7340b8e63a266411b9637621890da2c6c6d12111e6766e27fa60d22d15636b"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            9,
+            11,
+            10
+          ],
+          "final_mechanical_signature": "8d7340b8e63a266411b9637621890da2c6c6d12111e6766e27fa60d22d15636b"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89963632_s0_k81",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            10,
+            11
+          ],
+          "final_mechanical_signature": "d605723b206e923fe8aa0125a5e8c28da29a63beb7ad8b8e990de2e460f83ae7"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            11,
+            10
+          ],
+          "final_mechanical_signature": "d605723b206e923fe8aa0125a5e8c28da29a63beb7ad8b8e990de2e460f83ae7"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89963632_s0_k81",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            10,
+            11,
+            9
+          ],
+          "final_mechanical_signature": "c587da21f37d650e478b686d3f225e81c6673b5d6eb597e0d8da157a2a159047"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            10,
+            9,
+            11
+          ],
+          "final_mechanical_signature": "c587da21f37d650e478b686d3f225e81c6673b5d6eb597e0d8da157a2a159047"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            11,
+            10,
+            9
+          ],
+          "final_mechanical_signature": "c587da21f37d650e478b686d3f225e81c6673b5d6eb597e0d8da157a2a159047"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            11,
+            9,
+            10
+          ],
+          "final_mechanical_signature": "c587da21f37d650e478b686d3f225e81c6673b5d6eb597e0d8da157a2a159047"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            9,
+            10,
+            11
+          ],
+          "final_mechanical_signature": "c587da21f37d650e478b686d3f225e81c6673b5d6eb597e0d8da157a2a159047"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            9,
+            11,
+            10
+          ],
+          "final_mechanical_signature": "c587da21f37d650e478b686d3f225e81c6673b5d6eb597e0d8da157a2a159047"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_89963632_s0_k81",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            9,
+            11
+          ],
+          "final_mechanical_signature": "17a84fb3b4acf968b5ad37586f6130db356eeb2407b6955f71bfe4c174344906"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            11,
+            9
+          ],
+          "final_mechanical_signature": "17a84fb3b4acf968b5ad37586f6130db356eeb2407b6955f71bfe4c174344906"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_90012350_s0_k80",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            9,
+            11,
+            4
+          ],
+          "final_mechanical_signature": "e6c80d0a77705ebdd276422cd0cd72f422d49efade672d1de7ba9d81a9dc5e9e"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            9,
+            4,
+            11
+          ],
+          "final_mechanical_signature": "e6c80d0a77705ebdd276422cd0cd72f422d49efade672d1de7ba9d81a9dc5e9e"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            11,
+            9,
+            4
+          ],
+          "final_mechanical_signature": "e6c80d0a77705ebdd276422cd0cd72f422d49efade672d1de7ba9d81a9dc5e9e"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            11,
+            4,
+            9
+          ],
+          "final_mechanical_signature": "e6c80d0a77705ebdd276422cd0cd72f422d49efade672d1de7ba9d81a9dc5e9e"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            4,
+            9,
+            11
+          ],
+          "final_mechanical_signature": "e6c80d0a77705ebdd276422cd0cd72f422d49efade672d1de7ba9d81a9dc5e9e"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            4,
+            11,
+            9
+          ],
+          "final_mechanical_signature": "e6c80d0a77705ebdd276422cd0cd72f422d49efade672d1de7ba9d81a9dc5e9e"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_90012350_s0_k80",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            9,
+            11
+          ],
+          "final_mechanical_signature": "da4715c0d31c158ae791a9fe1a3821eb64b296bd27869e9dd2c3a7d99480244a"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            11,
+            9
+          ],
+          "final_mechanical_signature": "da4715c0d31c158ae791a9fe1a3821eb64b296bd27869e9dd2c3a7d99480244a"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_90012350_s0_k80",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            9,
+            11,
+            4
+          ],
+          "final_mechanical_signature": "d495e0e8511eecfccce8abb207df983880507e52a54ca975c412e0d4a45a9094"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            9,
+            4,
+            11
+          ],
+          "final_mechanical_signature": "d495e0e8511eecfccce8abb207df983880507e52a54ca975c412e0d4a45a9094"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            11,
+            9,
+            4
+          ],
+          "final_mechanical_signature": "d495e0e8511eecfccce8abb207df983880507e52a54ca975c412e0d4a45a9094"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            11,
+            4,
+            9
+          ],
+          "final_mechanical_signature": "d495e0e8511eecfccce8abb207df983880507e52a54ca975c412e0d4a45a9094"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            4,
+            9,
+            11
+          ],
+          "final_mechanical_signature": "d495e0e8511eecfccce8abb207df983880507e52a54ca975c412e0d4a45a9094"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            4,
+            11,
+            9
+          ],
+          "final_mechanical_signature": "d495e0e8511eecfccce8abb207df983880507e52a54ca975c412e0d4a45a9094"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_90012350_s0_k80",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            63,
+            69
+          ],
+          "final_mechanical_signature": "f0aa1ba0648a09598cfe733497243e604526bc60da5d5ef6fdbb2ddcde98d5da"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            69,
+            63
+          ],
+          "final_mechanical_signature": "f0aa1ba0648a09598cfe733497243e604526bc60da5d5ef6fdbb2ddcde98d5da"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_90063173_s1_k16",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            63,
+            69,
+            70
+          ],
+          "final_mechanical_signature": "2cffd2c2514482b2979c29fc9cc3e9e531ad9d40e2563a9b610486dc682acce4"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            63,
+            70,
+            69
+          ],
+          "final_mechanical_signature": "2cffd2c2514482b2979c29fc9cc3e9e531ad9d40e2563a9b610486dc682acce4"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            69,
+            63,
+            70
+          ],
+          "final_mechanical_signature": "2cffd2c2514482b2979c29fc9cc3e9e531ad9d40e2563a9b610486dc682acce4"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            69,
+            70,
+            63
+          ],
+          "final_mechanical_signature": "2cffd2c2514482b2979c29fc9cc3e9e531ad9d40e2563a9b610486dc682acce4"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            70,
+            63,
+            69
+          ],
+          "final_mechanical_signature": "2cffd2c2514482b2979c29fc9cc3e9e531ad9d40e2563a9b610486dc682acce4"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            70,
+            69,
+            63
+          ],
+          "final_mechanical_signature": "2cffd2c2514482b2979c29fc9cc3e9e531ad9d40e2563a9b610486dc682acce4"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_90063173_s1_k16",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            63,
+            69
+          ],
+          "final_mechanical_signature": "126aa36cf22df30632a11b29084a285d781cf63ce89ce075a241daae4e396c2b"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            69,
+            63
+          ],
+          "final_mechanical_signature": "126aa36cf22df30632a11b29084a285d781cf63ce89ce075a241daae4e396c2b"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_90063173_s1_k16",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            63,
+            69,
+            70
+          ],
+          "final_mechanical_signature": "1e6846dcb317b19657c2bf069d0f5da671b4a90160baf25663ca1a9c95d4ccbc"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            63,
+            70,
+            69
+          ],
+          "final_mechanical_signature": "1e6846dcb317b19657c2bf069d0f5da671b4a90160baf25663ca1a9c95d4ccbc"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            69,
+            63,
+            70
+          ],
+          "final_mechanical_signature": "1e6846dcb317b19657c2bf069d0f5da671b4a90160baf25663ca1a9c95d4ccbc"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            69,
+            70,
+            63
+          ],
+          "final_mechanical_signature": "1e6846dcb317b19657c2bf069d0f5da671b4a90160baf25663ca1a9c95d4ccbc"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            70,
+            63,
+            69
+          ],
+          "final_mechanical_signature": "1e6846dcb317b19657c2bf069d0f5da671b4a90160baf25663ca1a9c95d4ccbc"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            70,
+            69,
+            63
+          ],
+          "final_mechanical_signature": "1e6846dcb317b19657c2bf069d0f5da671b4a90160baf25663ca1a9c95d4ccbc"
+        }
+      },
+      "root_id": "turbo_submission_55240963_autopsy_90063173_s1_k16",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            66,
+            70
+          ],
+          "final_mechanical_signature": "0eae14f366eebdd2a3544f067990a6e226cde3b713c7ef9e7b18e8d6ef7b21a6"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            70,
+            66
+          ],
+          "final_mechanical_signature": "0eae14f366eebdd2a3544f067990a6e226cde3b713c7ef9e7b18e8d6ef7b21a6"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91934797_s1_k19",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            66,
+            70,
+            67
+          ],
+          "final_mechanical_signature": "61b6e19bebd78e59c4580cce274eeb14ccbf7a2ef85dcb0dcd36290aa5801ec8"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            66,
+            67,
+            70
+          ],
+          "final_mechanical_signature": "61b6e19bebd78e59c4580cce274eeb14ccbf7a2ef85dcb0dcd36290aa5801ec8"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            70,
+            66,
+            67
+          ],
+          "final_mechanical_signature": "61b6e19bebd78e59c4580cce274eeb14ccbf7a2ef85dcb0dcd36290aa5801ec8"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            70,
+            67,
+            66
+          ],
+          "final_mechanical_signature": "61b6e19bebd78e59c4580cce274eeb14ccbf7a2ef85dcb0dcd36290aa5801ec8"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            67,
+            66,
+            70
+          ],
+          "final_mechanical_signature": "61b6e19bebd78e59c4580cce274eeb14ccbf7a2ef85dcb0dcd36290aa5801ec8"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            67,
+            70,
+            66
+          ],
+          "final_mechanical_signature": "61b6e19bebd78e59c4580cce274eeb14ccbf7a2ef85dcb0dcd36290aa5801ec8"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91934797_s1_k19",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            66,
+            70
+          ],
+          "final_mechanical_signature": "b7f728782cfa192f729f106b243f9ce44f2afdab5c0196d734bfd643cc463454"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            70,
+            66
+          ],
+          "final_mechanical_signature": "b7f728782cfa192f729f106b243f9ce44f2afdab5c0196d734bfd643cc463454"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91934797_s1_k19",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            66,
+            70,
+            67
+          ],
+          "final_mechanical_signature": "cb5f071546340adf9d8ed2b40fea71e4b9fc72f1c9a10412db123624c133dc09"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            66,
+            67,
+            70
+          ],
+          "final_mechanical_signature": "cb5f071546340adf9d8ed2b40fea71e4b9fc72f1c9a10412db123624c133dc09"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            70,
+            66,
+            67
+          ],
+          "final_mechanical_signature": "cb5f071546340adf9d8ed2b40fea71e4b9fc72f1c9a10412db123624c133dc09"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            70,
+            67,
+            66
+          ],
+          "final_mechanical_signature": "cb5f071546340adf9d8ed2b40fea71e4b9fc72f1c9a10412db123624c133dc09"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            67,
+            66,
+            70
+          ],
+          "final_mechanical_signature": "cb5f071546340adf9d8ed2b40fea71e4b9fc72f1c9a10412db123624c133dc09"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            67,
+            70,
+            66
+          ],
+          "final_mechanical_signature": "cb5f071546340adf9d8ed2b40fea71e4b9fc72f1c9a10412db123624c133dc09"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91934797_s1_k19",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            68,
+            65
+          ],
+          "final_mechanical_signature": "1f6ab6ccc0de45db1f5945e5433ad9840fbd7c229446507d48a9f3450daf9d47"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            65,
+            68
+          ],
+          "final_mechanical_signature": "1f6ab6ccc0de45db1f5945e5433ad9840fbd7c229446507d48a9f3450daf9d47"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91936686_s1_k27",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            68,
+            65,
+            70
+          ],
+          "final_mechanical_signature": "5600b01e9b23bc767aa202086b65db3ab0a15c7db69e12db2aa3688bdab89413"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            68,
+            70,
+            65
+          ],
+          "final_mechanical_signature": "5600b01e9b23bc767aa202086b65db3ab0a15c7db69e12db2aa3688bdab89413"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            65,
+            68,
+            70
+          ],
+          "final_mechanical_signature": "5600b01e9b23bc767aa202086b65db3ab0a15c7db69e12db2aa3688bdab89413"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            65,
+            70,
+            68
+          ],
+          "final_mechanical_signature": "5600b01e9b23bc767aa202086b65db3ab0a15c7db69e12db2aa3688bdab89413"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            70,
+            68,
+            65
+          ],
+          "final_mechanical_signature": "5600b01e9b23bc767aa202086b65db3ab0a15c7db69e12db2aa3688bdab89413"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            70,
+            65,
+            68
+          ],
+          "final_mechanical_signature": "5600b01e9b23bc767aa202086b65db3ab0a15c7db69e12db2aa3688bdab89413"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91936686_s1_k27",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            68,
+            65
+          ],
+          "final_mechanical_signature": "89de4f99b7e9527ac82d0601cd3659c60c7aa1100d31561e91d7137222126dc8"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            65,
+            68
+          ],
+          "final_mechanical_signature": "89de4f99b7e9527ac82d0601cd3659c60c7aa1100d31561e91d7137222126dc8"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91936686_s1_k27",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            68,
+            65,
+            70
+          ],
+          "final_mechanical_signature": "50c5e89ae05c328cabd36b8ebde1e431bf6e772ae7a77d75e145fa16d222eb28"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            68,
+            70,
+            65
+          ],
+          "final_mechanical_signature": "50c5e89ae05c328cabd36b8ebde1e431bf6e772ae7a77d75e145fa16d222eb28"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            65,
+            68,
+            70
+          ],
+          "final_mechanical_signature": "50c5e89ae05c328cabd36b8ebde1e431bf6e772ae7a77d75e145fa16d222eb28"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            65,
+            70,
+            68
+          ],
+          "final_mechanical_signature": "50c5e89ae05c328cabd36b8ebde1e431bf6e772ae7a77d75e145fa16d222eb28"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            70,
+            68,
+            65
+          ],
+          "final_mechanical_signature": "50c5e89ae05c328cabd36b8ebde1e431bf6e772ae7a77d75e145fa16d222eb28"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            70,
+            65,
+            68
+          ],
+          "final_mechanical_signature": "50c5e89ae05c328cabd36b8ebde1e431bf6e772ae7a77d75e145fa16d222eb28"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91936686_s1_k27",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            65,
+            67
+          ],
+          "final_mechanical_signature": "6dd543cdfd5bd83678434be7618c11c5f343bf0423455fa6a8e80c6c612073c7"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            67,
+            65
+          ],
+          "final_mechanical_signature": "6dd543cdfd5bd83678434be7618c11c5f343bf0423455fa6a8e80c6c612073c7"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91938586_s1_k16",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            65,
+            67,
+            63
+          ],
+          "final_mechanical_signature": "5aafb55345b52ec3691a41170b75a89dcbe82a53e117f8c3dc693a729d24e3ef"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            65,
+            63,
+            67
+          ],
+          "final_mechanical_signature": "5aafb55345b52ec3691a41170b75a89dcbe82a53e117f8c3dc693a729d24e3ef"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            67,
+            65,
+            63
+          ],
+          "final_mechanical_signature": "5aafb55345b52ec3691a41170b75a89dcbe82a53e117f8c3dc693a729d24e3ef"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            67,
+            63,
+            65
+          ],
+          "final_mechanical_signature": "5aafb55345b52ec3691a41170b75a89dcbe82a53e117f8c3dc693a729d24e3ef"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            63,
+            65,
+            67
+          ],
+          "final_mechanical_signature": "5aafb55345b52ec3691a41170b75a89dcbe82a53e117f8c3dc693a729d24e3ef"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            63,
+            67,
+            65
+          ],
+          "final_mechanical_signature": "5aafb55345b52ec3691a41170b75a89dcbe82a53e117f8c3dc693a729d24e3ef"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91938586_s1_k16",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            65,
+            67
+          ],
+          "final_mechanical_signature": "29be9b4e23c4da92f76c69addc2342464a48adb4dedae3b67c47ee21b48ff98b"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            67,
+            65
+          ],
+          "final_mechanical_signature": "29be9b4e23c4da92f76c69addc2342464a48adb4dedae3b67c47ee21b48ff98b"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91938586_s1_k16",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            65,
+            67,
+            63
+          ],
+          "final_mechanical_signature": "4fd95c52d189d3a027f0be696abb800282736078a2df02643e84b12f43a87fe6"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            65,
+            63,
+            67
+          ],
+          "final_mechanical_signature": "4fd95c52d189d3a027f0be696abb800282736078a2df02643e84b12f43a87fe6"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            67,
+            65,
+            63
+          ],
+          "final_mechanical_signature": "4fd95c52d189d3a027f0be696abb800282736078a2df02643e84b12f43a87fe6"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            67,
+            63,
+            65
+          ],
+          "final_mechanical_signature": "4fd95c52d189d3a027f0be696abb800282736078a2df02643e84b12f43a87fe6"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            63,
+            65,
+            67
+          ],
+          "final_mechanical_signature": "4fd95c52d189d3a027f0be696abb800282736078a2df02643e84b12f43a87fe6"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            63,
+            67,
+            65
+          ],
+          "final_mechanical_signature": "4fd95c52d189d3a027f0be696abb800282736078a2df02643e84b12f43a87fe6"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91938586_s1_k16",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            70,
+            66
+          ],
+          "final_mechanical_signature": "9e1f3d44377fec060ef1f967b58182ec4b2d646f9e256dd61e90e0ec7e02acd5"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            66,
+            70
+          ],
+          "final_mechanical_signature": "9e1f3d44377fec060ef1f967b58182ec4b2d646f9e256dd61e90e0ec7e02acd5"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91938586_s1_k41",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            70,
+            66,
+            71
+          ],
+          "final_mechanical_signature": "e8d2b0f0ec0c5e0d42afe36f0b6fcc481ff3d164d0df2a13a8922e0ae9c3b1a0"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            70,
+            71,
+            66
+          ],
+          "final_mechanical_signature": "e8d2b0f0ec0c5e0d42afe36f0b6fcc481ff3d164d0df2a13a8922e0ae9c3b1a0"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            66,
+            70,
+            71
+          ],
+          "final_mechanical_signature": "e8d2b0f0ec0c5e0d42afe36f0b6fcc481ff3d164d0df2a13a8922e0ae9c3b1a0"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            66,
+            71,
+            70
+          ],
+          "final_mechanical_signature": "e8d2b0f0ec0c5e0d42afe36f0b6fcc481ff3d164d0df2a13a8922e0ae9c3b1a0"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            71,
+            70,
+            66
+          ],
+          "final_mechanical_signature": "e8d2b0f0ec0c5e0d42afe36f0b6fcc481ff3d164d0df2a13a8922e0ae9c3b1a0"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            71,
+            66,
+            70
+          ],
+          "final_mechanical_signature": "e8d2b0f0ec0c5e0d42afe36f0b6fcc481ff3d164d0df2a13a8922e0ae9c3b1a0"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91938586_s1_k41",
+      "world": 0
+    },
+    {
+      "distinct_context_serial_orders": 2,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 2,
+      "permutations": {
+        "[0, 1]": {
+          "context_card_serial_order": [
+            70,
+            66
+          ],
+          "final_mechanical_signature": "ee483ae82114b953c1928b8cdd662b0636b10c9a4bc4a781333fbf8af3530720"
+        },
+        "[1, 0]": {
+          "context_card_serial_order": [
+            66,
+            70
+          ],
+          "final_mechanical_signature": "ee483ae82114b953c1928b8cdd662b0636b10c9a4bc4a781333fbf8af3530720"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91938586_s1_k41",
+      "world": 1
+    },
+    {
+      "distinct_context_serial_orders": 6,
+      "distinct_final_mechanical_states": 1,
+      "energy_count": 3,
+      "permutations": {
+        "[0, 1, 2]": {
+          "context_card_serial_order": [
+            70,
+            66,
+            71
+          ],
+          "final_mechanical_signature": "2279b547ac1320731d7174c291f28af375d39f007fdf62de6a9045a6f481b841"
+        },
+        "[0, 2, 1]": {
+          "context_card_serial_order": [
+            70,
+            71,
+            66
+          ],
+          "final_mechanical_signature": "2279b547ac1320731d7174c291f28af375d39f007fdf62de6a9045a6f481b841"
+        },
+        "[1, 0, 2]": {
+          "context_card_serial_order": [
+            66,
+            70,
+            71
+          ],
+          "final_mechanical_signature": "2279b547ac1320731d7174c291f28af375d39f007fdf62de6a9045a6f481b841"
+        },
+        "[1, 2, 0]": {
+          "context_card_serial_order": [
+            66,
+            71,
+            70
+          ],
+          "final_mechanical_signature": "2279b547ac1320731d7174c291f28af375d39f007fdf62de6a9045a6f481b841"
+        },
+        "[2, 0, 1]": {
+          "context_card_serial_order": [
+            71,
+            70,
+            66
+          ],
+          "final_mechanical_signature": "2279b547ac1320731d7174c291f28af375d39f007fdf62de6a9045a6f481b841"
+        },
+        "[2, 1, 0]": {
+          "context_card_serial_order": [
+            71,
+            66,
+            70
+          ],
+          "final_mechanical_signature": "2279b547ac1320731d7174c291f28af375d39f007fdf62de6a9045a6f481b841"
+        }
+      },
+      "root_id": "turbo_submission_55427464_refresh_91938586_s1_k41",
+      "world": 1
+    }
+  ]
+}
