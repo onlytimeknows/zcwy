@@ -57,7 +57,7 @@
   padding: 96px clamp(64px, 8vw, 144px) 72px;
 }
 
-.brandPanel::before {
+.brandBackdrop {
   position: absolute;
   z-index: -2;
   inset: 0 -22vw 0 0;
@@ -67,8 +67,9 @@
   background-position: left center, left center;
   background-repeat: no-repeat;
   background-size: 74% 100%, auto 100%;
-  content: '';
   pointer-events: none;
+  transform-origin: left center;
+  will-change: transform, opacity;
 }
 
 .brandCopy {
@@ -130,23 +131,19 @@
   transition: color var(--motion-ui-fast);
 }
 
-.modeTabs button::after {
+.modeIndicator {
   position: absolute;
   right: 0;
   bottom: -1px;
   left: 0;
   height: 2px;
-  background: transparent;
-  content: '';
+  background: var(--color-brand-primary);
+  pointer-events: none;
 }
 
 .modeTabs button:hover,
 .modeTabs .modeActive {
   color: #18181b;
-}
-
-.modeTabs .modeActive::after {
-  background: var(--color-brand-primary);
 }
 
 .modeTabs button:focus-visible,
@@ -182,6 +179,8 @@
 }
 
 .roleOption {
+  position: relative;
+  isolation: isolate;
   display: flex;
   min-height: 40px;
   align-items: center;
@@ -196,24 +195,36 @@
   font-weight: 560;
   cursor: pointer;
   transition:
-    color var(--motion-ui-fast),
-    background-color var(--motion-ui-fast),
-    box-shadow var(--motion-ui-fast);
+    color var(--motion-ui-fast);
 }
 
-.roleOption > span {
+.roleSlider {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgb(24 24 27 / 7%);
+  pointer-events: none;
+}
+
+.roleIcon {
   display: grid;
   place-items: center;
   font-size: 15px;
 }
 
-.roleSelected {
-  color: #18181b;
-  background: #fff;
-  box-shadow: 0 1px 2px rgb(24 24 27 / 7%);
+.roleIcon,
+.roleLabel {
+  position: relative;
+  z-index: 1;
 }
 
-.roleSelected > span {
+.roleSelected {
+  color: #18181b;
+}
+
+.roleSelected .roleIcon {
   color: var(--color-brand-primary);
 }
 
@@ -296,7 +307,7 @@
     padding: 48px max(28px, 8vw);
   }
 
-  .brandPanel::before {
+  .brandBackdrop {
     inset: 0;
     background-position: left 42%, left 42%;
     background-size: 100% 100%, cover;

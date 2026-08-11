@@ -79,18 +79,25 @@ export function AuthPage() {
       </header>
 
       <div className={styles.authBody}>
-        <motion.section
-          className={styles.brandPanel}
-          initial={reduceMotion ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.26, ease: 'easeOut' }}
-        >
-          <div className={styles.brandCopy}>
+        <section className={styles.brandPanel}>
+          <motion.div
+            className={styles.brandBackdrop}
+            aria-hidden="true"
+            initial={reduceMotion ? false : { x: '-14%', opacity: 0.25 }}
+            animate={{ x: '0%', opacity: 1 }}
+            transition={{ duration: reduceMotion ? 0 : 0.68, ease: 'easeOut' }}
+          />
+          <motion.div
+            className={styles.brandCopy}
+            initial={reduceMotion ? false : { opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.32, delay: reduceMotion ? 0 : 0.16, ease: 'easeOut' }}
+          >
             <Text className={styles.eyebrow}>大学生兼职权益保护平台</Text>
             <Title heading={1}>安心兼职，从可信开始</Title>
             <p>岗位、履约与薪资状态，都有清晰可查的记录。</p>
-          </div>
-        </motion.section>
+          </motion.div>
+        </section>
 
         <motion.section
           className={styles.authPanel}
@@ -108,6 +115,14 @@ export function AuthPage() {
               onClick={() => setMode('login')}
             >
               登录
+              {mode === 'login' && (
+                <motion.span
+                  className={styles.modeIndicator}
+                  layoutId="auth-mode-indicator"
+                  aria-hidden="true"
+                  transition={{ duration: reduceMotion ? 0 : 0.24, ease: 'easeOut' }}
+                />
+              )}
             </button>
             <button
               className={mode === 'register' ? styles.modeActive : undefined}
@@ -117,6 +132,14 @@ export function AuthPage() {
               onClick={() => setMode('register')}
             >
               注册
+              {mode === 'register' && (
+                <motion.span
+                  className={styles.modeIndicator}
+                  layoutId="auth-mode-indicator"
+                  aria-hidden="true"
+                  transition={{ duration: reduceMotion ? 0 : 0.24, ease: 'easeOut' }}
+                />
+              )}
             </button>
           </div>
 
@@ -135,8 +158,16 @@ export function AuthPage() {
                     aria-pressed={isSelected}
                     onClick={() => setRole(roleId)}
                   >
-                    <span aria-hidden="true">{option.icon}</span>
-                    {option.label}
+                    {isSelected && (
+                      <motion.span
+                        className={styles.roleSlider}
+                        layoutId="auth-role-slider"
+                        aria-hidden="true"
+                        transition={{ duration: reduceMotion ? 0 : 0.24, ease: 'easeOut' }}
+                      />
+                    )}
+                    <span className={styles.roleIcon} aria-hidden="true">{option.icon}</span>
+                    <span className={styles.roleLabel}>{option.label}</span>
                   </button>
                 );
               })}
