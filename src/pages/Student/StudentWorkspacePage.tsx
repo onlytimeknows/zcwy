@@ -32,12 +32,6 @@ export function StudentWorkspacePage() {
   const { state } = useDemoScenario();
   const taskState = stageCopy[state.stage];
   const taskRoute = `/student/tasks/${state.task.id}`;
-  const activities = [
-    ['10:24', '青禾数字传媒通过简历初筛'],
-    ['昨天', state.deliverable.status === 'not-submitted' ? '工作记录 #06 已存证' : '校园品牌活动协助成果提交已存证'],
-    ['8/5', '今日打卡完成'],
-    ['8/4', '企业查看了你的简历'],
-  ];
 
   return (
     <motion.main
@@ -125,23 +119,22 @@ export function StudentWorkspacePage() {
             </div>
           </section>
 
-          <section className={styles.activitySection} aria-labelledby="activity-title">
+          <section className={styles.quickActions} aria-labelledby="quick-actions-title">
             <div className={styles.sectionHeading}>
-              <h2 id="activity-title">最近动态</h2>
-              <button type="button">查看全部</button>
+              <h2 id="quick-actions-title">常用工具</h2>
             </div>
-            <div className={styles.activityFeed}>
-              {activities.map(([time, event]) => (
-                <div key={`${time}-${event}`}>
-                  <time>{time}</time>
-                  <span>{event}</span>
-                </div>
+            <div className={styles.quickActionList}>
+              {quickEntries.map((entry) => (
+                <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
+                  <span className={styles.actionIcon}>{entry.icon}</span>
+                  <span><strong>{entry.label}</strong><small>{entry.hint}</small></span>
+                </button>
               ))}
             </div>
           </section>
         </div>
 
-        <aside className={styles.contextRail} aria-label="新鲜信息与常用工具">
+        <aside className={styles.contextRail} aria-label="新鲜信息">
           <section className={styles.freshSection}>
             <div className={styles.sectionHeading}>
               <h2>新鲜信息</h2>
@@ -157,18 +150,6 @@ export function StudentWorkspacePage() {
               <button type="button" onClick={() => navigate('/student/rights')}>
                 <span><small>平台提醒 · 昨天</small><strong>成果存证已同步至权益记录</strong></span>
               </button>
-            </div>
-          </section>
-
-          <section className={styles.quickActions}>
-            <h2>常用工具</h2>
-            <div>
-              {quickEntries.map((entry) => (
-                <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
-                  <span className={styles.actionIcon}>{entry.icon}</span>
-                  <span><strong>{entry.label}</strong><small>{entry.hint}</small></span>
-                </button>
-              ))}
             </div>
           </section>
         </aside>

@@ -52,7 +52,6 @@
 .updateSection,
 .longTermArea,
 .taskSection,
-.activitySection,
 .contextRail,
 .freshSection,
 .quickActions {
@@ -252,32 +251,54 @@
 }
 
 .contextRail {
-  display: flex;
   grid-area: context;
-  flex-direction: column;
   align-self: start;
-  gap: 28px;
   padding-left: clamp(26px, 3vw, 38px);
   border-left: 1px solid #e4e4e7;
 }
 
 .freshList {
+  position: relative;
   display: grid;
+  padding-left: 21px;
+}
+
+.freshList::before {
+  position: absolute;
+  top: 10px;
+  bottom: 18px;
+  left: 4px;
+  width: 1px;
+  background: #e4e4e7;
+  content: '';
 }
 
 .freshList button {
+  position: relative;
   width: 100%;
-  padding: 14px 0;
+  padding: 8px 0 18px;
   color: inherit;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid #ededee;
   text-align: left;
   cursor: pointer;
 }
 
-.freshList button:first-child {
-  padding-top: 6px;
+.freshList button::before {
+  position: absolute;
+  top: 11px;
+  left: -21px;
+  width: 9px;
+  height: 9px;
+  box-sizing: border-box;
+  background: #fff;
+  border: 2px solid #b8b8bf;
+  border-radius: 50%;
+  content: '';
+}
+
+.freshList button:first-child::before {
+  border-color: #8f8f98;
 }
 
 .freshList small,
@@ -293,7 +314,7 @@
 }
 
 .freshList strong {
-  color: #52525b;
+  color: #71717a;
   font-size: 11px;
   font-weight: 550;
   line-height: 1.5;
@@ -301,7 +322,7 @@
 
 .freshList button:hover strong,
 .freshList button:focus-visible strong {
-  color: #18181b;
+  color: #52525b;
 }
 
 .freshList button:focus-visible,
@@ -311,18 +332,18 @@
 }
 
 .quickActions {
-  padding-top: 22px;
-  border-top: 1px solid #e4e4e7;
+  padding-top: 0;
 }
 
-.quickActions h2 {
-  margin-bottom: 10px;
-  color: #71717a;
-  font-size: 11px;
+.quickActions .sectionHeading {
+  margin-bottom: 7px;
 }
 
-.quickActions > div {
+.quickActionList {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #e4e4e7;
+  border-bottom: 1px solid #e4e4e7;
 }
 
 .quickActions button {
@@ -331,12 +352,17 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  padding: 10px 0;
+  padding: 13px 14px 13px 2px;
   color: inherit;
   background: transparent;
   border: 0;
+  border-right: 1px solid #eeeeef;
   text-align: left;
   cursor: pointer;
+}
+
+.quickActions button:last-child {
+  border-right: 0;
 }
 
 .actionIcon {
@@ -362,36 +388,6 @@
   margin-top: 2px;
   color: #a1a1aa;
   font-size: 9px;
-}
-
-.activitySection .sectionHeading {
-  margin-bottom: 7px;
-}
-
-.activitySection .sectionHeading > button {
-  color: #8b8b93;
-  cursor: pointer;
-}
-
-.activityFeed {
-  display: grid;
-}
-
-.activityFeed > div {
-  display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  gap: 14px;
-  padding: 7px 2px;
-  border-bottom: 1px solid #f0f0f1;
-  font-size: 11px;
-}
-
-.activityFeed time {
-  color: #a1a1aa;
-}
-
-.activityFeed span {
-  color: #52525b;
 }
 
 @media (max-width: 1180px) {
@@ -439,17 +435,8 @@
   }
 
   .contextRail {
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
-    gap: 26px;
     padding: 0;
     border-left: 0;
-  }
-
-  .quickActions {
-    padding: 0 0 0 24px;
-    border-top: 0;
-    border-left: 1px solid #e4e4e7;
   }
 
   .longTermArea {
@@ -517,15 +504,18 @@
     justify-self: stretch;
   }
 
-  .contextRail {
-    display: flex;
-    gap: 22px;
+  .quickActionList {
+    grid-template-columns: 1fr;
   }
 
-  .quickActions {
-    padding: 20px 0 0;
-    border-top: 1px solid #e4e4e7;
-    border-left: 0;
+  .quickActions button {
+    padding-inline: 2px;
+    border-right: 0;
+    border-bottom: 1px solid #eeeeef;
+  }
+
+  .quickActions button:last-child {
+    border-bottom: 0;
   }
 }
 
