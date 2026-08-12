@@ -19,9 +19,9 @@
   overflow: clip;
   padding-top: var(--header-height);
   background:
-    radial-gradient(circle at 86% 9%, rgb(125 105 238 / 9%), transparent 27%),
-    radial-gradient(circle at 7% 37%, rgb(70 126 229 / 8%), transparent 31%),
-    radial-gradient(circle at 18% 78%, rgb(94 133 224 / 9%), transparent 34%),
+    radial-gradient(circle at 86% 9%, rgb(92 127 226 / 9%), transparent 27%),
+    radial-gradient(circle at 7% 37%, rgb(48 132 232 / 8%), transparent 31%),
+    radial-gradient(circle at 18% 78%, rgb(72 140 226 / 9%), transparent 34%),
     linear-gradient(180deg, #f7f9fc 0%, #f3f6fb 48%, #f8faff 100%);
   isolation: isolate;
 }
