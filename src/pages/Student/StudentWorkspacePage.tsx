@@ -26,12 +26,20 @@ const quickEntries = [
   { label: '联系企业', hint: '继续上次沟通', icon: <IconCommentStroked />, route: '/student/messages' },
 ];
 
+function getTimeGreeting(hour: number) {
+  if (hour >= 5 && hour < 11) return '早上好';
+  if (hour >= 11 && hour < 14) return '中午好';
+  if (hour >= 14 && hour < 19) return '下午好';
+  return '晚上好';
+}
+
 export function StudentWorkspacePage() {
   const navigate = useNavigate();
   const reduceMotion = useReducedMotion();
   const { state } = useDemoScenario();
   const taskState = stageCopy[state.stage];
   const taskRoute = `/student/tasks/${state.task.id}`;
+  const greeting = getTimeGreeting(new Date().getHours());
 
   return (
     <motion.main
@@ -41,47 +49,30 @@ export function StudentWorkspacePage() {
       transition={{ duration: 0.16 }}
     >
       <header className={styles.contextHeader}>
-        <h1>下午好，{state.student.name}</h1>
-        <p><strong>1 项新进展需要关注</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
+        <div className={styles.greetingCopy}>
+          <h1>{greeting}，{state.student.name}</h1>
+          <p><strong>1 项新进展需要关注</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
+        </div>
+
+        <nav className={styles.headerTools} aria-label="常用工具">
+          <span>常用工具</span>
+          <div>
+            {quickEntries.map((entry) => (
+              <button
+                key={entry.label}
+                type="button"
+                title={`${entry.label} · ${entry.hint}`}
+                aria-label={`${entry.label}：${entry.hint}`}
+                onClick={() => navigate(entry.route)}
+              >
+                {entry.icon}
+              </button>
+            ))}
+          </div>
+        </nav>
       </header>
 
       <div className={styles.homeGrid}>
-        <section className={styles.updateSection} aria-labelledby="application-title">
-          <div className={styles.sectionHeading}>
-            <h2>最近更新</h2>
-            <time>今天 10:24</time>
-          </div>
-
-          <div className={styles.updatePanel}>
-            <div className={styles.updateObject}>
-              <h3 id="application-title">校园短视频运营助理</h3>
-              <p>青禾数字传媒有限公司</p>
-            </div>
-
-            <div className={styles.updateResult}>
-              <i className={styles.successDot} aria-hidden="true" />
-              <div>
-                <strong>企业已通过简历初筛</strong>
-                <span>预计 1 个工作日内联系</span>
-              </div>
-            </div>
-
-            <div className={styles.updateAction}>
-              <span><small>下一步</small><strong>准备课程安排与作品链接</strong></span>
-              <Button
-                className={styles.applicationCta}
-                theme="solid"
-                type="primary"
-                icon={<IconArrowRight />}
-                iconPosition="right"
-                onClick={() => navigate(`/student/applications/${applicationId}`)}
-              >
-                查看投递详情
-              </Button>
-            </div>
-          </div>
-        </section>
-
         <div className={styles.longTermArea}>
           <section className={styles.taskSection} aria-labelledby="current-task-title">
             <div className={styles.sectionHeading}>
@@ -119,17 +110,39 @@ export function StudentWorkspacePage() {
             </div>
           </section>
 
-          <section className={styles.quickActions} aria-labelledby="quick-actions-title">
+          <section className={styles.updateSection} aria-labelledby="application-title">
             <div className={styles.sectionHeading}>
-              <h2 id="quick-actions-title">常用工具</h2>
+              <h2>最近更新</h2>
+              <time>今天 10:24</time>
             </div>
-            <div className={styles.quickActionList}>
-              {quickEntries.map((entry) => (
-                <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
-                  <span className={styles.actionIcon}>{entry.icon}</span>
-                  <span><strong>{entry.label}</strong><small>{entry.hint}</small></span>
-                </button>
-              ))}
+
+            <div className={styles.updatePanel}>
+              <div className={styles.updateObject}>
+                <h3 id="application-title">校园短视频运营助理</h3>
+                <p>青禾数字传媒有限公司</p>
+              </div>
+
+              <div className={styles.updateResult}>
+                <i className={styles.successDot} aria-hidden="true" />
+                <div>
+                  <strong>企业已通过简历初筛</strong>
+                  <span>预计 1 个工作日内联系</span>
+                </div>
+              </div>
+
+              <div className={styles.updateAction}>
+                <span><small>下一步</small><strong>准备课程安排与作品链接</strong></span>
+                <Button
+                  className={styles.applicationCta}
+                  theme="solid"
+                  type="primary"
+                  icon={<IconArrowRight />}
+                  iconPosition="right"
+                  onClick={() => navigate(`/student/applications/${applicationId}`)}
+                >
+                  查看投递详情
+                </Button>
+              </div>
             </div>
           </section>
         </div>
