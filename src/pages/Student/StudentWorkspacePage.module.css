@@ -40,28 +40,33 @@
   display: grid;
   min-height: 0;
   grid-template-areas:
-    'primary context'
-    'activity context';
-  grid-template-columns: minmax(0, 1fr) minmax(272px, 29%);
+    'update context'
+    'longterm context';
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 27%);
   grid-template-rows: auto auto;
   align-content: start;
-  column-gap: clamp(36px, 4.6vw, 64px);
-  row-gap: clamp(24px, 3.2vh, 32px);
+  column-gap: clamp(38px, 5vw, 68px);
+  row-gap: clamp(25px, 3.2vh, 34px);
 }
 
-.primaryStack,
-.applicationSection,
+.updateSection,
+.longTermArea,
 .taskSection,
 .activitySection,
-.quickActions,
-.todaySection {
+.contextRail,
+.freshSection,
+.quickActions {
   min-width: 0;
 }
 
-.primaryStack {
+.updateSection {
+  grid-area: update;
+}
+
+.longTermArea {
   display: grid;
-  grid-area: primary;
-  gap: clamp(22px, 3vh, 30px);
+  grid-area: longterm;
+  gap: clamp(24px, 3vh, 30px);
 }
 
 .sectionHeading {
@@ -69,7 +74,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 11px;
 }
 
 .sectionHeading h2,
@@ -81,6 +86,7 @@
 }
 
 .sectionHeading > span,
+.sectionHeading > time,
 .sectionHeading > button {
   padding: 0;
   color: #a1a1aa;
@@ -89,110 +95,85 @@
   font-size: 10px;
 }
 
-.applicationResult {
-  overflow: hidden;
-  background: #fafbfa;
-  border: 1px solid #e7e9e7;
-  border-radius: 14px;
-}
-
-.applicationLead {
+.updatePanel {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(220px, .8fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(220px, .9fr);
   align-items: center;
-  gap: clamp(26px, 3.2vw, 44px);
-  padding: clamp(21px, 2.8vw, 30px);
+  column-gap: clamp(28px, 4vw, 54px);
+  padding: clamp(24px, 3vw, 34px);
+  background: #fafbfa;
+  border-radius: 12px;
 }
 
-.jobTitleRow,
-.taskTitleRow {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-}
-
-.jobTitleRow h3,
-.taskTitleRow h3 {
+.updateObject h3 {
   margin: 0;
-  letter-spacing: -.025em;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 700;
+  letter-spacing: -.035em;
 }
 
-.jobTitleRow h3 {
-  font-size: clamp(23px, 2.4vw, 30px);
-  white-space: nowrap;
-}
-
-.applicationIdentity p,
-.taskIdentity p {
-  margin: 7px 0 0;
+.updateObject p {
+  margin: 8px 0 0;
   color: #71717a;
   font-size: 12px;
 }
 
-.applicationIdentity p span {
-  margin-inline: 4px;
-  color: #d4d4d8;
-}
-
-.applicationUpdate {
+.updateResult {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: start;
   gap: 12px;
 }
 
-.applicationUpdate strong,
-.applicationUpdate span {
+.updateResult strong,
+.updateResult span {
   display: block;
 }
 
-.applicationUpdate strong {
+.updateResult strong {
   color: #18181b;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 650;
 }
 
-.applicationUpdate span {
+.updateResult span {
   margin-top: 6px;
   color: #71717a;
   font-size: 12px;
 }
 
-.successDot,
-.taskDot {
+.successDot {
   width: 8px;
   height: 8px;
-  margin-top: 5px;
+  margin-top: 6px;
   background: var(--color-success);
   border-radius: 50%;
 }
 
-.taskDot {
-  background: var(--color-brand-primary);
-}
-
-.applicationNext {
+.updateAction {
   display: flex;
+  grid-column: 1 / -1;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 14px clamp(21px, 2.8vw, 30px);
-  background: #f5f7f5;
+  margin-top: 23px;
+  padding-top: 17px;
+  border-top: 1px solid #e5e7e5;
 }
 
-.applicationNext > span,
-.applicationNext small,
-.applicationNext strong {
+.updateAction > span,
+.updateAction small,
+.updateAction strong {
   display: block;
 }
 
-.applicationNext small {
+.updateAction small {
   margin-bottom: 3px;
-  color: #8a8a92;
+  color: #a1a1aa;
   font-size: 10px;
 }
 
-.applicationNext strong {
+.updateAction strong {
   color: #3f3f46;
   font-size: 12px;
   font-weight: 600;
@@ -209,33 +190,24 @@
 
 .taskStrip {
   display: grid;
-  grid-template-columns: minmax(190px, 1.15fr) minmax(165px, .9fr) minmax(135px, .65fr) auto auto;
+  grid-template-columns: minmax(210px, 1.15fr) minmax(145px, .65fr) auto auto;
   align-items: center;
-  gap: clamp(16px, 2vw, 26px);
-  padding: 18px 20px;
-  background: #fafafa;
-  border-radius: 10px;
+  gap: clamp(18px, 2.4vw, 32px);
+  padding: 16px 2px;
+  border-top: 1px solid #e4e4e7;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.taskTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .taskTitleRow h3 {
+  margin: 0;
   font-size: 16px;
-}
-
-.taskStatusCopy span,
-.taskStatusCopy strong {
-  display: block;
-}
-
-.taskStatusCopy span {
-  color: #a1a1aa;
-  font-size: 9px;
-}
-
-.taskStatusCopy strong {
-  margin-top: 4px;
-  color: #3f3f46;
-  font-size: 11px;
-  font-weight: 600;
+  letter-spacing: -.025em;
 }
 
 .taskProgress > div {
@@ -258,7 +230,7 @@
 }
 
 .taskValue {
-  padding-left: 20px;
+  padding-left: 22px;
   border-left: 1px solid #e4e4e7;
   text-align: right;
 }
@@ -281,110 +253,61 @@
 
 .contextRail {
   display: flex;
-  min-width: 0;
   grid-area: context;
   flex-direction: column;
   align-self: start;
-  gap: 26px;
-  padding: 22px;
-  background: #fafafa;
-  border-radius: 12px;
+  gap: 28px;
+  padding-left: clamp(26px, 3vw, 38px);
+  border-left: 1px solid #e4e4e7;
 }
 
-.todaySection .sectionHeading {
-  margin-bottom: 10px;
-}
-
-.todaySection .sectionHeading h2 {
-  color: #18181b;
-  font-size: 19px;
-  letter-spacing: -.025em;
-}
-
-.todoList {
+.freshList {
   display: grid;
-  gap: 7px;
 }
 
-.todoList button,
-.quickActions button {
-  display: grid;
+.freshList button {
   width: 100%;
-  align-items: center;
+  padding: 14px 0;
   color: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition: background-color 150ms ease, color 150ms ease;
-}
-
-.todoList button {
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 11px;
-  padding: 11px 10px;
   background: transparent;
   border: 0;
-  border-radius: 8px;
+  border-bottom: 1px solid #ededee;
+  text-align: left;
+  cursor: pointer;
 }
 
-.todoList .primaryTodo {
-  grid-template-columns: minmax(0, 1fr) auto;
-  padding: 15px 14px;
-  background: #fff;
-  border: 1px solid #e7e7e9;
+.freshList button:first-child {
+  padding-top: 6px;
 }
 
-.todoPriority {
-  grid-column: 1 / -1;
-  width: max-content;
-  color: var(--color-brand-primary);
-  font-size: 9px;
-  font-weight: 650;
-  letter-spacing: .04em;
-}
-
-.todoList button:hover,
-.todoList button:focus-visible,
-.quickActions button:hover,
-.quickActions button:focus-visible {
-  background: #f2f2f3;
-}
-
-.todoList .primaryTodo:hover,
-.todoList .primaryTodo:focus-visible {
-  background: #fff;
-  border-color: #d4d4d8;
-}
-
-.todoList button:focus-visible,
-.quickActions button:focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--color-brand-primary) 24%, transparent);
-  outline-offset: 1px;
-}
-
-.todoList strong,
-.todoList small,
-.quickActions strong,
-.quickActions small {
+.freshList small,
+.freshList strong {
   display: block;
 }
 
-.todoList strong {
-  font-size: 12px;
-  font-weight: 650;
+.freshList small {
+  margin-bottom: 5px;
+  color: #a1a1aa;
+  font-size: 9px;
+  font-weight: 500;
 }
 
-.todoList small {
-  max-width: 220px;
-  margin-top: 4px;
-  color: #8b8b93;
-  font-size: 10px;
-  line-height: 1.45;
+.freshList strong {
+  color: #52525b;
+  font-size: 11px;
+  font-weight: 550;
+  line-height: 1.5;
 }
 
-.todoList button > svg,
-.quickActions button > svg {
-  color: #b4b4bb;
-  font-size: 13px;
+.freshList button:hover strong,
+.freshList button:focus-visible strong {
+  color: #18181b;
+}
+
+.freshList button:focus-visible,
+.quickActions button:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-brand-primary) 24%, transparent);
+  outline-offset: 3px;
 }
 
 .quickActions {
@@ -393,71 +316,73 @@
 }
 
 .quickActions h2 {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: #71717a;
   font-size: 11px;
 }
 
 .quickActions > div {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 4px;
 }
 
 .quickActions button {
+  display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 7px;
-  padding: 9px 7px;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 0;
+  color: inherit;
   background: transparent;
   border: 0;
-  border-radius: 7px;
-}
-
-.quickActions button > svg,
-.quickActions small {
-  display: none;
+  text-align: left;
+  cursor: pointer;
 }
 
 .actionIcon {
   display: grid;
   width: 18px;
   place-items: center;
-  color: #71717a;
+  color: #8b8b93;
   font-size: 14px;
 }
 
-.quickActions strong {
-  overflow: hidden;
-  font-size: 10px;
-  font-weight: 600;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.quickActions strong,
+.quickActions small {
+  display: block;
 }
 
-.activitySection {
-  grid-area: activity;
-  align-self: start;
+.quickActions strong {
+  color: #3f3f46;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.quickActions small {
+  margin-top: 2px;
+  color: #a1a1aa;
+  font-size: 9px;
 }
 
 .activitySection .sectionHeading {
-  margin-bottom: 10px;
+  margin-bottom: 7px;
 }
 
 .activitySection .sectionHeading > button {
-  color: var(--color-brand-primary);
+  color: #8b8b93;
   cursor: pointer;
 }
 
 .activityFeed {
   display: grid;
-  gap: 2px;
 }
 
 .activityFeed > div {
   display: grid;
   grid-template-columns: 58px minmax(0, 1fr);
   gap: 14px;
-  padding: 6px 2px;
+  padding: 7px 2px;
+  border-bottom: 1px solid #f0f0f1;
   font-size: 11px;
 }
 
@@ -469,33 +394,32 @@
   color: #52525b;
 }
 
-@media (max-width: 1380px) {
+@media (max-width: 1180px) {
   .page {
-    width: min(calc(100% - 52px), 1160px);
+    width: min(calc(100% - 48px), 1120px);
   }
 
   .homeGrid {
-    grid-template-columns: minmax(0, 1fr) minmax(250px, 30%);
-    column-gap: 32px;
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 28%);
+    column-gap: 34px;
+  }
+
+  .updatePanel {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .updateAction {
+    grid-column: auto;
+    margin-top: 0;
   }
 
   .taskStrip {
-    grid-template-columns: minmax(190px, 1.1fr) minmax(155px, .8fr) minmax(130px, .7fr) auto;
+    grid-template-columns: minmax(190px, 1fr) minmax(130px, .65fr) auto;
   }
 
-  .taskStatusCopy {
+  .taskValue {
     display: none;
-  }
-
-  .taskTitleRow {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .taskStrip > button {
-    grid-column: 1 / -1;
-    justify-self: end;
   }
 }
 
@@ -508,40 +432,28 @@
 
   .homeGrid {
     grid-template-areas:
-      'primary'
+      'update'
       'context'
-      'activity';
+      'longterm';
     grid-template-columns: 1fr;
   }
 
   .contextRail {
     display: grid;
     grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
-    gap: 24px;
+    gap: 26px;
+    padding: 0;
+    border-left: 0;
   }
 
   .quickActions {
-    align-self: stretch;
-    padding: 0 0 0 22px;
+    padding: 0 0 0 24px;
     border-top: 0;
     border-left: 1px solid #e4e4e7;
   }
 
-  .quickActions > div {
-    grid-template-columns: 1fr;
-  }
-
-  .quickActions button > svg,
-  .quickActions small {
-    display: block;
-  }
-
-  .quickActions button {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-  }
-
-  .activitySection {
-    padding-bottom: 28px;
+  .longTermArea {
+    padding-bottom: 30px;
   }
 }
 
@@ -561,31 +473,21 @@
   }
 
   .homeGrid,
-  .primaryStack {
+  .longTermArea {
     gap: 24px;
   }
 
-  .applicationLead {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px;
+  .updatePanel {
+    padding: 21px;
   }
 
-  .jobTitleRow,
-  .taskTitleRow {
+  .updateObject h3 {
+    font-size: 24px;
+  }
+
+  .updateAction {
     align-items: flex-start;
     flex-direction: column;
-    gap: 8px;
-  }
-
-  .jobTitleRow h3 {
-    white-space: normal;
-  }
-
-  .applicationNext {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 15px 20px;
   }
 
   .applicationCta {
@@ -597,11 +499,14 @@
     gap: 17px;
   }
 
-  .taskStatusCopy {
-    display: block;
+  .taskTitleRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
   }
 
   .taskValue {
+    display: block;
     padding: 14px 0 0;
     border-top: 1px solid #e4e4e7;
     border-left: 0;
@@ -609,14 +514,12 @@
   }
 
   .taskStrip > button {
-    grid-column: auto;
     justify-self: stretch;
   }
 
   .contextRail {
     display: flex;
     gap: 22px;
-    padding: 18px;
   }
 
   .quickActions {
@@ -624,14 +527,10 @@
     border-top: 1px solid #e4e4e7;
     border-left: 0;
   }
-
-  .quickActions > div {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .todoList button,
+  .freshList button,
   .quickActions button {
     transition: none;
   }

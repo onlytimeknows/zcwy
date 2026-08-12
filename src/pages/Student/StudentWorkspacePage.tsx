@@ -48,51 +48,47 @@ export function StudentWorkspacePage() {
     >
       <header className={styles.contextHeader}>
         <h1>下午好，{state.student.name}</h1>
-        <p><strong>1 个新进展</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
+        <p><strong>1 项新进展需要关注</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
       </header>
 
       <div className={styles.homeGrid}>
-        <div className={styles.primaryStack}>
-          <section className={styles.applicationSection} aria-labelledby="application-title">
-            <div className={styles.sectionHeading}>
-              <h2>最近投递</h2>
-              <span>1 个新进展</span>
+        <section className={styles.updateSection} aria-labelledby="application-title">
+          <div className={styles.sectionHeading}>
+            <h2>最近更新</h2>
+            <time>今天 10:24</time>
+          </div>
+
+          <div className={styles.updatePanel}>
+            <div className={styles.updateObject}>
+              <h3 id="application-title">校园短视频运营助理</h3>
+              <p>青禾数字传媒有限公司</p>
             </div>
 
-            <div className={styles.applicationResult}>
-              <div className={styles.applicationLead}>
-                <div className={styles.applicationIdentity}>
-                  <div className={styles.jobTitleRow}>
-                    <h3 id="application-title">校园短视频运营助理</h3>
-                  </div>
-                  <p>青禾数字传媒有限公司 <span aria-hidden="true">·</span> 今天 10:24 更新</p>
-                </div>
-
-                <div className={styles.applicationUpdate}>
-                  <i className={styles.successDot} aria-hidden="true" />
-                  <div>
-                    <strong>企业已通过简历初筛</strong>
-                    <span>预计 1 个工作日内联系</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.applicationNext}>
-                <span><small>建议下一步</small><strong>准备课程安排与作品链接</strong></span>
-                <Button
-                  className={styles.applicationCta}
-                  theme="solid"
-                  type="primary"
-                  icon={<IconArrowRight />}
-                  iconPosition="right"
-                  onClick={() => navigate(`/student/applications/${applicationId}`)}
-                >
-                  查看投递详情
-                </Button>
+            <div className={styles.updateResult}>
+              <i className={styles.successDot} aria-hidden="true" />
+              <div>
+                <strong>企业已通过简历初筛</strong>
+                <span>预计 1 个工作日内联系</span>
               </div>
             </div>
-          </section>
 
+            <div className={styles.updateAction}>
+              <span><small>下一步</small><strong>准备课程安排与作品链接</strong></span>
+              <Button
+                className={styles.applicationCta}
+                theme="solid"
+                type="primary"
+                icon={<IconArrowRight />}
+                iconPosition="right"
+                onClick={() => navigate(`/student/applications/${applicationId}`)}
+              >
+                查看投递详情
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <div className={styles.longTermArea}>
           <section className={styles.taskSection} aria-labelledby="current-task-title">
             <div className={styles.sectionHeading}>
               <h2>当前任务</h2>
@@ -105,12 +101,6 @@ export function StudentWorkspacePage() {
                   <h3 id="current-task-title">{state.task.title}</h3>
                   <SemanticStatusTag tone={state.stage === 'settled' ? 'success' : 'value'} size="small">{taskState.status}</SemanticStatusTag>
                 </div>
-                <p>{state.task.enterpriseName}</p>
-              </div>
-
-              <div className={styles.taskStatusCopy}>
-                <span>当前进展</span>
-                <strong>{taskState.next}</strong>
               </div>
 
               <div className={styles.taskProgress}>
@@ -134,24 +124,38 @@ export function StudentWorkspacePage() {
               </Button>
             </div>
           </section>
+
+          <section className={styles.activitySection} aria-labelledby="activity-title">
+            <div className={styles.sectionHeading}>
+              <h2 id="activity-title">最近动态</h2>
+              <button type="button">查看全部</button>
+            </div>
+            <div className={styles.activityFeed}>
+              {activities.map(([time, event]) => (
+                <div key={`${time}-${event}`}>
+                  <time>{time}</time>
+                  <span>{event}</span>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
 
-        <aside className={styles.contextRail} aria-label="今日工作">
-          <section className={styles.todaySection}>
+        <aside className={styles.contextRail} aria-label="新鲜信息与常用工具">
+          <section className={styles.freshSection}>
             <div className={styles.sectionHeading}>
-              <h2>今天</h2>
-              <span>2 项</span>
+              <h2>新鲜信息</h2>
+              <span>3 条</span>
             </div>
-            <div className={styles.todoList}>
-              <button className={styles.primaryTodo} type="button" onClick={() => navigate(`/student/applications/${applicationId}`)}>
-                <span className={styles.todoPriority}>优先处理</span>
-                <span><strong>准备后续沟通</strong><small>初筛已通过，建议先整理课程安排与作品链接</small></span>
-                <IconArrowRight aria-hidden="true" />
+            <div className={styles.freshList}>
+              <button type="button" onClick={() => navigate(`/student/applications/${applicationId}`)}>
+                <span><small>新消息 · 10:24</small><strong>青禾数字传媒预计 1 个工作日内联系</strong></span>
               </button>
               <button type="button" onClick={() => navigate(taskRoute)}>
-                <i className={styles.taskDot} aria-hidden="true" />
-                <span><strong>{taskState.action}</strong><small>{taskState.next}</small></span>
-                <IconArrowRight aria-hidden="true" />
+                <span><small>进度提醒 · 今天</small><strong>{taskState.next}</strong></span>
+              </button>
+              <button type="button" onClick={() => navigate('/student/rights')}>
+                <span><small>平台提醒 · 昨天</small><strong>成果存证已同步至权益记录</strong></span>
               </button>
             </div>
           </section>
@@ -168,21 +172,6 @@ export function StudentWorkspacePage() {
             </div>
           </section>
         </aside>
-
-        <section className={styles.activitySection} aria-labelledby="activity-title">
-          <div className={styles.sectionHeading}>
-            <h2 id="activity-title">最近动态</h2>
-            <button type="button">查看全部</button>
-          </div>
-          <div className={styles.activityFeed}>
-            {activities.map(([time, event]) => (
-              <div key={`${time}-${event}`}>
-                <time>{time}</time>
-                <span>{event}</span>
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
     </motion.main>
   );
