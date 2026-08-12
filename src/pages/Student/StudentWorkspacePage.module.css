@@ -12,11 +12,11 @@
 }
 
 .contextHeader {
-  display: flex;
+  display: grid;
   align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
-  margin-bottom: clamp(20px, 2.8vh, 28px);
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 27%);
+  column-gap: clamp(38px, 5vw, 68px);
+  margin-bottom: clamp(28px, 4vh, 42px);
 }
 
 .contextHeader h1 {
@@ -41,12 +41,17 @@
 }
 
 .greetingCopy {
+  grid-column: 1;
+  grid-row: 1;
   min-width: 0;
 }
 
 .headerTools {
   display: flex;
+  grid-column: 1;
+  grid-row: 1;
   align-items: center;
+  justify-self: end;
   gap: 12px;
   padding-bottom: 2px;
 }
@@ -93,8 +98,8 @@
   min-height: 0;
   grid-template-areas: 'longterm context';
   grid-template-columns: minmax(0, 1fr) minmax(250px, 27%);
-  grid-template-rows: minmax(0, 1fr);
-  align-content: stretch;
+  grid-template-rows: auto;
+  align-content: start;
   column-gap: clamp(38px, 5vw, 68px);
 }
 
@@ -109,7 +114,7 @@
 .longTermArea {
   display: grid;
   grid-area: longterm;
-  align-self: end;
+  align-self: start;
   gap: clamp(24px, 3vh, 30px);
 }
 
@@ -421,6 +426,11 @@
     column-gap: 34px;
   }
 
+  .contextHeader {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 28%);
+    column-gap: 34px;
+  }
+
   .updatePanel {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -456,6 +466,12 @@
     row-gap: 28px;
   }
 
+
+  .contextHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .contextRail {
     padding: 0;
     border-left: 0;
@@ -475,6 +491,7 @@
   }
 
   .contextHeader {
+    display: flex;
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
