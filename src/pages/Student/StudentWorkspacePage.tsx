@@ -33,6 +33,47 @@ function getTimeGreeting(hour: number) {
   return '晚上好';
 }
 
+const trendByStage = {
+  working: [1, 2, 3, 4, 5, 6, 6],
+  submitted: [1, 2, 3, 4, 6, 7, 8],
+  settling: [1, 2, 3, 4, 6, 8, 9],
+  settled: [1, 2, 3, 4, 6, 8, 10],
+} as const;
+
+function getRecentDateLabels() {
+  return Array.from({ length: 7 }, (_, index) => {
+    const date = new Date();
+    date.setDate(date.getDate() - (6 - index));
+    return `${date.getMonth() + 1}/${date.getDate()}`;
+  });
+}
+
+function MiniProgressTrend({ stage }: { stage: keyof typeof trendByStage }) {
+  const values = trendByStage[stage];
+  const labels = getRecentDateLabels();
+  const points = values.map((value, index) => {
+    const x = 6 + index * 37;
+    const y = 58 - value * 4.8;
+    return `${x},${y}`;
+  }).join(' ');
+  const current = values.at(-1) ?? 0;
+
+  return (
+    <section className={styles.miniTrend} aria-labelledby="mini-trend-title">
+      <div className={styles.trendHeading}>
+        <span><strong id="mini-trend-title">最近 7 天进展</strong><small>任务与投递记录</small></span>
+        <b>{current}<small>/10</small></b>
+      </div>
+      <svg viewBox="0 0 234 68" role="img" aria-label={`最近七天进展由 ${values[0]} 提升至 ${current}`}>
+        <line x1="6" y1="58" x2="228" y2="58" className={styles.trendBaseline} />
+        <polyline points={points} className={styles.trendLine} />
+        <circle cx="228" cy={58 - current * 4.8} r="3.5" className={styles.trendPoint} />
+      </svg>
+      <div className={styles.trendDates}><span>{labels[0]}</span><span>今天</span></div>
+    </section>
+  );
+}
+
 export function StudentWorkspacePage() {
   const navigate = useNavigate();
   const reduceMotion = useReducedMotion();
@@ -48,33 +89,18 @@ export function StudentWorkspacePage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.16 }}
     >
-      <header className={styles.contextHeader}>
-        <div className={styles.greetingCopy}>
-          <h1>{greeting}，{state.student.name}</h1>
-          <p><strong>1 项新进展需要关注</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
-        </div>
-
-        <nav className={styles.headerTools} aria-label="常用工具">
-          <span>常用工具</span>
-          <div>
-            {quickEntries.map((entry) => (
-              <button
-                key={entry.label}
-                type="button"
-                title={`${entry.label} · ${entry.hint}`}
-                aria-label={`${entry.label}：${entry.hint}`}
-                onClick={() => navigate(entry.route)}
-              >
-                {entry.icon}
-              </button>
-            ))}
-          </div>
-        </nav>
-      </header>
-
       <div className={styles.homeGrid}>
-        <div className={styles.longTermArea}>
-          <section className={styles.taskSection} aria-labelledby="current-task-title">
+        <div className={styles.mainColumn}>
+          <header className={styles.contextHeader}>
+            <div className={styles.greetingCopy}>
+              <h1>{greeting}，{state.student.name}</h1>
+              <p><strong>1 项新进展需要关注</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
+            </div>
+            <MiniProgressTrend stage={state.stage} />
+          </header>
+
+          <div className={styles.longTermArea}>
+            <section className={styles.taskSection} aria-labelledby="current-task-title">
             <div className={styles.sectionHeading}>
               <h2>当前任务</h2>
               <span>{state.task.id}</span>
@@ -108,9 +134,9 @@ export function StudentWorkspacePage() {
                 {taskState.action}
               </Button>
             </div>
-          </section>
+            </section>
 
-          <section className={styles.updateSection} aria-labelledby="application-title">
+            <section className={styles.updateSection} aria-labelledby="application-title">
             <div className={styles.sectionHeading}>
               <h2>最近更新</h2>
               <time>今天 10:24</time>
@@ -144,10 +170,25 @@ export function StudentWorkspacePage() {
                 </Button>
               </div>
             </div>
-          </section>
+            </section>
+          </div>
         </div>
 
         <aside className={styles.contextRail} aria-label="新鲜信息">
+          <nav className={styles.quickTools} aria-labelledby="quick-tools-title">
+            <div className={styles.sectionHeading}>
+              <h2 id="quick-tools-title">常用工具</h2>
+            </div>
+            <div className={styles.quickToolList}>
+              {quickEntries.map((entry) => (
+                <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
+                  <span>{entry.icon}</span>
+                  <span><strong>{entry.label}</strong><small>{entry.hint}</small></span>
+                </button>
+              ))}
+            </div>
+          </nav>
+
           <section className={styles.freshSection}>
             <div className={styles.sectionHeading}>
               <h2>新鲜信息</h2>
