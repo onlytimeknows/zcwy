@@ -138,7 +138,7 @@ export function StudentWorkspacePage() {
           <section className={styles.freshSection}>
             <div className={styles.sectionHeading}>
               <h2>新鲜信息</h2>
-              <span>3 条</span>
+              <span>6 条</span>
             </div>
             <div className={styles.freshList}>
               <button type="button" onClick={() => navigate(`/student/applications/${applicationId}`)}>
@@ -149,6 +149,15 @@ export function StudentWorkspacePage() {
               </button>
               <button type="button" onClick={() => navigate('/student/rights')}>
                 <span><small>平台提醒 · 昨天</small><strong>成果存证已同步至权益记录</strong></span>
+              </button>
+              <button type="button" onClick={() => navigate(taskRoute)}>
+                <span><small>打卡提醒 · 8/5</small><strong>今日打卡记录已同步</strong></span>
+              </button>
+              <button type="button" onClick={() => navigate(`/student/applications/${applicationId}`)}>
+                <span><small>简历动态 · 8/4</small><strong>企业查看了你的简历</strong></span>
+              </button>
+              <button type="button" onClick={() => navigate(taskRoute)}>
+                <span><small>协议记录 · 8/2</small><strong>兼职协议已完成双方确认</strong></span>
               </button>
             </div>
           </section>
