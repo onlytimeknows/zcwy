@@ -6,7 +6,6 @@ import IconEditStroked from '@douyinfe/semi-icons/lib/es/icons/IconEditStroked';
 import IconSearchStroked from '@douyinfe/semi-icons/lib/es/icons/IconSearchStroked';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { SemanticStatusTag } from '../../components/SemanticStatus/SemanticStatusTag';
 import { useDemoScenario } from '../../demo/DemoScenarioContext';
 import { formatCurrency } from '../../demo/demoScenarioData';
 import styles from './StudentWorkspacePage.module.css';
@@ -14,10 +13,30 @@ import styles from './StudentWorkspacePage.module.css';
 const applicationId = 'APP-2026-0812';
 
 const stageCopy = {
-  working: { status: '成果待提交', next: '提交本次工作成果', action: '继续任务' },
-  submitted: { status: '等待企业验收', next: '成果已提交，等待企业确认', action: '查看任务' },
-  settling: { status: '结算执行中', next: '履约记录正在核验', action: '查看进度' },
-  settled: { status: '已完成结算', next: '薪资已到账，证书已生成', action: '查看证书' },
+  working: {
+    status: '成果待提交',
+    summary: '履约记录已同步，可以提交本次工作成果',
+    reminder: '工作成果尚未提交',
+    action: '继续任务',
+  },
+  submitted: {
+    status: '等待企业验收',
+    summary: '成果已经提交，目前等待企业确认',
+    reminder: '成果验收状态待企业更新',
+    action: '查看任务',
+  },
+  settling: {
+    status: '结算执行中',
+    summary: '企业已经完成验收，结算记录正在核验',
+    reminder: '结算流程正在执行',
+    action: '查看进度',
+  },
+  settled: {
+    status: '已完成结算',
+    summary: '薪资已经到账，实践证书已生成',
+    reminder: '结算凭证与实践证书已生成',
+    action: '查看证书',
+  },
 } as const;
 
 const quickEntries = [
@@ -91,11 +110,13 @@ export function StudentWorkspacePage() {
       transition={{ duration: 0.16 }}
     >
       <header className={styles.overviewBand}>
-        <div className={styles.greetingCopy}>
-          <h1>{greeting}，{state.student.name}</h1>
-          <p><strong>1 项新进展需要关注</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
+        <div className={styles.overviewMain}>
+          <div className={styles.greetingCopy}>
+            <h1>{greeting}，{state.student.name}</h1>
+            <p><strong>1 项新进展需要关注</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
+          </div>
+          <MiniProgressTrend stage={state.stage} />
         </div>
-        <MiniProgressTrend stage={state.stage} />
       </header>
 
       <div className={styles.workGrid}>
@@ -106,32 +127,38 @@ export function StudentWorkspacePage() {
               <span>{state.task.id}</span>
             </div>
 
-            <div className={styles.taskStrip}>
+            <div className={styles.taskWorkspace}>
               <div className={styles.taskIdentity}>
-                <div className={styles.taskTitleRow}>
-                  <h3 id="current-task-title">{state.task.title}</h3>
-                  <SemanticStatusTag tone={state.stage === 'settled' ? 'success' : 'value'} size="small">{taskState.status}</SemanticStatusTag>
-                </div>
+                <h3 id="current-task-title">{state.task.title}</h3>
+                <span className={`${styles.taskStatus} ${state.stage === 'settled' ? styles.taskStatusSuccess : ''}`}>
+                  <i aria-hidden="true" />
+                  {taskState.status}
+                </span>
               </div>
 
+              <p className={styles.taskSummary}>{taskState.summary}</p>
+
               <div className={styles.taskProgress}>
-                <div><span>{state.progress} / 10</span></div>
+                <div><span>任务进度</span><strong>{state.progress} / 10</strong></div>
                 <Progress percent={state.progress * 10} showInfo={false} stroke="var(--color-brand-primary)" />
               </div>
 
-              <div className={styles.taskValue}>
-                <strong>{formatCurrency(state.task.amount)} <span>{state.escrow.status === 'held' ? '已托管' : '已到账'}</span></strong>
-              </div>
+              <div className={styles.taskFooter}>
+                <div className={styles.taskValue}>
+                  <small>薪资保障</small>
+                  <strong>{formatCurrency(state.task.amount)} <span>{state.escrow.status === 'held' ? '已托管' : '已到账'}</span></strong>
+                </div>
 
-              <Button
-                theme="borderless"
-                type="primary"
-                icon={<IconArrowRight />}
-                iconPosition="right"
-                onClick={() => navigate(taskRoute)}
-              >
-                {taskState.action}
-              </Button>
+                <Button
+                  theme="borderless"
+                  type="primary"
+                  icon={<IconArrowRight />}
+                  iconPosition="right"
+                  onClick={() => navigate(taskRoute)}
+                >
+                  {taskState.action}
+                </Button>
+              </div>
             </div>
           </section>
 
@@ -159,7 +186,7 @@ export function StudentWorkspacePage() {
                 <span><small>下一步</small><strong>准备课程安排与作品链接</strong></span>
                 <Button
                   className={styles.applicationCta}
-                  theme="solid"
+                  theme="borderless"
                   type="primary"
                   icon={<IconArrowRight />}
                   iconPosition="right"
@@ -197,7 +224,7 @@ export function StudentWorkspacePage() {
                 <span><small>新消息 · 10:24</small><strong>青禾数字传媒补充了作品链接要求</strong></span>
               </button>
               <button type="button" onClick={() => navigate(taskRoute)}>
-                <span><small>进度提醒 · 今天</small><strong>{taskState.next}</strong></span>
+                <span><small>进度提醒 · 今天</small><strong>{taskState.reminder}</strong></span>
               </button>
               <button type="button" onClick={() => navigate('/student/rights')}>
                 <span><small>平台提醒 · 昨天</small><strong>成果存证已同步至权益记录</strong></span>
