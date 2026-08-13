@@ -90,18 +90,17 @@ export function StudentWorkspacePage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.16 }}
     >
-      <div className={styles.homeGrid}>
-        <div className={styles.mainColumn}>
-          <header className={styles.contextHeader}>
-            <div className={styles.greetingCopy}>
-              <h1>{greeting}，{state.student.name}</h1>
-              <p><strong>1 项新进展需要关注</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
-            </div>
-            <MiniProgressTrend stage={state.stage} />
-          </header>
+      <header className={styles.overviewBand}>
+        <div className={styles.greetingCopy}>
+          <h1>{greeting}，{state.student.name}</h1>
+          <p><strong>1 项新进展需要关注</strong><span aria-hidden="true">·</span>1 项任务进行中</p>
+        </div>
+        <MiniProgressTrend stage={state.stage} />
+      </header>
 
-          <div className={styles.longTermArea}>
-            <section className={styles.taskSection} aria-labelledby="current-task-title">
+      <div className={styles.workGrid}>
+        <div className={styles.mainWork}>
+          <section className={styles.taskSection} aria-labelledby="current-task-title">
             <div className={styles.sectionHeading}>
               <h2>当前任务</h2>
               <span>{state.task.id}</span>
@@ -134,9 +133,9 @@ export function StudentWorkspacePage() {
                 {taskState.action}
               </Button>
             </div>
-            </section>
+          </section>
 
-            <section className={styles.updateSection} aria-labelledby="application-title">
+          <section className={styles.updateSection} aria-labelledby="application-title">
             <div className={styles.sectionHeading}>
               <h2>最近更新</h2>
               <time>今天 10:24</time>
@@ -170,11 +169,10 @@ export function StudentWorkspacePage() {
                 </Button>
               </div>
             </div>
-            </section>
-          </div>
+          </section>
         </div>
 
-        <aside className={styles.contextRail} aria-label="新鲜信息">
+        <aside className={styles.contextRail} aria-label="工具与消息">
           <nav className={styles.quickTools} aria-labelledby="quick-tools-title">
             <div className={styles.sectionHeading}>
               <h2 id="quick-tools-title">常用工具</h2>

@@ -1,30 +1,32 @@
 .page {
+  display: grid;
   width: min(calc(100% - clamp(44px, 5.5vw, 88px)), 1280px);
   height: calc(100dvh - 58px);
   min-height: 620px;
   margin: 0 auto;
-  padding: clamp(34px, 4.8vh, 48px) 0 24px;
+  padding: clamp(52px, 6.4vh, 70px) 0 24px;
   overflow: hidden;
   color: #18181b;
   background: var(--color-app-canvas);
+  grid-template-rows: auto minmax(0, 1fr);
 }
 
-.contextHeader {
+.overviewBand {
   display: grid;
-  align-items: flex-end;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 32%);
-  gap: clamp(30px, 4vw, 52px);
-  margin-bottom: clamp(30px, 4vh, 40px);
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 34%);
+  gap: clamp(56px, 7vw, 96px);
+  padding-bottom: clamp(42px, 5.5vh, 60px);
 }
 
-.contextHeader h1 {
+.overviewBand h1 {
   margin: 0;
   font-size: clamp(27px, 2.7vw, 36px);
   font-weight: 700;
   letter-spacing: -.04em;
 }
 
-.contextHeader p {
+.overviewBand p {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -33,7 +35,7 @@
   font-size: 13px;
 }
 
-.contextHeader p strong {
+.overviewBand p strong {
   color: #27272a;
   font-weight: 600;
 }
@@ -43,8 +45,10 @@
 }
 
 .miniTrend {
+  width: min(100%, 360px);
   min-width: 0;
   padding-bottom: 2px;
+  justify-self: end;
 }
 
 .trendHeading {
@@ -121,34 +125,26 @@
   font-size: 8px;
 }
 
-.homeGrid {
+.workGrid {
   display: grid;
   min-height: 0;
-  grid-template-areas: 'main context';
-  grid-template-columns: minmax(0, 1fr) minmax(250px, 27%);
-  grid-template-rows: auto;
-  align-content: start;
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 28%);
+  align-items: start;
   column-gap: clamp(38px, 5vw, 68px);
 }
 
-.mainColumn,
+.mainWork,
 .updateSection,
-.longTermArea,
 .taskSection,
 .contextRail,
 .freshSection {
   min-width: 0;
 }
 
-.mainColumn {
-  grid-area: main;
-}
-
-.longTermArea {
+.mainWork {
   display: grid;
-  grid-area: longterm;
   align-self: start;
-  gap: clamp(24px, 3vh, 30px);
+  gap: clamp(28px, 3.5vh, 38px);
 }
 
 .sectionHeading {
@@ -322,14 +318,13 @@
 }
 
 .contextRail {
-  grid-area: context;
   align-self: start;
   padding-left: clamp(26px, 3vw, 38px);
   border-left: 1px solid #e4e4e7;
 }
 
 .quickTools {
-  margin-bottom: clamp(28px, 3.5vh, 38px);
+  margin-bottom: clamp(22px, 2.8vh, 30px);
 }
 
 .quickToolList {
@@ -342,7 +337,7 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  padding: 8px 0;
+  padding: 6px 0;
   color: inherit;
   background: transparent;
   border: 0;
@@ -402,7 +397,7 @@
 
   position: relative;
   width: 100%;
-  padding: 8px 0 18px;
+  padding: 7px 0 12px;
   color: inherit;
   background: transparent;
   border: 0;
@@ -424,7 +419,7 @@
 }
 
 .freshList button:nth-child(1) {
-  --fresh-node: var(--color-success);
+  --fresh-node: var(--color-brand-primary);
   --fresh-meta: #85858e;
   --fresh-text: #3f3f46;
   --fresh-weight: 600;
@@ -469,7 +464,7 @@
 }
 
 .freshList small {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   color: var(--fresh-meta);
   font-size: 9px;
   font-weight: 500;
@@ -479,7 +474,7 @@
   color: var(--fresh-text);
   font-size: 11px;
   font-weight: var(--fresh-weight);
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .freshList button:hover strong,
@@ -497,13 +492,13 @@
     width: min(calc(100% - 48px), 1120px);
   }
 
-  .homeGrid {
+  .workGrid {
     grid-template-columns: minmax(0, 1fr) minmax(230px, 28%);
     column-gap: 34px;
   }
 
-  .contextHeader {
-    grid-template-columns: minmax(0, 1fr) minmax(200px, 32%);
+  .overviewBand {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 34%);
     gap: 30px;
   }
 
@@ -533,17 +528,12 @@
     overflow: visible;
   }
 
-  .homeGrid {
-    grid-template-areas:
-      'main'
-      'context';
+  .workGrid {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
     row-gap: 28px;
   }
 
-
-  .contextHeader {
+  .overviewBand {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(200px, 34%);
   }
@@ -560,8 +550,7 @@
     margin-bottom: 0;
   }
 
-  .longTermArea {
-    align-self: auto;
+  .mainWork {
     padding-bottom: 30px;
   }
 }
@@ -573,24 +562,24 @@
     padding: 20px 0 26px;
   }
 
-  .contextHeader {
+  .overviewBand {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
-    margin-bottom: 22px;
+    padding-bottom: 30px;
   }
 
   .miniTrend {
     width: 100%;
   }
 
-  .contextHeader h1 {
+  .overviewBand h1 {
     font-size: 26px;
   }
 
-  .homeGrid,
-  .longTermArea {
+  .workGrid,
+  .mainWork {
     gap: 24px;
   }
 
