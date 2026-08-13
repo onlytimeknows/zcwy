@@ -1,14 +1,12 @@
 .page {
   display: grid;
   width: min(calc(100% - clamp(44px, 5.5vw, 88px)), 1280px);
-  height: calc(100dvh - 58px);
-  min-height: 620px;
+  min-height: max(620px, calc(100dvh - 58px));
   margin: 0 auto;
   padding: clamp(52px, 6.4vh, 70px) 0 24px;
-  overflow: hidden;
   color: #18181b;
   background: var(--color-app-canvas);
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
 }
 
 .overviewBand {

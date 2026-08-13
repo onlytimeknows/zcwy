@@ -37,7 +37,7 @@
 }
 
 .workspaceHomeLayout .content {
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .workspaceRailCollapsed .content {
