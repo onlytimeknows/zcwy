@@ -74,16 +74,16 @@
 
 .trendHeading b {
   color: #27272a;
-  font-size: 18px;
-  font-weight: 680;
+  font-size: 16px;
+  font-weight: 650;
 }
 
 .trendHeading b small {
   display: inline;
-  margin-left: 2px;
+  margin-left: 4px;
   color: #a1a1aa;
-  font-size: 9px;
-  font-weight: 550;
+  font-size: 8px;
+  font-weight: 450;
 }
 
 .miniTrend svg {
@@ -182,20 +182,20 @@
   grid-template-columns: minmax(0, 1.1fr) minmax(220px, .9fr);
   align-items: center;
   column-gap: clamp(28px, 4vw, 54px);
-  padding: clamp(24px, 3vw, 34px);
+  padding: clamp(19px, 2.4vw, 26px);
   background: #fafbfa;
   border-radius: 12px;
 }
 
 .updateObject h3 {
   margin: 0;
-  font-size: clamp(24px, 2.5vw, 32px);
-  font-weight: 700;
+  font-size: clamp(22px, 2.25vw, 28px);
+  font-weight: 680;
   letter-spacing: -.035em;
 }
 
 .updateObject p {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
   color: #71717a;
   font-size: 12px;
 }
@@ -214,12 +214,12 @@
 
 .updateResult strong {
   color: #18181b;
-  font-size: 16px;
-  font-weight: 650;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .updateResult span {
-  margin-top: 6px;
+  margin-top: 4px;
   color: #71717a;
   font-size: 12px;
 }
@@ -238,8 +238,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  margin-top: 23px;
-  padding-top: 17px;
+  margin-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid #e5e7e5;
 }
 
@@ -258,7 +258,7 @@
 .updateAction strong {
   color: #3f3f46;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .applicationCta {
@@ -295,9 +295,7 @@
 .taskProgress > div {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 7px;
+  margin-bottom: 6px;
 }
 
 .taskProgress span {
@@ -306,31 +304,21 @@
   font-weight: 650;
 }
 
-.taskProgress small {
-  color: #a1a1aa;
-  font-size: 9px;
-}
-
 .taskValue {
   padding-left: 22px;
   border-left: 1px solid #e4e4e7;
   text-align: right;
 }
 
-.taskValue strong,
-.taskValue span {
-  display: block;
-}
-
 .taskValue strong {
   color: var(--color-value-text);
-  font-size: 15px;
+  font-size: 14px;
 }
 
-.taskValue span {
-  margin-top: 3px;
+.taskValue strong span {
   color: #71717a;
   font-size: 9px;
+  font-weight: 500;
 }
 
 .contextRail {
@@ -354,7 +342,7 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  padding: 9px 0;
+  padding: 8px 0;
   color: inherit;
   background: transparent;
   border: 0;
@@ -374,21 +362,10 @@
   font-size: 13px;
 }
 
-.quickToolList strong,
-.quickToolList small {
-  display: block;
-}
-
 .quickToolList strong {
   color: #52525b;
   font-size: 10px;
-  font-weight: 600;
-}
-
-.quickToolList small {
-  margin-top: 2px;
-  color: #a1a1aa;
-  font-size: 8px;
+  font-weight: 500;
 }
 
 .quickToolList button:hover strong,
@@ -413,7 +390,7 @@
   bottom: 18px;
   left: 4px;
   width: 1px;
-  background: #e4e4e7;
+  background: #eeeeef;
   content: '';
 }
 
@@ -421,6 +398,7 @@
   --fresh-node: #b8b8bf;
   --fresh-meta: #a1a1aa;
   --fresh-text: #71717a;
+  --fresh-weight: 400;
 
   position: relative;
   width: 100%;
@@ -446,27 +424,31 @@
 }
 
 .freshList button:nth-child(1) {
-  --fresh-node: #71717a;
+  --fresh-node: var(--color-success);
   --fresh-meta: #85858e;
-  --fresh-text: #52525b;
+  --fresh-text: #3f3f46;
+  --fresh-weight: 600;
 }
 
 .freshList button:nth-child(2) {
   --fresh-node: #85858e;
   --fresh-meta: #92929b;
   --fresh-text: #606068;
+  --fresh-weight: 500;
 }
 
 .freshList button:nth-child(3) {
   --fresh-node: #9a9aa2;
   --fresh-meta: #a1a1aa;
   --fresh-text: #71717a;
+  --fresh-weight: 450;
 }
 
 .freshList button:nth-child(4) {
   --fresh-node: #aaaab1;
   --fresh-meta: #aaaab2;
   --fresh-text: #818189;
+  --fresh-weight: 425;
 }
 
 .freshList button:nth-child(5) {
@@ -496,7 +478,7 @@
 .freshList strong {
   color: var(--fresh-text);
   font-size: 11px;
-  font-weight: 550;
+  font-weight: var(--fresh-weight);
   line-height: 1.5;
 }
 

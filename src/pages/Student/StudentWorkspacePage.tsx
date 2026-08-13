@@ -33,11 +33,11 @@ function getTimeGreeting(hour: number) {
   return '晚上好';
 }
 
-const trendByStage = {
-  working: [1, 2, 3, 4, 5, 6, 6],
-  submitted: [1, 2, 3, 4, 6, 7, 8],
-  settling: [1, 2, 3, 4, 6, 8, 9],
-  settled: [1, 2, 3, 4, 6, 8, 10],
+const activityTrendByStage = {
+  working: [0, 1, 1, 2, 1, 1, 1],
+  submitted: [0, 1, 1, 2, 1, 2, 3],
+  settling: [0, 1, 1, 2, 2, 3, 2],
+  settled: [1, 1, 2, 1, 2, 3, 2],
 } as const;
 
 function getRecentDateLabels() {
@@ -48,26 +48,27 @@ function getRecentDateLabels() {
   });
 }
 
-function MiniProgressTrend({ stage }: { stage: keyof typeof trendByStage }) {
-  const values = trendByStage[stage];
+function MiniProgressTrend({ stage }: { stage: keyof typeof activityTrendByStage }) {
+  const values = activityTrendByStage[stage];
   const labels = getRecentDateLabels();
   const points = values.map((value, index) => {
     const x = 6 + index * 37;
-    const y = 58 - value * 4.8;
+    const y = 58 - value * 14;
     return `${x},${y}`;
   }).join(' ');
+  const total = values.reduce<number>((sum, value) => sum + value, 0);
   const current = values.at(-1) ?? 0;
 
   return (
     <section className={styles.miniTrend} aria-labelledby="mini-trend-title">
       <div className={styles.trendHeading}>
-        <span><strong id="mini-trend-title">最近 7 天进展</strong><small>任务与投递记录</small></span>
-        <b>{current}<small>/10</small></b>
+        <span><strong id="mini-trend-title">最近 7 天进展</strong><small>求职与履约动态</small></span>
+        <b>{total}<small>次关键更新</small></b>
       </div>
-      <svg viewBox="0 0 234 68" role="img" aria-label={`最近七天进展由 ${values[0]} 提升至 ${current}`}>
+      <svg viewBox="0 0 234 68" role="img" aria-label={`最近七天共有 ${total} 次关键更新，今天 ${current} 次`}>
         <line x1="6" y1="58" x2="228" y2="58" className={styles.trendBaseline} />
         <polyline points={points} className={styles.trendLine} />
-        <circle cx="228" cy={58 - current * 4.8} r="3.5" className={styles.trendPoint} />
+        <circle cx="228" cy={58 - current * 14} r="3.5" className={styles.trendPoint} />
       </svg>
       <div className={styles.trendDates}><span>{labels[0]}</span><span>今天</span></div>
     </section>
@@ -115,13 +116,12 @@ export function StudentWorkspacePage() {
               </div>
 
               <div className={styles.taskProgress}>
-                <div><span>{state.progress} / 10</span><small>履约进度</small></div>
+                <div><span>{state.progress} / 10</span></div>
                 <Progress percent={state.progress * 10} showInfo={false} stroke="var(--color-brand-primary)" />
               </div>
 
               <div className={styles.taskValue}>
-                <strong>{formatCurrency(state.task.amount)}</strong>
-                <span>{state.escrow.status === 'held' ? '薪资已托管' : '薪资已到账'}</span>
+                <strong>{formatCurrency(state.task.amount)} <span>{state.escrow.status === 'held' ? '已托管' : '已到账'}</span></strong>
               </div>
 
               <Button
@@ -166,7 +166,7 @@ export function StudentWorkspacePage() {
                   iconPosition="right"
                   onClick={() => navigate(`/student/applications/${applicationId}`)}
                 >
-                  查看投递详情
+                  查看投递进展
                 </Button>
               </div>
             </div>
@@ -183,7 +183,7 @@ export function StudentWorkspacePage() {
               {quickEntries.map((entry) => (
                 <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
                   <span>{entry.icon}</span>
-                  <span><strong>{entry.label}</strong><small>{entry.hint}</small></span>
+                  <strong>{entry.label}</strong>
                 </button>
               ))}
             </div>
@@ -191,12 +191,12 @@ export function StudentWorkspacePage() {
 
           <section className={styles.freshSection}>
             <div className={styles.sectionHeading}>
-              <h2>新鲜信息</h2>
+              <h2>消息与提醒</h2>
               <span>6 条</span>
             </div>
             <div className={styles.freshList}>
               <button type="button" onClick={() => navigate(`/student/applications/${applicationId}`)}>
-                <span><small>新消息 · 10:24</small><strong>青禾数字传媒预计 1 个工作日内联系</strong></span>
+                <span><small>新消息 · 10:24</small><strong>青禾数字传媒补充了作品链接要求</strong></span>
               </button>
               <button type="button" onClick={() => navigate(taskRoute)}>
                 <span><small>进度提醒 · 今天</small><strong>{taskState.next}</strong></span>
