@@ -137,22 +137,35 @@
   display: grid;
   min-height: 0;
   grid-template-columns: minmax(0, 1fr) minmax(270px, 28%);
+  grid-template-areas:
+    'task tools'
+    'update messages';
   align-items: start;
   column-gap: clamp(38px, 5vw, 68px);
+  row-gap: clamp(28px, 3.5vh, 38px);
 }
 
-.mainWork,
 .updateSection,
 .taskSection,
-.contextRail,
+.quickTools,
 .freshSection {
   min-width: 0;
 }
 
-.mainWork {
-  display: grid;
-  align-self: start;
-  gap: clamp(28px, 3.5vh, 38px);
+.taskSection {
+  grid-area: task;
+}
+
+.updateSection {
+  grid-area: update;
+}
+
+.quickTools {
+  grid-area: tools;
+}
+
+.freshSection {
+  grid-area: messages;
 }
 
 .sectionHeading {
@@ -385,14 +398,14 @@
   font-weight: 500;
 }
 
-.contextRail {
-  align-self: start;
+.quickTools,
+.freshSection {
   padding-left: clamp(26px, 3vw, 38px);
   border-left: 1px solid #e4e4e7;
 }
 
 .quickTools {
-  margin-bottom: clamp(18px, 2.2vh, 24px);
+  margin-bottom: 0;
 }
 
 .quickToolList {
@@ -562,6 +575,29 @@
   outline-offset: 3px;
 }
 
+.freshMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 5px 0 0 21px;
+  padding: 3px 0;
+  color: #92929b;
+  background: transparent;
+  border: 0;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.freshMore:hover,
+.freshMore:focus-visible {
+  color: var(--color-brand-primary);
+}
+
+.freshMore:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-brand-primary) 24%, transparent);
+  outline-offset: 3px;
+}
+
 @media (max-width: 1180px) {
   .page {
     width: min(calc(100% - 48px), 1120px);
@@ -603,6 +639,11 @@
 
   .workGrid {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      'task'
+      'update'
+      'tools'
+      'messages';
     row-gap: 28px;
   }
 
@@ -614,20 +655,10 @@
     grid-template-columns: minmax(0, 1fr) minmax(220px, 36%);
   }
 
-  .contextRail {
-    display: grid;
-    grid-template-columns: minmax(180px, .65fr) minmax(0, 1fr);
-    gap: 28px;
+  .quickTools,
+  .freshSection {
     padding: 0;
     border-left: 0;
-  }
-
-  .quickTools {
-    margin-bottom: 0;
-  }
-
-  .mainWork {
-    padding-bottom: 30px;
   }
 }
 
@@ -658,13 +689,8 @@
     font-size: 26px;
   }
 
-  .workGrid,
-  .mainWork {
+  .workGrid {
     gap: 24px;
-  }
-
-  .contextRail {
-    grid-template-columns: 1fr;
   }
 
   .updatePanel {

@@ -120,8 +120,7 @@ export function StudentWorkspacePage() {
       </header>
 
       <div className={styles.workGrid}>
-        <div className={styles.mainWork}>
-          <section className={styles.taskSection} aria-labelledby="current-task-title">
+        <section className={styles.taskSection} aria-labelledby="current-task-title">
             <div className={styles.sectionHeading}>
               <h2>当前任务</h2>
               <span>{state.task.id}</span>
@@ -160,9 +159,9 @@ export function StudentWorkspacePage() {
                 </Button>
               </div>
             </div>
-          </section>
+        </section>
 
-          <section className={styles.updateSection} aria-labelledby="application-title">
+        <section className={styles.updateSection} aria-labelledby="application-title">
             <div className={styles.sectionHeading}>
               <h2>最近更新</h2>
               <time>今天 10:24</time>
@@ -196,11 +195,9 @@ export function StudentWorkspacePage() {
                 </Button>
               </div>
             </div>
-          </section>
-        </div>
+        </section>
 
-        <aside className={styles.contextRail} aria-label="工具与消息">
-          <nav className={styles.quickTools} aria-labelledby="quick-tools-title">
+        <nav className={styles.quickTools} aria-labelledby="quick-tools-title">
             <div className={styles.sectionHeading}>
               <h2 id="quick-tools-title">常用工具</h2>
             </div>
@@ -212,11 +209,11 @@ export function StudentWorkspacePage() {
                 </button>
               ))}
             </div>
-          </nav>
+        </nav>
 
-          <section className={styles.freshSection}>
+        <section className={styles.freshSection} aria-labelledby="message-reminders-title">
             <div className={styles.sectionHeading}>
-              <h2>消息与提醒</h2>
+              <h2 id="message-reminders-title">消息与提醒</h2>
               <span>6 条</span>
             </div>
             <div className={styles.freshList}>
@@ -232,15 +229,11 @@ export function StudentWorkspacePage() {
               <button type="button" onClick={() => navigate(taskRoute)}>
                 <span><small>打卡提醒 · 8/5</small><strong>今日打卡记录已同步</strong></span>
               </button>
-              <button type="button" onClick={() => navigate(`/student/applications/${applicationId}`)}>
-                <span><small>简历动态 · 8/4</small><strong>企业查看了你的简历</strong></span>
-              </button>
-              <button type="button" onClick={() => navigate(taskRoute)}>
-                <span><small>协议记录 · 8/2</small><strong>兼职协议已完成双方确认</strong></span>
-              </button>
             </div>
-          </section>
-        </aside>
+            <button className={styles.freshMore} type="button" onClick={() => navigate('/student/messages')}>
+              查看全部 6 条 <IconArrowRight />
+            </button>
+        </section>
       </div>
     </motion.main>
   );
