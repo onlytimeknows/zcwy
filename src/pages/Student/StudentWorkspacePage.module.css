@@ -25,6 +25,11 @@
   gap: clamp(36px, 4.5vw, 62px);
 }
 
+.overviewTools {
+  grid-column: 2;
+  align-self: center;
+}
+
 .overviewBand h1 {
   margin: 0;
   font-size: clamp(27px, 2.7vw, 36px);
@@ -136,7 +141,7 @@
   min-height: 0;
   grid-template-columns: minmax(0, 1fr) minmax(270px, 28%);
   grid-template-areas:
-    'task tools'
+    'task messages'
     'update messages';
   align-items: start;
   column-gap: clamp(38px, 5vw, 68px);
@@ -156,10 +161,6 @@
 
 .updateSection {
   grid-area: update;
-}
-
-.quickTools {
-  grid-area: tools;
 }
 
 .freshSection {
@@ -402,6 +403,10 @@
   border-left: 1px solid #e4e4e7;
 }
 
+.overviewTools {
+  padding-top: 2px;
+}
+
 .quickTools {
   margin-bottom: 0;
 }
@@ -640,13 +645,18 @@
     grid-template-areas:
       'task'
       'update'
-      'tools'
       'messages';
     row-gap: 28px;
   }
 
   .overviewBand {
     display: block;
+  }
+
+  .overviewTools {
+    margin-top: 24px;
+    padding-left: 0;
+    border-left: 0;
   }
 
   .overviewMain {

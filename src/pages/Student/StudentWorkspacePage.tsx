@@ -117,6 +117,20 @@ export function StudentWorkspacePage() {
           </div>
           <MiniProgressTrend stage={state.stage} />
         </div>
+
+        <nav className={`${styles.quickTools} ${styles.overviewTools}`} aria-labelledby="quick-tools-title">
+          <div className={styles.sectionHeading}>
+            <h2 id="quick-tools-title">常用工具</h2>
+          </div>
+          <div className={styles.quickToolList}>
+            {quickEntries.map((entry) => (
+              <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
+                <span>{entry.icon}</span>
+                <strong>{entry.label}</strong>
+              </button>
+            ))}
+          </div>
+        </nav>
       </header>
 
       <div className={styles.workGrid}>
@@ -196,20 +210,6 @@ export function StudentWorkspacePage() {
               </div>
             </div>
         </section>
-
-        <nav className={styles.quickTools} aria-labelledby="quick-tools-title">
-            <div className={styles.sectionHeading}>
-              <h2 id="quick-tools-title">常用工具</h2>
-            </div>
-            <div className={styles.quickToolList}>
-              {quickEntries.map((entry) => (
-                <button key={entry.label} type="button" onClick={() => navigate(entry.route)}>
-                  <span>{entry.icon}</span>
-                  <strong>{entry.label}</strong>
-                </button>
-              ))}
-            </div>
-        </nav>
 
         <section className={styles.freshSection} aria-labelledby="message-reminders-title">
             <div className={styles.sectionHeading}>
