@@ -1,10 +1,12 @@
 import Button from '@douyinfe/semi-ui/lib/es/button';
 import Progress from '@douyinfe/semi-ui/lib/es/progress';
 import IconArrowRight from '@douyinfe/semi-icons/lib/es/icons/IconArrowRight';
+import IconChevronDown from '@douyinfe/semi-icons/lib/es/icons/IconChevronDown';
 import IconCommentStroked from '@douyinfe/semi-icons/lib/es/icons/IconCommentStroked';
 import IconEditStroked from '@douyinfe/semi-icons/lib/es/icons/IconEditStroked';
 import IconSearchStroked from '@douyinfe/semi-icons/lib/es/icons/IconSearchStroked';
-import { motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDemoScenario } from '../../demo/DemoScenarioContext';
 import { formatCurrency } from '../../demo/demoScenarioData';
@@ -97,6 +99,7 @@ function MiniProgressTrend({ stage }: { stage: keyof typeof activityTrendByStage
 export function StudentWorkspacePage() {
   const navigate = useNavigate();
   const reduceMotion = useReducedMotion();
+  const [isTimelineExpanded, setTimelineExpanded] = useState(false);
   const { state } = useDemoScenario();
   const taskState = stageCopy[state.stage];
   const taskRoute = `/student/tasks/${state.task.id}`;
@@ -216,7 +219,7 @@ export function StudentWorkspacePage() {
               <h2 id="message-reminders-title">消息与提醒</h2>
               <span>6 条</span>
             </div>
-            <div className={styles.freshList}>
+            <div className={styles.freshList} id="student-message-timeline">
               <button type="button" onClick={() => navigate(`/student/applications/${applicationId}`)}>
                 <span><small>新消息 · 10:24</small><strong>青禾数字传媒补充了作品链接要求</strong></span>
               </button>
@@ -229,9 +232,46 @@ export function StudentWorkspacePage() {
               <button type="button" onClick={() => navigate(taskRoute)}>
                 <span><small>打卡提醒 · 8/5</small><strong>今日打卡记录已同步</strong></span>
               </button>
+              <AnimatePresence initial={false}>
+                {isTimelineExpanded && (
+                  <>
+                    <motion.button
+                      key="resume-viewed"
+                      type="button"
+                      onClick={() => navigate('/student/resume')}
+                      initial={reduceMotion ? false : { opacity: 0, y: -6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={reduceMotion ? undefined : { opacity: 0, y: -6 }}
+                      transition={{ duration: 0.16 }}
+                    >
+                      <span><small>简历动态 · 8/4</small><strong>企业查看了你的简历</strong></span>
+                    </motion.button>
+                    <motion.button
+                      key="agreement-confirmed"
+                      type="button"
+                      onClick={() => navigate(taskRoute)}
+                      initial={reduceMotion ? false : { opacity: 0, y: -6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={reduceMotion ? undefined : { opacity: 0, y: -6 }}
+                      transition={{ duration: 0.16, delay: reduceMotion ? 0 : 0.03 }}
+                    >
+                      <span><small>协议记录 · 8/2</small><strong>兼职协议已完成双方确认</strong></span>
+                    </motion.button>
+                  </>
+                )}
+              </AnimatePresence>
             </div>
-            <button className={styles.freshMore} type="button" onClick={() => navigate('/student/messages')}>
-              查看全部 6 条 <IconArrowRight />
+            <button
+              className={styles.freshMore}
+              type="button"
+              aria-expanded={isTimelineExpanded}
+              aria-controls="student-message-timeline"
+              onClick={() => setTimelineExpanded((expanded) => !expanded)}
+            >
+              {isTimelineExpanded ? '收起消息' : '查看全部 6 条'}
+              <span className={`${styles.freshMoreIcon} ${isTimelineExpanded ? styles.freshMoreIconExpanded : ''}`} aria-hidden="true">
+                <IconChevronDown />
+              </span>
             </button>
         </section>
       </div>
