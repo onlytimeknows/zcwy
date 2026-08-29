@@ -1,3 +1,7 @@
+<p align="right">
+  <strong>简体中文</strong> · <a href="./README.en.md">English</a>
+</p>
+
 # “职”此无忧 · ZCWY
 
 > “让每一份兼职，都有可信的权益凭证。”
