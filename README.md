@@ -72,6 +72,12 @@ npm install
 npm run dev
 ```
 
+## 网页预览
+本项目采用Vercel部署。如需预览，浏览器打开网址：
+
+```https://zcwy.vercel.app/
+```
+
 ## 项目状态
 
 目前，“职”此无忧是一个可交互的产品概念原型。
