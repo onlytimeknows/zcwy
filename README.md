@@ -73,10 +73,10 @@ npm run dev
 ```
 
 ## 网页预览
+
 本项目采用Vercel部署。如需预览，浏览器打开网址：
 
-```https://zcwy.vercel.app/
-```
+[https://zcwy.vercel.app/](https://zcwy.vercel.app/)
 
 ## 项目状态
 

@@ -71,6 +71,12 @@ npm install
 npm run dev
 ```
 
+## Web Preview
+
+This project is deployed on Vercel. To preview it, open:
+
+[https://zcwy.vercel.app/](https://zcwy.vercel.app/)
+
 ## Project Status
 
 ZCWY is currently an interactive product concept prototype.
